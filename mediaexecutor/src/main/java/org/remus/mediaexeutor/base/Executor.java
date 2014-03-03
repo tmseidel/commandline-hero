@@ -28,7 +28,10 @@ import java.util.concurrent.Executors;
 import org.apache.log4j.Logger;
 
 /**
- * @author seidelt
+ * An executor of {@link ExecutionInstruction}s. Has also the ability to handle
+ * {@link TaskListener} and their respective Events
+ * 
+ * @author Tom Seidel - tom.seidel@remus-software.org
  * 
  */
 public class Executor {

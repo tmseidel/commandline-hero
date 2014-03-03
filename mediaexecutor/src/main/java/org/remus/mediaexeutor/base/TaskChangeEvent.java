@@ -6,7 +6,9 @@ package org.remus.mediaexeutor.base;
 import java.util.Date;
 
 /**
- * @author seidelt
+ * A class to track changes while executing {@link ExecutionInstruction}s
+ * 
+ * @author Tom Seidel - tom.seidel@remus-software.org
  * 
  */
 public class TaskChangeEvent {

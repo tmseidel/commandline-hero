@@ -7,13 +7,17 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.IOUtils;
@@ -21,6 +25,7 @@ import org.remus.mediaexeutor.base.ExecutionInstruction;
 import org.remus.mediaexeutor.base.Executor;
 import org.remus.mediaexeutor.base.TaskChangeEvent;
 import org.remus.mediaexeutor.base.TaskListener;
+import org.remus.mediaexeutor.data.ResultDataElement;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -45,6 +50,8 @@ public class ExecutionService {
 	private final Map<String, ExecutionInstruction> id2JobMap = new HashMap<String, ExecutionInstruction>();
 
 	private final Map<String, JobStatus> id2StatusMap = new HashMap<String, JobStatus>();
+
+	private final List<Class<? extends ExecutionInstruction>> knownClasses = new ArrayList<Class<? extends ExecutionInstruction>>();
 
 	@PostConstruct
 	private void onStart() {
@@ -76,11 +83,15 @@ public class ExecutionService {
 	}
 
 	public void register(final Class<? extends ExecutionInstruction> class1) {
-
+		knownClasses.add(class1);
 	}
 
 	public ExecutionInstruction findJobById(final String id) {
 		return id2JobMap.get(id);
+	}
+
+	public Collection<ExecutionInstruction> findAllJobs() {
+		return id2JobMap.values();
 	}
 
 	public String processStringInput(final MultipartHttpServletRequest request,
@@ -144,6 +155,41 @@ public class ExecutionService {
 
 	public JobStatus findStatusById(final String jobId) {
 		return id2StatusMap.get(jobId);
+	}
+
+	public Map<String, String> buildOutputs(
+			final ExecutionInstruction findJobById,
+			final HttpServletRequest request) {
+		final List<ResultDataElement> outputElements = findJobById
+				.getOutputElements();
+		final Map<String, String> returnValue = new HashMap<String, String>();
+		final String baseUrl = String.format("%s://%s:%d/%s/",
+				request.getScheme(), request.getServerName(),
+				request.getServerPort(), request.getContextPath());
+		for (final ResultDataElement resultDataElement : outputElements) {
+			switch (resultDataElement.getParamType()) {
+			case FILEPATH:
+				// the local path
+				returnValue.put(resultDataElement.getParamId(), baseUrl
+						+ "/download/" + findJobById.getRuntimeId()
+						+ resultDataElement.getParamId());
+				break;
+			case URL:
+				// the local path
+				returnValue.put(resultDataElement.getParamId(), baseUrl
+						+ "/url/" + findJobById.getRuntimeId()
+						+ resultDataElement.getParamId());
+				break;
+			default:
+				break;
+			}
+
+		}
+		return returnValue;
+	}
+
+	public List<Class<? extends ExecutionInstruction>> getKnownClasses() {
+		return knownClasses;
 	}
 
 }

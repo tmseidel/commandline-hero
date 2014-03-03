@@ -9,8 +9,10 @@ package org.remus.mediaexeutor.data;
  */
 public class ResultDataElement {
 
-	public ResultDataElement(final String data, final ParamDataType filepath) {
+	
+	public ResultDataElement(final String paramId, final String data, final ParamDataType filepath) {
 		super();
+		this.paramId = paramId;
 		this.data = data;
 		paramType = filepath;
 	}
@@ -18,6 +20,9 @@ public class ResultDataElement {
 	private final String data;
 
 	private final ParamDataType paramType;
+	
+	private String paramId;
+
 
 	public String getData() {
 		return data;
@@ -31,6 +36,14 @@ public class ResultDataElement {
 	public String toString() {
 		return "ResultDataElement [data=" + data + ", paramType=" + paramType
 				+ "]";
+	}
+
+	public String getParamId() {
+		return paramId;
+	}
+
+	public void setParamId(String paramId) {
+		this.paramId = paramId;
 	}
 
 }

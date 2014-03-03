@@ -21,7 +21,7 @@ public class JobInfo {
 
 	private Map<String, String> outputs;
 
-	private IStatus executionResult;
+	private JobExecutionStatus executionResult;
 
 	public String getId() {
 		return id;
@@ -47,11 +47,11 @@ public class JobInfo {
 		this.outputs = outputs;
 	}
 
-	public IStatus getExecutionResult() {
+	public JobExecutionStatus getExecutionResult() {
 		return executionResult;
 	}
 
-	public void setExecutionResult(final IStatus executionResult) {
+	public void setExecutionResult(final JobExecutionStatus executionResult) {
 		this.executionResult = executionResult;
 	}
 

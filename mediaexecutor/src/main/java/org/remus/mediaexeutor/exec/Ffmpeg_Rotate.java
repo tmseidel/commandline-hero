@@ -115,9 +115,9 @@ public class Ffmpeg_Rotate extends ExecutionInstruction {
 	}
 
 	@Override
-	protected List<ResultDataElement> getOutputElements() {
+	public List<ResultDataElement> getOutputElements() {
 		final List<ResultDataElement> returnValue = new ArrayList<ResultDataElement>();
-		returnValue.add(new ResultDataElement(arguments.get("out"),
+		returnValue.add(new ResultDataElement("out",arguments.get("out"),
 				ParamDataType.FILEPATH));
 		return returnValue;
 	}
