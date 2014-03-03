@@ -1,0 +1,78 @@
+grammar org.remus.cmdline.CommandLine with org.eclipse.xtext.common.Terminals
+
+generate commandLine "http://www.remus-software.org/cmdline/1.0"
+
+
+Model:
+	(imports+=Import)* // allow imports
+	programs=Program
+	
+	
+;
+
+Program:
+	'program ' name=ValidID '->' path=ConcatExpression '{'
+		functions+=Function*
+	'}'
+;
+
+Param:
+	name=ValidID
+;
+
+Function:
+	'def' name=ID '('(params+=Param (',' params+=Param)*)? ')' '{'
+		('doc ->' doc=StringLiteral)?
+		('docurl ->' docurl=StringLiteral)?
+		('input' input+=DataDefinition)*
+		('output ' output+=DataDefinition)*
+		('* ' optionBlocks+=Option)*
+	'}'
+;
+
+
+DataDefinition:
+	{DataDefinition}
+	input=[Param] 'AS' type=DataType
+;
+
+enum DataType:
+	STRING='STRING' |
+	URL='URL' |
+	DATA='DATA'|
+	PATH='PATH' |
+	FOLDERPATH = "FOLDERPATH"
+;
+
+Option:
+	param = ConcatExpression
+;
+
+
+ConcatExpression returns Expression:
+Primary  ({Concatenation.left=current}'+' right=Primary)*;
+
+StringLiteral :
+	value=STRING;
+
+IntegerLiteral:
+	value=INT;
+	
+DoubleLiteral:
+	value=INT'.'INT;
+
+Import : 
+  'import' importURI=STRING;
+  
+QualifiedName:
+  ValidID ('.' ValidID)*;
+
+ValidID:
+	ID;
+
+
+Primary returns Expression:
+	StringLiteral |
+	IntegerLiteral |
+	DoubleLiteral |
+	param=[Param];

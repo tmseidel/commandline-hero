@@ -20,19 +20,19 @@ package org.remus.mediaexeutor.base;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.List;
-import java.util.concurrent.Callable;
 
-import org.remus.mediaexeutor.data.JobStatus;
+import org.apache.log4j.Logger;
 import org.remus.mediaexeutor.data.ParamDataType;
 import org.remus.mediaexeutor.data.ParamType;
-import org.remus.mediaexeutor.data.Result;
 import org.remus.mediaexeutor.data.ResultDataElement;
 
 /**
  * @author seidelt
  * 
  */
-public abstract class ExecutionInstruction implements Callable<Result> {
+public abstract class ExecutionInstruction implements Runnable {
+
+	private final Logger LOGGER = Logger.getLogger(ExecutionInstruction.class);
 
 	private OutputStream processStream = System.out;
 
@@ -40,20 +40,12 @@ public abstract class ExecutionInstruction implements Callable<Result> {
 
 	protected final Arguments arguments;
 
-	private JobStatus status;
+	private IStatus executionStatus;
 
-	public abstract String getId();
+	private Executor executor;
 
 	public ExecutionInstruction(final Arguments arguments) {
 		this.arguments = arguments;
-	}
-
-	public String getDoc() {
-		return null;
-	}
-
-	public String getDocUrl() {
-		return null;
 	}
 
 	protected abstract int internalExecute() throws IOException;
@@ -71,28 +63,21 @@ public abstract class ExecutionInstruction implements Callable<Result> {
 		return true;
 	}
 
-	void setStatus(final JobStatus status) {
-		this.status = status;
-	}
-
-	public JobStatus getStatus() {
-		return status;
-	}
-
-	public Result call() throws Exception {
-		setStatus(JobStatus.STARTED);
+	public void run() {
 		final boolean argumentsValid = checkInputArgumentsBeforeExecution();
-		IStatus returnStatus = Status.OK_STATUS;
+		executionStatus = Status.OK_STATUS;
 		if (argumentsValid) {
+			executor.notifyStart(this);
 			try {
 				internalExecute();
 			} catch (final Exception e) {
-				returnStatus = new Status(500, "execution",
+				executionStatus = new Status(500, "execution",
 						"Error executing instruction", e);
+			} finally {
+				executor.notifyFinish(this);
 			}
 		}
-		setStatus(JobStatus.FINISHED);
-		return new Result(returnStatus, getOutputElements());
+
 	}
 
 	protected abstract List<ResultDataElement> getOutputElements();
@@ -111,6 +96,14 @@ public abstract class ExecutionInstruction implements Callable<Result> {
 
 	public void setErrorStream(final OutputStream errorStream) {
 		this.errorStream = errorStream;
+	}
+
+	public IStatus getExecutionStatus() {
+		return executionStatus;
+	}
+
+	public void setExecutor(final Executor executor) {
+		this.executor = executor;
 	}
 
 }

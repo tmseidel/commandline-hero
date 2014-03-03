@@ -1,4 +1,4 @@
-package com.remus.mediaserver;
+package com.remus.mediaserver.controller;
 
 import java.text.DateFormat;
 import java.util.Date;

@@ -24,6 +24,14 @@
 		<level value="info" />
 	</logger>
 	
+	<logger name="org.remus.mediaexeutor.base">
+		<level value="info" />
+	</logger>
+	
+	<logger name="org.remus.mediaexeutor.exec">
+		<level value="info" />
+	</logger>
+	
 	<logger name="org.springframework.context">
 		<level value="info" />
 	</logger>

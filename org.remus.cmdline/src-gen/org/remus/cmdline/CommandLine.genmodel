@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.remus.cmdline/src-gen" editDirectory="/org.remus.cmdline.edit/src"
+    editorDirectory="/org.remus.cmdline.editor/src" modelPluginID="org.remus.cmdline"
+    forceOverwrite="true" modelName="CommandLine" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    complianceLevel="5.0" copyrightFields="false" editPluginID="org.remus.cmdline.edit"
+    editorPluginID="org.remus.cmdline.editor" runtimeVersion="2.9">
+  <genPackages prefix="CommandLine" basePackage="org.remus.cmdline" disposableProviderFactory="true"
+      fileExtensions="cmdline" ecorePackage="CommandLine.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="CommandLine.ecore#//DataType">
+      <genEnumLiterals ecoreEnumLiteral="CommandLine.ecore#//DataType/STRING"/>
+      <genEnumLiterals ecoreEnumLiteral="CommandLine.ecore#//DataType/URL"/>
+      <genEnumLiterals ecoreEnumLiteral="CommandLine.ecore#//DataType/DATA"/>
+      <genEnumLiterals ecoreEnumLiteral="CommandLine.ecore#//DataType/PATH"/>
+      <genEnumLiterals ecoreEnumLiteral="CommandLine.ecore#//DataType/FOLDERPATH"/>
+    </genEnums>
+    <genClasses ecoreClass="CommandLine.ecore#//Model">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CommandLine.ecore#//Model/imports"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CommandLine.ecore#//Model/programs"/>
+    </genClasses>
+    <genClasses ecoreClass="CommandLine.ecore#//Program">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CommandLine.ecore#//Program/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CommandLine.ecore#//Program/path"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CommandLine.ecore#//Program/functions"/>
+    </genClasses>
+    <genClasses ecoreClass="CommandLine.ecore#//Param">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CommandLine.ecore#//Param/name"/>
+    </genClasses>
+    <genClasses ecoreClass="CommandLine.ecore#//Function">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CommandLine.ecore#//Function/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CommandLine.ecore#//Function/params"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CommandLine.ecore#//Function/doc"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CommandLine.ecore#//Function/docurl"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CommandLine.ecore#//Function/input"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CommandLine.ecore#//Function/output"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CommandLine.ecore#//Function/optionBlocks"/>
+    </genClasses>
+    <genClasses ecoreClass="CommandLine.ecore#//DataDefinition">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference CommandLine.ecore#//DataDefinition/input"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CommandLine.ecore#//DataDefinition/type"/>
+    </genClasses>
+    <genClasses ecoreClass="CommandLine.ecore#//Option">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CommandLine.ecore#//Option/param"/>
+    </genClasses>
+    <genClasses ecoreClass="CommandLine.ecore#//Expression">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference CommandLine.ecore#//Expression/param"/>
+    </genClasses>
+    <genClasses ecoreClass="CommandLine.ecore#//StringLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CommandLine.ecore#//StringLiteral/value"/>
+    </genClasses>
+    <genClasses ecoreClass="CommandLine.ecore#//IntegerLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CommandLine.ecore#//IntegerLiteral/value"/>
+    </genClasses>
+    <genClasses ecoreClass="CommandLine.ecore#//DoubleLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CommandLine.ecore#//DoubleLiteral/value"/>
+    </genClasses>
+    <genClasses ecoreClass="CommandLine.ecore#//Import">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CommandLine.ecore#//Import/importURI"/>
+    </genClasses>
+    <genClasses ecoreClass="CommandLine.ecore#//Concatenation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CommandLine.ecore#//Concatenation/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CommandLine.ecore#//Concatenation/right"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

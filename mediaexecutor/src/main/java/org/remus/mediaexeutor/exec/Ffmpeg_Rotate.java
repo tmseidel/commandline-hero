@@ -99,16 +99,18 @@ public class Ffmpeg_Rotate extends ExecutionInstruction {
 		return execute;
 	}
 
-	@Override
-	public String getDoc() {
+	public static String getDoc() {
 		return "Rotates a video: Possible rotationtypes: \r\n"
 				+ "				0 = 90CounterCLockwise and Vertical Flip (default),\r\n"
 				+ "				1 = 90Clockwise\r\n" + "				2 = 90CounterClockwise\r\n"
 				+ "				3 = 90Clockwise and Vertical Flip";
 	}
 
-	@Override
-	public String getId() {
+	public static String getDocUrl() {
+		return null;
+	}
+
+	public static String getId() {
 		return "ffmpeg_rotate";
 	}
 
