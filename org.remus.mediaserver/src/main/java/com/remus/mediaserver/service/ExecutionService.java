@@ -12,12 +12,15 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.UUID;
 
+import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.IOUtils;
 import org.remus.mediaexeutor.base.ExecutionInstruction;
 import org.remus.mediaexeutor.base.Executor;
+import org.remus.mediaexeutor.base.TaskChangeEvent;
+import org.remus.mediaexeutor.base.TaskListener;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -41,8 +44,43 @@ public class ExecutionService {
 
 	private final Map<String, ExecutionInstruction> id2JobMap = new HashMap<String, ExecutionInstruction>();
 
+	private final Map<String, JobStatus> id2StatusMap = new HashMap<String, JobStatus>();
+
+	@PostConstruct
+	private void onStart() {
+		executor.addListener(new TaskListener() {
+
+			@Override
+			public void taskStarted(final TaskChangeEvent e) {
+				id2StatusMap.put(e.getExecutionInstruction().getRuntimeId(),
+						JobStatus.RUNNING);
+
+			}
+
+			@Override
+			public void taskScheduled(final TaskChangeEvent e) {
+				id2JobMap.put(e.getExecutionInstruction().getRuntimeId(),
+						e.getExecutionInstruction());
+				id2StatusMap.put(e.getExecutionInstruction().getRuntimeId(),
+						JobStatus.SCHEDULED);
+
+			}
+
+			@Override
+			public void taskFinished(final TaskChangeEvent e) {
+				id2StatusMap.put(e.getExecutionInstruction().getRuntimeId(),
+						JobStatus.FINISHED);
+
+			}
+		});
+	}
+
 	public void register(final Class<? extends ExecutionInstruction> class1) {
 
+	}
+
+	public ExecutionInstruction findJobById(final String id) {
+		return id2JobMap.get(id);
 	}
 
 	public String processStringInput(final MultipartHttpServletRequest request,
@@ -100,10 +138,12 @@ public class ExecutionService {
 	}
 
 	public String run(final ExecutionInstruction job) {
-		final String string = UUID.randomUUID().toString();
-		id2JobMap.put(string, job);
 		executor.schedule(job);
-		return string;
+		return job.getRuntimeId();
+	}
+
+	public JobStatus findStatusById(final String jobId) {
+		return id2StatusMap.get(jobId);
 	}
 
 }

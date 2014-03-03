@@ -44,6 +44,8 @@ public abstract class ExecutionInstruction implements Runnable {
 
 	private Executor executor;
 
+	private String runtimeId;
+
 	public ExecutionInstruction(final Arguments arguments) {
 		this.arguments = arguments;
 	}
@@ -104,6 +106,14 @@ public abstract class ExecutionInstruction implements Runnable {
 
 	public void setExecutor(final Executor executor) {
 		this.executor = executor;
+	}
+
+	public String getRuntimeId() {
+		return runtimeId;
+	}
+
+	public void setRuntimeId(final String runtimeId) {
+		this.runtimeId = runtimeId;
 	}
 
 }

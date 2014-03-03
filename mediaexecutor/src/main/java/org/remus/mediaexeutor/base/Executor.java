@@ -20,6 +20,7 @@ package org.remus.mediaexeutor.base;
 import java.text.MessageFormat;
 import java.util.Date;
 import java.util.Set;
+import java.util.UUID;
 import java.util.concurrent.CopyOnWriteArraySet;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -43,6 +44,8 @@ public class Executor {
 	}
 
 	public void schedule(final ExecutionInstruction job) {
+		final String string = UUID.randomUUID().toString();
+		job.setRuntimeId(string);
 		job.setExecutor(this);
 		notifySchedule(job);
 		pool.submit(job);
