@@ -171,13 +171,13 @@ public class ExecutionService {
 			case FILEPATH:
 				// the local path
 				returnValue.put(resultDataElement.getParamId(), baseUrl
-						+ "/download/" + findJobById.getRuntimeId()
+						+ "/download/" + findJobById.getRuntimeId() + "/"
 						+ resultDataElement.getParamId());
 				break;
 			case URL:
 				// the local path
 				returnValue.put(resultDataElement.getParamId(), baseUrl
-						+ "/url/" + findJobById.getRuntimeId()
+						+ "/url" + findJobById.getRuntimeId() + "/"
 						+ resultDataElement.getParamId());
 				break;
 			default:
