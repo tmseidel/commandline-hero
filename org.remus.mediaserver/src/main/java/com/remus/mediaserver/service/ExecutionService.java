@@ -9,6 +9,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -19,6 +20,8 @@ import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections.Predicate;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.IOUtils;
 import org.remus.mediaexeutor.base.ExecutionInstruction;
@@ -57,30 +60,37 @@ public class ExecutionService {
 
 	private final List<Meta> knownClasses = new ArrayList<Meta>();
 
+	protected Map<String, JobInfo> id2InfoMap = new HashMap<String, JobInfo>();
+
 	@PostConstruct
 	private void onStart() {
 		executor.addListener(new TaskListener() {
 
 			@Override
 			public void taskStarted(final TaskChangeEvent e) {
-				id2StatusMap.put(e.getExecutionInstruction().getRuntimeId(),
-						JobStatus.RUNNING);
+				id2InfoMap.get(e.getExecutionInstruction().getRuntimeId())
+						.setStatus(JobStatus.RUNNING);
 
 			}
 
 			@Override
 			public void taskScheduled(final TaskChangeEvent e) {
+				final JobInfo jobInfo = toJobInfo(e.getExecutionInstruction());
+				jobInfo.setStatus(JobStatus.SCHEDULED);
+				jobInfo.setScheduledDate(new Date());
+				id2InfoMap.put(e.getExecutionInstruction().getRuntimeId(),
+						jobInfo);
 				id2JobMap.put(e.getExecutionInstruction().getRuntimeId(),
 						e.getExecutionInstruction());
-				id2StatusMap.put(e.getExecutionInstruction().getRuntimeId(),
-						JobStatus.SCHEDULED);
 
 			}
 
 			@Override
 			public void taskFinished(final TaskChangeEvent e) {
-				id2StatusMap.put(e.getExecutionInstruction().getRuntimeId(),
-						JobStatus.FINISHED);
+				final JobInfo jobInfo = id2InfoMap.get(e
+						.getExecutionInstruction().getRuntimeId());
+				jobInfo.setStatus(JobStatus.FINISHED);
+				jobInfo.setFinishedDate(new Date());
 
 			}
 		});
@@ -90,12 +100,28 @@ public class ExecutionService {
 		knownClasses.add(meta);
 	}
 
-	public ExecutionInstruction findJobById(final String id) {
+	public JobInfo findJobById(final String id) {
+		return id2InfoMap.get(id);
+	}
+
+	public ExecutionInstruction findExecutionById(final String id) {
 		return id2JobMap.get(id);
 	}
 
-	public Collection<ExecutionInstruction> findAllJobs() {
-		return id2JobMap.values();
+	public Collection<JobInfo> findAllJobs() {
+		return id2InfoMap.values();
+	}
+
+	public Collection<JobInfo> findAllJobsByState(final JobStatus state) {
+		final List<JobInfo> values = new ArrayList<JobInfo>(id2InfoMap.values());
+		CollectionUtils.filter(values, new Predicate() {
+
+			@Override
+			public boolean evaluate(final Object object) {
+				return ((JobInfo) object).getStatus() == state;
+			}
+		});
+		return values;
 	}
 
 	public String processStringInput(final MultipartHttpServletRequest request,
@@ -200,8 +226,7 @@ public class ExecutionService {
 		return knownClasses;
 	}
 
-	public JobInfo toJobInfo(final ExecutionInstruction findJobById,
-			final HttpServletRequest request) {
+	public JobInfo toJobInfo(final ExecutionInstruction findJobById) {
 		final String jobId = findJobById.getRuntimeId();
 		final JobInfo returnValue = new JobInfo();
 		returnValue.setId(jobId);
@@ -212,9 +237,16 @@ public class ExecutionService {
 					.getExecutionStatus().getMessage()));
 
 		}
-		returnValue.setOutputs(buildOutputs(findJobById, request));
-		returnValue.setOutputs(buildInputs(findJobById));
+		returnValue.setInputs(buildInputs(findJobById));
 		return returnValue;
+	}
+
+	public void generateOutputs(final JobInfo info,
+			final HttpServletRequest request) {
+		if (info.getOutputs() == null && id2JobMap.get(info.getId()) != null) {
+			info.setOutputs(buildOutputs(id2JobMap.get(info.getId()), request));
+		}
+
 	}
 
 	public Map<String, String> buildInputs(

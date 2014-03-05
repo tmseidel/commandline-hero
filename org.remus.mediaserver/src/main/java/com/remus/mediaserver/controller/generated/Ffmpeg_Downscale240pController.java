@@ -38,41 +38,34 @@ public class Ffmpeg_Downscale240pController {
 	}
 
 	@RequestMapping(value = "/ffmpeg_downscale240p_run", method = RequestMethod.POST)
-	public String downscale240pRun(final MultipartHttpServletRequest request4011,
-			final Model model4011) {
-		final String in = executionService.processPathInput(
-				request4011, "in");
-		
-		final String out = executionService.processPathOutput(
-				request4011, "out");
-		
+	public String downscale240pRun(
+			final MultipartHttpServletRequest request4011, final Model model4011) {
+		final String in = executionService.processPathInput(request4011, "in");
+
+		final String out = executionService.processPathOutput(request4011,
+				"out");
+
 		final Ffmpeg_Downscale240p ffmpeg_downscale240p = Ffmpeg_Downscale240p
-				.create(in,
-				out
-				);
+				.create(in, out);
 		final String run4011 = executionService.run(ffmpeg_downscale240p);
 		model4011.addAttribute("jobId", run4011);
-		return "home";
+		return "jobdetails";
 
 	}
 
 	@RequestMapping(value = "/ffmpeg_downscale240p_runservice", method = RequestMethod.POST)
 	public @ResponseBody
 	String rotateRunService(final MultipartHttpServletRequest request4011) {
-		final String in = executionService.processPathInput(
-				request4011, "in");
-		
-		final String out = executionService.processPathOutput(
-				request4011, "out");
-		
+		final String in = executionService.processPathInput(request4011, "in");
+
+		final String out = executionService.processPathOutput(request4011,
+				"out");
+
 		final Ffmpeg_Downscale240p ffmpeg_downscale240p = Ffmpeg_Downscale240p
-				.create(in,
-				out
-				);
+				.create(in, out);
 		final String run4011 = executionService.run(ffmpeg_downscale240p);
 		return run4011;
 
 	}
 
 }
-

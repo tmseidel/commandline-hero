@@ -39,7 +39,7 @@ public class DownloadController {
 			@PathVariable("paramId") final String paramId,
 			final HttpServletResponse response) {
 		final ExecutionInstruction jobById = executionService
-				.findJobById(jobId);
+				.findExecutionById(jobId);
 		if (jobById != null) {
 			final List<ResultDataElement> elements = jobById
 					.getOutputElements();
@@ -72,7 +72,7 @@ public class DownloadController {
 	public ModelAndView redirect(@PathVariable("jobId") final String jobId,
 			@PathVariable("paramId") final String paramId) {
 		final ExecutionInstruction jobById = executionService
-				.findJobById(jobId);
+				.findExecutionById(jobId);
 		if (jobById != null) {
 			final List<ResultDataElement> elements = jobById
 					.getOutputElements();

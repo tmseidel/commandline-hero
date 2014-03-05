@@ -5,7 +5,6 @@ import java.util.Collection;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 
-import org.remus.mediaexeutor.base.ExecutionInstruction;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,10 +31,10 @@ public class JobOverviewController {
 	JobInfo findJobById(@PathVariable final String jobId,
 			final HttpServletRequest request) {
 		JobInfo returnValue = null;
-		final ExecutionInstruction findJobById = executionService
-				.findJobById(jobId);
+		final JobInfo findJobById = executionService.findJobById(jobId);
 		if (findJobById != null) {
-			returnValue = executionService.toJobInfo(findJobById, request);
+			executionService.generateOutputs(findJobById, request);
+			returnValue = findJobById;
 		}
 		return returnValue;
 
@@ -44,15 +43,11 @@ public class JobOverviewController {
 	@RequestMapping(value = "alljobs/json", method = RequestMethod.GET)
 	public @ResponseBody
 	JobInfo[] findAllJobs(final HttpServletRequest request) {
-		final Collection<ExecutionInstruction> findAllJobs = executionService
-				.findAllJobs();
-		final JobInfo[] allJobs = new JobInfo[findAllJobs.size()];
-		int i = 0;
-		for (final ExecutionInstruction executionInstruction : findAllJobs) {
-			allJobs[i++] = executionService.toJobInfo(executionInstruction,
-					request);
+		final Collection<JobInfo> findAllJobs = executionService.findAllJobs();
+		for (final JobInfo jobInfo : findAllJobs) {
+			executionService.generateOutputs(jobInfo, request);
 		}
-		return allJobs;
+		return findAllJobs.toArray(new JobInfo[findAllJobs.size()]);
 
 	}
 

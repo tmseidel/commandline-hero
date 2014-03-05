@@ -67,18 +67,19 @@
 							<h2>Finished Jobs</h2>
 							<a class="comments" href="#">See all</a>
 							<ul class="small-image-list">
+								<c:forEach items="${finishedJobs}" var="job">
 								<li>
-									<h4>Ffmpeg_rotate - 2014-11-01 14:01:11</h4>
+									<h4>${job.id} - ${job.finishedDate}</h4>
 									<ul class="input-list">
-										<li>in: test.mp4</li>
-										<li>rotationType: 2</li>
-										<li>Results: <a href="#">out</a></li>
+										<c:forEach items="${job.inputs}" var="element">
+										<li>${element.key}: ${element.value}</li>
+										</c:forEach>
+										<c:forEach items="${job.outputs}" var="element">
+										<li>Results: <a href="${element.value }">${element.key}</a></li>
+										</c:forEach>
 									</ul>
 								</li>
-								<li>
-									<h4>Ffmpeg_rotate - 2014-11-01 14:01:11</h4>
-									<p>Results: <a href="#">out</a></p>
-								</li>
+								</c:forEach>
 							</ul>
 						</section>
 					
@@ -90,14 +91,19 @@
 							<h2>Running Jobs</h2>
 							<a class="comments" href="#">See all</a>
 							<ul class="small-image-list">
+								<c:forEach items="${runningJobs}" var="job">
 								<li>
-									<h4>Ffmpeg_rotate - RUNNING</h4>
-									<p>Results: <a href="#">out</a></p>
+									<h4>${job.id} - ${job.scheduledDate}</h4>
+									<ul class="input-list">
+										<c:forEach items="${job.inputs.entrySet}" var="element">
+										<li>${element.key}: ${element.value}</li>
+										</c:forEach>
+										<c:forEach items="${job.outputs.entrySet}" var="element">
+										<li>Results: <a href="${element.value }">${element.key}</a></li>
+										</c:forEach>
+									</ul>
 								</li>
-								<li>
-									<h4>Ffmpeg_rotate - FINISHED</h4>
-									<p>Results: <a href="#">out</a></p>
-								</li>
+								</c:forEach>
 							</ul>
 						</section>
 					

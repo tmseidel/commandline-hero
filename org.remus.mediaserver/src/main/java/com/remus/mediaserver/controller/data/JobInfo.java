@@ -3,6 +3,7 @@
  */
 package com.remus.mediaserver.controller.data;
 
+import java.util.Date;
 import java.util.Map;
 
 import com.remus.mediaserver.service.JobStatus;
@@ -16,6 +17,10 @@ public class JobInfo {
 	private String id;
 
 	private JobStatus status;
+
+	private Date scheduledDate;
+
+	private Date finishedDate;
 
 	private Map<String, String> outputs;
 
@@ -61,6 +66,22 @@ public class JobInfo {
 
 	public void setInputs(final Map<String, String> inputs) {
 		this.inputs = inputs;
+	}
+
+	public Date getScheduledDate() {
+		return scheduledDate;
+	}
+
+	public void setScheduledDate(final Date scheduledDate) {
+		this.scheduledDate = scheduledDate;
+	}
+
+	public Date getFinishedDate() {
+		return finishedDate;
+	}
+
+	public void setFinishedDate(final Date finishedDate) {
+		this.finishedDate = finishedDate;
 	}
 
 }
