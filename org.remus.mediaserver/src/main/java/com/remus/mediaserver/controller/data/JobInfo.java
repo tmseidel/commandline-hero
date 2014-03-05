@@ -5,8 +5,6 @@ package com.remus.mediaserver.controller.data;
 
 import java.util.Map;
 
-import org.remus.mediaexeutor.base.IStatus;
-
 import com.remus.mediaserver.service.JobStatus;
 
 /**
@@ -20,6 +18,8 @@ public class JobInfo {
 	private JobStatus status;
 
 	private Map<String, String> outputs;
+
+	private Map<String, String> inputs;
 
 	private JobExecutionStatus executionResult;
 
@@ -53,6 +53,14 @@ public class JobInfo {
 
 	public void setExecutionResult(final JobExecutionStatus executionResult) {
 		this.executionResult = executionResult;
+	}
+
+	public Map<String, String> getInputs() {
+		return inputs;
+	}
+
+	public void setInputs(final Map<String, String> inputs) {
+		this.inputs = inputs;
 	}
 
 }

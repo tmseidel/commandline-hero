@@ -28,16 +28,16 @@
     </genClasses>
     <genClasses ecoreClass="CommandLine.ecore#//Function">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CommandLine.ecore#//Function/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CommandLine.ecore#//Function/params"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CommandLine.ecore#//Function/doc"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CommandLine.ecore#//Function/desc"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CommandLine.ecore#//Function/docurl"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CommandLine.ecore#//Function/input"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CommandLine.ecore#//Function/output"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CommandLine.ecore#//Function/optionBlocks"/>
     </genClasses>
     <genClasses ecoreClass="CommandLine.ecore#//DataDefinition">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference CommandLine.ecore#//DataDefinition/input"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CommandLine.ecore#//DataDefinition/input"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CommandLine.ecore#//DataDefinition/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CommandLine.ecore#//DataDefinition/doc"/>
     </genClasses>
     <genClasses ecoreClass="CommandLine.ecore#//Option">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CommandLine.ecore#//Option/param"/>

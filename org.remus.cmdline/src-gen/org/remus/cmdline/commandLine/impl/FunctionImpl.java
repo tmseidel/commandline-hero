@@ -22,7 +22,6 @@ import org.remus.cmdline.commandLine.CommandLinePackage;
 import org.remus.cmdline.commandLine.DataDefinition;
 import org.remus.cmdline.commandLine.Function;
 import org.remus.cmdline.commandLine.Option;
-import org.remus.cmdline.commandLine.Param;
 import org.remus.cmdline.commandLine.StringLiteral;
 
 /**
@@ -33,8 +32,7 @@ import org.remus.cmdline.commandLine.StringLiteral;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.remus.cmdline.commandLine.impl.FunctionImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.remus.cmdline.commandLine.impl.FunctionImpl#getParams <em>Params</em>}</li>
- *   <li>{@link org.remus.cmdline.commandLine.impl.FunctionImpl#getDoc <em>Doc</em>}</li>
+ *   <li>{@link org.remus.cmdline.commandLine.impl.FunctionImpl#getDesc <em>Desc</em>}</li>
  *   <li>{@link org.remus.cmdline.commandLine.impl.FunctionImpl#getDocurl <em>Docurl</em>}</li>
  *   <li>{@link org.remus.cmdline.commandLine.impl.FunctionImpl#getInput <em>Input</em>}</li>
  *   <li>{@link org.remus.cmdline.commandLine.impl.FunctionImpl#getOutput <em>Output</em>}</li>
@@ -67,24 +65,14 @@ public class FunctionImpl extends MinimalEObjectImpl.Container implements Functi
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getParams() <em>Params</em>}' containment reference list.
+   * The cached value of the '{@link #getDesc() <em>Desc</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getParams()
+   * @see #getDesc()
    * @generated
    * @ordered
    */
-  protected EList<Param> params;
-
-  /**
-   * The cached value of the '{@link #getDoc() <em>Doc</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDoc()
-   * @generated
-   * @ordered
-   */
-  protected StringLiteral doc;
+  protected StringLiteral desc;
 
   /**
    * The cached value of the '{@link #getDocurl() <em>Docurl</em>}' containment reference.
@@ -175,13 +163,9 @@ public class FunctionImpl extends MinimalEObjectImpl.Container implements Functi
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Param> getParams()
+  public StringLiteral getDesc()
   {
-    if (params == null)
-    {
-      params = new EObjectContainmentEList<Param>(Param.class, this, CommandLinePackage.FUNCTION__PARAMS);
-    }
-    return params;
+    return desc;
   }
 
   /**
@@ -189,23 +173,13 @@ public class FunctionImpl extends MinimalEObjectImpl.Container implements Functi
    * <!-- end-user-doc -->
    * @generated
    */
-  public StringLiteral getDoc()
+  public NotificationChain basicSetDesc(StringLiteral newDesc, NotificationChain msgs)
   {
-    return doc;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetDoc(StringLiteral newDoc, NotificationChain msgs)
-  {
-    StringLiteral oldDoc = doc;
-    doc = newDoc;
+    StringLiteral oldDesc = desc;
+    desc = newDesc;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CommandLinePackage.FUNCTION__DOC, oldDoc, newDoc);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CommandLinePackage.FUNCTION__DESC, oldDesc, newDesc);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -216,20 +190,20 @@ public class FunctionImpl extends MinimalEObjectImpl.Container implements Functi
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setDoc(StringLiteral newDoc)
+  public void setDesc(StringLiteral newDesc)
   {
-    if (newDoc != doc)
+    if (newDesc != desc)
     {
       NotificationChain msgs = null;
-      if (doc != null)
-        msgs = ((InternalEObject)doc).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CommandLinePackage.FUNCTION__DOC, null, msgs);
-      if (newDoc != null)
-        msgs = ((InternalEObject)newDoc).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CommandLinePackage.FUNCTION__DOC, null, msgs);
-      msgs = basicSetDoc(newDoc, msgs);
+      if (desc != null)
+        msgs = ((InternalEObject)desc).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CommandLinePackage.FUNCTION__DESC, null, msgs);
+      if (newDesc != null)
+        msgs = ((InternalEObject)newDesc).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CommandLinePackage.FUNCTION__DESC, null, msgs);
+      msgs = basicSetDesc(newDesc, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, CommandLinePackage.FUNCTION__DOC, newDoc, newDoc));
+      eNotify(new ENotificationImpl(this, Notification.SET, CommandLinePackage.FUNCTION__DESC, newDesc, newDesc));
   }
 
   /**
@@ -332,10 +306,8 @@ public class FunctionImpl extends MinimalEObjectImpl.Container implements Functi
   {
     switch (featureID)
     {
-      case CommandLinePackage.FUNCTION__PARAMS:
-        return ((InternalEList<?>)getParams()).basicRemove(otherEnd, msgs);
-      case CommandLinePackage.FUNCTION__DOC:
-        return basicSetDoc(null, msgs);
+      case CommandLinePackage.FUNCTION__DESC:
+        return basicSetDesc(null, msgs);
       case CommandLinePackage.FUNCTION__DOCURL:
         return basicSetDocurl(null, msgs);
       case CommandLinePackage.FUNCTION__INPUT:
@@ -360,10 +332,8 @@ public class FunctionImpl extends MinimalEObjectImpl.Container implements Functi
     {
       case CommandLinePackage.FUNCTION__NAME:
         return getName();
-      case CommandLinePackage.FUNCTION__PARAMS:
-        return getParams();
-      case CommandLinePackage.FUNCTION__DOC:
-        return getDoc();
+      case CommandLinePackage.FUNCTION__DESC:
+        return getDesc();
       case CommandLinePackage.FUNCTION__DOCURL:
         return getDocurl();
       case CommandLinePackage.FUNCTION__INPUT:
@@ -390,12 +360,8 @@ public class FunctionImpl extends MinimalEObjectImpl.Container implements Functi
       case CommandLinePackage.FUNCTION__NAME:
         setName((String)newValue);
         return;
-      case CommandLinePackage.FUNCTION__PARAMS:
-        getParams().clear();
-        getParams().addAll((Collection<? extends Param>)newValue);
-        return;
-      case CommandLinePackage.FUNCTION__DOC:
-        setDoc((StringLiteral)newValue);
+      case CommandLinePackage.FUNCTION__DESC:
+        setDesc((StringLiteral)newValue);
         return;
       case CommandLinePackage.FUNCTION__DOCURL:
         setDocurl((StringLiteral)newValue);
@@ -429,11 +395,8 @@ public class FunctionImpl extends MinimalEObjectImpl.Container implements Functi
       case CommandLinePackage.FUNCTION__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case CommandLinePackage.FUNCTION__PARAMS:
-        getParams().clear();
-        return;
-      case CommandLinePackage.FUNCTION__DOC:
-        setDoc((StringLiteral)null);
+      case CommandLinePackage.FUNCTION__DESC:
+        setDesc((StringLiteral)null);
         return;
       case CommandLinePackage.FUNCTION__DOCURL:
         setDocurl((StringLiteral)null);
@@ -463,10 +426,8 @@ public class FunctionImpl extends MinimalEObjectImpl.Container implements Functi
     {
       case CommandLinePackage.FUNCTION__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case CommandLinePackage.FUNCTION__PARAMS:
-        return params != null && !params.isEmpty();
-      case CommandLinePackage.FUNCTION__DOC:
-        return doc != null;
+      case CommandLinePackage.FUNCTION__DESC:
+        return desc != null;
       case CommandLinePackage.FUNCTION__DOCURL:
         return docurl != null;
       case CommandLinePackage.FUNCTION__INPUT:

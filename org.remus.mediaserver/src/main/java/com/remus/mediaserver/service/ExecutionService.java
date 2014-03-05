@@ -25,11 +25,15 @@ import org.remus.mediaexeutor.base.ExecutionInstruction;
 import org.remus.mediaexeutor.base.Executor;
 import org.remus.mediaexeutor.base.TaskChangeEvent;
 import org.remus.mediaexeutor.base.TaskListener;
+import org.remus.mediaexeutor.data.Meta;
 import org.remus.mediaexeutor.data.ResultDataElement;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
+
+import com.remus.mediaserver.controller.data.JobExecutionStatus;
+import com.remus.mediaserver.controller.data.JobInfo;
 
 /**
  * @author seidelt
@@ -51,7 +55,7 @@ public class ExecutionService {
 
 	private final Map<String, JobStatus> id2StatusMap = new HashMap<String, JobStatus>();
 
-	private final List<Class<? extends ExecutionInstruction>> knownClasses = new ArrayList<Class<? extends ExecutionInstruction>>();
+	private final List<Meta> knownClasses = new ArrayList<Meta>();
 
 	@PostConstruct
 	private void onStart() {
@@ -82,8 +86,8 @@ public class ExecutionService {
 		});
 	}
 
-	public void register(final Class<? extends ExecutionInstruction> class1) {
-		knownClasses.add(class1);
+	public void register(final Meta meta) {
+		knownClasses.add(meta);
 	}
 
 	public ExecutionInstruction findJobById(final String id) {
@@ -99,6 +103,10 @@ public class ExecutionService {
 
 		return String.valueOf(request.getParameter(name));
 
+	}
+
+	public JobStatus getStatusByJobId(final String jobId) {
+		return id2StatusMap.get(jobId);
 	}
 
 	public String processPathInput(final MultipartHttpServletRequest request,
@@ -168,7 +176,7 @@ public class ExecutionService {
 				request.getServerPort(), request.getContextPath());
 		for (final ResultDataElement resultDataElement : outputElements) {
 			switch (resultDataElement.getParamType()) {
-			case FILEPATH:
+			case PATH:
 				// the local path
 				returnValue.put(resultDataElement.getParamId(), baseUrl
 						+ "/download/" + findJobById.getRuntimeId() + "/"
@@ -188,8 +196,51 @@ public class ExecutionService {
 		return returnValue;
 	}
 
-	public List<Class<? extends ExecutionInstruction>> getKnownClasses() {
+	public List<Meta> getKnownClasses() {
 		return knownClasses;
+	}
+
+	public JobInfo toJobInfo(final ExecutionInstruction findJobById,
+			final HttpServletRequest request) {
+		final String jobId = findJobById.getRuntimeId();
+		final JobInfo returnValue = new JobInfo();
+		returnValue.setId(jobId);
+		returnValue.setStatus(findStatusById(jobId));
+		if (findJobById.getExecutionStatus() != null) {
+			returnValue.setExecutionResult(new JobExecutionStatus(findJobById
+					.getExecutionStatus().getCode(), findJobById
+					.getExecutionStatus().getMessage()));
+
+		}
+		returnValue.setOutputs(buildOutputs(findJobById, request));
+		returnValue.setOutputs(buildInputs(findJobById));
+		return returnValue;
+	}
+
+	public Map<String, String> buildInputs(
+			final ExecutionInstruction findJobById) {
+		final List<ResultDataElement> inputElements = findJobById
+				.getInputElements();
+		final Map<String, String> returnValue = new HashMap<String, String>();
+		for (final ResultDataElement resultDataElement : inputElements) {
+			switch (resultDataElement.getParamType()) {
+			case PATH:
+				// the local path
+				returnValue.put(resultDataElement.getParamId(),
+						FilenameUtils.getName(resultDataElement.getData()));
+				break;
+			case URL:
+			case STRING:
+				// the local path
+				returnValue.put(resultDataElement.getParamId(),
+						resultDataElement.getData());
+				break;
+			default:
+				break;
+			}
+
+		}
+		return returnValue;
 	}
 
 }

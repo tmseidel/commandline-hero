@@ -25,22 +25,22 @@ import org.remus.mediaexeutor.data.ResultDataElement;
  * 
  * 
  */
-public class Ffmpeg_Rotate extends ExecutionInstruction {
-	private final Logger LOGGER = Logger.getLogger(Ffmpeg_Rotate.class);
+public class Ffmpeg_Downscale360p extends ExecutionInstruction {
+	private final Logger LOGGER = Logger.getLogger(Ffmpeg_Downscale360p.class);
 	
 	private static Meta meta; 
 	
 	static {
 		meta = new Meta();
-		meta.setId("ffmpeg_rotate");
+		meta.setId("ffmpeg_downscale360p");
 		meta.setProgram("ffmpeg");
-		meta.setFunction("rotate");
-		meta.setDoc("Rotates a video.");
-		meta.setDocUrl("http://www.mediaserver/commands/ffmpeg_rotate.htm");
+		meta.setFunction("downscale360p");
+		meta.setDoc("Downscales a 16:9 video to 360p");
+		meta.setDocUrl("");
 	}
 		
 	
-	public Ffmpeg_Rotate(final Arguments createArguments) {
+	public Ffmpeg_Downscale360p(final Arguments createArguments) {
 		super(createArguments);
 	}
 	
@@ -48,23 +48,19 @@ public class Ffmpeg_Rotate extends ExecutionInstruction {
 		return meta;
 	}
 	
-	public static Ffmpeg_Rotate create(final String in,
-	final String rotationType,
+	public static Ffmpeg_Downscale360p create(final String in,
 	final String out
 	) {
-		return new Ffmpeg_Rotate(createArguments(in,
-		rotationType,
+		return new Ffmpeg_Downscale360p(createArguments(in,
 		out
 		));
 	}
 	private static Arguments createArguments(final String in,
-	final String rotationType,
 	final String out
 	) {
 		final Arguments arguments = new Arguments();
 		return arguments
 		.add("in", in)
-		.add("rotationType", rotationType)
 		.add("out", out)
 				;
 	}
@@ -72,12 +68,6 @@ public class Ffmpeg_Rotate extends ExecutionInstruction {
 		boolean valid = true;
 		
 		valid &= checkArgument(arguments.get("in"), ParamDataType.PATH,
-				ParamType.INPUT);
-		if (!valid) {
-			return false;
-		}
-		
-		valid &= checkArgument(arguments.get("rotationType"), ParamDataType.STRING,
 				ParamType.INPUT);
 		if (!valid) {
 			return false;
@@ -94,13 +84,14 @@ public class Ffmpeg_Rotate extends ExecutionInstruction {
 	protected int internalExecute() throws IOException {
 		LOGGER.info("Starting execution with arguments: " + arguments);
 		final String in = arguments.get("in");
-		final String rotationType = arguments.get("rotationType");
 		final String out = arguments.get("out");
 		final CommandLine cmd = new CommandLine("ffmpeg");
 		cmd.addArgument("-i");
 		cmd.addArgument(in);
-		cmd.addArgument("-vf");
-		cmd.addArgument("\"transpose="+rotationType+"\"");
+		cmd.addArgument("-filter:v");
+		cmd.addArgument("scale=600:360");
+		cmd.addArgument("-sws_flags");
+		cmd.addArgument("lanczos");
 		cmd.addArgument(out);
 		final DefaultExecutor executor = new DefaultExecutor();
 		LOGGER.info("About to execute: " + cmd);
@@ -124,7 +115,7 @@ public class Ffmpeg_Rotate extends ExecutionInstruction {
 	public List<ResultDataElement> getOutputElements() {
 		final List<ResultDataElement> returnValue = new ArrayList<ResultDataElement>();
 		returnValue.add(new ResultDataElement("out",arguments.get("out"),
-				ParamDataType.PATH, "wt123"));
+				ParamDataType.PATH, "The video output"));
 		return returnValue;
 	}
 	
@@ -132,9 +123,7 @@ public class Ffmpeg_Rotate extends ExecutionInstruction {
 	public List<ResultDataElement> getInputElements() {
 		final List<ResultDataElement> returnValue = new ArrayList<ResultDataElement>();
 		returnValue.add(new ResultDataElement("in",arguments.get("in"),
-				ParamDataType.PATH, "The input file"));
-		returnValue.add(new ResultDataElement("rotationType",arguments.get("rotationType"),
-				ParamDataType.STRING, "Possible rotations:		<ul>			<li>0 = 90CounterCLockwise and Vertical Flip (default)</li>			<li>1 = 90Clockwise</li>			<li>2 = 90CounterClockwise</li>			<li>3 = 90Clockwise and Vertical Flip</li>		</ul>"));
+				ParamDataType.PATH, "The source video file"));
 		return returnValue;
 	}
 	

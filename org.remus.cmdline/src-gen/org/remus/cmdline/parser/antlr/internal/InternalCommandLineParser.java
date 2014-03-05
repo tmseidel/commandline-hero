@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalCommandLineParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'program '", "'->'", "'{'", "'}'", "'def'", "'('", "','", "')'", "'doc ->'", "'docurl ->'", "'input'", "'output '", "'* '", "'AS'", "'+'", "'.'", "'import'", "'STRING'", "'URL'", "'DATA'", "'PATH'", "'FOLDERPATH'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'program '", "'->'", "'{'", "'}'", "'def'", "'desc ->'", "'docurl ->'", "'input'", "'output '", "'* '", "'AS'", "'doc -> '", "'+'", "'.'", "'import'", "'STRING'", "'URL'", "'DATA'", "'PATH'", "'FOLDERPATH'"
     };
     public static final int RULE_ID=4;
     public static final int T__29=29;
@@ -41,9 +41,7 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
     public static final int RULE_ML_COMMENT=7;
     public static final int T__30=30;
     public static final int T__19=19;
-    public static final int T__31=31;
     public static final int RULE_STRING=5;
-    public static final int T__32=32;
     public static final int T__16=16;
     public static final int T__15=15;
     public static final int T__18=18;
@@ -154,7 +152,7 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
                 int alt1=2;
                 int LA1_0 = input.LA(1);
 
-                if ( (LA1_0==27) ) {
+                if ( (LA1_0==25) ) {
                     alt1=1;
                 }
 
@@ -591,45 +589,38 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleFunction"
-    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:264:1: ruleFunction returns [EObject current=null] : (otherlv_0= 'def' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( ( (lv_params_3_0= ruleParam ) ) (otherlv_4= ',' ( (lv_params_5_0= ruleParam ) ) )* )? otherlv_6= ')' otherlv_7= '{' (otherlv_8= 'doc ->' ( (lv_doc_9_0= ruleStringLiteral ) ) )? (otherlv_10= 'docurl ->' ( (lv_docurl_11_0= ruleStringLiteral ) ) )? (otherlv_12= 'input' ( (lv_input_13_0= ruleDataDefinition ) ) )* (otherlv_14= 'output ' ( (lv_output_15_0= ruleDataDefinition ) ) )* (otherlv_16= '* ' ( (lv_optionBlocks_17_0= ruleOption ) ) )* otherlv_18= '}' ) ;
+    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:264:1: ruleFunction returns [EObject current=null] : (otherlv_0= 'def' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'desc ->' ( (lv_desc_4_0= ruleStringLiteral ) ) )? (otherlv_5= 'docurl ->' ( (lv_docurl_6_0= ruleStringLiteral ) ) )? (otherlv_7= 'input' ( (lv_input_8_0= ruleDataDefinition ) ) )* (otherlv_9= 'output ' ( (lv_output_10_0= ruleDataDefinition ) ) )+ (otherlv_11= '* ' ( (lv_optionBlocks_12_0= ruleOption ) ) )* otherlv_13= '}' ) ;
     public final EObject ruleFunction() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
         Token lv_name_1_0=null;
         Token otherlv_2=null;
-        Token otherlv_4=null;
-        Token otherlv_6=null;
+        Token otherlv_3=null;
+        Token otherlv_5=null;
         Token otherlv_7=null;
-        Token otherlv_8=null;
-        Token otherlv_10=null;
-        Token otherlv_12=null;
-        Token otherlv_14=null;
-        Token otherlv_16=null;
-        Token otherlv_18=null;
-        EObject lv_params_3_0 = null;
+        Token otherlv_9=null;
+        Token otherlv_11=null;
+        Token otherlv_13=null;
+        EObject lv_desc_4_0 = null;
 
-        EObject lv_params_5_0 = null;
+        EObject lv_docurl_6_0 = null;
 
-        EObject lv_doc_9_0 = null;
+        EObject lv_input_8_0 = null;
 
-        EObject lv_docurl_11_0 = null;
+        EObject lv_output_10_0 = null;
 
-        EObject lv_input_13_0 = null;
-
-        EObject lv_output_15_0 = null;
-
-        EObject lv_optionBlocks_17_0 = null;
+        EObject lv_optionBlocks_12_0 = null;
 
 
          enterRule(); 
             
         try {
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:267:28: ( (otherlv_0= 'def' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( ( (lv_params_3_0= ruleParam ) ) (otherlv_4= ',' ( (lv_params_5_0= ruleParam ) ) )* )? otherlv_6= ')' otherlv_7= '{' (otherlv_8= 'doc ->' ( (lv_doc_9_0= ruleStringLiteral ) ) )? (otherlv_10= 'docurl ->' ( (lv_docurl_11_0= ruleStringLiteral ) ) )? (otherlv_12= 'input' ( (lv_input_13_0= ruleDataDefinition ) ) )* (otherlv_14= 'output ' ( (lv_output_15_0= ruleDataDefinition ) ) )* (otherlv_16= '* ' ( (lv_optionBlocks_17_0= ruleOption ) ) )* otherlv_18= '}' ) )
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:268:1: (otherlv_0= 'def' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( ( (lv_params_3_0= ruleParam ) ) (otherlv_4= ',' ( (lv_params_5_0= ruleParam ) ) )* )? otherlv_6= ')' otherlv_7= '{' (otherlv_8= 'doc ->' ( (lv_doc_9_0= ruleStringLiteral ) ) )? (otherlv_10= 'docurl ->' ( (lv_docurl_11_0= ruleStringLiteral ) ) )? (otherlv_12= 'input' ( (lv_input_13_0= ruleDataDefinition ) ) )* (otherlv_14= 'output ' ( (lv_output_15_0= ruleDataDefinition ) ) )* (otherlv_16= '* ' ( (lv_optionBlocks_17_0= ruleOption ) ) )* otherlv_18= '}' )
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:267:28: ( (otherlv_0= 'def' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'desc ->' ( (lv_desc_4_0= ruleStringLiteral ) ) )? (otherlv_5= 'docurl ->' ( (lv_docurl_6_0= ruleStringLiteral ) ) )? (otherlv_7= 'input' ( (lv_input_8_0= ruleDataDefinition ) ) )* (otherlv_9= 'output ' ( (lv_output_10_0= ruleDataDefinition ) ) )+ (otherlv_11= '* ' ( (lv_optionBlocks_12_0= ruleOption ) ) )* otherlv_13= '}' ) )
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:268:1: (otherlv_0= 'def' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'desc ->' ( (lv_desc_4_0= ruleStringLiteral ) ) )? (otherlv_5= 'docurl ->' ( (lv_docurl_6_0= ruleStringLiteral ) ) )? (otherlv_7= 'input' ( (lv_input_8_0= ruleDataDefinition ) ) )* (otherlv_9= 'output ' ( (lv_output_10_0= ruleDataDefinition ) ) )+ (otherlv_11= '* ' ( (lv_optionBlocks_12_0= ruleOption ) ) )* otherlv_13= '}' )
             {
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:268:1: (otherlv_0= 'def' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( ( (lv_params_3_0= ruleParam ) ) (otherlv_4= ',' ( (lv_params_5_0= ruleParam ) ) )* )? otherlv_6= ')' otherlv_7= '{' (otherlv_8= 'doc ->' ( (lv_doc_9_0= ruleStringLiteral ) ) )? (otherlv_10= 'docurl ->' ( (lv_docurl_11_0= ruleStringLiteral ) ) )? (otherlv_12= 'input' ( (lv_input_13_0= ruleDataDefinition ) ) )* (otherlv_14= 'output ' ( (lv_output_15_0= ruleDataDefinition ) ) )* (otherlv_16= '* ' ( (lv_optionBlocks_17_0= ruleOption ) ) )* otherlv_18= '}' )
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:268:3: otherlv_0= 'def' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( ( (lv_params_3_0= ruleParam ) ) (otherlv_4= ',' ( (lv_params_5_0= ruleParam ) ) )* )? otherlv_6= ')' otherlv_7= '{' (otherlv_8= 'doc ->' ( (lv_doc_9_0= ruleStringLiteral ) ) )? (otherlv_10= 'docurl ->' ( (lv_docurl_11_0= ruleStringLiteral ) ) )? (otherlv_12= 'input' ( (lv_input_13_0= ruleDataDefinition ) ) )* (otherlv_14= 'output ' ( (lv_output_15_0= ruleDataDefinition ) ) )* (otherlv_16= '* ' ( (lv_optionBlocks_17_0= ruleOption ) ) )* otherlv_18= '}'
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:268:1: (otherlv_0= 'def' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'desc ->' ( (lv_desc_4_0= ruleStringLiteral ) ) )? (otherlv_5= 'docurl ->' ( (lv_docurl_6_0= ruleStringLiteral ) ) )? (otherlv_7= 'input' ( (lv_input_8_0= ruleDataDefinition ) ) )* (otherlv_9= 'output ' ( (lv_output_10_0= ruleDataDefinition ) ) )+ (otherlv_11= '* ' ( (lv_optionBlocks_12_0= ruleOption ) ) )* otherlv_13= '}' )
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:268:3: otherlv_0= 'def' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'desc ->' ( (lv_desc_4_0= ruleStringLiteral ) ) )? (otherlv_5= 'docurl ->' ( (lv_docurl_6_0= ruleStringLiteral ) ) )? (otherlv_7= 'input' ( (lv_input_8_0= ruleDataDefinition ) ) )* (otherlv_9= 'output ' ( (lv_output_10_0= ruleDataDefinition ) ) )+ (otherlv_11= '* ' ( (lv_optionBlocks_12_0= ruleOption ) ) )* otherlv_13= '}'
             {
             otherlv_0=(Token)match(input,15,FOLLOW_15_in_ruleFunction509); 
 
@@ -661,151 +652,36 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,16,FOLLOW_16_in_ruleFunction543); 
+            otherlv_2=(Token)match(input,13,FOLLOW_13_in_ruleFunction543); 
 
-                	newLeafNode(otherlv_2, grammarAccess.getFunctionAccess().getLeftParenthesisKeyword_2());
+                	newLeafNode(otherlv_2, grammarAccess.getFunctionAccess().getLeftCurlyBracketKeyword_2());
                 
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:294:1: ( ( (lv_params_3_0= ruleParam ) ) (otherlv_4= ',' ( (lv_params_5_0= ruleParam ) ) )* )?
-            int alt4=2;
-            int LA4_0 = input.LA(1);
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:294:1: (otherlv_3= 'desc ->' ( (lv_desc_4_0= ruleStringLiteral ) ) )?
+            int alt3=2;
+            int LA3_0 = input.LA(1);
 
-            if ( (LA4_0==RULE_ID) ) {
-                alt4=1;
+            if ( (LA3_0==16) ) {
+                alt3=1;
             }
-            switch (alt4) {
+            switch (alt3) {
                 case 1 :
-                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:294:2: ( (lv_params_3_0= ruleParam ) ) (otherlv_4= ',' ( (lv_params_5_0= ruleParam ) ) )*
+                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:294:3: otherlv_3= 'desc ->' ( (lv_desc_4_0= ruleStringLiteral ) )
                     {
-                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:294:2: ( (lv_params_3_0= ruleParam ) )
-                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:295:1: (lv_params_3_0= ruleParam )
-                    {
-                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:295:1: (lv_params_3_0= ruleParam )
-                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:296:3: lv_params_3_0= ruleParam
-                    {
-                     
-                    	        newCompositeNode(grammarAccess.getFunctionAccess().getParamsParamParserRuleCall_3_0_0()); 
-                    	    
-                    pushFollow(FOLLOW_ruleParam_in_ruleFunction565);
-                    lv_params_3_0=ruleParam();
+                    otherlv_3=(Token)match(input,16,FOLLOW_16_in_ruleFunction556); 
 
-                    state._fsp--;
-
-
-                    	        if (current==null) {
-                    	            current = createModelElementForParent(grammarAccess.getFunctionRule());
-                    	        }
-                           		add(
-                           			current, 
-                           			"params",
-                            		lv_params_3_0, 
-                            		"Param");
-                    	        afterParserOrEnumRuleCall();
-                    	    
-
-                    }
-
-
-                    }
-
-                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:312:2: (otherlv_4= ',' ( (lv_params_5_0= ruleParam ) ) )*
-                    loop3:
-                    do {
-                        int alt3=2;
-                        int LA3_0 = input.LA(1);
-
-                        if ( (LA3_0==17) ) {
-                            alt3=1;
-                        }
-
-
-                        switch (alt3) {
-                    	case 1 :
-                    	    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:312:4: otherlv_4= ',' ( (lv_params_5_0= ruleParam ) )
-                    	    {
-                    	    otherlv_4=(Token)match(input,17,FOLLOW_17_in_ruleFunction578); 
-
-                    	        	newLeafNode(otherlv_4, grammarAccess.getFunctionAccess().getCommaKeyword_3_1_0());
-                    	        
-                    	    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:316:1: ( (lv_params_5_0= ruleParam ) )
-                    	    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:317:1: (lv_params_5_0= ruleParam )
-                    	    {
-                    	    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:317:1: (lv_params_5_0= ruleParam )
-                    	    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:318:3: lv_params_5_0= ruleParam
-                    	    {
-                    	     
-                    	    	        newCompositeNode(grammarAccess.getFunctionAccess().getParamsParamParserRuleCall_3_1_1_0()); 
-                    	    	    
-                    	    pushFollow(FOLLOW_ruleParam_in_ruleFunction599);
-                    	    lv_params_5_0=ruleParam();
-
-                    	    state._fsp--;
-
-
-                    	    	        if (current==null) {
-                    	    	            current = createModelElementForParent(grammarAccess.getFunctionRule());
-                    	    	        }
-                    	           		add(
-                    	           			current, 
-                    	           			"params",
-                    	            		lv_params_5_0, 
-                    	            		"Param");
-                    	    	        afterParserOrEnumRuleCall();
-                    	    	    
-
-                    	    }
-
-
-                    	    }
-
-
-                    	    }
-                    	    break;
-
-                    	default :
-                    	    break loop3;
-                        }
-                    } while (true);
-
-
-                    }
-                    break;
-
-            }
-
-            otherlv_6=(Token)match(input,18,FOLLOW_18_in_ruleFunction615); 
-
-                	newLeafNode(otherlv_6, grammarAccess.getFunctionAccess().getRightParenthesisKeyword_4());
-                
-            otherlv_7=(Token)match(input,13,FOLLOW_13_in_ruleFunction627); 
-
-                	newLeafNode(otherlv_7, grammarAccess.getFunctionAccess().getLeftCurlyBracketKeyword_5());
-                
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:342:1: (otherlv_8= 'doc ->' ( (lv_doc_9_0= ruleStringLiteral ) ) )?
-            int alt5=2;
-            int LA5_0 = input.LA(1);
-
-            if ( (LA5_0==19) ) {
-                alt5=1;
-            }
-            switch (alt5) {
-                case 1 :
-                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:342:3: otherlv_8= 'doc ->' ( (lv_doc_9_0= ruleStringLiteral ) )
-                    {
-                    otherlv_8=(Token)match(input,19,FOLLOW_19_in_ruleFunction640); 
-
-                        	newLeafNode(otherlv_8, grammarAccess.getFunctionAccess().getDocKeyword_6_0());
+                        	newLeafNode(otherlv_3, grammarAccess.getFunctionAccess().getDescKeyword_3_0());
                         
-                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:346:1: ( (lv_doc_9_0= ruleStringLiteral ) )
-                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:347:1: (lv_doc_9_0= ruleStringLiteral )
+                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:298:1: ( (lv_desc_4_0= ruleStringLiteral ) )
+                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:299:1: (lv_desc_4_0= ruleStringLiteral )
                     {
-                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:347:1: (lv_doc_9_0= ruleStringLiteral )
-                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:348:3: lv_doc_9_0= ruleStringLiteral
+                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:299:1: (lv_desc_4_0= ruleStringLiteral )
+                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:300:3: lv_desc_4_0= ruleStringLiteral
                     {
                      
-                    	        newCompositeNode(grammarAccess.getFunctionAccess().getDocStringLiteralParserRuleCall_6_1_0()); 
+                    	        newCompositeNode(grammarAccess.getFunctionAccess().getDescStringLiteralParserRuleCall_3_1_0()); 
                     	    
-                    pushFollow(FOLLOW_ruleStringLiteral_in_ruleFunction661);
-                    lv_doc_9_0=ruleStringLiteral();
+                    pushFollow(FOLLOW_ruleStringLiteral_in_ruleFunction577);
+                    lv_desc_4_0=ruleStringLiteral();
 
                     state._fsp--;
 
@@ -815,8 +691,8 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
                     	        }
                            		set(
                            			current, 
-                           			"doc",
-                            		lv_doc_9_0, 
+                           			"desc",
+                            		lv_desc_4_0, 
                             		"StringLiteral");
                     	        afterParserOrEnumRuleCall();
                     	    
@@ -832,32 +708,32 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:364:4: (otherlv_10= 'docurl ->' ( (lv_docurl_11_0= ruleStringLiteral ) ) )?
-            int alt6=2;
-            int LA6_0 = input.LA(1);
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:316:4: (otherlv_5= 'docurl ->' ( (lv_docurl_6_0= ruleStringLiteral ) ) )?
+            int alt4=2;
+            int LA4_0 = input.LA(1);
 
-            if ( (LA6_0==20) ) {
-                alt6=1;
+            if ( (LA4_0==17) ) {
+                alt4=1;
             }
-            switch (alt6) {
+            switch (alt4) {
                 case 1 :
-                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:364:6: otherlv_10= 'docurl ->' ( (lv_docurl_11_0= ruleStringLiteral ) )
+                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:316:6: otherlv_5= 'docurl ->' ( (lv_docurl_6_0= ruleStringLiteral ) )
                     {
-                    otherlv_10=(Token)match(input,20,FOLLOW_20_in_ruleFunction676); 
+                    otherlv_5=(Token)match(input,17,FOLLOW_17_in_ruleFunction592); 
 
-                        	newLeafNode(otherlv_10, grammarAccess.getFunctionAccess().getDocurlKeyword_7_0());
+                        	newLeafNode(otherlv_5, grammarAccess.getFunctionAccess().getDocurlKeyword_4_0());
                         
-                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:368:1: ( (lv_docurl_11_0= ruleStringLiteral ) )
-                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:369:1: (lv_docurl_11_0= ruleStringLiteral )
+                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:320:1: ( (lv_docurl_6_0= ruleStringLiteral ) )
+                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:321:1: (lv_docurl_6_0= ruleStringLiteral )
                     {
-                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:369:1: (lv_docurl_11_0= ruleStringLiteral )
-                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:370:3: lv_docurl_11_0= ruleStringLiteral
+                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:321:1: (lv_docurl_6_0= ruleStringLiteral )
+                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:322:3: lv_docurl_6_0= ruleStringLiteral
                     {
                      
-                    	        newCompositeNode(grammarAccess.getFunctionAccess().getDocurlStringLiteralParserRuleCall_7_1_0()); 
+                    	        newCompositeNode(grammarAccess.getFunctionAccess().getDocurlStringLiteralParserRuleCall_4_1_0()); 
                     	    
-                    pushFollow(FOLLOW_ruleStringLiteral_in_ruleFunction697);
-                    lv_docurl_11_0=ruleStringLiteral();
+                    pushFollow(FOLLOW_ruleStringLiteral_in_ruleFunction613);
+                    lv_docurl_6_0=ruleStringLiteral();
 
                     state._fsp--;
 
@@ -868,7 +744,7 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
                            		set(
                            			current, 
                            			"docurl",
-                            		lv_docurl_11_0, 
+                            		lv_docurl_6_0, 
                             		"StringLiteral");
                     	        afterParserOrEnumRuleCall();
                     	    
@@ -884,36 +760,36 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:386:4: (otherlv_12= 'input' ( (lv_input_13_0= ruleDataDefinition ) ) )*
-            loop7:
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:338:4: (otherlv_7= 'input' ( (lv_input_8_0= ruleDataDefinition ) ) )*
+            loop5:
             do {
-                int alt7=2;
-                int LA7_0 = input.LA(1);
+                int alt5=2;
+                int LA5_0 = input.LA(1);
 
-                if ( (LA7_0==21) ) {
-                    alt7=1;
+                if ( (LA5_0==18) ) {
+                    alt5=1;
                 }
 
 
-                switch (alt7) {
+                switch (alt5) {
             	case 1 :
-            	    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:386:6: otherlv_12= 'input' ( (lv_input_13_0= ruleDataDefinition ) )
+            	    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:338:6: otherlv_7= 'input' ( (lv_input_8_0= ruleDataDefinition ) )
             	    {
-            	    otherlv_12=(Token)match(input,21,FOLLOW_21_in_ruleFunction712); 
+            	    otherlv_7=(Token)match(input,18,FOLLOW_18_in_ruleFunction628); 
 
-            	        	newLeafNode(otherlv_12, grammarAccess.getFunctionAccess().getInputKeyword_8_0());
+            	        	newLeafNode(otherlv_7, grammarAccess.getFunctionAccess().getInputKeyword_5_0());
             	        
-            	    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:390:1: ( (lv_input_13_0= ruleDataDefinition ) )
-            	    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:391:1: (lv_input_13_0= ruleDataDefinition )
+            	    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:342:1: ( (lv_input_8_0= ruleDataDefinition ) )
+            	    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:343:1: (lv_input_8_0= ruleDataDefinition )
             	    {
-            	    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:391:1: (lv_input_13_0= ruleDataDefinition )
-            	    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:392:3: lv_input_13_0= ruleDataDefinition
+            	    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:343:1: (lv_input_8_0= ruleDataDefinition )
+            	    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:344:3: lv_input_8_0= ruleDataDefinition
             	    {
             	     
-            	    	        newCompositeNode(grammarAccess.getFunctionAccess().getInputDataDefinitionParserRuleCall_8_1_0()); 
+            	    	        newCompositeNode(grammarAccess.getFunctionAccess().getInputDataDefinitionParserRuleCall_5_1_0()); 
             	    	    
-            	    pushFollow(FOLLOW_ruleDataDefinition_in_ruleFunction733);
-            	    lv_input_13_0=ruleDataDefinition();
+            	    pushFollow(FOLLOW_ruleDataDefinition_in_ruleFunction649);
+            	    lv_input_8_0=ruleDataDefinition();
 
             	    state._fsp--;
 
@@ -924,8 +800,131 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
             	           		add(
             	           			current, 
             	           			"input",
-            	            		lv_input_13_0, 
+            	            		lv_input_8_0, 
             	            		"DataDefinition");
+            	    	        afterParserOrEnumRuleCall();
+            	    	    
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop5;
+                }
+            } while (true);
+
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:360:4: (otherlv_9= 'output ' ( (lv_output_10_0= ruleDataDefinition ) ) )+
+            int cnt6=0;
+            loop6:
+            do {
+                int alt6=2;
+                int LA6_0 = input.LA(1);
+
+                if ( (LA6_0==19) ) {
+                    alt6=1;
+                }
+
+
+                switch (alt6) {
+            	case 1 :
+            	    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:360:6: otherlv_9= 'output ' ( (lv_output_10_0= ruleDataDefinition ) )
+            	    {
+            	    otherlv_9=(Token)match(input,19,FOLLOW_19_in_ruleFunction664); 
+
+            	        	newLeafNode(otherlv_9, grammarAccess.getFunctionAccess().getOutputKeyword_6_0());
+            	        
+            	    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:364:1: ( (lv_output_10_0= ruleDataDefinition ) )
+            	    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:365:1: (lv_output_10_0= ruleDataDefinition )
+            	    {
+            	    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:365:1: (lv_output_10_0= ruleDataDefinition )
+            	    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:366:3: lv_output_10_0= ruleDataDefinition
+            	    {
+            	     
+            	    	        newCompositeNode(grammarAccess.getFunctionAccess().getOutputDataDefinitionParserRuleCall_6_1_0()); 
+            	    	    
+            	    pushFollow(FOLLOW_ruleDataDefinition_in_ruleFunction685);
+            	    lv_output_10_0=ruleDataDefinition();
+
+            	    state._fsp--;
+
+
+            	    	        if (current==null) {
+            	    	            current = createModelElementForParent(grammarAccess.getFunctionRule());
+            	    	        }
+            	           		add(
+            	           			current, 
+            	           			"output",
+            	            		lv_output_10_0, 
+            	            		"DataDefinition");
+            	    	        afterParserOrEnumRuleCall();
+            	    	    
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    if ( cnt6 >= 1 ) break loop6;
+                        EarlyExitException eee =
+                            new EarlyExitException(6, input);
+                        throw eee;
+                }
+                cnt6++;
+            } while (true);
+
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:382:4: (otherlv_11= '* ' ( (lv_optionBlocks_12_0= ruleOption ) ) )*
+            loop7:
+            do {
+                int alt7=2;
+                int LA7_0 = input.LA(1);
+
+                if ( (LA7_0==20) ) {
+                    alt7=1;
+                }
+
+
+                switch (alt7) {
+            	case 1 :
+            	    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:382:6: otherlv_11= '* ' ( (lv_optionBlocks_12_0= ruleOption ) )
+            	    {
+            	    otherlv_11=(Token)match(input,20,FOLLOW_20_in_ruleFunction700); 
+
+            	        	newLeafNode(otherlv_11, grammarAccess.getFunctionAccess().getAsteriskSpaceKeyword_7_0());
+            	        
+            	    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:386:1: ( (lv_optionBlocks_12_0= ruleOption ) )
+            	    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:387:1: (lv_optionBlocks_12_0= ruleOption )
+            	    {
+            	    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:387:1: (lv_optionBlocks_12_0= ruleOption )
+            	    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:388:3: lv_optionBlocks_12_0= ruleOption
+            	    {
+            	     
+            	    	        newCompositeNode(grammarAccess.getFunctionAccess().getOptionBlocksOptionParserRuleCall_7_1_0()); 
+            	    	    
+            	    pushFollow(FOLLOW_ruleOption_in_ruleFunction721);
+            	    lv_optionBlocks_12_0=ruleOption();
+
+            	    state._fsp--;
+
+
+            	    	        if (current==null) {
+            	    	            current = createModelElementForParent(grammarAccess.getFunctionRule());
+            	    	        }
+            	           		add(
+            	           			current, 
+            	           			"optionBlocks",
+            	            		lv_optionBlocks_12_0, 
+            	            		"Option");
             	    	        afterParserOrEnumRuleCall();
             	    	    
 
@@ -943,127 +942,9 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:408:4: (otherlv_14= 'output ' ( (lv_output_15_0= ruleDataDefinition ) ) )*
-            loop8:
-            do {
-                int alt8=2;
-                int LA8_0 = input.LA(1);
+            otherlv_13=(Token)match(input,14,FOLLOW_14_in_ruleFunction735); 
 
-                if ( (LA8_0==22) ) {
-                    alt8=1;
-                }
-
-
-                switch (alt8) {
-            	case 1 :
-            	    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:408:6: otherlv_14= 'output ' ( (lv_output_15_0= ruleDataDefinition ) )
-            	    {
-            	    otherlv_14=(Token)match(input,22,FOLLOW_22_in_ruleFunction748); 
-
-            	        	newLeafNode(otherlv_14, grammarAccess.getFunctionAccess().getOutputKeyword_9_0());
-            	        
-            	    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:412:1: ( (lv_output_15_0= ruleDataDefinition ) )
-            	    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:413:1: (lv_output_15_0= ruleDataDefinition )
-            	    {
-            	    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:413:1: (lv_output_15_0= ruleDataDefinition )
-            	    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:414:3: lv_output_15_0= ruleDataDefinition
-            	    {
-            	     
-            	    	        newCompositeNode(grammarAccess.getFunctionAccess().getOutputDataDefinitionParserRuleCall_9_1_0()); 
-            	    	    
-            	    pushFollow(FOLLOW_ruleDataDefinition_in_ruleFunction769);
-            	    lv_output_15_0=ruleDataDefinition();
-
-            	    state._fsp--;
-
-
-            	    	        if (current==null) {
-            	    	            current = createModelElementForParent(grammarAccess.getFunctionRule());
-            	    	        }
-            	           		add(
-            	           			current, 
-            	           			"output",
-            	            		lv_output_15_0, 
-            	            		"DataDefinition");
-            	    	        afterParserOrEnumRuleCall();
-            	    	    
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop8;
-                }
-            } while (true);
-
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:430:4: (otherlv_16= '* ' ( (lv_optionBlocks_17_0= ruleOption ) ) )*
-            loop9:
-            do {
-                int alt9=2;
-                int LA9_0 = input.LA(1);
-
-                if ( (LA9_0==23) ) {
-                    alt9=1;
-                }
-
-
-                switch (alt9) {
-            	case 1 :
-            	    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:430:6: otherlv_16= '* ' ( (lv_optionBlocks_17_0= ruleOption ) )
-            	    {
-            	    otherlv_16=(Token)match(input,23,FOLLOW_23_in_ruleFunction784); 
-
-            	        	newLeafNode(otherlv_16, grammarAccess.getFunctionAccess().getAsteriskSpaceKeyword_10_0());
-            	        
-            	    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:434:1: ( (lv_optionBlocks_17_0= ruleOption ) )
-            	    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:435:1: (lv_optionBlocks_17_0= ruleOption )
-            	    {
-            	    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:435:1: (lv_optionBlocks_17_0= ruleOption )
-            	    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:436:3: lv_optionBlocks_17_0= ruleOption
-            	    {
-            	     
-            	    	        newCompositeNode(grammarAccess.getFunctionAccess().getOptionBlocksOptionParserRuleCall_10_1_0()); 
-            	    	    
-            	    pushFollow(FOLLOW_ruleOption_in_ruleFunction805);
-            	    lv_optionBlocks_17_0=ruleOption();
-
-            	    state._fsp--;
-
-
-            	    	        if (current==null) {
-            	    	            current = createModelElementForParent(grammarAccess.getFunctionRule());
-            	    	        }
-            	           		add(
-            	           			current, 
-            	           			"optionBlocks",
-            	            		lv_optionBlocks_17_0, 
-            	            		"Option");
-            	    	        afterParserOrEnumRuleCall();
-            	    	    
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop9;
-                }
-            } while (true);
-
-            otherlv_18=(Token)match(input,14,FOLLOW_14_in_ruleFunction819); 
-
-                	newLeafNode(otherlv_18, grammarAccess.getFunctionAccess().getRightCurlyBracketKeyword_11());
+                	newLeafNode(otherlv_13, grammarAccess.getFunctionAccess().getRightCurlyBracketKeyword_8());
                 
 
             }
@@ -1086,7 +967,7 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDataDefinition"
-    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:464:1: entryRuleDataDefinition returns [EObject current=null] : iv_ruleDataDefinition= ruleDataDefinition EOF ;
+    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:416:1: entryRuleDataDefinition returns [EObject current=null] : iv_ruleDataDefinition= ruleDataDefinition EOF ;
     public final EObject entryRuleDataDefinition() throws RecognitionException {
         EObject current = null;
 
@@ -1094,17 +975,17 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:465:2: (iv_ruleDataDefinition= ruleDataDefinition EOF )
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:466:2: iv_ruleDataDefinition= ruleDataDefinition EOF
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:417:2: (iv_ruleDataDefinition= ruleDataDefinition EOF )
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:418:2: iv_ruleDataDefinition= ruleDataDefinition EOF
             {
              newCompositeNode(grammarAccess.getDataDefinitionRule()); 
-            pushFollow(FOLLOW_ruleDataDefinition_in_entryRuleDataDefinition855);
+            pushFollow(FOLLOW_ruleDataDefinition_in_entryRuleDataDefinition771);
             iv_ruleDataDefinition=ruleDataDefinition();
 
             state._fsp--;
 
              current =iv_ruleDataDefinition; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleDataDefinition865); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleDataDefinition781); 
 
             }
 
@@ -1122,26 +1003,30 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDataDefinition"
-    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:473:1: ruleDataDefinition returns [EObject current=null] : ( () ( (otherlv_1= RULE_ID ) ) otherlv_2= 'AS' ( (lv_type_3_0= ruleDataType ) ) ) ;
+    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:425:1: ruleDataDefinition returns [EObject current=null] : ( () ( (lv_input_1_0= ruleParam ) ) otherlv_2= 'AS' ( (lv_type_3_0= ruleDataType ) ) (otherlv_4= 'doc -> ' ( (lv_doc_5_0= ruleStringLiteral ) ) )? ) ;
     public final EObject ruleDataDefinition() throws RecognitionException {
         EObject current = null;
 
-        Token otherlv_1=null;
         Token otherlv_2=null;
+        Token otherlv_4=null;
+        EObject lv_input_1_0 = null;
+
         Enumerator lv_type_3_0 = null;
+
+        EObject lv_doc_5_0 = null;
 
 
          enterRule(); 
             
         try {
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:476:28: ( ( () ( (otherlv_1= RULE_ID ) ) otherlv_2= 'AS' ( (lv_type_3_0= ruleDataType ) ) ) )
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:477:1: ( () ( (otherlv_1= RULE_ID ) ) otherlv_2= 'AS' ( (lv_type_3_0= ruleDataType ) ) )
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:428:28: ( ( () ( (lv_input_1_0= ruleParam ) ) otherlv_2= 'AS' ( (lv_type_3_0= ruleDataType ) ) (otherlv_4= 'doc -> ' ( (lv_doc_5_0= ruleStringLiteral ) ) )? ) )
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:429:1: ( () ( (lv_input_1_0= ruleParam ) ) otherlv_2= 'AS' ( (lv_type_3_0= ruleDataType ) ) (otherlv_4= 'doc -> ' ( (lv_doc_5_0= ruleStringLiteral ) ) )? )
             {
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:477:1: ( () ( (otherlv_1= RULE_ID ) ) otherlv_2= 'AS' ( (lv_type_3_0= ruleDataType ) ) )
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:477:2: () ( (otherlv_1= RULE_ID ) ) otherlv_2= 'AS' ( (lv_type_3_0= ruleDataType ) )
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:429:1: ( () ( (lv_input_1_0= ruleParam ) ) otherlv_2= 'AS' ( (lv_type_3_0= ruleDataType ) ) (otherlv_4= 'doc -> ' ( (lv_doc_5_0= ruleStringLiteral ) ) )? )
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:429:2: () ( (lv_input_1_0= ruleParam ) ) otherlv_2= 'AS' ( (lv_type_3_0= ruleDataType ) ) (otherlv_4= 'doc -> ' ( (lv_doc_5_0= ruleStringLiteral ) ) )?
             {
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:477:2: ()
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:478:5: 
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:429:2: ()
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:430:5: 
             {
 
                     current = forceCreateModelElement(
@@ -1151,41 +1036,51 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:483:2: ( (otherlv_1= RULE_ID ) )
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:484:1: (otherlv_1= RULE_ID )
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:435:2: ( (lv_input_1_0= ruleParam ) )
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:436:1: (lv_input_1_0= ruleParam )
             {
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:484:1: (otherlv_1= RULE_ID )
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:485:3: otherlv_1= RULE_ID
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:436:1: (lv_input_1_0= ruleParam )
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:437:3: lv_input_1_0= ruleParam
             {
+             
+            	        newCompositeNode(grammarAccess.getDataDefinitionAccess().getInputParamParserRuleCall_1_0()); 
+            	    
+            pushFollow(FOLLOW_ruleParam_in_ruleDataDefinition836);
+            lv_input_1_0=ruleParam();
 
-            			if (current==null) {
-            	            current = createModelElement(grammarAccess.getDataDefinitionRule());
+            state._fsp--;
+
+
+            	        if (current==null) {
+            	            current = createModelElementForParent(grammarAccess.getDataDefinitionRule());
             	        }
-                    
-            otherlv_1=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleDataDefinition919); 
-
-            		newLeafNode(otherlv_1, grammarAccess.getDataDefinitionAccess().getInputParamCrossReference_1_0()); 
-            	
+                   		set(
+                   			current, 
+                   			"input",
+                    		lv_input_1_0, 
+                    		"Param");
+            	        afterParserOrEnumRuleCall();
+            	    
 
             }
 
 
             }
 
-            otherlv_2=(Token)match(input,24,FOLLOW_24_in_ruleDataDefinition931); 
+            otherlv_2=(Token)match(input,21,FOLLOW_21_in_ruleDataDefinition848); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getDataDefinitionAccess().getASKeyword_2());
                 
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:500:1: ( (lv_type_3_0= ruleDataType ) )
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:501:1: (lv_type_3_0= ruleDataType )
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:457:1: ( (lv_type_3_0= ruleDataType ) )
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:458:1: (lv_type_3_0= ruleDataType )
             {
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:501:1: (lv_type_3_0= ruleDataType )
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:502:3: lv_type_3_0= ruleDataType
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:458:1: (lv_type_3_0= ruleDataType )
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:459:3: lv_type_3_0= ruleDataType
             {
              
             	        newCompositeNode(grammarAccess.getDataDefinitionAccess().getTypeDataTypeEnumRuleCall_3_0()); 
             	    
-            pushFollow(FOLLOW_ruleDataType_in_ruleDataDefinition952);
+            pushFollow(FOLLOW_ruleDataType_in_ruleDataDefinition869);
             lv_type_3_0=ruleDataType();
 
             state._fsp--;
@@ -1204,6 +1099,58 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
 
             }
 
+
+            }
+
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:475:2: (otherlv_4= 'doc -> ' ( (lv_doc_5_0= ruleStringLiteral ) ) )?
+            int alt8=2;
+            int LA8_0 = input.LA(1);
+
+            if ( (LA8_0==22) ) {
+                alt8=1;
+            }
+            switch (alt8) {
+                case 1 :
+                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:475:4: otherlv_4= 'doc -> ' ( (lv_doc_5_0= ruleStringLiteral ) )
+                    {
+                    otherlv_4=(Token)match(input,22,FOLLOW_22_in_ruleDataDefinition882); 
+
+                        	newLeafNode(otherlv_4, grammarAccess.getDataDefinitionAccess().getDocKeyword_4_0());
+                        
+                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:479:1: ( (lv_doc_5_0= ruleStringLiteral ) )
+                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:480:1: (lv_doc_5_0= ruleStringLiteral )
+                    {
+                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:480:1: (lv_doc_5_0= ruleStringLiteral )
+                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:481:3: lv_doc_5_0= ruleStringLiteral
+                    {
+                     
+                    	        newCompositeNode(grammarAccess.getDataDefinitionAccess().getDocStringLiteralParserRuleCall_4_1_0()); 
+                    	    
+                    pushFollow(FOLLOW_ruleStringLiteral_in_ruleDataDefinition903);
+                    lv_doc_5_0=ruleStringLiteral();
+
+                    state._fsp--;
+
+
+                    	        if (current==null) {
+                    	            current = createModelElementForParent(grammarAccess.getDataDefinitionRule());
+                    	        }
+                           		set(
+                           			current, 
+                           			"doc",
+                            		lv_doc_5_0, 
+                            		"StringLiteral");
+                    	        afterParserOrEnumRuleCall();
+                    	    
+
+                    }
+
+
+                    }
+
+
+                    }
+                    break;
 
             }
 
@@ -1228,7 +1175,7 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleOption"
-    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:526:1: entryRuleOption returns [EObject current=null] : iv_ruleOption= ruleOption EOF ;
+    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:505:1: entryRuleOption returns [EObject current=null] : iv_ruleOption= ruleOption EOF ;
     public final EObject entryRuleOption() throws RecognitionException {
         EObject current = null;
 
@@ -1236,17 +1183,17 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:527:2: (iv_ruleOption= ruleOption EOF )
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:528:2: iv_ruleOption= ruleOption EOF
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:506:2: (iv_ruleOption= ruleOption EOF )
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:507:2: iv_ruleOption= ruleOption EOF
             {
              newCompositeNode(grammarAccess.getOptionRule()); 
-            pushFollow(FOLLOW_ruleOption_in_entryRuleOption988);
+            pushFollow(FOLLOW_ruleOption_in_entryRuleOption941);
             iv_ruleOption=ruleOption();
 
             state._fsp--;
 
              current =iv_ruleOption; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleOption998); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleOption951); 
 
             }
 
@@ -1264,7 +1211,7 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleOption"
-    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:535:1: ruleOption returns [EObject current=null] : ( (lv_param_0_0= ruleConcatExpression ) ) ;
+    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:514:1: ruleOption returns [EObject current=null] : ( (lv_param_0_0= ruleConcatExpression ) ) ;
     public final EObject ruleOption() throws RecognitionException {
         EObject current = null;
 
@@ -1274,19 +1221,19 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:538:28: ( ( (lv_param_0_0= ruleConcatExpression ) ) )
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:539:1: ( (lv_param_0_0= ruleConcatExpression ) )
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:517:28: ( ( (lv_param_0_0= ruleConcatExpression ) ) )
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:518:1: ( (lv_param_0_0= ruleConcatExpression ) )
             {
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:539:1: ( (lv_param_0_0= ruleConcatExpression ) )
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:540:1: (lv_param_0_0= ruleConcatExpression )
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:518:1: ( (lv_param_0_0= ruleConcatExpression ) )
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:519:1: (lv_param_0_0= ruleConcatExpression )
             {
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:540:1: (lv_param_0_0= ruleConcatExpression )
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:541:3: lv_param_0_0= ruleConcatExpression
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:519:1: (lv_param_0_0= ruleConcatExpression )
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:520:3: lv_param_0_0= ruleConcatExpression
             {
              
             	        newCompositeNode(grammarAccess.getOptionAccess().getParamConcatExpressionParserRuleCall_0()); 
             	    
-            pushFollow(FOLLOW_ruleConcatExpression_in_ruleOption1043);
+            pushFollow(FOLLOW_ruleConcatExpression_in_ruleOption996);
             lv_param_0_0=ruleConcatExpression();
 
             state._fsp--;
@@ -1326,7 +1273,7 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleConcatExpression"
-    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:565:1: entryRuleConcatExpression returns [EObject current=null] : iv_ruleConcatExpression= ruleConcatExpression EOF ;
+    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:544:1: entryRuleConcatExpression returns [EObject current=null] : iv_ruleConcatExpression= ruleConcatExpression EOF ;
     public final EObject entryRuleConcatExpression() throws RecognitionException {
         EObject current = null;
 
@@ -1334,17 +1281,17 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:566:2: (iv_ruleConcatExpression= ruleConcatExpression EOF )
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:567:2: iv_ruleConcatExpression= ruleConcatExpression EOF
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:545:2: (iv_ruleConcatExpression= ruleConcatExpression EOF )
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:546:2: iv_ruleConcatExpression= ruleConcatExpression EOF
             {
              newCompositeNode(grammarAccess.getConcatExpressionRule()); 
-            pushFollow(FOLLOW_ruleConcatExpression_in_entryRuleConcatExpression1078);
+            pushFollow(FOLLOW_ruleConcatExpression_in_entryRuleConcatExpression1031);
             iv_ruleConcatExpression=ruleConcatExpression();
 
             state._fsp--;
 
              current =iv_ruleConcatExpression; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleConcatExpression1088); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleConcatExpression1041); 
 
             }
 
@@ -1362,7 +1309,7 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleConcatExpression"
-    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:574:1: ruleConcatExpression returns [EObject current=null] : (this_Primary_0= rulePrimary ( () otherlv_2= '+' ( (lv_right_3_0= rulePrimary ) ) )* ) ;
+    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:553:1: ruleConcatExpression returns [EObject current=null] : (this_Primary_0= rulePrimary ( () otherlv_2= '+' ( (lv_right_3_0= rulePrimary ) ) )* ) ;
     public final EObject ruleConcatExpression() throws RecognitionException {
         EObject current = null;
 
@@ -1375,16 +1322,16 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:577:28: ( (this_Primary_0= rulePrimary ( () otherlv_2= '+' ( (lv_right_3_0= rulePrimary ) ) )* ) )
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:578:1: (this_Primary_0= rulePrimary ( () otherlv_2= '+' ( (lv_right_3_0= rulePrimary ) ) )* )
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:556:28: ( (this_Primary_0= rulePrimary ( () otherlv_2= '+' ( (lv_right_3_0= rulePrimary ) ) )* ) )
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:557:1: (this_Primary_0= rulePrimary ( () otherlv_2= '+' ( (lv_right_3_0= rulePrimary ) ) )* )
             {
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:578:1: (this_Primary_0= rulePrimary ( () otherlv_2= '+' ( (lv_right_3_0= rulePrimary ) ) )* )
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:579:5: this_Primary_0= rulePrimary ( () otherlv_2= '+' ( (lv_right_3_0= rulePrimary ) ) )*
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:557:1: (this_Primary_0= rulePrimary ( () otherlv_2= '+' ( (lv_right_3_0= rulePrimary ) ) )* )
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:558:5: this_Primary_0= rulePrimary ( () otherlv_2= '+' ( (lv_right_3_0= rulePrimary ) ) )*
             {
              
                     newCompositeNode(grammarAccess.getConcatExpressionAccess().getPrimaryParserRuleCall_0()); 
                 
-            pushFollow(FOLLOW_rulePrimary_in_ruleConcatExpression1135);
+            pushFollow(FOLLOW_rulePrimary_in_ruleConcatExpression1088);
             this_Primary_0=rulePrimary();
 
             state._fsp--;
@@ -1393,23 +1340,23 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
                     current = this_Primary_0; 
                     afterParserOrEnumRuleCall();
                 
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:587:1: ( () otherlv_2= '+' ( (lv_right_3_0= rulePrimary ) ) )*
-            loop10:
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:566:1: ( () otherlv_2= '+' ( (lv_right_3_0= rulePrimary ) ) )*
+            loop9:
             do {
-                int alt10=2;
-                int LA10_0 = input.LA(1);
+                int alt9=2;
+                int LA9_0 = input.LA(1);
 
-                if ( (LA10_0==25) ) {
-                    alt10=1;
+                if ( (LA9_0==23) ) {
+                    alt9=1;
                 }
 
 
-                switch (alt10) {
+                switch (alt9) {
             	case 1 :
-            	    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:587:2: () otherlv_2= '+' ( (lv_right_3_0= rulePrimary ) )
+            	    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:566:2: () otherlv_2= '+' ( (lv_right_3_0= rulePrimary ) )
             	    {
-            	    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:587:2: ()
-            	    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:588:5: 
+            	    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:566:2: ()
+            	    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:567:5: 
             	    {
 
             	            current = forceCreateModelElementAndSet(
@@ -1419,20 +1366,20 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    otherlv_2=(Token)match(input,25,FOLLOW_25_in_ruleConcatExpression1156); 
+            	    otherlv_2=(Token)match(input,23,FOLLOW_23_in_ruleConcatExpression1109); 
 
             	        	newLeafNode(otherlv_2, grammarAccess.getConcatExpressionAccess().getPlusSignKeyword_1_1());
             	        
-            	    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:597:1: ( (lv_right_3_0= rulePrimary ) )
-            	    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:598:1: (lv_right_3_0= rulePrimary )
+            	    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:576:1: ( (lv_right_3_0= rulePrimary ) )
+            	    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:577:1: (lv_right_3_0= rulePrimary )
             	    {
-            	    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:598:1: (lv_right_3_0= rulePrimary )
-            	    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:599:3: lv_right_3_0= rulePrimary
+            	    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:577:1: (lv_right_3_0= rulePrimary )
+            	    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:578:3: lv_right_3_0= rulePrimary
             	    {
             	     
             	    	        newCompositeNode(grammarAccess.getConcatExpressionAccess().getRightPrimaryParserRuleCall_1_2_0()); 
             	    	    
-            	    pushFollow(FOLLOW_rulePrimary_in_ruleConcatExpression1177);
+            	    pushFollow(FOLLOW_rulePrimary_in_ruleConcatExpression1130);
             	    lv_right_3_0=rulePrimary();
 
             	    state._fsp--;
@@ -1459,7 +1406,7 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop10;
+            	    break loop9;
                 }
             } while (true);
 
@@ -1484,7 +1431,7 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleStringLiteral"
-    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:623:1: entryRuleStringLiteral returns [EObject current=null] : iv_ruleStringLiteral= ruleStringLiteral EOF ;
+    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:602:1: entryRuleStringLiteral returns [EObject current=null] : iv_ruleStringLiteral= ruleStringLiteral EOF ;
     public final EObject entryRuleStringLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -1492,17 +1439,17 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:624:2: (iv_ruleStringLiteral= ruleStringLiteral EOF )
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:625:2: iv_ruleStringLiteral= ruleStringLiteral EOF
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:603:2: (iv_ruleStringLiteral= ruleStringLiteral EOF )
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:604:2: iv_ruleStringLiteral= ruleStringLiteral EOF
             {
              newCompositeNode(grammarAccess.getStringLiteralRule()); 
-            pushFollow(FOLLOW_ruleStringLiteral_in_entryRuleStringLiteral1215);
+            pushFollow(FOLLOW_ruleStringLiteral_in_entryRuleStringLiteral1168);
             iv_ruleStringLiteral=ruleStringLiteral();
 
             state._fsp--;
 
              current =iv_ruleStringLiteral; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleStringLiteral1225); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleStringLiteral1178); 
 
             }
 
@@ -1520,7 +1467,7 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleStringLiteral"
-    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:632:1: ruleStringLiteral returns [EObject current=null] : ( (lv_value_0_0= RULE_STRING ) ) ;
+    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:611:1: ruleStringLiteral returns [EObject current=null] : ( (lv_value_0_0= RULE_STRING ) ) ;
     public final EObject ruleStringLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -1529,16 +1476,16 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:635:28: ( ( (lv_value_0_0= RULE_STRING ) ) )
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:636:1: ( (lv_value_0_0= RULE_STRING ) )
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:614:28: ( ( (lv_value_0_0= RULE_STRING ) ) )
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:615:1: ( (lv_value_0_0= RULE_STRING ) )
             {
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:636:1: ( (lv_value_0_0= RULE_STRING ) )
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:637:1: (lv_value_0_0= RULE_STRING )
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:615:1: ( (lv_value_0_0= RULE_STRING ) )
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:616:1: (lv_value_0_0= RULE_STRING )
             {
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:637:1: (lv_value_0_0= RULE_STRING )
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:638:3: lv_value_0_0= RULE_STRING
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:616:1: (lv_value_0_0= RULE_STRING )
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:617:3: lv_value_0_0= RULE_STRING
             {
-            lv_value_0_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleStringLiteral1266); 
+            lv_value_0_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleStringLiteral1219); 
 
             			newLeafNode(lv_value_0_0, grammarAccess.getStringLiteralAccess().getValueSTRINGTerminalRuleCall_0()); 
             		
@@ -1576,7 +1523,7 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleIntegerLiteral"
-    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:662:1: entryRuleIntegerLiteral returns [EObject current=null] : iv_ruleIntegerLiteral= ruleIntegerLiteral EOF ;
+    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:641:1: entryRuleIntegerLiteral returns [EObject current=null] : iv_ruleIntegerLiteral= ruleIntegerLiteral EOF ;
     public final EObject entryRuleIntegerLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -1584,17 +1531,17 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:663:2: (iv_ruleIntegerLiteral= ruleIntegerLiteral EOF )
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:664:2: iv_ruleIntegerLiteral= ruleIntegerLiteral EOF
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:642:2: (iv_ruleIntegerLiteral= ruleIntegerLiteral EOF )
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:643:2: iv_ruleIntegerLiteral= ruleIntegerLiteral EOF
             {
              newCompositeNode(grammarAccess.getIntegerLiteralRule()); 
-            pushFollow(FOLLOW_ruleIntegerLiteral_in_entryRuleIntegerLiteral1306);
+            pushFollow(FOLLOW_ruleIntegerLiteral_in_entryRuleIntegerLiteral1259);
             iv_ruleIntegerLiteral=ruleIntegerLiteral();
 
             state._fsp--;
 
              current =iv_ruleIntegerLiteral; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleIntegerLiteral1316); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleIntegerLiteral1269); 
 
             }
 
@@ -1612,7 +1559,7 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleIntegerLiteral"
-    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:671:1: ruleIntegerLiteral returns [EObject current=null] : ( (lv_value_0_0= RULE_INT ) ) ;
+    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:650:1: ruleIntegerLiteral returns [EObject current=null] : ( (lv_value_0_0= RULE_INT ) ) ;
     public final EObject ruleIntegerLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -1621,16 +1568,16 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:674:28: ( ( (lv_value_0_0= RULE_INT ) ) )
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:675:1: ( (lv_value_0_0= RULE_INT ) )
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:653:28: ( ( (lv_value_0_0= RULE_INT ) ) )
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:654:1: ( (lv_value_0_0= RULE_INT ) )
             {
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:675:1: ( (lv_value_0_0= RULE_INT ) )
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:676:1: (lv_value_0_0= RULE_INT )
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:654:1: ( (lv_value_0_0= RULE_INT ) )
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:655:1: (lv_value_0_0= RULE_INT )
             {
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:676:1: (lv_value_0_0= RULE_INT )
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:677:3: lv_value_0_0= RULE_INT
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:655:1: (lv_value_0_0= RULE_INT )
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:656:3: lv_value_0_0= RULE_INT
             {
-            lv_value_0_0=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleIntegerLiteral1357); 
+            lv_value_0_0=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleIntegerLiteral1310); 
 
             			newLeafNode(lv_value_0_0, grammarAccess.getIntegerLiteralAccess().getValueINTTerminalRuleCall_0()); 
             		
@@ -1668,7 +1615,7 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDoubleLiteral"
-    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:701:1: entryRuleDoubleLiteral returns [EObject current=null] : iv_ruleDoubleLiteral= ruleDoubleLiteral EOF ;
+    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:680:1: entryRuleDoubleLiteral returns [EObject current=null] : iv_ruleDoubleLiteral= ruleDoubleLiteral EOF ;
     public final EObject entryRuleDoubleLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -1676,17 +1623,17 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:702:2: (iv_ruleDoubleLiteral= ruleDoubleLiteral EOF )
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:703:2: iv_ruleDoubleLiteral= ruleDoubleLiteral EOF
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:681:2: (iv_ruleDoubleLiteral= ruleDoubleLiteral EOF )
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:682:2: iv_ruleDoubleLiteral= ruleDoubleLiteral EOF
             {
              newCompositeNode(grammarAccess.getDoubleLiteralRule()); 
-            pushFollow(FOLLOW_ruleDoubleLiteral_in_entryRuleDoubleLiteral1397);
+            pushFollow(FOLLOW_ruleDoubleLiteral_in_entryRuleDoubleLiteral1350);
             iv_ruleDoubleLiteral=ruleDoubleLiteral();
 
             state._fsp--;
 
              current =iv_ruleDoubleLiteral; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleDoubleLiteral1407); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleDoubleLiteral1360); 
 
             }
 
@@ -1704,7 +1651,7 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDoubleLiteral"
-    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:710:1: ruleDoubleLiteral returns [EObject current=null] : ( ( (lv_value_0_0= RULE_INT ) ) otherlv_1= '.' this_INT_2= RULE_INT ) ;
+    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:689:1: ruleDoubleLiteral returns [EObject current=null] : ( ( (lv_value_0_0= RULE_INT ) ) otherlv_1= '.' this_INT_2= RULE_INT ) ;
     public final EObject ruleDoubleLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -1715,19 +1662,19 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:713:28: ( ( ( (lv_value_0_0= RULE_INT ) ) otherlv_1= '.' this_INT_2= RULE_INT ) )
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:714:1: ( ( (lv_value_0_0= RULE_INT ) ) otherlv_1= '.' this_INT_2= RULE_INT )
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:692:28: ( ( ( (lv_value_0_0= RULE_INT ) ) otherlv_1= '.' this_INT_2= RULE_INT ) )
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:693:1: ( ( (lv_value_0_0= RULE_INT ) ) otherlv_1= '.' this_INT_2= RULE_INT )
             {
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:714:1: ( ( (lv_value_0_0= RULE_INT ) ) otherlv_1= '.' this_INT_2= RULE_INT )
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:714:2: ( (lv_value_0_0= RULE_INT ) ) otherlv_1= '.' this_INT_2= RULE_INT
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:693:1: ( ( (lv_value_0_0= RULE_INT ) ) otherlv_1= '.' this_INT_2= RULE_INT )
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:693:2: ( (lv_value_0_0= RULE_INT ) ) otherlv_1= '.' this_INT_2= RULE_INT
             {
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:714:2: ( (lv_value_0_0= RULE_INT ) )
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:715:1: (lv_value_0_0= RULE_INT )
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:693:2: ( (lv_value_0_0= RULE_INT ) )
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:694:1: (lv_value_0_0= RULE_INT )
             {
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:715:1: (lv_value_0_0= RULE_INT )
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:716:3: lv_value_0_0= RULE_INT
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:694:1: (lv_value_0_0= RULE_INT )
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:695:3: lv_value_0_0= RULE_INT
             {
-            lv_value_0_0=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleDoubleLiteral1449); 
+            lv_value_0_0=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleDoubleLiteral1402); 
 
             			newLeafNode(lv_value_0_0, grammarAccess.getDoubleLiteralAccess().getValueINTTerminalRuleCall_0_0()); 
             		
@@ -1747,11 +1694,11 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,26,FOLLOW_26_in_ruleDoubleLiteral1466); 
+            otherlv_1=(Token)match(input,24,FOLLOW_24_in_ruleDoubleLiteral1419); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getDoubleLiteralAccess().getFullStopKeyword_1());
                 
-            this_INT_2=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleDoubleLiteral1477); 
+            this_INT_2=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleDoubleLiteral1430); 
              
                 newLeafNode(this_INT_2, grammarAccess.getDoubleLiteralAccess().getINTTerminalRuleCall_2()); 
                 
@@ -1776,7 +1723,7 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleImport"
-    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:748:1: entryRuleImport returns [EObject current=null] : iv_ruleImport= ruleImport EOF ;
+    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:727:1: entryRuleImport returns [EObject current=null] : iv_ruleImport= ruleImport EOF ;
     public final EObject entryRuleImport() throws RecognitionException {
         EObject current = null;
 
@@ -1784,17 +1731,17 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:749:2: (iv_ruleImport= ruleImport EOF )
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:750:2: iv_ruleImport= ruleImport EOF
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:728:2: (iv_ruleImport= ruleImport EOF )
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:729:2: iv_ruleImport= ruleImport EOF
             {
              newCompositeNode(grammarAccess.getImportRule()); 
-            pushFollow(FOLLOW_ruleImport_in_entryRuleImport1512);
+            pushFollow(FOLLOW_ruleImport_in_entryRuleImport1465);
             iv_ruleImport=ruleImport();
 
             state._fsp--;
 
              current =iv_ruleImport; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleImport1522); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleImport1475); 
 
             }
 
@@ -1812,7 +1759,7 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleImport"
-    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:757:1: ruleImport returns [EObject current=null] : (otherlv_0= 'import' ( (lv_importURI_1_0= RULE_STRING ) ) ) ;
+    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:736:1: ruleImport returns [EObject current=null] : (otherlv_0= 'import' ( (lv_importURI_1_0= RULE_STRING ) ) ) ;
     public final EObject ruleImport() throws RecognitionException {
         EObject current = null;
 
@@ -1822,23 +1769,23 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:760:28: ( (otherlv_0= 'import' ( (lv_importURI_1_0= RULE_STRING ) ) ) )
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:761:1: (otherlv_0= 'import' ( (lv_importURI_1_0= RULE_STRING ) ) )
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:739:28: ( (otherlv_0= 'import' ( (lv_importURI_1_0= RULE_STRING ) ) ) )
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:740:1: (otherlv_0= 'import' ( (lv_importURI_1_0= RULE_STRING ) ) )
             {
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:761:1: (otherlv_0= 'import' ( (lv_importURI_1_0= RULE_STRING ) ) )
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:761:3: otherlv_0= 'import' ( (lv_importURI_1_0= RULE_STRING ) )
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:740:1: (otherlv_0= 'import' ( (lv_importURI_1_0= RULE_STRING ) ) )
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:740:3: otherlv_0= 'import' ( (lv_importURI_1_0= RULE_STRING ) )
             {
-            otherlv_0=(Token)match(input,27,FOLLOW_27_in_ruleImport1559); 
+            otherlv_0=(Token)match(input,25,FOLLOW_25_in_ruleImport1512); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getImportAccess().getImportKeyword_0());
                 
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:765:1: ( (lv_importURI_1_0= RULE_STRING ) )
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:766:1: (lv_importURI_1_0= RULE_STRING )
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:744:1: ( (lv_importURI_1_0= RULE_STRING ) )
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:745:1: (lv_importURI_1_0= RULE_STRING )
             {
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:766:1: (lv_importURI_1_0= RULE_STRING )
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:767:3: lv_importURI_1_0= RULE_STRING
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:745:1: (lv_importURI_1_0= RULE_STRING )
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:746:3: lv_importURI_1_0= RULE_STRING
             {
-            lv_importURI_1_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleImport1576); 
+            lv_importURI_1_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleImport1529); 
 
             			newLeafNode(lv_importURI_1_0, grammarAccess.getImportAccess().getImportURISTRINGTerminalRuleCall_1_0()); 
             		
@@ -1879,7 +1826,7 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleValidID"
-    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:793:1: entryRuleValidID returns [String current=null] : iv_ruleValidID= ruleValidID EOF ;
+    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:772:1: entryRuleValidID returns [String current=null] : iv_ruleValidID= ruleValidID EOF ;
     public final String entryRuleValidID() throws RecognitionException {
         String current = null;
 
@@ -1887,17 +1834,17 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:794:2: (iv_ruleValidID= ruleValidID EOF )
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:795:2: iv_ruleValidID= ruleValidID EOF
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:773:2: (iv_ruleValidID= ruleValidID EOF )
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:774:2: iv_ruleValidID= ruleValidID EOF
             {
              newCompositeNode(grammarAccess.getValidIDRule()); 
-            pushFollow(FOLLOW_ruleValidID_in_entryRuleValidID1620);
+            pushFollow(FOLLOW_ruleValidID_in_entryRuleValidID1573);
             iv_ruleValidID=ruleValidID();
 
             state._fsp--;
 
              current =iv_ruleValidID.getText(); 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleValidID1631); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleValidID1584); 
 
             }
 
@@ -1915,7 +1862,7 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleValidID"
-    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:802:1: ruleValidID returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : this_ID_0= RULE_ID ;
+    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:781:1: ruleValidID returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : this_ID_0= RULE_ID ;
     public final AntlrDatatypeRuleToken ruleValidID() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -1924,10 +1871,10 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:805:28: (this_ID_0= RULE_ID )
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:806:5: this_ID_0= RULE_ID
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:784:28: (this_ID_0= RULE_ID )
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:785:5: this_ID_0= RULE_ID
             {
-            this_ID_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleValidID1670); 
+            this_ID_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleValidID1623); 
 
             		current.merge(this_ID_0);
                 
@@ -1952,7 +1899,7 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRulePrimary"
-    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:821:1: entryRulePrimary returns [EObject current=null] : iv_rulePrimary= rulePrimary EOF ;
+    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:800:1: entryRulePrimary returns [EObject current=null] : iv_rulePrimary= rulePrimary EOF ;
     public final EObject entryRulePrimary() throws RecognitionException {
         EObject current = null;
 
@@ -1960,17 +1907,17 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:822:2: (iv_rulePrimary= rulePrimary EOF )
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:823:2: iv_rulePrimary= rulePrimary EOF
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:801:2: (iv_rulePrimary= rulePrimary EOF )
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:802:2: iv_rulePrimary= rulePrimary EOF
             {
              newCompositeNode(grammarAccess.getPrimaryRule()); 
-            pushFollow(FOLLOW_rulePrimary_in_entryRulePrimary1714);
+            pushFollow(FOLLOW_rulePrimary_in_entryRulePrimary1667);
             iv_rulePrimary=rulePrimary();
 
             state._fsp--;
 
              current =iv_rulePrimary; 
-            match(input,EOF,FOLLOW_EOF_in_entryRulePrimary1724); 
+            match(input,EOF,FOLLOW_EOF_in_entryRulePrimary1677); 
 
             }
 
@@ -1988,7 +1935,7 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePrimary"
-    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:830:1: rulePrimary returns [EObject current=null] : (this_StringLiteral_0= ruleStringLiteral | this_IntegerLiteral_1= ruleIntegerLiteral | this_DoubleLiteral_2= ruleDoubleLiteral | ( (otherlv_3= RULE_ID ) ) ) ;
+    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:809:1: rulePrimary returns [EObject current=null] : (this_StringLiteral_0= ruleStringLiteral | this_IntegerLiteral_1= ruleIntegerLiteral | this_DoubleLiteral_2= ruleDoubleLiteral | ( (otherlv_3= RULE_ID ) ) ) ;
     public final EObject rulePrimary() throws RecognitionException {
         EObject current = null;
 
@@ -2003,30 +1950,30 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:833:28: ( (this_StringLiteral_0= ruleStringLiteral | this_IntegerLiteral_1= ruleIntegerLiteral | this_DoubleLiteral_2= ruleDoubleLiteral | ( (otherlv_3= RULE_ID ) ) ) )
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:834:1: (this_StringLiteral_0= ruleStringLiteral | this_IntegerLiteral_1= ruleIntegerLiteral | this_DoubleLiteral_2= ruleDoubleLiteral | ( (otherlv_3= RULE_ID ) ) )
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:812:28: ( (this_StringLiteral_0= ruleStringLiteral | this_IntegerLiteral_1= ruleIntegerLiteral | this_DoubleLiteral_2= ruleDoubleLiteral | ( (otherlv_3= RULE_ID ) ) ) )
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:813:1: (this_StringLiteral_0= ruleStringLiteral | this_IntegerLiteral_1= ruleIntegerLiteral | this_DoubleLiteral_2= ruleDoubleLiteral | ( (otherlv_3= RULE_ID ) ) )
             {
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:834:1: (this_StringLiteral_0= ruleStringLiteral | this_IntegerLiteral_1= ruleIntegerLiteral | this_DoubleLiteral_2= ruleDoubleLiteral | ( (otherlv_3= RULE_ID ) ) )
-            int alt11=4;
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:813:1: (this_StringLiteral_0= ruleStringLiteral | this_IntegerLiteral_1= ruleIntegerLiteral | this_DoubleLiteral_2= ruleDoubleLiteral | ( (otherlv_3= RULE_ID ) ) )
+            int alt10=4;
             switch ( input.LA(1) ) {
             case RULE_STRING:
                 {
-                alt11=1;
+                alt10=1;
                 }
                 break;
             case RULE_INT:
                 {
-                int LA11_2 = input.LA(2);
+                int LA10_2 = input.LA(2);
 
-                if ( (LA11_2==EOF||(LA11_2>=13 && LA11_2<=14)||LA11_2==23||LA11_2==25) ) {
-                    alt11=2;
+                if ( (LA10_2==24) ) {
+                    alt10=3;
                 }
-                else if ( (LA11_2==26) ) {
-                    alt11=3;
+                else if ( (LA10_2==EOF||(LA10_2>=13 && LA10_2<=14)||LA10_2==20||LA10_2==23) ) {
+                    alt10=2;
                 }
                 else {
                     NoViableAltException nvae =
-                        new NoViableAltException("", 11, 2, input);
+                        new NoViableAltException("", 10, 2, input);
 
                     throw nvae;
                 }
@@ -2034,24 +1981,24 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
                 break;
             case RULE_ID:
                 {
-                alt11=4;
+                alt10=4;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 11, 0, input);
+                    new NoViableAltException("", 10, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt11) {
+            switch (alt10) {
                 case 1 :
-                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:835:5: this_StringLiteral_0= ruleStringLiteral
+                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:814:5: this_StringLiteral_0= ruleStringLiteral
                     {
                      
                             newCompositeNode(grammarAccess.getPrimaryAccess().getStringLiteralParserRuleCall_0()); 
                         
-                    pushFollow(FOLLOW_ruleStringLiteral_in_rulePrimary1771);
+                    pushFollow(FOLLOW_ruleStringLiteral_in_rulePrimary1724);
                     this_StringLiteral_0=ruleStringLiteral();
 
                     state._fsp--;
@@ -2064,12 +2011,12 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:845:5: this_IntegerLiteral_1= ruleIntegerLiteral
+                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:824:5: this_IntegerLiteral_1= ruleIntegerLiteral
                     {
                      
                             newCompositeNode(grammarAccess.getPrimaryAccess().getIntegerLiteralParserRuleCall_1()); 
                         
-                    pushFollow(FOLLOW_ruleIntegerLiteral_in_rulePrimary1798);
+                    pushFollow(FOLLOW_ruleIntegerLiteral_in_rulePrimary1751);
                     this_IntegerLiteral_1=ruleIntegerLiteral();
 
                     state._fsp--;
@@ -2082,12 +2029,12 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:855:5: this_DoubleLiteral_2= ruleDoubleLiteral
+                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:834:5: this_DoubleLiteral_2= ruleDoubleLiteral
                     {
                      
                             newCompositeNode(grammarAccess.getPrimaryAccess().getDoubleLiteralParserRuleCall_2()); 
                         
-                    pushFollow(FOLLOW_ruleDoubleLiteral_in_rulePrimary1825);
+                    pushFollow(FOLLOW_ruleDoubleLiteral_in_rulePrimary1778);
                     this_DoubleLiteral_2=ruleDoubleLiteral();
 
                     state._fsp--;
@@ -2100,20 +2047,20 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:864:6: ( (otherlv_3= RULE_ID ) )
+                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:843:6: ( (otherlv_3= RULE_ID ) )
                     {
-                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:864:6: ( (otherlv_3= RULE_ID ) )
-                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:865:1: (otherlv_3= RULE_ID )
+                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:843:6: ( (otherlv_3= RULE_ID ) )
+                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:844:1: (otherlv_3= RULE_ID )
                     {
-                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:865:1: (otherlv_3= RULE_ID )
-                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:866:3: otherlv_3= RULE_ID
+                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:844:1: (otherlv_3= RULE_ID )
+                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:845:3: otherlv_3= RULE_ID
                     {
 
                     			if (current==null) {
                     	            current = createModelElement(grammarAccess.getPrimaryRule());
                     	        }
                             
-                    otherlv_3=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_rulePrimary1850); 
+                    otherlv_3=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_rulePrimary1803); 
 
                     		newLeafNode(otherlv_3, grammarAccess.getPrimaryAccess().getParamParamCrossReference_3_0()); 
                     	
@@ -2147,7 +2094,7 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDataType"
-    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:885:1: ruleDataType returns [Enumerator current=null] : ( (enumLiteral_0= 'STRING' ) | (enumLiteral_1= 'URL' ) | (enumLiteral_2= 'DATA' ) | (enumLiteral_3= 'PATH' ) | (enumLiteral_4= 'FOLDERPATH' ) ) ;
+    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:864:1: ruleDataType returns [Enumerator current=null] : ( (enumLiteral_0= 'STRING' ) | (enumLiteral_1= 'URL' ) | (enumLiteral_2= 'DATA' ) | (enumLiteral_3= 'PATH' ) | (enumLiteral_4= 'FOLDERPATH' ) ) ;
     public final Enumerator ruleDataType() throws RecognitionException {
         Enumerator current = null;
 
@@ -2159,52 +2106,52 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
 
          enterRule(); 
         try {
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:887:28: ( ( (enumLiteral_0= 'STRING' ) | (enumLiteral_1= 'URL' ) | (enumLiteral_2= 'DATA' ) | (enumLiteral_3= 'PATH' ) | (enumLiteral_4= 'FOLDERPATH' ) ) )
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:888:1: ( (enumLiteral_0= 'STRING' ) | (enumLiteral_1= 'URL' ) | (enumLiteral_2= 'DATA' ) | (enumLiteral_3= 'PATH' ) | (enumLiteral_4= 'FOLDERPATH' ) )
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:866:28: ( ( (enumLiteral_0= 'STRING' ) | (enumLiteral_1= 'URL' ) | (enumLiteral_2= 'DATA' ) | (enumLiteral_3= 'PATH' ) | (enumLiteral_4= 'FOLDERPATH' ) ) )
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:867:1: ( (enumLiteral_0= 'STRING' ) | (enumLiteral_1= 'URL' ) | (enumLiteral_2= 'DATA' ) | (enumLiteral_3= 'PATH' ) | (enumLiteral_4= 'FOLDERPATH' ) )
             {
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:888:1: ( (enumLiteral_0= 'STRING' ) | (enumLiteral_1= 'URL' ) | (enumLiteral_2= 'DATA' ) | (enumLiteral_3= 'PATH' ) | (enumLiteral_4= 'FOLDERPATH' ) )
-            int alt12=5;
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:867:1: ( (enumLiteral_0= 'STRING' ) | (enumLiteral_1= 'URL' ) | (enumLiteral_2= 'DATA' ) | (enumLiteral_3= 'PATH' ) | (enumLiteral_4= 'FOLDERPATH' ) )
+            int alt11=5;
             switch ( input.LA(1) ) {
+            case 26:
+                {
+                alt11=1;
+                }
+                break;
+            case 27:
+                {
+                alt11=2;
+                }
+                break;
             case 28:
                 {
-                alt12=1;
+                alt11=3;
                 }
                 break;
             case 29:
                 {
-                alt12=2;
+                alt11=4;
                 }
                 break;
             case 30:
                 {
-                alt12=3;
-                }
-                break;
-            case 31:
-                {
-                alt12=4;
-                }
-                break;
-            case 32:
-                {
-                alt12=5;
+                alt11=5;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 12, 0, input);
+                    new NoViableAltException("", 11, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt12) {
+            switch (alt11) {
                 case 1 :
-                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:888:2: (enumLiteral_0= 'STRING' )
+                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:867:2: (enumLiteral_0= 'STRING' )
                     {
-                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:888:2: (enumLiteral_0= 'STRING' )
-                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:888:4: enumLiteral_0= 'STRING'
+                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:867:2: (enumLiteral_0= 'STRING' )
+                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:867:4: enumLiteral_0= 'STRING'
                     {
-                    enumLiteral_0=(Token)match(input,28,FOLLOW_28_in_ruleDataType1900); 
+                    enumLiteral_0=(Token)match(input,26,FOLLOW_26_in_ruleDataType1853); 
 
                             current = grammarAccess.getDataTypeAccess().getSTRINGEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_0, grammarAccess.getDataTypeAccess().getSTRINGEnumLiteralDeclaration_0()); 
@@ -2216,12 +2163,12 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:894:6: (enumLiteral_1= 'URL' )
+                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:873:6: (enumLiteral_1= 'URL' )
                     {
-                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:894:6: (enumLiteral_1= 'URL' )
-                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:894:8: enumLiteral_1= 'URL'
+                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:873:6: (enumLiteral_1= 'URL' )
+                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:873:8: enumLiteral_1= 'URL'
                     {
-                    enumLiteral_1=(Token)match(input,29,FOLLOW_29_in_ruleDataType1917); 
+                    enumLiteral_1=(Token)match(input,27,FOLLOW_27_in_ruleDataType1870); 
 
                             current = grammarAccess.getDataTypeAccess().getURLEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_1, grammarAccess.getDataTypeAccess().getURLEnumLiteralDeclaration_1()); 
@@ -2233,12 +2180,12 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:900:6: (enumLiteral_2= 'DATA' )
+                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:879:6: (enumLiteral_2= 'DATA' )
                     {
-                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:900:6: (enumLiteral_2= 'DATA' )
-                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:900:8: enumLiteral_2= 'DATA'
+                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:879:6: (enumLiteral_2= 'DATA' )
+                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:879:8: enumLiteral_2= 'DATA'
                     {
-                    enumLiteral_2=(Token)match(input,30,FOLLOW_30_in_ruleDataType1934); 
+                    enumLiteral_2=(Token)match(input,28,FOLLOW_28_in_ruleDataType1887); 
 
                             current = grammarAccess.getDataTypeAccess().getDATAEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_2, grammarAccess.getDataTypeAccess().getDATAEnumLiteralDeclaration_2()); 
@@ -2250,12 +2197,12 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:906:6: (enumLiteral_3= 'PATH' )
+                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:885:6: (enumLiteral_3= 'PATH' )
                     {
-                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:906:6: (enumLiteral_3= 'PATH' )
-                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:906:8: enumLiteral_3= 'PATH'
+                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:885:6: (enumLiteral_3= 'PATH' )
+                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:885:8: enumLiteral_3= 'PATH'
                     {
-                    enumLiteral_3=(Token)match(input,31,FOLLOW_31_in_ruleDataType1951); 
+                    enumLiteral_3=(Token)match(input,29,FOLLOW_29_in_ruleDataType1904); 
 
                             current = grammarAccess.getDataTypeAccess().getPATHEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_3, grammarAccess.getDataTypeAccess().getPATHEnumLiteralDeclaration_3()); 
@@ -2267,12 +2214,12 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:912:6: (enumLiteral_4= 'FOLDERPATH' )
+                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:891:6: (enumLiteral_4= 'FOLDERPATH' )
                     {
-                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:912:6: (enumLiteral_4= 'FOLDERPATH' )
-                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:912:8: enumLiteral_4= 'FOLDERPATH'
+                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:891:6: (enumLiteral_4= 'FOLDERPATH' )
+                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:891:8: enumLiteral_4= 'FOLDERPATH'
                     {
-                    enumLiteral_4=(Token)match(input,32,FOLLOW_32_in_ruleDataType1968); 
+                    enumLiteral_4=(Token)match(input,30,FOLLOW_30_in_ruleDataType1921); 
 
                             current = grammarAccess.getDataTypeAccess().getFOLDERPATHEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_4, grammarAccess.getDataTypeAccess().getFOLDERPATHEnumLiteralDeclaration_4()); 
@@ -2309,7 +2256,7 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
 
     public static final BitSet FOLLOW_ruleModel_in_entryRuleModel75 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleModel85 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleImport_in_ruleModel131 = new BitSet(new long[]{0x0000000008000800L});
+    public static final BitSet FOLLOW_ruleImport_in_ruleModel131 = new BitSet(new long[]{0x0000000002000800L});
     public static final BitSet FOLLOW_ruleProgram_in_ruleModel153 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleProgram_in_entryRuleProgram189 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleProgram199 = new BitSet(new long[]{0x0000000000000002L});
@@ -2326,65 +2273,62 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_ruleFunction_in_entryRuleFunction462 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleFunction472 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_15_in_ruleFunction509 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleFunction526 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_ruleFunction543 = new BitSet(new long[]{0x0000000000040010L});
-    public static final BitSet FOLLOW_ruleParam_in_ruleFunction565 = new BitSet(new long[]{0x0000000000060000L});
-    public static final BitSet FOLLOW_17_in_ruleFunction578 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ruleParam_in_ruleFunction599 = new BitSet(new long[]{0x0000000000060000L});
-    public static final BitSet FOLLOW_18_in_ruleFunction615 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_13_in_ruleFunction627 = new BitSet(new long[]{0x0000000000F84000L});
-    public static final BitSet FOLLOW_19_in_ruleFunction640 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_ruleStringLiteral_in_ruleFunction661 = new BitSet(new long[]{0x0000000000F04000L});
-    public static final BitSet FOLLOW_20_in_ruleFunction676 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_ruleStringLiteral_in_ruleFunction697 = new BitSet(new long[]{0x0000000000E04000L});
-    public static final BitSet FOLLOW_21_in_ruleFunction712 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ruleDataDefinition_in_ruleFunction733 = new BitSet(new long[]{0x0000000000E04000L});
-    public static final BitSet FOLLOW_22_in_ruleFunction748 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ruleDataDefinition_in_ruleFunction769 = new BitSet(new long[]{0x0000000000C04000L});
-    public static final BitSet FOLLOW_23_in_ruleFunction784 = new BitSet(new long[]{0x0000000000000070L});
-    public static final BitSet FOLLOW_ruleOption_in_ruleFunction805 = new BitSet(new long[]{0x0000000000804000L});
-    public static final BitSet FOLLOW_14_in_ruleFunction819 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDataDefinition_in_entryRuleDataDefinition855 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleDataDefinition865 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleDataDefinition919 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_24_in_ruleDataDefinition931 = new BitSet(new long[]{0x00000001F0000000L});
-    public static final BitSet FOLLOW_ruleDataType_in_ruleDataDefinition952 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleOption_in_entryRuleOption988 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleOption998 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleConcatExpression_in_ruleOption1043 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleConcatExpression_in_entryRuleConcatExpression1078 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleConcatExpression1088 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rulePrimary_in_ruleConcatExpression1135 = new BitSet(new long[]{0x0000000002000002L});
-    public static final BitSet FOLLOW_25_in_ruleConcatExpression1156 = new BitSet(new long[]{0x0000000000000070L});
-    public static final BitSet FOLLOW_rulePrimary_in_ruleConcatExpression1177 = new BitSet(new long[]{0x0000000002000002L});
-    public static final BitSet FOLLOW_ruleStringLiteral_in_entryRuleStringLiteral1215 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleStringLiteral1225 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleStringLiteral1266 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleIntegerLiteral_in_entryRuleIntegerLiteral1306 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleIntegerLiteral1316 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleIntegerLiteral1357 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDoubleLiteral_in_entryRuleDoubleLiteral1397 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleDoubleLiteral1407 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleDoubleLiteral1449 = new BitSet(new long[]{0x0000000004000000L});
-    public static final BitSet FOLLOW_26_in_ruleDoubleLiteral1466 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleDoubleLiteral1477 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleImport_in_entryRuleImport1512 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleImport1522 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_27_in_ruleImport1559 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleImport1576 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleValidID_in_entryRuleValidID1620 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleValidID1631 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleValidID1670 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rulePrimary_in_entryRulePrimary1714 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRulePrimary1724 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleStringLiteral_in_rulePrimary1771 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleIntegerLiteral_in_rulePrimary1798 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDoubleLiteral_in_rulePrimary1825 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rulePrimary1850 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_28_in_ruleDataType1900 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_29_in_ruleDataType1917 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_30_in_ruleDataType1934 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_31_in_ruleDataType1951 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_32_in_ruleDataType1968 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleFunction526 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleFunction543 = new BitSet(new long[]{0x00000000000F0000L});
+    public static final BitSet FOLLOW_16_in_ruleFunction556 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_ruleStringLiteral_in_ruleFunction577 = new BitSet(new long[]{0x00000000000E0000L});
+    public static final BitSet FOLLOW_17_in_ruleFunction592 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_ruleStringLiteral_in_ruleFunction613 = new BitSet(new long[]{0x00000000000C0000L});
+    public static final BitSet FOLLOW_18_in_ruleFunction628 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ruleDataDefinition_in_ruleFunction649 = new BitSet(new long[]{0x00000000000C0000L});
+    public static final BitSet FOLLOW_19_in_ruleFunction664 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ruleDataDefinition_in_ruleFunction685 = new BitSet(new long[]{0x0000000000184000L});
+    public static final BitSet FOLLOW_20_in_ruleFunction700 = new BitSet(new long[]{0x0000000000000070L});
+    public static final BitSet FOLLOW_ruleOption_in_ruleFunction721 = new BitSet(new long[]{0x0000000000104000L});
+    public static final BitSet FOLLOW_14_in_ruleFunction735 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDataDefinition_in_entryRuleDataDefinition771 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleDataDefinition781 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleParam_in_ruleDataDefinition836 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_21_in_ruleDataDefinition848 = new BitSet(new long[]{0x000000007C000000L});
+    public static final BitSet FOLLOW_ruleDataType_in_ruleDataDefinition869 = new BitSet(new long[]{0x0000000000400002L});
+    public static final BitSet FOLLOW_22_in_ruleDataDefinition882 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_ruleStringLiteral_in_ruleDataDefinition903 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleOption_in_entryRuleOption941 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleOption951 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleConcatExpression_in_ruleOption996 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleConcatExpression_in_entryRuleConcatExpression1031 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleConcatExpression1041 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rulePrimary_in_ruleConcatExpression1088 = new BitSet(new long[]{0x0000000000800002L});
+    public static final BitSet FOLLOW_23_in_ruleConcatExpression1109 = new BitSet(new long[]{0x0000000000000070L});
+    public static final BitSet FOLLOW_rulePrimary_in_ruleConcatExpression1130 = new BitSet(new long[]{0x0000000000800002L});
+    public static final BitSet FOLLOW_ruleStringLiteral_in_entryRuleStringLiteral1168 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleStringLiteral1178 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleStringLiteral1219 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleIntegerLiteral_in_entryRuleIntegerLiteral1259 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleIntegerLiteral1269 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleIntegerLiteral1310 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDoubleLiteral_in_entryRuleDoubleLiteral1350 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleDoubleLiteral1360 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleDoubleLiteral1402 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_24_in_ruleDoubleLiteral1419 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleDoubleLiteral1430 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleImport_in_entryRuleImport1465 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleImport1475 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_25_in_ruleImport1512 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleImport1529 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleValidID_in_entryRuleValidID1573 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleValidID1584 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleValidID1623 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rulePrimary_in_entryRulePrimary1667 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRulePrimary1677 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleStringLiteral_in_rulePrimary1724 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleIntegerLiteral_in_rulePrimary1751 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDoubleLiteral_in_rulePrimary1778 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rulePrimary1803 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_26_in_ruleDataType1853 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_27_in_ruleDataType1870 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_28_in_ruleDataType1887 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_29_in_ruleDataType1904 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_30_in_ruleDataType1921 = new BitSet(new long[]{0x0000000000000002L});
 
 }

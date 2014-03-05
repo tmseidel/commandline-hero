@@ -135,20 +135,10 @@ public class CommandLineSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (input=[Param|ID] type=DataType)
+	 *     (input=Param type=DataType doc=StringLiteral?)
 	 */
 	protected void sequence_DataDefinition(EObject context, DataDefinition semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, CommandLinePackage.Literals.DATA_DEFINITION__INPUT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CommandLinePackage.Literals.DATA_DEFINITION__INPUT));
-			if(transientValues.isValueTransient(semanticObject, CommandLinePackage.Literals.DATA_DEFINITION__TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CommandLinePackage.Literals.DATA_DEFINITION__TYPE));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getDataDefinitionAccess().getInputParamIDTerminalRuleCall_1_0_1(), semanticObject.getInput());
-		feeder.accept(grammarAccess.getDataDefinitionAccess().getTypeDataTypeEnumRuleCall_3_0(), semanticObject.getType());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -165,11 +155,10 @@ public class CommandLineSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 * Constraint:
 	 *     (
 	 *         name=ID 
-	 *         (params+=Param params+=Param*)? 
-	 *         doc=StringLiteral? 
+	 *         desc=StringLiteral? 
 	 *         docurl=StringLiteral? 
 	 *         input+=DataDefinition* 
-	 *         output+=DataDefinition* 
+	 *         output+=DataDefinition+ 
 	 *         optionBlocks+=Option*
 	 *     )
 	 */

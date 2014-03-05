@@ -84,6 +84,8 @@ public abstract class ExecutionInstruction implements Runnable {
 
 	public abstract List<ResultDataElement> getOutputElements();
 
+	public abstract List<ResultDataElement> getInputElements();
+
 	public OutputStream getProcessStream() {
 		return processStream;
 	}

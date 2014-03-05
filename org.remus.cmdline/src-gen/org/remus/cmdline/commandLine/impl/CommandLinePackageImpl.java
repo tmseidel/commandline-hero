@@ -303,7 +303,7 @@ public class CommandLinePackageImpl extends EPackageImpl implements CommandLineP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getFunction_Params()
+  public EReference getFunction_Desc()
   {
     return (EReference)functionEClass.getEStructuralFeatures().get(1);
   }
@@ -313,7 +313,7 @@ public class CommandLinePackageImpl extends EPackageImpl implements CommandLineP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getFunction_Doc()
+  public EReference getFunction_Docurl()
   {
     return (EReference)functionEClass.getEStructuralFeatures().get(2);
   }
@@ -323,7 +323,7 @@ public class CommandLinePackageImpl extends EPackageImpl implements CommandLineP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getFunction_Docurl()
+  public EReference getFunction_Input()
   {
     return (EReference)functionEClass.getEStructuralFeatures().get(3);
   }
@@ -333,7 +333,7 @@ public class CommandLinePackageImpl extends EPackageImpl implements CommandLineP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getFunction_Input()
+  public EReference getFunction_Output()
   {
     return (EReference)functionEClass.getEStructuralFeatures().get(4);
   }
@@ -343,19 +343,9 @@ public class CommandLinePackageImpl extends EPackageImpl implements CommandLineP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getFunction_Output()
-  {
-    return (EReference)functionEClass.getEStructuralFeatures().get(5);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getFunction_OptionBlocks()
   {
-    return (EReference)functionEClass.getEStructuralFeatures().get(6);
+    return (EReference)functionEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -386,6 +376,16 @@ public class CommandLinePackageImpl extends EPackageImpl implements CommandLineP
   public EAttribute getDataDefinition_Type()
   {
     return (EAttribute)dataDefinitionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDataDefinition_Doc()
+  {
+    return (EReference)dataDefinitionEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -592,8 +592,7 @@ public class CommandLinePackageImpl extends EPackageImpl implements CommandLineP
 
     functionEClass = createEClass(FUNCTION);
     createEAttribute(functionEClass, FUNCTION__NAME);
-    createEReference(functionEClass, FUNCTION__PARAMS);
-    createEReference(functionEClass, FUNCTION__DOC);
+    createEReference(functionEClass, FUNCTION__DESC);
     createEReference(functionEClass, FUNCTION__DOCURL);
     createEReference(functionEClass, FUNCTION__INPUT);
     createEReference(functionEClass, FUNCTION__OUTPUT);
@@ -602,6 +601,7 @@ public class CommandLinePackageImpl extends EPackageImpl implements CommandLineP
     dataDefinitionEClass = createEClass(DATA_DEFINITION);
     createEReference(dataDefinitionEClass, DATA_DEFINITION__INPUT);
     createEAttribute(dataDefinitionEClass, DATA_DEFINITION__TYPE);
+    createEReference(dataDefinitionEClass, DATA_DEFINITION__DOC);
 
     optionEClass = createEClass(OPTION);
     createEReference(optionEClass, OPTION__PARAM);
@@ -678,16 +678,16 @@ public class CommandLinePackageImpl extends EPackageImpl implements CommandLineP
 
     initEClass(functionEClass, Function.class, "Function", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getFunction_Name(), ecorePackage.getEString(), "name", null, 0, 1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getFunction_Params(), this.getParam(), null, "params", null, 0, -1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getFunction_Doc(), this.getStringLiteral(), null, "doc", null, 0, 1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFunction_Desc(), this.getStringLiteral(), null, "desc", null, 0, 1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getFunction_Docurl(), this.getStringLiteral(), null, "docurl", null, 0, 1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getFunction_Input(), this.getDataDefinition(), null, "input", null, 0, -1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getFunction_Output(), this.getDataDefinition(), null, "output", null, 0, -1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getFunction_OptionBlocks(), this.getOption(), null, "optionBlocks", null, 0, -1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dataDefinitionEClass, DataDefinition.class, "DataDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDataDefinition_Input(), this.getParam(), null, "input", null, 0, 1, DataDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDataDefinition_Input(), this.getParam(), null, "input", null, 0, 1, DataDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getDataDefinition_Type(), this.getDataType(), "type", null, 0, 1, DataDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDataDefinition_Doc(), this.getStringLiteral(), null, "doc", null, 0, 1, DataDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(optionEClass, Option.class, "Option", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getOption_Param(), this.getExpression(), null, "param", null, 0, 1, Option.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link org.remus.cmdline.commandLine.DataDefinition#getInput <em>Input</em>}</li>
  *   <li>{@link org.remus.cmdline.commandLine.DataDefinition#getType <em>Type</em>}</li>
+ *   <li>{@link org.remus.cmdline.commandLine.DataDefinition#getDoc <em>Doc</em>}</li>
  * </ul>
  * </p>
  *
@@ -24,26 +25,26 @@ import org.eclipse.emf.ecore.EObject;
 public interface DataDefinition extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Input</b></em>' reference.
+   * Returns the value of the '<em><b>Input</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Input</em>' reference isn't clear,
+   * If the meaning of the '<em>Input</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Input</em>' reference.
+   * @return the value of the '<em>Input</em>' containment reference.
    * @see #setInput(Param)
    * @see org.remus.cmdline.commandLine.CommandLinePackage#getDataDefinition_Input()
-   * @model
+   * @model containment="true"
    * @generated
    */
   Param getInput();
 
   /**
-   * Sets the value of the '{@link org.remus.cmdline.commandLine.DataDefinition#getInput <em>Input</em>}' reference.
+   * Sets the value of the '{@link org.remus.cmdline.commandLine.DataDefinition#getInput <em>Input</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Input</em>' reference.
+   * @param value the new value of the '<em>Input</em>' containment reference.
    * @see #getInput()
    * @generated
    */
@@ -77,5 +78,31 @@ public interface DataDefinition extends EObject
    * @generated
    */
   void setType(DataType value);
+
+  /**
+   * Returns the value of the '<em><b>Doc</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Doc</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Doc</em>' containment reference.
+   * @see #setDoc(StringLiteral)
+   * @see org.remus.cmdline.commandLine.CommandLinePackage#getDataDefinition_Doc()
+   * @model containment="true"
+   * @generated
+   */
+  StringLiteral getDoc();
+
+  /**
+   * Sets the value of the '{@link org.remus.cmdline.commandLine.DataDefinition#getDoc <em>Doc</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Doc</em>' containment reference.
+   * @see #getDoc()
+   * @generated
+   */
+  void setDoc(StringLiteral value);
 
 } // DataDefinition

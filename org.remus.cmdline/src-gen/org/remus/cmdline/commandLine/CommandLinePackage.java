@@ -188,22 +188,13 @@ public interface CommandLinePackage extends EPackage
   int FUNCTION__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Params</b></em>' containment reference list.
+   * The feature id for the '<em><b>Desc</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FUNCTION__PARAMS = 1;
-
-  /**
-   * The feature id for the '<em><b>Doc</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUNCTION__DOC = 2;
+  int FUNCTION__DESC = 1;
 
   /**
    * The feature id for the '<em><b>Docurl</b></em>' containment reference.
@@ -212,7 +203,7 @@ public interface CommandLinePackage extends EPackage
    * @generated
    * @ordered
    */
-  int FUNCTION__DOCURL = 3;
+  int FUNCTION__DOCURL = 2;
 
   /**
    * The feature id for the '<em><b>Input</b></em>' containment reference list.
@@ -221,7 +212,7 @@ public interface CommandLinePackage extends EPackage
    * @generated
    * @ordered
    */
-  int FUNCTION__INPUT = 4;
+  int FUNCTION__INPUT = 3;
 
   /**
    * The feature id for the '<em><b>Output</b></em>' containment reference list.
@@ -230,7 +221,7 @@ public interface CommandLinePackage extends EPackage
    * @generated
    * @ordered
    */
-  int FUNCTION__OUTPUT = 5;
+  int FUNCTION__OUTPUT = 4;
 
   /**
    * The feature id for the '<em><b>Option Blocks</b></em>' containment reference list.
@@ -239,7 +230,7 @@ public interface CommandLinePackage extends EPackage
    * @generated
    * @ordered
    */
-  int FUNCTION__OPTION_BLOCKS = 6;
+  int FUNCTION__OPTION_BLOCKS = 5;
 
   /**
    * The number of structural features of the '<em>Function</em>' class.
@@ -248,7 +239,7 @@ public interface CommandLinePackage extends EPackage
    * @generated
    * @ordered
    */
-  int FUNCTION_FEATURE_COUNT = 7;
+  int FUNCTION_FEATURE_COUNT = 6;
 
   /**
    * The meta object id for the '{@link org.remus.cmdline.commandLine.impl.DataDefinitionImpl <em>Data Definition</em>}' class.
@@ -261,7 +252,7 @@ public interface CommandLinePackage extends EPackage
   int DATA_DEFINITION = 4;
 
   /**
-   * The feature id for the '<em><b>Input</b></em>' reference.
+   * The feature id for the '<em><b>Input</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -279,13 +270,22 @@ public interface CommandLinePackage extends EPackage
   int DATA_DEFINITION__TYPE = 1;
 
   /**
+   * The feature id for the '<em><b>Doc</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DATA_DEFINITION__DOC = 2;
+
+  /**
    * The number of structural features of the '<em>Data Definition</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DATA_DEFINITION_FEATURE_COUNT = 2;
+  int DATA_DEFINITION_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.remus.cmdline.commandLine.impl.OptionImpl <em>Option</em>}' class.
@@ -657,26 +657,15 @@ public interface CommandLinePackage extends EPackage
   EAttribute getFunction_Name();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.remus.cmdline.commandLine.Function#getParams <em>Params</em>}'.
+   * Returns the meta object for the containment reference '{@link org.remus.cmdline.commandLine.Function#getDesc <em>Desc</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Params</em>'.
-   * @see org.remus.cmdline.commandLine.Function#getParams()
+   * @return the meta object for the containment reference '<em>Desc</em>'.
+   * @see org.remus.cmdline.commandLine.Function#getDesc()
    * @see #getFunction()
    * @generated
    */
-  EReference getFunction_Params();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.remus.cmdline.commandLine.Function#getDoc <em>Doc</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Doc</em>'.
-   * @see org.remus.cmdline.commandLine.Function#getDoc()
-   * @see #getFunction()
-   * @generated
-   */
-  EReference getFunction_Doc();
+  EReference getFunction_Desc();
 
   /**
    * Returns the meta object for the containment reference '{@link org.remus.cmdline.commandLine.Function#getDocurl <em>Docurl</em>}'.
@@ -733,10 +722,10 @@ public interface CommandLinePackage extends EPackage
   EClass getDataDefinition();
 
   /**
-   * Returns the meta object for the reference '{@link org.remus.cmdline.commandLine.DataDefinition#getInput <em>Input</em>}'.
+   * Returns the meta object for the containment reference '{@link org.remus.cmdline.commandLine.DataDefinition#getInput <em>Input</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Input</em>'.
+   * @return the meta object for the containment reference '<em>Input</em>'.
    * @see org.remus.cmdline.commandLine.DataDefinition#getInput()
    * @see #getDataDefinition()
    * @generated
@@ -753,6 +742,17 @@ public interface CommandLinePackage extends EPackage
    * @generated
    */
   EAttribute getDataDefinition_Type();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.remus.cmdline.commandLine.DataDefinition#getDoc <em>Doc</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Doc</em>'.
+   * @see org.remus.cmdline.commandLine.DataDefinition#getDoc()
+   * @see #getDataDefinition()
+   * @generated
+   */
+  EReference getDataDefinition_Doc();
 
   /**
    * Returns the meta object for class '{@link org.remus.cmdline.commandLine.Option <em>Option</em>}'.
@@ -1042,20 +1042,12 @@ public interface CommandLinePackage extends EPackage
     EAttribute FUNCTION__NAME = eINSTANCE.getFunction_Name();
 
     /**
-     * The meta object literal for the '<em><b>Params</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Desc</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference FUNCTION__PARAMS = eINSTANCE.getFunction_Params();
-
-    /**
-     * The meta object literal for the '<em><b>Doc</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference FUNCTION__DOC = eINSTANCE.getFunction_Doc();
+    EReference FUNCTION__DESC = eINSTANCE.getFunction_Desc();
 
     /**
      * The meta object literal for the '<em><b>Docurl</b></em>' containment reference feature.
@@ -1100,7 +1092,7 @@ public interface CommandLinePackage extends EPackage
     EClass DATA_DEFINITION = eINSTANCE.getDataDefinition();
 
     /**
-     * The meta object literal for the '<em><b>Input</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Input</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -1114,6 +1106,14 @@ public interface CommandLinePackage extends EPackage
      * @generated
      */
     EAttribute DATA_DEFINITION__TYPE = eINSTANCE.getDataDefinition_Type();
+
+    /**
+     * The meta object literal for the '<em><b>Doc</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DATA_DEFINITION__DOC = eINSTANCE.getDataDefinition_Doc();
 
     /**
      * The meta object literal for the '{@link org.remus.cmdline.commandLine.impl.OptionImpl <em>Option</em>}' class.

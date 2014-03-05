@@ -22,5 +22,5 @@ package org.remus.mediaexeutor.data;
  * 
  */
 public enum ParamDataType {
-	FILEPATH, URL, DATA, STRING
+	PATH, URL, DATA, STRING
 }

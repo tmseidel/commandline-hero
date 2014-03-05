@@ -15,8 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.remus.cmdline.commandLine.Function#getName <em>Name</em>}</li>
- *   <li>{@link org.remus.cmdline.commandLine.Function#getParams <em>Params</em>}</li>
- *   <li>{@link org.remus.cmdline.commandLine.Function#getDoc <em>Doc</em>}</li>
+ *   <li>{@link org.remus.cmdline.commandLine.Function#getDesc <em>Desc</em>}</li>
  *   <li>{@link org.remus.cmdline.commandLine.Function#getDocurl <em>Docurl</em>}</li>
  *   <li>{@link org.remus.cmdline.commandLine.Function#getInput <em>Input</em>}</li>
  *   <li>{@link org.remus.cmdline.commandLine.Function#getOutput <em>Output</em>}</li>
@@ -57,46 +56,30 @@ public interface Function extends EObject
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Params</b></em>' containment reference list.
-   * The list contents are of type {@link org.remus.cmdline.commandLine.Param}.
+   * Returns the value of the '<em><b>Desc</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Params</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Desc</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Params</em>' containment reference list.
-   * @see org.remus.cmdline.commandLine.CommandLinePackage#getFunction_Params()
+   * @return the value of the '<em>Desc</em>' containment reference.
+   * @see #setDesc(StringLiteral)
+   * @see org.remus.cmdline.commandLine.CommandLinePackage#getFunction_Desc()
    * @model containment="true"
    * @generated
    */
-  EList<Param> getParams();
+  StringLiteral getDesc();
 
   /**
-   * Returns the value of the '<em><b>Doc</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Doc</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Doc</em>' containment reference.
-   * @see #setDoc(StringLiteral)
-   * @see org.remus.cmdline.commandLine.CommandLinePackage#getFunction_Doc()
-   * @model containment="true"
-   * @generated
-   */
-  StringLiteral getDoc();
-
-  /**
-   * Sets the value of the '{@link org.remus.cmdline.commandLine.Function#getDoc <em>Doc</em>}' containment reference.
+   * Sets the value of the '{@link org.remus.cmdline.commandLine.Function#getDesc <em>Desc</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Doc</em>' containment reference.
-   * @see #getDoc()
+   * @param value the new value of the '<em>Desc</em>' containment reference.
+   * @see #getDesc()
    * @generated
    */
-  void setDoc(StringLiteral value);
+  void setDesc(StringLiteral value);
 
   /**
    * Returns the value of the '<em><b>Docurl</b></em>' containment reference.

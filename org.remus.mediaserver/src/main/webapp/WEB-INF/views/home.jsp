@@ -9,7 +9,7 @@
 <html>
 	<head>
 		
-		<title>Minimaxing by HTML5 UP</title>
+		<title>Remus Exec</title>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
@@ -69,7 +69,11 @@
 							<ul class="small-image-list">
 								<li>
 									<h4>Ffmpeg_rotate - 2014-11-01 14:01:11</h4>
-									<p>Results: <a href="#">out</a></p>
+									<ul class="input-list">
+										<li>in: test.mp4</li>
+										<li>rotationType: 2</li>
+										<li>Results: <a href="#">out</a></li>
+									</ul>
 								</li>
 								<li>
 									<h4>Ffmpeg_rotate - 2014-11-01 14:01:11</h4>
@@ -113,69 +117,6 @@
 		</div>
 		<div id="footer-wrapper">
 			<div class="container">
-				<div class="row">
-					<div class="8u">
-						
-						<section>
-							<h2>How about a truckload of links?</h2>
-							<div>
-								<div class="row">
-									<div class="3u">
-										<ul class="link-list">
-											<li><a href="#">Sed neque nisi consequat</a></li>
-											<li><a href="#">Dapibus sed mattis blandit</a></li>
-											<li><a href="#">Quis accumsan lorem</a></li>
-											<li><a href="#">Suspendisse varius ipsum</a></li>
-											<li><a href="#">Eget et amet consequat</a></li>
-										</ul>
-									</div>
-									<div class="3u">
-										<ul class="link-list">
-											<li><a href="#">Quis accumsan lorem</a></li>
-											<li><a href="#">Sed neque nisi consequat</a></li>
-											<li><a href="#">Eget et amet consequat</a></li>
-											<li><a href="#">Dapibus sed mattis blandit</a></li>
-											<li><a href="#">Vitae magna sed dolore</a></li>
-										</ul>
-									</div>
-									<div class="3u">
-										<ul class="link-list">
-											<li><a href="#">Sed neque nisi consequat</a></li>
-											<li><a href="#">Dapibus sed mattis blandit</a></li>
-											<li><a href="#">Quis accumsan lorem</a></li>
-											<li><a href="#">Suspendisse varius ipsum</a></li>
-											<li><a href="#">Eget et amet consequat</a></li>
-										</ul>
-									</div>
-									<div class="3u">
-										<ul class="link-list">
-											<li><a href="#">Quis accumsan lorem</a></li>
-											<li><a href="#">Sed neque nisi consequat</a></li>
-											<li><a href="#">Eget et amet consequat</a></li>
-											<li><a href="#">Dapibus sed mattis blandit</a></li>
-											<li><a href="#">Vitae magna sed dolore</a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</section>
-					
-					</div>
-					<div class="4u">
-
-						<section>
-							<h2>Something of interest</h2>
-							<p>Duis neque nisi, dapibus sed mattis quis, rutrum accumsan sed. 
-							Suspendisse eu varius nibh. Suspendisse vitae magna eget odio amet 
-							mollis justo facilisis quis. Sed sagittis mauris amet tellus gravida
-							lorem ipsum dolor sit amet consequat blandit.</p>
-							<footer class="controls">
-								<a href="#" class="button">Oh, please continue ....</a>
-							</footer>
-						</section>
-
-					</div>
-				</div>
 				<div class="row">
 					<div class="12u">
 

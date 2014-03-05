@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalCommandLineParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'STRING'", "'URL'", "'DATA'", "'PATH'", "'FOLDERPATH'", "'program '", "'->'", "'{'", "'}'", "'def'", "'('", "')'", "','", "'doc ->'", "'docurl ->'", "'input'", "'output '", "'* '", "'AS'", "'+'", "'.'", "'import'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'STRING'", "'URL'", "'DATA'", "'PATH'", "'FOLDERPATH'", "'program '", "'->'", "'{'", "'}'", "'def'", "'desc ->'", "'docurl ->'", "'input'", "'output '", "'* '", "'AS'", "'doc -> '", "'+'", "'.'", "'import'"
     };
     public static final int RULE_ID=4;
     public static final int T__29=29;
@@ -41,9 +41,7 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
     public static final int RULE_ML_COMMENT=7;
     public static final int T__30=30;
     public static final int T__19=19;
-    public static final int T__31=31;
     public static final int RULE_STRING=6;
-    public static final int T__32=32;
     public static final int T__16=16;
     public static final int T__15=15;
     public static final int T__18=18;
@@ -1149,10 +1147,10 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
                 {
                 int LA1_2 = input.LA(2);
 
-                if ( (LA1_2==31) ) {
+                if ( (LA1_2==29) ) {
                     alt1=3;
                 }
-                else if ( (LA1_2==EOF||(LA1_2>=18 && LA1_2<=19)||LA1_2==28||LA1_2==30) ) {
+                else if ( (LA1_2==EOF||(LA1_2>=18 && LA1_2<=19)||LA1_2==25||LA1_2==28) ) {
                     alt1=2;
                 }
                 else {
@@ -1498,7 +1496,7 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
                 int alt3=2;
                 int LA3_0 = input.LA(1);
 
-                if ( (LA3_0==32) ) {
+                if ( (LA3_0==30) ) {
                     alt3=1;
                 }
 
@@ -2390,21 +2388,21 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Function__Group__2__Impl"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:883:1: rule__Function__Group__2__Impl : ( '(' ) ;
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:883:1: rule__Function__Group__2__Impl : ( '{' ) ;
     public final void rule__Function__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:887:1: ( ( '(' ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:888:1: ( '(' )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:887:1: ( ( '{' ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:888:1: ( '{' )
             {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:888:1: ( '(' )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:889:1: '('
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:888:1: ( '{' )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:889:1: '{'
             {
-             before(grammarAccess.getFunctionAccess().getLeftParenthesisKeyword_2()); 
-            match(input,21,FOLLOW_21_in_rule__Function__Group__2__Impl1804); 
-             after(grammarAccess.getFunctionAccess().getLeftParenthesisKeyword_2()); 
+             before(grammarAccess.getFunctionAccess().getLeftCurlyBracketKeyword_2()); 
+            match(input,18,FOLLOW_18_in_rule__Function__Group__2__Impl1804); 
+             after(grammarAccess.getFunctionAccess().getLeftCurlyBracketKeyword_2()); 
 
             }
 
@@ -2482,7 +2480,7 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
             int alt5=2;
             int LA5_0 = input.LA(1);
 
-            if ( (LA5_0==RULE_ID) ) {
+            if ( (LA5_0==21) ) {
                 alt5=1;
             }
             switch (alt5) {
@@ -2561,21 +2559,42 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Function__Group__4__Impl"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:943:1: rule__Function__Group__4__Impl : ( ')' ) ;
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:943:1: rule__Function__Group__4__Impl : ( ( rule__Function__Group_4__0 )? ) ;
     public final void rule__Function__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:947:1: ( ( ')' ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:948:1: ( ')' )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:947:1: ( ( ( rule__Function__Group_4__0 )? ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:948:1: ( ( rule__Function__Group_4__0 )? )
             {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:948:1: ( ')' )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:949:1: ')'
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:948:1: ( ( rule__Function__Group_4__0 )? )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:949:1: ( rule__Function__Group_4__0 )?
             {
-             before(grammarAccess.getFunctionAccess().getRightParenthesisKeyword_4()); 
-            match(input,22,FOLLOW_22_in_rule__Function__Group__4__Impl1927); 
-             after(grammarAccess.getFunctionAccess().getRightParenthesisKeyword_4()); 
+             before(grammarAccess.getFunctionAccess().getGroup_4()); 
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:950:1: ( rule__Function__Group_4__0 )?
+            int alt6=2;
+            int LA6_0 = input.LA(1);
+
+            if ( (LA6_0==22) ) {
+                alt6=1;
+            }
+            switch (alt6) {
+                case 1 :
+                    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:950:2: rule__Function__Group_4__0
+                    {
+                    pushFollow(FOLLOW_rule__Function__Group_4__0_in_rule__Function__Group__4__Impl1926);
+                    rule__Function__Group_4__0();
+
+                    state._fsp--;
+
+
+                    }
+                    break;
+
+            }
+
+             after(grammarAccess.getFunctionAccess().getGroup_4()); 
 
             }
 
@@ -2598,21 +2617,21 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Function__Group__5"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:962:1: rule__Function__Group__5 : rule__Function__Group__5__Impl rule__Function__Group__6 ;
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:960:1: rule__Function__Group__5 : rule__Function__Group__5__Impl rule__Function__Group__6 ;
     public final void rule__Function__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:966:1: ( rule__Function__Group__5__Impl rule__Function__Group__6 )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:967:2: rule__Function__Group__5__Impl rule__Function__Group__6
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:964:1: ( rule__Function__Group__5__Impl rule__Function__Group__6 )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:965:2: rule__Function__Group__5__Impl rule__Function__Group__6
             {
-            pushFollow(FOLLOW_rule__Function__Group__5__Impl_in_rule__Function__Group__51958);
+            pushFollow(FOLLOW_rule__Function__Group__5__Impl_in_rule__Function__Group__51957);
             rule__Function__Group__5__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Function__Group__6_in_rule__Function__Group__51961);
+            pushFollow(FOLLOW_rule__Function__Group__6_in_rule__Function__Group__51960);
             rule__Function__Group__6();
 
             state._fsp--;
@@ -2636,21 +2655,49 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Function__Group__5__Impl"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:974:1: rule__Function__Group__5__Impl : ( '{' ) ;
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:972:1: rule__Function__Group__5__Impl : ( ( rule__Function__Group_5__0 )* ) ;
     public final void rule__Function__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:978:1: ( ( '{' ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:979:1: ( '{' )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:976:1: ( ( ( rule__Function__Group_5__0 )* ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:977:1: ( ( rule__Function__Group_5__0 )* )
             {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:979:1: ( '{' )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:980:1: '{'
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:977:1: ( ( rule__Function__Group_5__0 )* )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:978:1: ( rule__Function__Group_5__0 )*
             {
-             before(grammarAccess.getFunctionAccess().getLeftCurlyBracketKeyword_5()); 
-            match(input,18,FOLLOW_18_in_rule__Function__Group__5__Impl1989); 
-             after(grammarAccess.getFunctionAccess().getLeftCurlyBracketKeyword_5()); 
+             before(grammarAccess.getFunctionAccess().getGroup_5()); 
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:979:1: ( rule__Function__Group_5__0 )*
+            loop7:
+            do {
+                int alt7=2;
+                int LA7_0 = input.LA(1);
+
+                if ( (LA7_0==23) ) {
+                    alt7=1;
+                }
+
+
+                switch (alt7) {
+            	case 1 :
+            	    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:979:2: rule__Function__Group_5__0
+            	    {
+            	    pushFollow(FOLLOW_rule__Function__Group_5__0_in_rule__Function__Group__5__Impl1987);
+            	    rule__Function__Group_5__0();
+
+            	    state._fsp--;
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop7;
+                }
+            } while (true);
+
+             after(grammarAccess.getFunctionAccess().getGroup_5()); 
 
             }
 
@@ -2673,21 +2720,21 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Function__Group__6"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:993:1: rule__Function__Group__6 : rule__Function__Group__6__Impl rule__Function__Group__7 ;
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:989:1: rule__Function__Group__6 : rule__Function__Group__6__Impl rule__Function__Group__7 ;
     public final void rule__Function__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:997:1: ( rule__Function__Group__6__Impl rule__Function__Group__7 )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:998:2: rule__Function__Group__6__Impl rule__Function__Group__7
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:993:1: ( rule__Function__Group__6__Impl rule__Function__Group__7 )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:994:2: rule__Function__Group__6__Impl rule__Function__Group__7
             {
-            pushFollow(FOLLOW_rule__Function__Group__6__Impl_in_rule__Function__Group__62020);
+            pushFollow(FOLLOW_rule__Function__Group__6__Impl_in_rule__Function__Group__62018);
             rule__Function__Group__6__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Function__Group__7_in_rule__Function__Group__62023);
+            pushFollow(FOLLOW_rule__Function__Group__7_in_rule__Function__Group__62021);
             rule__Function__Group__7();
 
             state._fsp--;
@@ -2711,42 +2758,74 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Function__Group__6__Impl"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1005:1: rule__Function__Group__6__Impl : ( ( rule__Function__Group_6__0 )? ) ;
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1001:1: rule__Function__Group__6__Impl : ( ( ( rule__Function__Group_6__0 ) ) ( ( rule__Function__Group_6__0 )* ) ) ;
     public final void rule__Function__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1009:1: ( ( ( rule__Function__Group_6__0 )? ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1010:1: ( ( rule__Function__Group_6__0 )? )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1005:1: ( ( ( ( rule__Function__Group_6__0 ) ) ( ( rule__Function__Group_6__0 )* ) ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1006:1: ( ( ( rule__Function__Group_6__0 ) ) ( ( rule__Function__Group_6__0 )* ) )
             {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1010:1: ( ( rule__Function__Group_6__0 )? )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1011:1: ( rule__Function__Group_6__0 )?
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1006:1: ( ( ( rule__Function__Group_6__0 ) ) ( ( rule__Function__Group_6__0 )* ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1007:1: ( ( rule__Function__Group_6__0 ) ) ( ( rule__Function__Group_6__0 )* )
+            {
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1007:1: ( ( rule__Function__Group_6__0 ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1008:1: ( rule__Function__Group_6__0 )
             {
              before(grammarAccess.getFunctionAccess().getGroup_6()); 
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1012:1: ( rule__Function__Group_6__0 )?
-            int alt6=2;
-            int LA6_0 = input.LA(1);
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1009:1: ( rule__Function__Group_6__0 )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1009:2: rule__Function__Group_6__0
+            {
+            pushFollow(FOLLOW_rule__Function__Group_6__0_in_rule__Function__Group__6__Impl2050);
+            rule__Function__Group_6__0();
 
-            if ( (LA6_0==24) ) {
-                alt6=1;
-            }
-            switch (alt6) {
-                case 1 :
-                    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1012:2: rule__Function__Group_6__0
-                    {
-                    pushFollow(FOLLOW_rule__Function__Group_6__0_in_rule__Function__Group__6__Impl2050);
-                    rule__Function__Group_6__0();
+            state._fsp--;
 
-                    state._fsp--;
-
-
-                    }
-                    break;
 
             }
 
              after(grammarAccess.getFunctionAccess().getGroup_6()); 
+
+            }
+
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1012:1: ( ( rule__Function__Group_6__0 )* )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1013:1: ( rule__Function__Group_6__0 )*
+            {
+             before(grammarAccess.getFunctionAccess().getGroup_6()); 
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1014:1: ( rule__Function__Group_6__0 )*
+            loop8:
+            do {
+                int alt8=2;
+                int LA8_0 = input.LA(1);
+
+                if ( (LA8_0==24) ) {
+                    alt8=1;
+                }
+
+
+                switch (alt8) {
+            	case 1 :
+            	    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1014:2: rule__Function__Group_6__0
+            	    {
+            	    pushFollow(FOLLOW_rule__Function__Group_6__0_in_rule__Function__Group__6__Impl2062);
+            	    rule__Function__Group_6__0();
+
+            	    state._fsp--;
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop8;
+                }
+            } while (true);
+
+             after(grammarAccess.getFunctionAccess().getGroup_6()); 
+
+            }
+
 
             }
 
@@ -2769,21 +2848,21 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Function__Group__7"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1022:1: rule__Function__Group__7 : rule__Function__Group__7__Impl rule__Function__Group__8 ;
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1025:1: rule__Function__Group__7 : rule__Function__Group__7__Impl rule__Function__Group__8 ;
     public final void rule__Function__Group__7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1026:1: ( rule__Function__Group__7__Impl rule__Function__Group__8 )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1027:2: rule__Function__Group__7__Impl rule__Function__Group__8
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1029:1: ( rule__Function__Group__7__Impl rule__Function__Group__8 )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1030:2: rule__Function__Group__7__Impl rule__Function__Group__8
             {
-            pushFollow(FOLLOW_rule__Function__Group__7__Impl_in_rule__Function__Group__72081);
+            pushFollow(FOLLOW_rule__Function__Group__7__Impl_in_rule__Function__Group__72095);
             rule__Function__Group__7__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Function__Group__8_in_rule__Function__Group__72084);
+            pushFollow(FOLLOW_rule__Function__Group__8_in_rule__Function__Group__72098);
             rule__Function__Group__8();
 
             state._fsp--;
@@ -2807,40 +2886,47 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Function__Group__7__Impl"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1034:1: rule__Function__Group__7__Impl : ( ( rule__Function__Group_7__0 )? ) ;
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1037:1: rule__Function__Group__7__Impl : ( ( rule__Function__Group_7__0 )* ) ;
     public final void rule__Function__Group__7__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1038:1: ( ( ( rule__Function__Group_7__0 )? ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1039:1: ( ( rule__Function__Group_7__0 )? )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1041:1: ( ( ( rule__Function__Group_7__0 )* ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1042:1: ( ( rule__Function__Group_7__0 )* )
             {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1039:1: ( ( rule__Function__Group_7__0 )? )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1040:1: ( rule__Function__Group_7__0 )?
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1042:1: ( ( rule__Function__Group_7__0 )* )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1043:1: ( rule__Function__Group_7__0 )*
             {
              before(grammarAccess.getFunctionAccess().getGroup_7()); 
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1041:1: ( rule__Function__Group_7__0 )?
-            int alt7=2;
-            int LA7_0 = input.LA(1);
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1044:1: ( rule__Function__Group_7__0 )*
+            loop9:
+            do {
+                int alt9=2;
+                int LA9_0 = input.LA(1);
 
-            if ( (LA7_0==25) ) {
-                alt7=1;
-            }
-            switch (alt7) {
-                case 1 :
-                    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1041:2: rule__Function__Group_7__0
-                    {
-                    pushFollow(FOLLOW_rule__Function__Group_7__0_in_rule__Function__Group__7__Impl2111);
-                    rule__Function__Group_7__0();
-
-                    state._fsp--;
+                if ( (LA9_0==25) ) {
+                    alt9=1;
+                }
 
 
-                    }
-                    break;
+                switch (alt9) {
+            	case 1 :
+            	    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1044:2: rule__Function__Group_7__0
+            	    {
+            	    pushFollow(FOLLOW_rule__Function__Group_7__0_in_rule__Function__Group__7__Impl2125);
+            	    rule__Function__Group_7__0();
 
-            }
+            	    state._fsp--;
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop9;
+                }
+            } while (true);
 
              after(grammarAccess.getFunctionAccess().getGroup_7()); 
 
@@ -2865,22 +2951,17 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Function__Group__8"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1051:1: rule__Function__Group__8 : rule__Function__Group__8__Impl rule__Function__Group__9 ;
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1054:1: rule__Function__Group__8 : rule__Function__Group__8__Impl ;
     public final void rule__Function__Group__8() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1055:1: ( rule__Function__Group__8__Impl rule__Function__Group__9 )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1056:2: rule__Function__Group__8__Impl rule__Function__Group__9
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1058:1: ( rule__Function__Group__8__Impl )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1059:2: rule__Function__Group__8__Impl
             {
-            pushFollow(FOLLOW_rule__Function__Group__8__Impl_in_rule__Function__Group__82142);
+            pushFollow(FOLLOW_rule__Function__Group__8__Impl_in_rule__Function__Group__82156);
             rule__Function__Group__8__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_rule__Function__Group__9_in_rule__Function__Group__82145);
-            rule__Function__Group__9();
 
             state._fsp--;
 
@@ -2903,49 +2984,21 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Function__Group__8__Impl"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1063:1: rule__Function__Group__8__Impl : ( ( rule__Function__Group_8__0 )* ) ;
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1065:1: rule__Function__Group__8__Impl : ( '}' ) ;
     public final void rule__Function__Group__8__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1067:1: ( ( ( rule__Function__Group_8__0 )* ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1068:1: ( ( rule__Function__Group_8__0 )* )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1069:1: ( ( '}' ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1070:1: ( '}' )
             {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1068:1: ( ( rule__Function__Group_8__0 )* )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1069:1: ( rule__Function__Group_8__0 )*
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1070:1: ( '}' )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1071:1: '}'
             {
-             before(grammarAccess.getFunctionAccess().getGroup_8()); 
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1070:1: ( rule__Function__Group_8__0 )*
-            loop8:
-            do {
-                int alt8=2;
-                int LA8_0 = input.LA(1);
-
-                if ( (LA8_0==26) ) {
-                    alt8=1;
-                }
-
-
-                switch (alt8) {
-            	case 1 :
-            	    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1070:2: rule__Function__Group_8__0
-            	    {
-            	    pushFollow(FOLLOW_rule__Function__Group_8__0_in_rule__Function__Group__8__Impl2172);
-            	    rule__Function__Group_8__0();
-
-            	    state._fsp--;
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop8;
-                }
-            } while (true);
-
-             after(grammarAccess.getFunctionAccess().getGroup_8()); 
+             before(grammarAccess.getFunctionAccess().getRightCurlyBracketKeyword_8()); 
+            match(input,19,FOLLOW_19_in_rule__Function__Group__8__Impl2184); 
+             after(grammarAccess.getFunctionAccess().getRightCurlyBracketKeyword_8()); 
 
             }
 
@@ -2967,298 +3020,22 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
     // $ANTLR end "rule__Function__Group__8__Impl"
 
 
-    // $ANTLR start "rule__Function__Group__9"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1080:1: rule__Function__Group__9 : rule__Function__Group__9__Impl rule__Function__Group__10 ;
-    public final void rule__Function__Group__9() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1084:1: ( rule__Function__Group__9__Impl rule__Function__Group__10 )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1085:2: rule__Function__Group__9__Impl rule__Function__Group__10
-            {
-            pushFollow(FOLLOW_rule__Function__Group__9__Impl_in_rule__Function__Group__92203);
-            rule__Function__Group__9__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_rule__Function__Group__10_in_rule__Function__Group__92206);
-            rule__Function__Group__10();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Function__Group__9"
-
-
-    // $ANTLR start "rule__Function__Group__9__Impl"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1092:1: rule__Function__Group__9__Impl : ( ( rule__Function__Group_9__0 )* ) ;
-    public final void rule__Function__Group__9__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1096:1: ( ( ( rule__Function__Group_9__0 )* ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1097:1: ( ( rule__Function__Group_9__0 )* )
-            {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1097:1: ( ( rule__Function__Group_9__0 )* )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1098:1: ( rule__Function__Group_9__0 )*
-            {
-             before(grammarAccess.getFunctionAccess().getGroup_9()); 
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1099:1: ( rule__Function__Group_9__0 )*
-            loop9:
-            do {
-                int alt9=2;
-                int LA9_0 = input.LA(1);
-
-                if ( (LA9_0==27) ) {
-                    alt9=1;
-                }
-
-
-                switch (alt9) {
-            	case 1 :
-            	    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1099:2: rule__Function__Group_9__0
-            	    {
-            	    pushFollow(FOLLOW_rule__Function__Group_9__0_in_rule__Function__Group__9__Impl2233);
-            	    rule__Function__Group_9__0();
-
-            	    state._fsp--;
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop9;
-                }
-            } while (true);
-
-             after(grammarAccess.getFunctionAccess().getGroup_9()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Function__Group__9__Impl"
-
-
-    // $ANTLR start "rule__Function__Group__10"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1109:1: rule__Function__Group__10 : rule__Function__Group__10__Impl rule__Function__Group__11 ;
-    public final void rule__Function__Group__10() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1113:1: ( rule__Function__Group__10__Impl rule__Function__Group__11 )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1114:2: rule__Function__Group__10__Impl rule__Function__Group__11
-            {
-            pushFollow(FOLLOW_rule__Function__Group__10__Impl_in_rule__Function__Group__102264);
-            rule__Function__Group__10__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_rule__Function__Group__11_in_rule__Function__Group__102267);
-            rule__Function__Group__11();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Function__Group__10"
-
-
-    // $ANTLR start "rule__Function__Group__10__Impl"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1121:1: rule__Function__Group__10__Impl : ( ( rule__Function__Group_10__0 )* ) ;
-    public final void rule__Function__Group__10__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1125:1: ( ( ( rule__Function__Group_10__0 )* ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1126:1: ( ( rule__Function__Group_10__0 )* )
-            {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1126:1: ( ( rule__Function__Group_10__0 )* )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1127:1: ( rule__Function__Group_10__0 )*
-            {
-             before(grammarAccess.getFunctionAccess().getGroup_10()); 
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1128:1: ( rule__Function__Group_10__0 )*
-            loop10:
-            do {
-                int alt10=2;
-                int LA10_0 = input.LA(1);
-
-                if ( (LA10_0==28) ) {
-                    alt10=1;
-                }
-
-
-                switch (alt10) {
-            	case 1 :
-            	    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1128:2: rule__Function__Group_10__0
-            	    {
-            	    pushFollow(FOLLOW_rule__Function__Group_10__0_in_rule__Function__Group__10__Impl2294);
-            	    rule__Function__Group_10__0();
-
-            	    state._fsp--;
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop10;
-                }
-            } while (true);
-
-             after(grammarAccess.getFunctionAccess().getGroup_10()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Function__Group__10__Impl"
-
-
-    // $ANTLR start "rule__Function__Group__11"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1138:1: rule__Function__Group__11 : rule__Function__Group__11__Impl ;
-    public final void rule__Function__Group__11() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1142:1: ( rule__Function__Group__11__Impl )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1143:2: rule__Function__Group__11__Impl
-            {
-            pushFollow(FOLLOW_rule__Function__Group__11__Impl_in_rule__Function__Group__112325);
-            rule__Function__Group__11__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Function__Group__11"
-
-
-    // $ANTLR start "rule__Function__Group__11__Impl"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1149:1: rule__Function__Group__11__Impl : ( '}' ) ;
-    public final void rule__Function__Group__11__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1153:1: ( ( '}' ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1154:1: ( '}' )
-            {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1154:1: ( '}' )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1155:1: '}'
-            {
-             before(grammarAccess.getFunctionAccess().getRightCurlyBracketKeyword_11()); 
-            match(input,19,FOLLOW_19_in_rule__Function__Group__11__Impl2353); 
-             after(grammarAccess.getFunctionAccess().getRightCurlyBracketKeyword_11()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Function__Group__11__Impl"
-
-
     // $ANTLR start "rule__Function__Group_3__0"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1192:1: rule__Function__Group_3__0 : rule__Function__Group_3__0__Impl rule__Function__Group_3__1 ;
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1102:1: rule__Function__Group_3__0 : rule__Function__Group_3__0__Impl rule__Function__Group_3__1 ;
     public final void rule__Function__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1196:1: ( rule__Function__Group_3__0__Impl rule__Function__Group_3__1 )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1197:2: rule__Function__Group_3__0__Impl rule__Function__Group_3__1
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1106:1: ( rule__Function__Group_3__0__Impl rule__Function__Group_3__1 )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1107:2: rule__Function__Group_3__0__Impl rule__Function__Group_3__1
             {
-            pushFollow(FOLLOW_rule__Function__Group_3__0__Impl_in_rule__Function__Group_3__02408);
+            pushFollow(FOLLOW_rule__Function__Group_3__0__Impl_in_rule__Function__Group_3__02233);
             rule__Function__Group_3__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Function__Group_3__1_in_rule__Function__Group_3__02411);
+            pushFollow(FOLLOW_rule__Function__Group_3__1_in_rule__Function__Group_3__02236);
             rule__Function__Group_3__1();
 
             state._fsp--;
@@ -3282,31 +3059,21 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Function__Group_3__0__Impl"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1204:1: rule__Function__Group_3__0__Impl : ( ( rule__Function__ParamsAssignment_3_0 ) ) ;
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1114:1: rule__Function__Group_3__0__Impl : ( 'desc ->' ) ;
     public final void rule__Function__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1208:1: ( ( ( rule__Function__ParamsAssignment_3_0 ) ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1209:1: ( ( rule__Function__ParamsAssignment_3_0 ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1118:1: ( ( 'desc ->' ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1119:1: ( 'desc ->' )
             {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1209:1: ( ( rule__Function__ParamsAssignment_3_0 ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1210:1: ( rule__Function__ParamsAssignment_3_0 )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1119:1: ( 'desc ->' )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1120:1: 'desc ->'
             {
-             before(grammarAccess.getFunctionAccess().getParamsAssignment_3_0()); 
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1211:1: ( rule__Function__ParamsAssignment_3_0 )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1211:2: rule__Function__ParamsAssignment_3_0
-            {
-            pushFollow(FOLLOW_rule__Function__ParamsAssignment_3_0_in_rule__Function__Group_3__0__Impl2438);
-            rule__Function__ParamsAssignment_3_0();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getFunctionAccess().getParamsAssignment_3_0()); 
+             before(grammarAccess.getFunctionAccess().getDescKeyword_3_0()); 
+            match(input,21,FOLLOW_21_in_rule__Function__Group_3__0__Impl2264); 
+             after(grammarAccess.getFunctionAccess().getDescKeyword_3_0()); 
 
             }
 
@@ -3329,16 +3096,16 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Function__Group_3__1"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1221:1: rule__Function__Group_3__1 : rule__Function__Group_3__1__Impl ;
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1133:1: rule__Function__Group_3__1 : rule__Function__Group_3__1__Impl ;
     public final void rule__Function__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1225:1: ( rule__Function__Group_3__1__Impl )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1226:2: rule__Function__Group_3__1__Impl
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1137:1: ( rule__Function__Group_3__1__Impl )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1138:2: rule__Function__Group_3__1__Impl
             {
-            pushFollow(FOLLOW_rule__Function__Group_3__1__Impl_in_rule__Function__Group_3__12468);
+            pushFollow(FOLLOW_rule__Function__Group_3__1__Impl_in_rule__Function__Group_3__12295);
             rule__Function__Group_3__1__Impl();
 
             state._fsp--;
@@ -3362,49 +3129,31 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Function__Group_3__1__Impl"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1232:1: rule__Function__Group_3__1__Impl : ( ( rule__Function__Group_3_1__0 )* ) ;
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1144:1: rule__Function__Group_3__1__Impl : ( ( rule__Function__DescAssignment_3_1 ) ) ;
     public final void rule__Function__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1236:1: ( ( ( rule__Function__Group_3_1__0 )* ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1237:1: ( ( rule__Function__Group_3_1__0 )* )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1148:1: ( ( ( rule__Function__DescAssignment_3_1 ) ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1149:1: ( ( rule__Function__DescAssignment_3_1 ) )
             {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1237:1: ( ( rule__Function__Group_3_1__0 )* )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1238:1: ( rule__Function__Group_3_1__0 )*
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1149:1: ( ( rule__Function__DescAssignment_3_1 ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1150:1: ( rule__Function__DescAssignment_3_1 )
             {
-             before(grammarAccess.getFunctionAccess().getGroup_3_1()); 
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1239:1: ( rule__Function__Group_3_1__0 )*
-            loop11:
-            do {
-                int alt11=2;
-                int LA11_0 = input.LA(1);
+             before(grammarAccess.getFunctionAccess().getDescAssignment_3_1()); 
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1151:1: ( rule__Function__DescAssignment_3_1 )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1151:2: rule__Function__DescAssignment_3_1
+            {
+            pushFollow(FOLLOW_rule__Function__DescAssignment_3_1_in_rule__Function__Group_3__1__Impl2322);
+            rule__Function__DescAssignment_3_1();
 
-                if ( (LA11_0==23) ) {
-                    alt11=1;
-                }
+            state._fsp--;
 
 
-                switch (alt11) {
-            	case 1 :
-            	    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1239:2: rule__Function__Group_3_1__0
-            	    {
-            	    pushFollow(FOLLOW_rule__Function__Group_3_1__0_in_rule__Function__Group_3__1__Impl2495);
-            	    rule__Function__Group_3_1__0();
+            }
 
-            	    state._fsp--;
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop11;
-                }
-            } while (true);
-
-             after(grammarAccess.getFunctionAccess().getGroup_3_1()); 
+             after(grammarAccess.getFunctionAccess().getDescAssignment_3_1()); 
 
             }
 
@@ -3426,93 +3175,23 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
     // $ANTLR end "rule__Function__Group_3__1__Impl"
 
 
-    // $ANTLR start "rule__Function__Group_3_1__0"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1253:1: rule__Function__Group_3_1__0 : rule__Function__Group_3_1__0__Impl rule__Function__Group_3_1__1 ;
-    public final void rule__Function__Group_3_1__0() throws RecognitionException {
+    // $ANTLR start "rule__Function__Group_4__0"
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1165:1: rule__Function__Group_4__0 : rule__Function__Group_4__0__Impl rule__Function__Group_4__1 ;
+    public final void rule__Function__Group_4__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1257:1: ( rule__Function__Group_3_1__0__Impl rule__Function__Group_3_1__1 )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1258:2: rule__Function__Group_3_1__0__Impl rule__Function__Group_3_1__1
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1169:1: ( rule__Function__Group_4__0__Impl rule__Function__Group_4__1 )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1170:2: rule__Function__Group_4__0__Impl rule__Function__Group_4__1
             {
-            pushFollow(FOLLOW_rule__Function__Group_3_1__0__Impl_in_rule__Function__Group_3_1__02530);
-            rule__Function__Group_3_1__0__Impl();
+            pushFollow(FOLLOW_rule__Function__Group_4__0__Impl_in_rule__Function__Group_4__02356);
+            rule__Function__Group_4__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Function__Group_3_1__1_in_rule__Function__Group_3_1__02533);
-            rule__Function__Group_3_1__1();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Function__Group_3_1__0"
-
-
-    // $ANTLR start "rule__Function__Group_3_1__0__Impl"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1265:1: rule__Function__Group_3_1__0__Impl : ( ',' ) ;
-    public final void rule__Function__Group_3_1__0__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1269:1: ( ( ',' ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1270:1: ( ',' )
-            {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1270:1: ( ',' )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1271:1: ','
-            {
-             before(grammarAccess.getFunctionAccess().getCommaKeyword_3_1_0()); 
-            match(input,23,FOLLOW_23_in_rule__Function__Group_3_1__0__Impl2561); 
-             after(grammarAccess.getFunctionAccess().getCommaKeyword_3_1_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Function__Group_3_1__0__Impl"
-
-
-    // $ANTLR start "rule__Function__Group_3_1__1"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1284:1: rule__Function__Group_3_1__1 : rule__Function__Group_3_1__1__Impl ;
-    public final void rule__Function__Group_3_1__1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1288:1: ( rule__Function__Group_3_1__1__Impl )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1289:2: rule__Function__Group_3_1__1__Impl
-            {
-            pushFollow(FOLLOW_rule__Function__Group_3_1__1__Impl_in_rule__Function__Group_3_1__12592);
-            rule__Function__Group_3_1__1__Impl();
+            pushFollow(FOLLOW_rule__Function__Group_4__1_in_rule__Function__Group_4__02359);
+            rule__Function__Group_4__1();
 
             state._fsp--;
 
@@ -3531,35 +3210,25 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end "rule__Function__Group_3_1__1"
+    // $ANTLR end "rule__Function__Group_4__0"
 
 
-    // $ANTLR start "rule__Function__Group_3_1__1__Impl"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1295:1: rule__Function__Group_3_1__1__Impl : ( ( rule__Function__ParamsAssignment_3_1_1 ) ) ;
-    public final void rule__Function__Group_3_1__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Function__Group_4__0__Impl"
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1177:1: rule__Function__Group_4__0__Impl : ( 'docurl ->' ) ;
+    public final void rule__Function__Group_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1299:1: ( ( ( rule__Function__ParamsAssignment_3_1_1 ) ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1300:1: ( ( rule__Function__ParamsAssignment_3_1_1 ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1181:1: ( ( 'docurl ->' ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1182:1: ( 'docurl ->' )
             {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1300:1: ( ( rule__Function__ParamsAssignment_3_1_1 ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1301:1: ( rule__Function__ParamsAssignment_3_1_1 )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1182:1: ( 'docurl ->' )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1183:1: 'docurl ->'
             {
-             before(grammarAccess.getFunctionAccess().getParamsAssignment_3_1_1()); 
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1302:1: ( rule__Function__ParamsAssignment_3_1_1 )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1302:2: rule__Function__ParamsAssignment_3_1_1
-            {
-            pushFollow(FOLLOW_rule__Function__ParamsAssignment_3_1_1_in_rule__Function__Group_3_1__1__Impl2619);
-            rule__Function__ParamsAssignment_3_1_1();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getFunctionAccess().getParamsAssignment_3_1_1()); 
+             before(grammarAccess.getFunctionAccess().getDocurlKeyword_4_0()); 
+            match(input,22,FOLLOW_22_in_rule__Function__Group_4__0__Impl2387); 
+             after(grammarAccess.getFunctionAccess().getDocurlKeyword_4_0()); 
 
             }
 
@@ -3578,25 +3247,260 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end "rule__Function__Group_3_1__1__Impl"
+    // $ANTLR end "rule__Function__Group_4__0__Impl"
+
+
+    // $ANTLR start "rule__Function__Group_4__1"
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1196:1: rule__Function__Group_4__1 : rule__Function__Group_4__1__Impl ;
+    public final void rule__Function__Group_4__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1200:1: ( rule__Function__Group_4__1__Impl )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1201:2: rule__Function__Group_4__1__Impl
+            {
+            pushFollow(FOLLOW_rule__Function__Group_4__1__Impl_in_rule__Function__Group_4__12418);
+            rule__Function__Group_4__1__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Function__Group_4__1"
+
+
+    // $ANTLR start "rule__Function__Group_4__1__Impl"
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1207:1: rule__Function__Group_4__1__Impl : ( ( rule__Function__DocurlAssignment_4_1 ) ) ;
+    public final void rule__Function__Group_4__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1211:1: ( ( ( rule__Function__DocurlAssignment_4_1 ) ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1212:1: ( ( rule__Function__DocurlAssignment_4_1 ) )
+            {
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1212:1: ( ( rule__Function__DocurlAssignment_4_1 ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1213:1: ( rule__Function__DocurlAssignment_4_1 )
+            {
+             before(grammarAccess.getFunctionAccess().getDocurlAssignment_4_1()); 
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1214:1: ( rule__Function__DocurlAssignment_4_1 )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1214:2: rule__Function__DocurlAssignment_4_1
+            {
+            pushFollow(FOLLOW_rule__Function__DocurlAssignment_4_1_in_rule__Function__Group_4__1__Impl2445);
+            rule__Function__DocurlAssignment_4_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getFunctionAccess().getDocurlAssignment_4_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Function__Group_4__1__Impl"
+
+
+    // $ANTLR start "rule__Function__Group_5__0"
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1228:1: rule__Function__Group_5__0 : rule__Function__Group_5__0__Impl rule__Function__Group_5__1 ;
+    public final void rule__Function__Group_5__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1232:1: ( rule__Function__Group_5__0__Impl rule__Function__Group_5__1 )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1233:2: rule__Function__Group_5__0__Impl rule__Function__Group_5__1
+            {
+            pushFollow(FOLLOW_rule__Function__Group_5__0__Impl_in_rule__Function__Group_5__02479);
+            rule__Function__Group_5__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_rule__Function__Group_5__1_in_rule__Function__Group_5__02482);
+            rule__Function__Group_5__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Function__Group_5__0"
+
+
+    // $ANTLR start "rule__Function__Group_5__0__Impl"
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1240:1: rule__Function__Group_5__0__Impl : ( 'input' ) ;
+    public final void rule__Function__Group_5__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1244:1: ( ( 'input' ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1245:1: ( 'input' )
+            {
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1245:1: ( 'input' )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1246:1: 'input'
+            {
+             before(grammarAccess.getFunctionAccess().getInputKeyword_5_0()); 
+            match(input,23,FOLLOW_23_in_rule__Function__Group_5__0__Impl2510); 
+             after(grammarAccess.getFunctionAccess().getInputKeyword_5_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Function__Group_5__0__Impl"
+
+
+    // $ANTLR start "rule__Function__Group_5__1"
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1259:1: rule__Function__Group_5__1 : rule__Function__Group_5__1__Impl ;
+    public final void rule__Function__Group_5__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1263:1: ( rule__Function__Group_5__1__Impl )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1264:2: rule__Function__Group_5__1__Impl
+            {
+            pushFollow(FOLLOW_rule__Function__Group_5__1__Impl_in_rule__Function__Group_5__12541);
+            rule__Function__Group_5__1__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Function__Group_5__1"
+
+
+    // $ANTLR start "rule__Function__Group_5__1__Impl"
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1270:1: rule__Function__Group_5__1__Impl : ( ( rule__Function__InputAssignment_5_1 ) ) ;
+    public final void rule__Function__Group_5__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1274:1: ( ( ( rule__Function__InputAssignment_5_1 ) ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1275:1: ( ( rule__Function__InputAssignment_5_1 ) )
+            {
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1275:1: ( ( rule__Function__InputAssignment_5_1 ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1276:1: ( rule__Function__InputAssignment_5_1 )
+            {
+             before(grammarAccess.getFunctionAccess().getInputAssignment_5_1()); 
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1277:1: ( rule__Function__InputAssignment_5_1 )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1277:2: rule__Function__InputAssignment_5_1
+            {
+            pushFollow(FOLLOW_rule__Function__InputAssignment_5_1_in_rule__Function__Group_5__1__Impl2568);
+            rule__Function__InputAssignment_5_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getFunctionAccess().getInputAssignment_5_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Function__Group_5__1__Impl"
 
 
     // $ANTLR start "rule__Function__Group_6__0"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1316:1: rule__Function__Group_6__0 : rule__Function__Group_6__0__Impl rule__Function__Group_6__1 ;
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1291:1: rule__Function__Group_6__0 : rule__Function__Group_6__0__Impl rule__Function__Group_6__1 ;
     public final void rule__Function__Group_6__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1320:1: ( rule__Function__Group_6__0__Impl rule__Function__Group_6__1 )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1321:2: rule__Function__Group_6__0__Impl rule__Function__Group_6__1
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1295:1: ( rule__Function__Group_6__0__Impl rule__Function__Group_6__1 )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1296:2: rule__Function__Group_6__0__Impl rule__Function__Group_6__1
             {
-            pushFollow(FOLLOW_rule__Function__Group_6__0__Impl_in_rule__Function__Group_6__02653);
+            pushFollow(FOLLOW_rule__Function__Group_6__0__Impl_in_rule__Function__Group_6__02602);
             rule__Function__Group_6__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Function__Group_6__1_in_rule__Function__Group_6__02656);
+            pushFollow(FOLLOW_rule__Function__Group_6__1_in_rule__Function__Group_6__02605);
             rule__Function__Group_6__1();
 
             state._fsp--;
@@ -3620,21 +3524,21 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Function__Group_6__0__Impl"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1328:1: rule__Function__Group_6__0__Impl : ( 'doc ->' ) ;
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1303:1: rule__Function__Group_6__0__Impl : ( 'output ' ) ;
     public final void rule__Function__Group_6__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1332:1: ( ( 'doc ->' ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1333:1: ( 'doc ->' )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1307:1: ( ( 'output ' ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1308:1: ( 'output ' )
             {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1333:1: ( 'doc ->' )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1334:1: 'doc ->'
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1308:1: ( 'output ' )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1309:1: 'output '
             {
-             before(grammarAccess.getFunctionAccess().getDocKeyword_6_0()); 
-            match(input,24,FOLLOW_24_in_rule__Function__Group_6__0__Impl2684); 
-             after(grammarAccess.getFunctionAccess().getDocKeyword_6_0()); 
+             before(grammarAccess.getFunctionAccess().getOutputKeyword_6_0()); 
+            match(input,24,FOLLOW_24_in_rule__Function__Group_6__0__Impl2633); 
+             after(grammarAccess.getFunctionAccess().getOutputKeyword_6_0()); 
 
             }
 
@@ -3657,16 +3561,16 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Function__Group_6__1"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1347:1: rule__Function__Group_6__1 : rule__Function__Group_6__1__Impl ;
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1322:1: rule__Function__Group_6__1 : rule__Function__Group_6__1__Impl ;
     public final void rule__Function__Group_6__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1351:1: ( rule__Function__Group_6__1__Impl )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1352:2: rule__Function__Group_6__1__Impl
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1326:1: ( rule__Function__Group_6__1__Impl )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1327:2: rule__Function__Group_6__1__Impl
             {
-            pushFollow(FOLLOW_rule__Function__Group_6__1__Impl_in_rule__Function__Group_6__12715);
+            pushFollow(FOLLOW_rule__Function__Group_6__1__Impl_in_rule__Function__Group_6__12664);
             rule__Function__Group_6__1__Impl();
 
             state._fsp--;
@@ -3690,31 +3594,31 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Function__Group_6__1__Impl"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1358:1: rule__Function__Group_6__1__Impl : ( ( rule__Function__DocAssignment_6_1 ) ) ;
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1333:1: rule__Function__Group_6__1__Impl : ( ( rule__Function__OutputAssignment_6_1 ) ) ;
     public final void rule__Function__Group_6__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1362:1: ( ( ( rule__Function__DocAssignment_6_1 ) ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1363:1: ( ( rule__Function__DocAssignment_6_1 ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1337:1: ( ( ( rule__Function__OutputAssignment_6_1 ) ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1338:1: ( ( rule__Function__OutputAssignment_6_1 ) )
             {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1363:1: ( ( rule__Function__DocAssignment_6_1 ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1364:1: ( rule__Function__DocAssignment_6_1 )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1338:1: ( ( rule__Function__OutputAssignment_6_1 ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1339:1: ( rule__Function__OutputAssignment_6_1 )
             {
-             before(grammarAccess.getFunctionAccess().getDocAssignment_6_1()); 
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1365:1: ( rule__Function__DocAssignment_6_1 )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1365:2: rule__Function__DocAssignment_6_1
+             before(grammarAccess.getFunctionAccess().getOutputAssignment_6_1()); 
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1340:1: ( rule__Function__OutputAssignment_6_1 )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1340:2: rule__Function__OutputAssignment_6_1
             {
-            pushFollow(FOLLOW_rule__Function__DocAssignment_6_1_in_rule__Function__Group_6__1__Impl2742);
-            rule__Function__DocAssignment_6_1();
+            pushFollow(FOLLOW_rule__Function__OutputAssignment_6_1_in_rule__Function__Group_6__1__Impl2691);
+            rule__Function__OutputAssignment_6_1();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getFunctionAccess().getDocAssignment_6_1()); 
+             after(grammarAccess.getFunctionAccess().getOutputAssignment_6_1()); 
 
             }
 
@@ -3737,21 +3641,21 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Function__Group_7__0"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1379:1: rule__Function__Group_7__0 : rule__Function__Group_7__0__Impl rule__Function__Group_7__1 ;
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1354:1: rule__Function__Group_7__0 : rule__Function__Group_7__0__Impl rule__Function__Group_7__1 ;
     public final void rule__Function__Group_7__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1383:1: ( rule__Function__Group_7__0__Impl rule__Function__Group_7__1 )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1384:2: rule__Function__Group_7__0__Impl rule__Function__Group_7__1
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1358:1: ( rule__Function__Group_7__0__Impl rule__Function__Group_7__1 )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1359:2: rule__Function__Group_7__0__Impl rule__Function__Group_7__1
             {
-            pushFollow(FOLLOW_rule__Function__Group_7__0__Impl_in_rule__Function__Group_7__02776);
+            pushFollow(FOLLOW_rule__Function__Group_7__0__Impl_in_rule__Function__Group_7__02725);
             rule__Function__Group_7__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Function__Group_7__1_in_rule__Function__Group_7__02779);
+            pushFollow(FOLLOW_rule__Function__Group_7__1_in_rule__Function__Group_7__02728);
             rule__Function__Group_7__1();
 
             state._fsp--;
@@ -3775,21 +3679,21 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Function__Group_7__0__Impl"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1391:1: rule__Function__Group_7__0__Impl : ( 'docurl ->' ) ;
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1366:1: rule__Function__Group_7__0__Impl : ( '* ' ) ;
     public final void rule__Function__Group_7__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1395:1: ( ( 'docurl ->' ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1396:1: ( 'docurl ->' )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1370:1: ( ( '* ' ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1371:1: ( '* ' )
             {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1396:1: ( 'docurl ->' )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1397:1: 'docurl ->'
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1371:1: ( '* ' )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1372:1: '* '
             {
-             before(grammarAccess.getFunctionAccess().getDocurlKeyword_7_0()); 
-            match(input,25,FOLLOW_25_in_rule__Function__Group_7__0__Impl2807); 
-             after(grammarAccess.getFunctionAccess().getDocurlKeyword_7_0()); 
+             before(grammarAccess.getFunctionAccess().getAsteriskSpaceKeyword_7_0()); 
+            match(input,25,FOLLOW_25_in_rule__Function__Group_7__0__Impl2756); 
+             after(grammarAccess.getFunctionAccess().getAsteriskSpaceKeyword_7_0()); 
 
             }
 
@@ -3812,16 +3716,16 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Function__Group_7__1"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1410:1: rule__Function__Group_7__1 : rule__Function__Group_7__1__Impl ;
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1385:1: rule__Function__Group_7__1 : rule__Function__Group_7__1__Impl ;
     public final void rule__Function__Group_7__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1414:1: ( rule__Function__Group_7__1__Impl )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1415:2: rule__Function__Group_7__1__Impl
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1389:1: ( rule__Function__Group_7__1__Impl )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1390:2: rule__Function__Group_7__1__Impl
             {
-            pushFollow(FOLLOW_rule__Function__Group_7__1__Impl_in_rule__Function__Group_7__12838);
+            pushFollow(FOLLOW_rule__Function__Group_7__1__Impl_in_rule__Function__Group_7__12787);
             rule__Function__Group_7__1__Impl();
 
             state._fsp--;
@@ -3845,31 +3749,31 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Function__Group_7__1__Impl"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1421:1: rule__Function__Group_7__1__Impl : ( ( rule__Function__DocurlAssignment_7_1 ) ) ;
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1396:1: rule__Function__Group_7__1__Impl : ( ( rule__Function__OptionBlocksAssignment_7_1 ) ) ;
     public final void rule__Function__Group_7__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1425:1: ( ( ( rule__Function__DocurlAssignment_7_1 ) ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1426:1: ( ( rule__Function__DocurlAssignment_7_1 ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1400:1: ( ( ( rule__Function__OptionBlocksAssignment_7_1 ) ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1401:1: ( ( rule__Function__OptionBlocksAssignment_7_1 ) )
             {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1426:1: ( ( rule__Function__DocurlAssignment_7_1 ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1427:1: ( rule__Function__DocurlAssignment_7_1 )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1401:1: ( ( rule__Function__OptionBlocksAssignment_7_1 ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1402:1: ( rule__Function__OptionBlocksAssignment_7_1 )
             {
-             before(grammarAccess.getFunctionAccess().getDocurlAssignment_7_1()); 
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1428:1: ( rule__Function__DocurlAssignment_7_1 )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1428:2: rule__Function__DocurlAssignment_7_1
+             before(grammarAccess.getFunctionAccess().getOptionBlocksAssignment_7_1()); 
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1403:1: ( rule__Function__OptionBlocksAssignment_7_1 )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1403:2: rule__Function__OptionBlocksAssignment_7_1
             {
-            pushFollow(FOLLOW_rule__Function__DocurlAssignment_7_1_in_rule__Function__Group_7__1__Impl2865);
-            rule__Function__DocurlAssignment_7_1();
+            pushFollow(FOLLOW_rule__Function__OptionBlocksAssignment_7_1_in_rule__Function__Group_7__1__Impl2814);
+            rule__Function__OptionBlocksAssignment_7_1();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getFunctionAccess().getDocurlAssignment_7_1()); 
+             after(grammarAccess.getFunctionAccess().getOptionBlocksAssignment_7_1()); 
 
             }
 
@@ -3891,487 +3795,22 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
     // $ANTLR end "rule__Function__Group_7__1__Impl"
 
 
-    // $ANTLR start "rule__Function__Group_8__0"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1442:1: rule__Function__Group_8__0 : rule__Function__Group_8__0__Impl rule__Function__Group_8__1 ;
-    public final void rule__Function__Group_8__0() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1446:1: ( rule__Function__Group_8__0__Impl rule__Function__Group_8__1 )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1447:2: rule__Function__Group_8__0__Impl rule__Function__Group_8__1
-            {
-            pushFollow(FOLLOW_rule__Function__Group_8__0__Impl_in_rule__Function__Group_8__02899);
-            rule__Function__Group_8__0__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_rule__Function__Group_8__1_in_rule__Function__Group_8__02902);
-            rule__Function__Group_8__1();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Function__Group_8__0"
-
-
-    // $ANTLR start "rule__Function__Group_8__0__Impl"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1454:1: rule__Function__Group_8__0__Impl : ( 'input' ) ;
-    public final void rule__Function__Group_8__0__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1458:1: ( ( 'input' ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1459:1: ( 'input' )
-            {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1459:1: ( 'input' )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1460:1: 'input'
-            {
-             before(grammarAccess.getFunctionAccess().getInputKeyword_8_0()); 
-            match(input,26,FOLLOW_26_in_rule__Function__Group_8__0__Impl2930); 
-             after(grammarAccess.getFunctionAccess().getInputKeyword_8_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Function__Group_8__0__Impl"
-
-
-    // $ANTLR start "rule__Function__Group_8__1"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1473:1: rule__Function__Group_8__1 : rule__Function__Group_8__1__Impl ;
-    public final void rule__Function__Group_8__1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1477:1: ( rule__Function__Group_8__1__Impl )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1478:2: rule__Function__Group_8__1__Impl
-            {
-            pushFollow(FOLLOW_rule__Function__Group_8__1__Impl_in_rule__Function__Group_8__12961);
-            rule__Function__Group_8__1__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Function__Group_8__1"
-
-
-    // $ANTLR start "rule__Function__Group_8__1__Impl"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1484:1: rule__Function__Group_8__1__Impl : ( ( rule__Function__InputAssignment_8_1 ) ) ;
-    public final void rule__Function__Group_8__1__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1488:1: ( ( ( rule__Function__InputAssignment_8_1 ) ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1489:1: ( ( rule__Function__InputAssignment_8_1 ) )
-            {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1489:1: ( ( rule__Function__InputAssignment_8_1 ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1490:1: ( rule__Function__InputAssignment_8_1 )
-            {
-             before(grammarAccess.getFunctionAccess().getInputAssignment_8_1()); 
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1491:1: ( rule__Function__InputAssignment_8_1 )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1491:2: rule__Function__InputAssignment_8_1
-            {
-            pushFollow(FOLLOW_rule__Function__InputAssignment_8_1_in_rule__Function__Group_8__1__Impl2988);
-            rule__Function__InputAssignment_8_1();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getFunctionAccess().getInputAssignment_8_1()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Function__Group_8__1__Impl"
-
-
-    // $ANTLR start "rule__Function__Group_9__0"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1505:1: rule__Function__Group_9__0 : rule__Function__Group_9__0__Impl rule__Function__Group_9__1 ;
-    public final void rule__Function__Group_9__0() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1509:1: ( rule__Function__Group_9__0__Impl rule__Function__Group_9__1 )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1510:2: rule__Function__Group_9__0__Impl rule__Function__Group_9__1
-            {
-            pushFollow(FOLLOW_rule__Function__Group_9__0__Impl_in_rule__Function__Group_9__03022);
-            rule__Function__Group_9__0__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_rule__Function__Group_9__1_in_rule__Function__Group_9__03025);
-            rule__Function__Group_9__1();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Function__Group_9__0"
-
-
-    // $ANTLR start "rule__Function__Group_9__0__Impl"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1517:1: rule__Function__Group_9__0__Impl : ( 'output ' ) ;
-    public final void rule__Function__Group_9__0__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1521:1: ( ( 'output ' ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1522:1: ( 'output ' )
-            {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1522:1: ( 'output ' )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1523:1: 'output '
-            {
-             before(grammarAccess.getFunctionAccess().getOutputKeyword_9_0()); 
-            match(input,27,FOLLOW_27_in_rule__Function__Group_9__0__Impl3053); 
-             after(grammarAccess.getFunctionAccess().getOutputKeyword_9_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Function__Group_9__0__Impl"
-
-
-    // $ANTLR start "rule__Function__Group_9__1"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1536:1: rule__Function__Group_9__1 : rule__Function__Group_9__1__Impl ;
-    public final void rule__Function__Group_9__1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1540:1: ( rule__Function__Group_9__1__Impl )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1541:2: rule__Function__Group_9__1__Impl
-            {
-            pushFollow(FOLLOW_rule__Function__Group_9__1__Impl_in_rule__Function__Group_9__13084);
-            rule__Function__Group_9__1__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Function__Group_9__1"
-
-
-    // $ANTLR start "rule__Function__Group_9__1__Impl"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1547:1: rule__Function__Group_9__1__Impl : ( ( rule__Function__OutputAssignment_9_1 ) ) ;
-    public final void rule__Function__Group_9__1__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1551:1: ( ( ( rule__Function__OutputAssignment_9_1 ) ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1552:1: ( ( rule__Function__OutputAssignment_9_1 ) )
-            {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1552:1: ( ( rule__Function__OutputAssignment_9_1 ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1553:1: ( rule__Function__OutputAssignment_9_1 )
-            {
-             before(grammarAccess.getFunctionAccess().getOutputAssignment_9_1()); 
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1554:1: ( rule__Function__OutputAssignment_9_1 )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1554:2: rule__Function__OutputAssignment_9_1
-            {
-            pushFollow(FOLLOW_rule__Function__OutputAssignment_9_1_in_rule__Function__Group_9__1__Impl3111);
-            rule__Function__OutputAssignment_9_1();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getFunctionAccess().getOutputAssignment_9_1()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Function__Group_9__1__Impl"
-
-
-    // $ANTLR start "rule__Function__Group_10__0"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1568:1: rule__Function__Group_10__0 : rule__Function__Group_10__0__Impl rule__Function__Group_10__1 ;
-    public final void rule__Function__Group_10__0() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1572:1: ( rule__Function__Group_10__0__Impl rule__Function__Group_10__1 )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1573:2: rule__Function__Group_10__0__Impl rule__Function__Group_10__1
-            {
-            pushFollow(FOLLOW_rule__Function__Group_10__0__Impl_in_rule__Function__Group_10__03145);
-            rule__Function__Group_10__0__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_rule__Function__Group_10__1_in_rule__Function__Group_10__03148);
-            rule__Function__Group_10__1();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Function__Group_10__0"
-
-
-    // $ANTLR start "rule__Function__Group_10__0__Impl"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1580:1: rule__Function__Group_10__0__Impl : ( '* ' ) ;
-    public final void rule__Function__Group_10__0__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1584:1: ( ( '* ' ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1585:1: ( '* ' )
-            {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1585:1: ( '* ' )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1586:1: '* '
-            {
-             before(grammarAccess.getFunctionAccess().getAsteriskSpaceKeyword_10_0()); 
-            match(input,28,FOLLOW_28_in_rule__Function__Group_10__0__Impl3176); 
-             after(grammarAccess.getFunctionAccess().getAsteriskSpaceKeyword_10_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Function__Group_10__0__Impl"
-
-
-    // $ANTLR start "rule__Function__Group_10__1"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1599:1: rule__Function__Group_10__1 : rule__Function__Group_10__1__Impl ;
-    public final void rule__Function__Group_10__1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1603:1: ( rule__Function__Group_10__1__Impl )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1604:2: rule__Function__Group_10__1__Impl
-            {
-            pushFollow(FOLLOW_rule__Function__Group_10__1__Impl_in_rule__Function__Group_10__13207);
-            rule__Function__Group_10__1__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Function__Group_10__1"
-
-
-    // $ANTLR start "rule__Function__Group_10__1__Impl"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1610:1: rule__Function__Group_10__1__Impl : ( ( rule__Function__OptionBlocksAssignment_10_1 ) ) ;
-    public final void rule__Function__Group_10__1__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1614:1: ( ( ( rule__Function__OptionBlocksAssignment_10_1 ) ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1615:1: ( ( rule__Function__OptionBlocksAssignment_10_1 ) )
-            {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1615:1: ( ( rule__Function__OptionBlocksAssignment_10_1 ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1616:1: ( rule__Function__OptionBlocksAssignment_10_1 )
-            {
-             before(grammarAccess.getFunctionAccess().getOptionBlocksAssignment_10_1()); 
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1617:1: ( rule__Function__OptionBlocksAssignment_10_1 )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1617:2: rule__Function__OptionBlocksAssignment_10_1
-            {
-            pushFollow(FOLLOW_rule__Function__OptionBlocksAssignment_10_1_in_rule__Function__Group_10__1__Impl3234);
-            rule__Function__OptionBlocksAssignment_10_1();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getFunctionAccess().getOptionBlocksAssignment_10_1()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Function__Group_10__1__Impl"
-
-
     // $ANTLR start "rule__DataDefinition__Group__0"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1631:1: rule__DataDefinition__Group__0 : rule__DataDefinition__Group__0__Impl rule__DataDefinition__Group__1 ;
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1417:1: rule__DataDefinition__Group__0 : rule__DataDefinition__Group__0__Impl rule__DataDefinition__Group__1 ;
     public final void rule__DataDefinition__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1635:1: ( rule__DataDefinition__Group__0__Impl rule__DataDefinition__Group__1 )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1636:2: rule__DataDefinition__Group__0__Impl rule__DataDefinition__Group__1
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1421:1: ( rule__DataDefinition__Group__0__Impl rule__DataDefinition__Group__1 )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1422:2: rule__DataDefinition__Group__0__Impl rule__DataDefinition__Group__1
             {
-            pushFollow(FOLLOW_rule__DataDefinition__Group__0__Impl_in_rule__DataDefinition__Group__03268);
+            pushFollow(FOLLOW_rule__DataDefinition__Group__0__Impl_in_rule__DataDefinition__Group__02848);
             rule__DataDefinition__Group__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__DataDefinition__Group__1_in_rule__DataDefinition__Group__03271);
+            pushFollow(FOLLOW_rule__DataDefinition__Group__1_in_rule__DataDefinition__Group__02851);
             rule__DataDefinition__Group__1();
 
             state._fsp--;
@@ -4395,21 +3834,21 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__DataDefinition__Group__0__Impl"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1643:1: rule__DataDefinition__Group__0__Impl : ( () ) ;
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1429:1: rule__DataDefinition__Group__0__Impl : ( () ) ;
     public final void rule__DataDefinition__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1647:1: ( ( () ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1648:1: ( () )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1433:1: ( ( () ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1434:1: ( () )
             {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1648:1: ( () )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1649:1: ()
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1434:1: ( () )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1435:1: ()
             {
              before(grammarAccess.getDataDefinitionAccess().getDataDefinitionAction_0()); 
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1650:1: ()
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1652:1: 
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1436:1: ()
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1438:1: 
             {
             }
 
@@ -4432,21 +3871,21 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__DataDefinition__Group__1"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1662:1: rule__DataDefinition__Group__1 : rule__DataDefinition__Group__1__Impl rule__DataDefinition__Group__2 ;
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1448:1: rule__DataDefinition__Group__1 : rule__DataDefinition__Group__1__Impl rule__DataDefinition__Group__2 ;
     public final void rule__DataDefinition__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1666:1: ( rule__DataDefinition__Group__1__Impl rule__DataDefinition__Group__2 )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1667:2: rule__DataDefinition__Group__1__Impl rule__DataDefinition__Group__2
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1452:1: ( rule__DataDefinition__Group__1__Impl rule__DataDefinition__Group__2 )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1453:2: rule__DataDefinition__Group__1__Impl rule__DataDefinition__Group__2
             {
-            pushFollow(FOLLOW_rule__DataDefinition__Group__1__Impl_in_rule__DataDefinition__Group__13329);
+            pushFollow(FOLLOW_rule__DataDefinition__Group__1__Impl_in_rule__DataDefinition__Group__12909);
             rule__DataDefinition__Group__1__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__DataDefinition__Group__2_in_rule__DataDefinition__Group__13332);
+            pushFollow(FOLLOW_rule__DataDefinition__Group__2_in_rule__DataDefinition__Group__12912);
             rule__DataDefinition__Group__2();
 
             state._fsp--;
@@ -4470,23 +3909,23 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__DataDefinition__Group__1__Impl"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1674:1: rule__DataDefinition__Group__1__Impl : ( ( rule__DataDefinition__InputAssignment_1 ) ) ;
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1460:1: rule__DataDefinition__Group__1__Impl : ( ( rule__DataDefinition__InputAssignment_1 ) ) ;
     public final void rule__DataDefinition__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1678:1: ( ( ( rule__DataDefinition__InputAssignment_1 ) ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1679:1: ( ( rule__DataDefinition__InputAssignment_1 ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1464:1: ( ( ( rule__DataDefinition__InputAssignment_1 ) ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1465:1: ( ( rule__DataDefinition__InputAssignment_1 ) )
             {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1679:1: ( ( rule__DataDefinition__InputAssignment_1 ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1680:1: ( rule__DataDefinition__InputAssignment_1 )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1465:1: ( ( rule__DataDefinition__InputAssignment_1 ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1466:1: ( rule__DataDefinition__InputAssignment_1 )
             {
              before(grammarAccess.getDataDefinitionAccess().getInputAssignment_1()); 
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1681:1: ( rule__DataDefinition__InputAssignment_1 )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1681:2: rule__DataDefinition__InputAssignment_1
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1467:1: ( rule__DataDefinition__InputAssignment_1 )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1467:2: rule__DataDefinition__InputAssignment_1
             {
-            pushFollow(FOLLOW_rule__DataDefinition__InputAssignment_1_in_rule__DataDefinition__Group__1__Impl3359);
+            pushFollow(FOLLOW_rule__DataDefinition__InputAssignment_1_in_rule__DataDefinition__Group__1__Impl2939);
             rule__DataDefinition__InputAssignment_1();
 
             state._fsp--;
@@ -4517,21 +3956,21 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__DataDefinition__Group__2"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1691:1: rule__DataDefinition__Group__2 : rule__DataDefinition__Group__2__Impl rule__DataDefinition__Group__3 ;
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1477:1: rule__DataDefinition__Group__2 : rule__DataDefinition__Group__2__Impl rule__DataDefinition__Group__3 ;
     public final void rule__DataDefinition__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1695:1: ( rule__DataDefinition__Group__2__Impl rule__DataDefinition__Group__3 )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1696:2: rule__DataDefinition__Group__2__Impl rule__DataDefinition__Group__3
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1481:1: ( rule__DataDefinition__Group__2__Impl rule__DataDefinition__Group__3 )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1482:2: rule__DataDefinition__Group__2__Impl rule__DataDefinition__Group__3
             {
-            pushFollow(FOLLOW_rule__DataDefinition__Group__2__Impl_in_rule__DataDefinition__Group__23389);
+            pushFollow(FOLLOW_rule__DataDefinition__Group__2__Impl_in_rule__DataDefinition__Group__22969);
             rule__DataDefinition__Group__2__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__DataDefinition__Group__3_in_rule__DataDefinition__Group__23392);
+            pushFollow(FOLLOW_rule__DataDefinition__Group__3_in_rule__DataDefinition__Group__22972);
             rule__DataDefinition__Group__3();
 
             state._fsp--;
@@ -4555,20 +3994,20 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__DataDefinition__Group__2__Impl"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1703:1: rule__DataDefinition__Group__2__Impl : ( 'AS' ) ;
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1489:1: rule__DataDefinition__Group__2__Impl : ( 'AS' ) ;
     public final void rule__DataDefinition__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1707:1: ( ( 'AS' ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1708:1: ( 'AS' )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1493:1: ( ( 'AS' ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1494:1: ( 'AS' )
             {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1708:1: ( 'AS' )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1709:1: 'AS'
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1494:1: ( 'AS' )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1495:1: 'AS'
             {
              before(grammarAccess.getDataDefinitionAccess().getASKeyword_2()); 
-            match(input,29,FOLLOW_29_in_rule__DataDefinition__Group__2__Impl3420); 
+            match(input,26,FOLLOW_26_in_rule__DataDefinition__Group__2__Impl3000); 
              after(grammarAccess.getDataDefinitionAccess().getASKeyword_2()); 
 
             }
@@ -4592,17 +4031,22 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__DataDefinition__Group__3"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1722:1: rule__DataDefinition__Group__3 : rule__DataDefinition__Group__3__Impl ;
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1508:1: rule__DataDefinition__Group__3 : rule__DataDefinition__Group__3__Impl rule__DataDefinition__Group__4 ;
     public final void rule__DataDefinition__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1726:1: ( rule__DataDefinition__Group__3__Impl )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1727:2: rule__DataDefinition__Group__3__Impl
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1512:1: ( rule__DataDefinition__Group__3__Impl rule__DataDefinition__Group__4 )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1513:2: rule__DataDefinition__Group__3__Impl rule__DataDefinition__Group__4
             {
-            pushFollow(FOLLOW_rule__DataDefinition__Group__3__Impl_in_rule__DataDefinition__Group__33451);
+            pushFollow(FOLLOW_rule__DataDefinition__Group__3__Impl_in_rule__DataDefinition__Group__33031);
             rule__DataDefinition__Group__3__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_rule__DataDefinition__Group__4_in_rule__DataDefinition__Group__33034);
+            rule__DataDefinition__Group__4();
 
             state._fsp--;
 
@@ -4625,23 +4069,23 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__DataDefinition__Group__3__Impl"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1733:1: rule__DataDefinition__Group__3__Impl : ( ( rule__DataDefinition__TypeAssignment_3 ) ) ;
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1520:1: rule__DataDefinition__Group__3__Impl : ( ( rule__DataDefinition__TypeAssignment_3 ) ) ;
     public final void rule__DataDefinition__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1737:1: ( ( ( rule__DataDefinition__TypeAssignment_3 ) ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1738:1: ( ( rule__DataDefinition__TypeAssignment_3 ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1524:1: ( ( ( rule__DataDefinition__TypeAssignment_3 ) ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1525:1: ( ( rule__DataDefinition__TypeAssignment_3 ) )
             {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1738:1: ( ( rule__DataDefinition__TypeAssignment_3 ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1739:1: ( rule__DataDefinition__TypeAssignment_3 )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1525:1: ( ( rule__DataDefinition__TypeAssignment_3 ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1526:1: ( rule__DataDefinition__TypeAssignment_3 )
             {
              before(grammarAccess.getDataDefinitionAccess().getTypeAssignment_3()); 
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1740:1: ( rule__DataDefinition__TypeAssignment_3 )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1740:2: rule__DataDefinition__TypeAssignment_3
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1527:1: ( rule__DataDefinition__TypeAssignment_3 )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1527:2: rule__DataDefinition__TypeAssignment_3
             {
-            pushFollow(FOLLOW_rule__DataDefinition__TypeAssignment_3_in_rule__DataDefinition__Group__3__Impl3478);
+            pushFollow(FOLLOW_rule__DataDefinition__TypeAssignment_3_in_rule__DataDefinition__Group__3__Impl3061);
             rule__DataDefinition__TypeAssignment_3();
 
             state._fsp--;
@@ -4671,22 +4115,268 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
     // $ANTLR end "rule__DataDefinition__Group__3__Impl"
 
 
+    // $ANTLR start "rule__DataDefinition__Group__4"
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1537:1: rule__DataDefinition__Group__4 : rule__DataDefinition__Group__4__Impl ;
+    public final void rule__DataDefinition__Group__4() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1541:1: ( rule__DataDefinition__Group__4__Impl )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1542:2: rule__DataDefinition__Group__4__Impl
+            {
+            pushFollow(FOLLOW_rule__DataDefinition__Group__4__Impl_in_rule__DataDefinition__Group__43091);
+            rule__DataDefinition__Group__4__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DataDefinition__Group__4"
+
+
+    // $ANTLR start "rule__DataDefinition__Group__4__Impl"
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1548:1: rule__DataDefinition__Group__4__Impl : ( ( rule__DataDefinition__Group_4__0 )? ) ;
+    public final void rule__DataDefinition__Group__4__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1552:1: ( ( ( rule__DataDefinition__Group_4__0 )? ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1553:1: ( ( rule__DataDefinition__Group_4__0 )? )
+            {
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1553:1: ( ( rule__DataDefinition__Group_4__0 )? )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1554:1: ( rule__DataDefinition__Group_4__0 )?
+            {
+             before(grammarAccess.getDataDefinitionAccess().getGroup_4()); 
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1555:1: ( rule__DataDefinition__Group_4__0 )?
+            int alt10=2;
+            int LA10_0 = input.LA(1);
+
+            if ( (LA10_0==27) ) {
+                alt10=1;
+            }
+            switch (alt10) {
+                case 1 :
+                    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1555:2: rule__DataDefinition__Group_4__0
+                    {
+                    pushFollow(FOLLOW_rule__DataDefinition__Group_4__0_in_rule__DataDefinition__Group__4__Impl3118);
+                    rule__DataDefinition__Group_4__0();
+
+                    state._fsp--;
+
+
+                    }
+                    break;
+
+            }
+
+             after(grammarAccess.getDataDefinitionAccess().getGroup_4()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DataDefinition__Group__4__Impl"
+
+
+    // $ANTLR start "rule__DataDefinition__Group_4__0"
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1575:1: rule__DataDefinition__Group_4__0 : rule__DataDefinition__Group_4__0__Impl rule__DataDefinition__Group_4__1 ;
+    public final void rule__DataDefinition__Group_4__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1579:1: ( rule__DataDefinition__Group_4__0__Impl rule__DataDefinition__Group_4__1 )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1580:2: rule__DataDefinition__Group_4__0__Impl rule__DataDefinition__Group_4__1
+            {
+            pushFollow(FOLLOW_rule__DataDefinition__Group_4__0__Impl_in_rule__DataDefinition__Group_4__03159);
+            rule__DataDefinition__Group_4__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_rule__DataDefinition__Group_4__1_in_rule__DataDefinition__Group_4__03162);
+            rule__DataDefinition__Group_4__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DataDefinition__Group_4__0"
+
+
+    // $ANTLR start "rule__DataDefinition__Group_4__0__Impl"
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1587:1: rule__DataDefinition__Group_4__0__Impl : ( 'doc -> ' ) ;
+    public final void rule__DataDefinition__Group_4__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1591:1: ( ( 'doc -> ' ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1592:1: ( 'doc -> ' )
+            {
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1592:1: ( 'doc -> ' )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1593:1: 'doc -> '
+            {
+             before(grammarAccess.getDataDefinitionAccess().getDocKeyword_4_0()); 
+            match(input,27,FOLLOW_27_in_rule__DataDefinition__Group_4__0__Impl3190); 
+             after(grammarAccess.getDataDefinitionAccess().getDocKeyword_4_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DataDefinition__Group_4__0__Impl"
+
+
+    // $ANTLR start "rule__DataDefinition__Group_4__1"
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1606:1: rule__DataDefinition__Group_4__1 : rule__DataDefinition__Group_4__1__Impl ;
+    public final void rule__DataDefinition__Group_4__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1610:1: ( rule__DataDefinition__Group_4__1__Impl )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1611:2: rule__DataDefinition__Group_4__1__Impl
+            {
+            pushFollow(FOLLOW_rule__DataDefinition__Group_4__1__Impl_in_rule__DataDefinition__Group_4__13221);
+            rule__DataDefinition__Group_4__1__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DataDefinition__Group_4__1"
+
+
+    // $ANTLR start "rule__DataDefinition__Group_4__1__Impl"
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1617:1: rule__DataDefinition__Group_4__1__Impl : ( ( rule__DataDefinition__DocAssignment_4_1 ) ) ;
+    public final void rule__DataDefinition__Group_4__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1621:1: ( ( ( rule__DataDefinition__DocAssignment_4_1 ) ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1622:1: ( ( rule__DataDefinition__DocAssignment_4_1 ) )
+            {
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1622:1: ( ( rule__DataDefinition__DocAssignment_4_1 ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1623:1: ( rule__DataDefinition__DocAssignment_4_1 )
+            {
+             before(grammarAccess.getDataDefinitionAccess().getDocAssignment_4_1()); 
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1624:1: ( rule__DataDefinition__DocAssignment_4_1 )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1624:2: rule__DataDefinition__DocAssignment_4_1
+            {
+            pushFollow(FOLLOW_rule__DataDefinition__DocAssignment_4_1_in_rule__DataDefinition__Group_4__1__Impl3248);
+            rule__DataDefinition__DocAssignment_4_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getDataDefinitionAccess().getDocAssignment_4_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DataDefinition__Group_4__1__Impl"
+
+
     // $ANTLR start "rule__ConcatExpression__Group__0"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1758:1: rule__ConcatExpression__Group__0 : rule__ConcatExpression__Group__0__Impl rule__ConcatExpression__Group__1 ;
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1638:1: rule__ConcatExpression__Group__0 : rule__ConcatExpression__Group__0__Impl rule__ConcatExpression__Group__1 ;
     public final void rule__ConcatExpression__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1762:1: ( rule__ConcatExpression__Group__0__Impl rule__ConcatExpression__Group__1 )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1763:2: rule__ConcatExpression__Group__0__Impl rule__ConcatExpression__Group__1
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1642:1: ( rule__ConcatExpression__Group__0__Impl rule__ConcatExpression__Group__1 )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1643:2: rule__ConcatExpression__Group__0__Impl rule__ConcatExpression__Group__1
             {
-            pushFollow(FOLLOW_rule__ConcatExpression__Group__0__Impl_in_rule__ConcatExpression__Group__03516);
+            pushFollow(FOLLOW_rule__ConcatExpression__Group__0__Impl_in_rule__ConcatExpression__Group__03282);
             rule__ConcatExpression__Group__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__ConcatExpression__Group__1_in_rule__ConcatExpression__Group__03519);
+            pushFollow(FOLLOW_rule__ConcatExpression__Group__1_in_rule__ConcatExpression__Group__03285);
             rule__ConcatExpression__Group__1();
 
             state._fsp--;
@@ -4710,20 +4400,20 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__ConcatExpression__Group__0__Impl"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1770:1: rule__ConcatExpression__Group__0__Impl : ( rulePrimary ) ;
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1650:1: rule__ConcatExpression__Group__0__Impl : ( rulePrimary ) ;
     public final void rule__ConcatExpression__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1774:1: ( ( rulePrimary ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1775:1: ( rulePrimary )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1654:1: ( ( rulePrimary ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1655:1: ( rulePrimary )
             {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1775:1: ( rulePrimary )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1776:1: rulePrimary
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1655:1: ( rulePrimary )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1656:1: rulePrimary
             {
              before(grammarAccess.getConcatExpressionAccess().getPrimaryParserRuleCall_0()); 
-            pushFollow(FOLLOW_rulePrimary_in_rule__ConcatExpression__Group__0__Impl3546);
+            pushFollow(FOLLOW_rulePrimary_in_rule__ConcatExpression__Group__0__Impl3312);
             rulePrimary();
 
             state._fsp--;
@@ -4751,16 +4441,16 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__ConcatExpression__Group__1"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1787:1: rule__ConcatExpression__Group__1 : rule__ConcatExpression__Group__1__Impl ;
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1667:1: rule__ConcatExpression__Group__1 : rule__ConcatExpression__Group__1__Impl ;
     public final void rule__ConcatExpression__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1791:1: ( rule__ConcatExpression__Group__1__Impl )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1792:2: rule__ConcatExpression__Group__1__Impl
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1671:1: ( rule__ConcatExpression__Group__1__Impl )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1672:2: rule__ConcatExpression__Group__1__Impl
             {
-            pushFollow(FOLLOW_rule__ConcatExpression__Group__1__Impl_in_rule__ConcatExpression__Group__13575);
+            pushFollow(FOLLOW_rule__ConcatExpression__Group__1__Impl_in_rule__ConcatExpression__Group__13341);
             rule__ConcatExpression__Group__1__Impl();
 
             state._fsp--;
@@ -4784,35 +4474,35 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__ConcatExpression__Group__1__Impl"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1798:1: rule__ConcatExpression__Group__1__Impl : ( ( rule__ConcatExpression__Group_1__0 )* ) ;
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1678:1: rule__ConcatExpression__Group__1__Impl : ( ( rule__ConcatExpression__Group_1__0 )* ) ;
     public final void rule__ConcatExpression__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1802:1: ( ( ( rule__ConcatExpression__Group_1__0 )* ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1803:1: ( ( rule__ConcatExpression__Group_1__0 )* )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1682:1: ( ( ( rule__ConcatExpression__Group_1__0 )* ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1683:1: ( ( rule__ConcatExpression__Group_1__0 )* )
             {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1803:1: ( ( rule__ConcatExpression__Group_1__0 )* )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1804:1: ( rule__ConcatExpression__Group_1__0 )*
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1683:1: ( ( rule__ConcatExpression__Group_1__0 )* )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1684:1: ( rule__ConcatExpression__Group_1__0 )*
             {
              before(grammarAccess.getConcatExpressionAccess().getGroup_1()); 
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1805:1: ( rule__ConcatExpression__Group_1__0 )*
-            loop12:
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1685:1: ( rule__ConcatExpression__Group_1__0 )*
+            loop11:
             do {
-                int alt12=2;
-                int LA12_0 = input.LA(1);
+                int alt11=2;
+                int LA11_0 = input.LA(1);
 
-                if ( (LA12_0==30) ) {
-                    alt12=1;
+                if ( (LA11_0==28) ) {
+                    alt11=1;
                 }
 
 
-                switch (alt12) {
+                switch (alt11) {
             	case 1 :
-            	    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1805:2: rule__ConcatExpression__Group_1__0
+            	    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1685:2: rule__ConcatExpression__Group_1__0
             	    {
-            	    pushFollow(FOLLOW_rule__ConcatExpression__Group_1__0_in_rule__ConcatExpression__Group__1__Impl3602);
+            	    pushFollow(FOLLOW_rule__ConcatExpression__Group_1__0_in_rule__ConcatExpression__Group__1__Impl3368);
             	    rule__ConcatExpression__Group_1__0();
 
             	    state._fsp--;
@@ -4822,7 +4512,7 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
             	    break;
 
             	default :
-            	    break loop12;
+            	    break loop11;
                 }
             } while (true);
 
@@ -4849,21 +4539,21 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__ConcatExpression__Group_1__0"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1819:1: rule__ConcatExpression__Group_1__0 : rule__ConcatExpression__Group_1__0__Impl rule__ConcatExpression__Group_1__1 ;
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1699:1: rule__ConcatExpression__Group_1__0 : rule__ConcatExpression__Group_1__0__Impl rule__ConcatExpression__Group_1__1 ;
     public final void rule__ConcatExpression__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1823:1: ( rule__ConcatExpression__Group_1__0__Impl rule__ConcatExpression__Group_1__1 )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1824:2: rule__ConcatExpression__Group_1__0__Impl rule__ConcatExpression__Group_1__1
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1703:1: ( rule__ConcatExpression__Group_1__0__Impl rule__ConcatExpression__Group_1__1 )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1704:2: rule__ConcatExpression__Group_1__0__Impl rule__ConcatExpression__Group_1__1
             {
-            pushFollow(FOLLOW_rule__ConcatExpression__Group_1__0__Impl_in_rule__ConcatExpression__Group_1__03637);
+            pushFollow(FOLLOW_rule__ConcatExpression__Group_1__0__Impl_in_rule__ConcatExpression__Group_1__03403);
             rule__ConcatExpression__Group_1__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__ConcatExpression__Group_1__1_in_rule__ConcatExpression__Group_1__03640);
+            pushFollow(FOLLOW_rule__ConcatExpression__Group_1__1_in_rule__ConcatExpression__Group_1__03406);
             rule__ConcatExpression__Group_1__1();
 
             state._fsp--;
@@ -4887,21 +4577,21 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__ConcatExpression__Group_1__0__Impl"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1831:1: rule__ConcatExpression__Group_1__0__Impl : ( () ) ;
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1711:1: rule__ConcatExpression__Group_1__0__Impl : ( () ) ;
     public final void rule__ConcatExpression__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1835:1: ( ( () ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1836:1: ( () )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1715:1: ( ( () ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1716:1: ( () )
             {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1836:1: ( () )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1837:1: ()
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1716:1: ( () )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1717:1: ()
             {
              before(grammarAccess.getConcatExpressionAccess().getConcatenationLeftAction_1_0()); 
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1838:1: ()
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1840:1: 
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1718:1: ()
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1720:1: 
             {
             }
 
@@ -4924,21 +4614,21 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__ConcatExpression__Group_1__1"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1850:1: rule__ConcatExpression__Group_1__1 : rule__ConcatExpression__Group_1__1__Impl rule__ConcatExpression__Group_1__2 ;
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1730:1: rule__ConcatExpression__Group_1__1 : rule__ConcatExpression__Group_1__1__Impl rule__ConcatExpression__Group_1__2 ;
     public final void rule__ConcatExpression__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1854:1: ( rule__ConcatExpression__Group_1__1__Impl rule__ConcatExpression__Group_1__2 )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1855:2: rule__ConcatExpression__Group_1__1__Impl rule__ConcatExpression__Group_1__2
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1734:1: ( rule__ConcatExpression__Group_1__1__Impl rule__ConcatExpression__Group_1__2 )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1735:2: rule__ConcatExpression__Group_1__1__Impl rule__ConcatExpression__Group_1__2
             {
-            pushFollow(FOLLOW_rule__ConcatExpression__Group_1__1__Impl_in_rule__ConcatExpression__Group_1__13698);
+            pushFollow(FOLLOW_rule__ConcatExpression__Group_1__1__Impl_in_rule__ConcatExpression__Group_1__13464);
             rule__ConcatExpression__Group_1__1__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__ConcatExpression__Group_1__2_in_rule__ConcatExpression__Group_1__13701);
+            pushFollow(FOLLOW_rule__ConcatExpression__Group_1__2_in_rule__ConcatExpression__Group_1__13467);
             rule__ConcatExpression__Group_1__2();
 
             state._fsp--;
@@ -4962,20 +4652,20 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__ConcatExpression__Group_1__1__Impl"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1862:1: rule__ConcatExpression__Group_1__1__Impl : ( '+' ) ;
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1742:1: rule__ConcatExpression__Group_1__1__Impl : ( '+' ) ;
     public final void rule__ConcatExpression__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1866:1: ( ( '+' ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1867:1: ( '+' )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1746:1: ( ( '+' ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1747:1: ( '+' )
             {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1867:1: ( '+' )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1868:1: '+'
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1747:1: ( '+' )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1748:1: '+'
             {
              before(grammarAccess.getConcatExpressionAccess().getPlusSignKeyword_1_1()); 
-            match(input,30,FOLLOW_30_in_rule__ConcatExpression__Group_1__1__Impl3729); 
+            match(input,28,FOLLOW_28_in_rule__ConcatExpression__Group_1__1__Impl3495); 
              after(grammarAccess.getConcatExpressionAccess().getPlusSignKeyword_1_1()); 
 
             }
@@ -4999,16 +4689,16 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__ConcatExpression__Group_1__2"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1881:1: rule__ConcatExpression__Group_1__2 : rule__ConcatExpression__Group_1__2__Impl ;
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1761:1: rule__ConcatExpression__Group_1__2 : rule__ConcatExpression__Group_1__2__Impl ;
     public final void rule__ConcatExpression__Group_1__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1885:1: ( rule__ConcatExpression__Group_1__2__Impl )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1886:2: rule__ConcatExpression__Group_1__2__Impl
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1765:1: ( rule__ConcatExpression__Group_1__2__Impl )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1766:2: rule__ConcatExpression__Group_1__2__Impl
             {
-            pushFollow(FOLLOW_rule__ConcatExpression__Group_1__2__Impl_in_rule__ConcatExpression__Group_1__23760);
+            pushFollow(FOLLOW_rule__ConcatExpression__Group_1__2__Impl_in_rule__ConcatExpression__Group_1__23526);
             rule__ConcatExpression__Group_1__2__Impl();
 
             state._fsp--;
@@ -5032,23 +4722,23 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__ConcatExpression__Group_1__2__Impl"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1892:1: rule__ConcatExpression__Group_1__2__Impl : ( ( rule__ConcatExpression__RightAssignment_1_2 ) ) ;
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1772:1: rule__ConcatExpression__Group_1__2__Impl : ( ( rule__ConcatExpression__RightAssignment_1_2 ) ) ;
     public final void rule__ConcatExpression__Group_1__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1896:1: ( ( ( rule__ConcatExpression__RightAssignment_1_2 ) ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1897:1: ( ( rule__ConcatExpression__RightAssignment_1_2 ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1776:1: ( ( ( rule__ConcatExpression__RightAssignment_1_2 ) ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1777:1: ( ( rule__ConcatExpression__RightAssignment_1_2 ) )
             {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1897:1: ( ( rule__ConcatExpression__RightAssignment_1_2 ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1898:1: ( rule__ConcatExpression__RightAssignment_1_2 )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1777:1: ( ( rule__ConcatExpression__RightAssignment_1_2 ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1778:1: ( rule__ConcatExpression__RightAssignment_1_2 )
             {
              before(grammarAccess.getConcatExpressionAccess().getRightAssignment_1_2()); 
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1899:1: ( rule__ConcatExpression__RightAssignment_1_2 )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1899:2: rule__ConcatExpression__RightAssignment_1_2
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1779:1: ( rule__ConcatExpression__RightAssignment_1_2 )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1779:2: rule__ConcatExpression__RightAssignment_1_2
             {
-            pushFollow(FOLLOW_rule__ConcatExpression__RightAssignment_1_2_in_rule__ConcatExpression__Group_1__2__Impl3787);
+            pushFollow(FOLLOW_rule__ConcatExpression__RightAssignment_1_2_in_rule__ConcatExpression__Group_1__2__Impl3553);
             rule__ConcatExpression__RightAssignment_1_2();
 
             state._fsp--;
@@ -5079,21 +4769,21 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__DoubleLiteral__Group__0"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1915:1: rule__DoubleLiteral__Group__0 : rule__DoubleLiteral__Group__0__Impl rule__DoubleLiteral__Group__1 ;
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1795:1: rule__DoubleLiteral__Group__0 : rule__DoubleLiteral__Group__0__Impl rule__DoubleLiteral__Group__1 ;
     public final void rule__DoubleLiteral__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1919:1: ( rule__DoubleLiteral__Group__0__Impl rule__DoubleLiteral__Group__1 )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1920:2: rule__DoubleLiteral__Group__0__Impl rule__DoubleLiteral__Group__1
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1799:1: ( rule__DoubleLiteral__Group__0__Impl rule__DoubleLiteral__Group__1 )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1800:2: rule__DoubleLiteral__Group__0__Impl rule__DoubleLiteral__Group__1
             {
-            pushFollow(FOLLOW_rule__DoubleLiteral__Group__0__Impl_in_rule__DoubleLiteral__Group__03823);
+            pushFollow(FOLLOW_rule__DoubleLiteral__Group__0__Impl_in_rule__DoubleLiteral__Group__03589);
             rule__DoubleLiteral__Group__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__DoubleLiteral__Group__1_in_rule__DoubleLiteral__Group__03826);
+            pushFollow(FOLLOW_rule__DoubleLiteral__Group__1_in_rule__DoubleLiteral__Group__03592);
             rule__DoubleLiteral__Group__1();
 
             state._fsp--;
@@ -5117,23 +4807,23 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__DoubleLiteral__Group__0__Impl"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1927:1: rule__DoubleLiteral__Group__0__Impl : ( ( rule__DoubleLiteral__ValueAssignment_0 ) ) ;
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1807:1: rule__DoubleLiteral__Group__0__Impl : ( ( rule__DoubleLiteral__ValueAssignment_0 ) ) ;
     public final void rule__DoubleLiteral__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1931:1: ( ( ( rule__DoubleLiteral__ValueAssignment_0 ) ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1932:1: ( ( rule__DoubleLiteral__ValueAssignment_0 ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1811:1: ( ( ( rule__DoubleLiteral__ValueAssignment_0 ) ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1812:1: ( ( rule__DoubleLiteral__ValueAssignment_0 ) )
             {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1932:1: ( ( rule__DoubleLiteral__ValueAssignment_0 ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1933:1: ( rule__DoubleLiteral__ValueAssignment_0 )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1812:1: ( ( rule__DoubleLiteral__ValueAssignment_0 ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1813:1: ( rule__DoubleLiteral__ValueAssignment_0 )
             {
              before(grammarAccess.getDoubleLiteralAccess().getValueAssignment_0()); 
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1934:1: ( rule__DoubleLiteral__ValueAssignment_0 )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1934:2: rule__DoubleLiteral__ValueAssignment_0
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1814:1: ( rule__DoubleLiteral__ValueAssignment_0 )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1814:2: rule__DoubleLiteral__ValueAssignment_0
             {
-            pushFollow(FOLLOW_rule__DoubleLiteral__ValueAssignment_0_in_rule__DoubleLiteral__Group__0__Impl3853);
+            pushFollow(FOLLOW_rule__DoubleLiteral__ValueAssignment_0_in_rule__DoubleLiteral__Group__0__Impl3619);
             rule__DoubleLiteral__ValueAssignment_0();
 
             state._fsp--;
@@ -5164,21 +4854,21 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__DoubleLiteral__Group__1"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1944:1: rule__DoubleLiteral__Group__1 : rule__DoubleLiteral__Group__1__Impl rule__DoubleLiteral__Group__2 ;
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1824:1: rule__DoubleLiteral__Group__1 : rule__DoubleLiteral__Group__1__Impl rule__DoubleLiteral__Group__2 ;
     public final void rule__DoubleLiteral__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1948:1: ( rule__DoubleLiteral__Group__1__Impl rule__DoubleLiteral__Group__2 )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1949:2: rule__DoubleLiteral__Group__1__Impl rule__DoubleLiteral__Group__2
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1828:1: ( rule__DoubleLiteral__Group__1__Impl rule__DoubleLiteral__Group__2 )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1829:2: rule__DoubleLiteral__Group__1__Impl rule__DoubleLiteral__Group__2
             {
-            pushFollow(FOLLOW_rule__DoubleLiteral__Group__1__Impl_in_rule__DoubleLiteral__Group__13883);
+            pushFollow(FOLLOW_rule__DoubleLiteral__Group__1__Impl_in_rule__DoubleLiteral__Group__13649);
             rule__DoubleLiteral__Group__1__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__DoubleLiteral__Group__2_in_rule__DoubleLiteral__Group__13886);
+            pushFollow(FOLLOW_rule__DoubleLiteral__Group__2_in_rule__DoubleLiteral__Group__13652);
             rule__DoubleLiteral__Group__2();
 
             state._fsp--;
@@ -5202,20 +4892,20 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__DoubleLiteral__Group__1__Impl"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1956:1: rule__DoubleLiteral__Group__1__Impl : ( '.' ) ;
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1836:1: rule__DoubleLiteral__Group__1__Impl : ( '.' ) ;
     public final void rule__DoubleLiteral__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1960:1: ( ( '.' ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1961:1: ( '.' )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1840:1: ( ( '.' ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1841:1: ( '.' )
             {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1961:1: ( '.' )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1962:1: '.'
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1841:1: ( '.' )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1842:1: '.'
             {
              before(grammarAccess.getDoubleLiteralAccess().getFullStopKeyword_1()); 
-            match(input,31,FOLLOW_31_in_rule__DoubleLiteral__Group__1__Impl3914); 
+            match(input,29,FOLLOW_29_in_rule__DoubleLiteral__Group__1__Impl3680); 
              after(grammarAccess.getDoubleLiteralAccess().getFullStopKeyword_1()); 
 
             }
@@ -5239,16 +4929,16 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__DoubleLiteral__Group__2"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1975:1: rule__DoubleLiteral__Group__2 : rule__DoubleLiteral__Group__2__Impl ;
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1855:1: rule__DoubleLiteral__Group__2 : rule__DoubleLiteral__Group__2__Impl ;
     public final void rule__DoubleLiteral__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1979:1: ( rule__DoubleLiteral__Group__2__Impl )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1980:2: rule__DoubleLiteral__Group__2__Impl
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1859:1: ( rule__DoubleLiteral__Group__2__Impl )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1860:2: rule__DoubleLiteral__Group__2__Impl
             {
-            pushFollow(FOLLOW_rule__DoubleLiteral__Group__2__Impl_in_rule__DoubleLiteral__Group__23945);
+            pushFollow(FOLLOW_rule__DoubleLiteral__Group__2__Impl_in_rule__DoubleLiteral__Group__23711);
             rule__DoubleLiteral__Group__2__Impl();
 
             state._fsp--;
@@ -5272,20 +4962,20 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__DoubleLiteral__Group__2__Impl"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1986:1: rule__DoubleLiteral__Group__2__Impl : ( RULE_INT ) ;
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1866:1: rule__DoubleLiteral__Group__2__Impl : ( RULE_INT ) ;
     public final void rule__DoubleLiteral__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1990:1: ( ( RULE_INT ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1991:1: ( RULE_INT )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1870:1: ( ( RULE_INT ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1871:1: ( RULE_INT )
             {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1991:1: ( RULE_INT )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1992:1: RULE_INT
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1871:1: ( RULE_INT )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1872:1: RULE_INT
             {
              before(grammarAccess.getDoubleLiteralAccess().getINTTerminalRuleCall_2()); 
-            match(input,RULE_INT,FOLLOW_RULE_INT_in_rule__DoubleLiteral__Group__2__Impl3972); 
+            match(input,RULE_INT,FOLLOW_RULE_INT_in_rule__DoubleLiteral__Group__2__Impl3738); 
              after(grammarAccess.getDoubleLiteralAccess().getINTTerminalRuleCall_2()); 
 
             }
@@ -5309,21 +4999,21 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Import__Group__0"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2009:1: rule__Import__Group__0 : rule__Import__Group__0__Impl rule__Import__Group__1 ;
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1889:1: rule__Import__Group__0 : rule__Import__Group__0__Impl rule__Import__Group__1 ;
     public final void rule__Import__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2013:1: ( rule__Import__Group__0__Impl rule__Import__Group__1 )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2014:2: rule__Import__Group__0__Impl rule__Import__Group__1
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1893:1: ( rule__Import__Group__0__Impl rule__Import__Group__1 )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1894:2: rule__Import__Group__0__Impl rule__Import__Group__1
             {
-            pushFollow(FOLLOW_rule__Import__Group__0__Impl_in_rule__Import__Group__04007);
+            pushFollow(FOLLOW_rule__Import__Group__0__Impl_in_rule__Import__Group__03773);
             rule__Import__Group__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Import__Group__1_in_rule__Import__Group__04010);
+            pushFollow(FOLLOW_rule__Import__Group__1_in_rule__Import__Group__03776);
             rule__Import__Group__1();
 
             state._fsp--;
@@ -5347,20 +5037,20 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Import__Group__0__Impl"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2021:1: rule__Import__Group__0__Impl : ( 'import' ) ;
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1901:1: rule__Import__Group__0__Impl : ( 'import' ) ;
     public final void rule__Import__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2025:1: ( ( 'import' ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2026:1: ( 'import' )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1905:1: ( ( 'import' ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1906:1: ( 'import' )
             {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2026:1: ( 'import' )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2027:1: 'import'
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1906:1: ( 'import' )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1907:1: 'import'
             {
              before(grammarAccess.getImportAccess().getImportKeyword_0()); 
-            match(input,32,FOLLOW_32_in_rule__Import__Group__0__Impl4038); 
+            match(input,30,FOLLOW_30_in_rule__Import__Group__0__Impl3804); 
              after(grammarAccess.getImportAccess().getImportKeyword_0()); 
 
             }
@@ -5384,16 +5074,16 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Import__Group__1"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2040:1: rule__Import__Group__1 : rule__Import__Group__1__Impl ;
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1920:1: rule__Import__Group__1 : rule__Import__Group__1__Impl ;
     public final void rule__Import__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2044:1: ( rule__Import__Group__1__Impl )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2045:2: rule__Import__Group__1__Impl
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1924:1: ( rule__Import__Group__1__Impl )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1925:2: rule__Import__Group__1__Impl
             {
-            pushFollow(FOLLOW_rule__Import__Group__1__Impl_in_rule__Import__Group__14069);
+            pushFollow(FOLLOW_rule__Import__Group__1__Impl_in_rule__Import__Group__13835);
             rule__Import__Group__1__Impl();
 
             state._fsp--;
@@ -5417,23 +5107,23 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Import__Group__1__Impl"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2051:1: rule__Import__Group__1__Impl : ( ( rule__Import__ImportURIAssignment_1 ) ) ;
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1931:1: rule__Import__Group__1__Impl : ( ( rule__Import__ImportURIAssignment_1 ) ) ;
     public final void rule__Import__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2055:1: ( ( ( rule__Import__ImportURIAssignment_1 ) ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2056:1: ( ( rule__Import__ImportURIAssignment_1 ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1935:1: ( ( ( rule__Import__ImportURIAssignment_1 ) ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1936:1: ( ( rule__Import__ImportURIAssignment_1 ) )
             {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2056:1: ( ( rule__Import__ImportURIAssignment_1 ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2057:1: ( rule__Import__ImportURIAssignment_1 )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1936:1: ( ( rule__Import__ImportURIAssignment_1 ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1937:1: ( rule__Import__ImportURIAssignment_1 )
             {
              before(grammarAccess.getImportAccess().getImportURIAssignment_1()); 
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2058:1: ( rule__Import__ImportURIAssignment_1 )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2058:2: rule__Import__ImportURIAssignment_1
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1938:1: ( rule__Import__ImportURIAssignment_1 )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1938:2: rule__Import__ImportURIAssignment_1
             {
-            pushFollow(FOLLOW_rule__Import__ImportURIAssignment_1_in_rule__Import__Group__1__Impl4096);
+            pushFollow(FOLLOW_rule__Import__ImportURIAssignment_1_in_rule__Import__Group__1__Impl3862);
             rule__Import__ImportURIAssignment_1();
 
             state._fsp--;
@@ -5464,20 +5154,20 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Model__ImportsAssignment_0"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2075:1: rule__Model__ImportsAssignment_0 : ( ruleImport ) ;
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1955:1: rule__Model__ImportsAssignment_0 : ( ruleImport ) ;
     public final void rule__Model__ImportsAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2079:1: ( ( ruleImport ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2080:1: ( ruleImport )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1959:1: ( ( ruleImport ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1960:1: ( ruleImport )
             {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2080:1: ( ruleImport )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2081:1: ruleImport
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1960:1: ( ruleImport )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1961:1: ruleImport
             {
              before(grammarAccess.getModelAccess().getImportsImportParserRuleCall_0_0()); 
-            pushFollow(FOLLOW_ruleImport_in_rule__Model__ImportsAssignment_04137);
+            pushFollow(FOLLOW_ruleImport_in_rule__Model__ImportsAssignment_03903);
             ruleImport();
 
             state._fsp--;
@@ -5505,20 +5195,20 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Model__ProgramsAssignment_1"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2090:1: rule__Model__ProgramsAssignment_1 : ( ruleProgram ) ;
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1970:1: rule__Model__ProgramsAssignment_1 : ( ruleProgram ) ;
     public final void rule__Model__ProgramsAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2094:1: ( ( ruleProgram ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2095:1: ( ruleProgram )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1974:1: ( ( ruleProgram ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1975:1: ( ruleProgram )
             {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2095:1: ( ruleProgram )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2096:1: ruleProgram
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1975:1: ( ruleProgram )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1976:1: ruleProgram
             {
              before(grammarAccess.getModelAccess().getProgramsProgramParserRuleCall_1_0()); 
-            pushFollow(FOLLOW_ruleProgram_in_rule__Model__ProgramsAssignment_14168);
+            pushFollow(FOLLOW_ruleProgram_in_rule__Model__ProgramsAssignment_13934);
             ruleProgram();
 
             state._fsp--;
@@ -5546,20 +5236,20 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Program__NameAssignment_1"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2105:1: rule__Program__NameAssignment_1 : ( ruleValidID ) ;
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1985:1: rule__Program__NameAssignment_1 : ( ruleValidID ) ;
     public final void rule__Program__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2109:1: ( ( ruleValidID ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2110:1: ( ruleValidID )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1989:1: ( ( ruleValidID ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1990:1: ( ruleValidID )
             {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2110:1: ( ruleValidID )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2111:1: ruleValidID
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1990:1: ( ruleValidID )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:1991:1: ruleValidID
             {
              before(grammarAccess.getProgramAccess().getNameValidIDParserRuleCall_1_0()); 
-            pushFollow(FOLLOW_ruleValidID_in_rule__Program__NameAssignment_14199);
+            pushFollow(FOLLOW_ruleValidID_in_rule__Program__NameAssignment_13965);
             ruleValidID();
 
             state._fsp--;
@@ -5587,20 +5277,20 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Program__PathAssignment_3"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2120:1: rule__Program__PathAssignment_3 : ( ruleConcatExpression ) ;
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2000:1: rule__Program__PathAssignment_3 : ( ruleConcatExpression ) ;
     public final void rule__Program__PathAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2124:1: ( ( ruleConcatExpression ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2125:1: ( ruleConcatExpression )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2004:1: ( ( ruleConcatExpression ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2005:1: ( ruleConcatExpression )
             {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2125:1: ( ruleConcatExpression )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2126:1: ruleConcatExpression
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2005:1: ( ruleConcatExpression )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2006:1: ruleConcatExpression
             {
              before(grammarAccess.getProgramAccess().getPathConcatExpressionParserRuleCall_3_0()); 
-            pushFollow(FOLLOW_ruleConcatExpression_in_rule__Program__PathAssignment_34230);
+            pushFollow(FOLLOW_ruleConcatExpression_in_rule__Program__PathAssignment_33996);
             ruleConcatExpression();
 
             state._fsp--;
@@ -5628,20 +5318,20 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Program__FunctionsAssignment_5"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2135:1: rule__Program__FunctionsAssignment_5 : ( ruleFunction ) ;
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2015:1: rule__Program__FunctionsAssignment_5 : ( ruleFunction ) ;
     public final void rule__Program__FunctionsAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2139:1: ( ( ruleFunction ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2140:1: ( ruleFunction )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2019:1: ( ( ruleFunction ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2020:1: ( ruleFunction )
             {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2140:1: ( ruleFunction )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2141:1: ruleFunction
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2020:1: ( ruleFunction )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2021:1: ruleFunction
             {
              before(grammarAccess.getProgramAccess().getFunctionsFunctionParserRuleCall_5_0()); 
-            pushFollow(FOLLOW_ruleFunction_in_rule__Program__FunctionsAssignment_54261);
+            pushFollow(FOLLOW_ruleFunction_in_rule__Program__FunctionsAssignment_54027);
             ruleFunction();
 
             state._fsp--;
@@ -5669,20 +5359,20 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Param__NameAssignment"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2150:1: rule__Param__NameAssignment : ( ruleValidID ) ;
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2030:1: rule__Param__NameAssignment : ( ruleValidID ) ;
     public final void rule__Param__NameAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2154:1: ( ( ruleValidID ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2155:1: ( ruleValidID )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2034:1: ( ( ruleValidID ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2035:1: ( ruleValidID )
             {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2155:1: ( ruleValidID )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2156:1: ruleValidID
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2035:1: ( ruleValidID )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2036:1: ruleValidID
             {
              before(grammarAccess.getParamAccess().getNameValidIDParserRuleCall_0()); 
-            pushFollow(FOLLOW_ruleValidID_in_rule__Param__NameAssignment4292);
+            pushFollow(FOLLOW_ruleValidID_in_rule__Param__NameAssignment4058);
             ruleValidID();
 
             state._fsp--;
@@ -5710,20 +5400,20 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Function__NameAssignment_1"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2165:1: rule__Function__NameAssignment_1 : ( RULE_ID ) ;
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2045:1: rule__Function__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__Function__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2169:1: ( ( RULE_ID ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2170:1: ( RULE_ID )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2049:1: ( ( RULE_ID ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2050:1: ( RULE_ID )
             {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2170:1: ( RULE_ID )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2171:1: RULE_ID
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2050:1: ( RULE_ID )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2051:1: RULE_ID
             {
              before(grammarAccess.getFunctionAccess().getNameIDTerminalRuleCall_1_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Function__NameAssignment_14323); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Function__NameAssignment_14089); 
              after(grammarAccess.getFunctionAccess().getNameIDTerminalRuleCall_1_0()); 
 
             }
@@ -5746,108 +5436,26 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
     // $ANTLR end "rule__Function__NameAssignment_1"
 
 
-    // $ANTLR start "rule__Function__ParamsAssignment_3_0"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2180:1: rule__Function__ParamsAssignment_3_0 : ( ruleParam ) ;
-    public final void rule__Function__ParamsAssignment_3_0() throws RecognitionException {
+    // $ANTLR start "rule__Function__DescAssignment_3_1"
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2060:1: rule__Function__DescAssignment_3_1 : ( ruleStringLiteral ) ;
+    public final void rule__Function__DescAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2184:1: ( ( ruleParam ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2185:1: ( ruleParam )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2064:1: ( ( ruleStringLiteral ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2065:1: ( ruleStringLiteral )
             {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2185:1: ( ruleParam )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2186:1: ruleParam
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2065:1: ( ruleStringLiteral )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2066:1: ruleStringLiteral
             {
-             before(grammarAccess.getFunctionAccess().getParamsParamParserRuleCall_3_0_0()); 
-            pushFollow(FOLLOW_ruleParam_in_rule__Function__ParamsAssignment_3_04354);
-            ruleParam();
-
-            state._fsp--;
-
-             after(grammarAccess.getFunctionAccess().getParamsParamParserRuleCall_3_0_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Function__ParamsAssignment_3_0"
-
-
-    // $ANTLR start "rule__Function__ParamsAssignment_3_1_1"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2195:1: rule__Function__ParamsAssignment_3_1_1 : ( ruleParam ) ;
-    public final void rule__Function__ParamsAssignment_3_1_1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2199:1: ( ( ruleParam ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2200:1: ( ruleParam )
-            {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2200:1: ( ruleParam )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2201:1: ruleParam
-            {
-             before(grammarAccess.getFunctionAccess().getParamsParamParserRuleCall_3_1_1_0()); 
-            pushFollow(FOLLOW_ruleParam_in_rule__Function__ParamsAssignment_3_1_14385);
-            ruleParam();
-
-            state._fsp--;
-
-             after(grammarAccess.getFunctionAccess().getParamsParamParserRuleCall_3_1_1_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Function__ParamsAssignment_3_1_1"
-
-
-    // $ANTLR start "rule__Function__DocAssignment_6_1"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2210:1: rule__Function__DocAssignment_6_1 : ( ruleStringLiteral ) ;
-    public final void rule__Function__DocAssignment_6_1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2214:1: ( ( ruleStringLiteral ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2215:1: ( ruleStringLiteral )
-            {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2215:1: ( ruleStringLiteral )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2216:1: ruleStringLiteral
-            {
-             before(grammarAccess.getFunctionAccess().getDocStringLiteralParserRuleCall_6_1_0()); 
-            pushFollow(FOLLOW_ruleStringLiteral_in_rule__Function__DocAssignment_6_14416);
+             before(grammarAccess.getFunctionAccess().getDescStringLiteralParserRuleCall_3_1_0()); 
+            pushFollow(FOLLOW_ruleStringLiteral_in_rule__Function__DescAssignment_3_14120);
             ruleStringLiteral();
 
             state._fsp--;
 
-             after(grammarAccess.getFunctionAccess().getDocStringLiteralParserRuleCall_6_1_0()); 
+             after(grammarAccess.getFunctionAccess().getDescStringLiteralParserRuleCall_3_1_0()); 
 
             }
 
@@ -5866,29 +5474,29 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end "rule__Function__DocAssignment_6_1"
+    // $ANTLR end "rule__Function__DescAssignment_3_1"
 
 
-    // $ANTLR start "rule__Function__DocurlAssignment_7_1"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2225:1: rule__Function__DocurlAssignment_7_1 : ( ruleStringLiteral ) ;
-    public final void rule__Function__DocurlAssignment_7_1() throws RecognitionException {
+    // $ANTLR start "rule__Function__DocurlAssignment_4_1"
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2075:1: rule__Function__DocurlAssignment_4_1 : ( ruleStringLiteral ) ;
+    public final void rule__Function__DocurlAssignment_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2229:1: ( ( ruleStringLiteral ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2230:1: ( ruleStringLiteral )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2079:1: ( ( ruleStringLiteral ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2080:1: ( ruleStringLiteral )
             {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2230:1: ( ruleStringLiteral )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2231:1: ruleStringLiteral
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2080:1: ( ruleStringLiteral )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2081:1: ruleStringLiteral
             {
-             before(grammarAccess.getFunctionAccess().getDocurlStringLiteralParserRuleCall_7_1_0()); 
-            pushFollow(FOLLOW_ruleStringLiteral_in_rule__Function__DocurlAssignment_7_14447);
+             before(grammarAccess.getFunctionAccess().getDocurlStringLiteralParserRuleCall_4_1_0()); 
+            pushFollow(FOLLOW_ruleStringLiteral_in_rule__Function__DocurlAssignment_4_14151);
             ruleStringLiteral();
 
             state._fsp--;
 
-             after(grammarAccess.getFunctionAccess().getDocurlStringLiteralParserRuleCall_7_1_0()); 
+             after(grammarAccess.getFunctionAccess().getDocurlStringLiteralParserRuleCall_4_1_0()); 
 
             }
 
@@ -5907,29 +5515,29 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end "rule__Function__DocurlAssignment_7_1"
+    // $ANTLR end "rule__Function__DocurlAssignment_4_1"
 
 
-    // $ANTLR start "rule__Function__InputAssignment_8_1"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2240:1: rule__Function__InputAssignment_8_1 : ( ruleDataDefinition ) ;
-    public final void rule__Function__InputAssignment_8_1() throws RecognitionException {
+    // $ANTLR start "rule__Function__InputAssignment_5_1"
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2090:1: rule__Function__InputAssignment_5_1 : ( ruleDataDefinition ) ;
+    public final void rule__Function__InputAssignment_5_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2244:1: ( ( ruleDataDefinition ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2245:1: ( ruleDataDefinition )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2094:1: ( ( ruleDataDefinition ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2095:1: ( ruleDataDefinition )
             {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2245:1: ( ruleDataDefinition )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2246:1: ruleDataDefinition
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2095:1: ( ruleDataDefinition )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2096:1: ruleDataDefinition
             {
-             before(grammarAccess.getFunctionAccess().getInputDataDefinitionParserRuleCall_8_1_0()); 
-            pushFollow(FOLLOW_ruleDataDefinition_in_rule__Function__InputAssignment_8_14478);
+             before(grammarAccess.getFunctionAccess().getInputDataDefinitionParserRuleCall_5_1_0()); 
+            pushFollow(FOLLOW_ruleDataDefinition_in_rule__Function__InputAssignment_5_14182);
             ruleDataDefinition();
 
             state._fsp--;
 
-             after(grammarAccess.getFunctionAccess().getInputDataDefinitionParserRuleCall_8_1_0()); 
+             after(grammarAccess.getFunctionAccess().getInputDataDefinitionParserRuleCall_5_1_0()); 
 
             }
 
@@ -5948,29 +5556,29 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end "rule__Function__InputAssignment_8_1"
+    // $ANTLR end "rule__Function__InputAssignment_5_1"
 
 
-    // $ANTLR start "rule__Function__OutputAssignment_9_1"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2255:1: rule__Function__OutputAssignment_9_1 : ( ruleDataDefinition ) ;
-    public final void rule__Function__OutputAssignment_9_1() throws RecognitionException {
+    // $ANTLR start "rule__Function__OutputAssignment_6_1"
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2105:1: rule__Function__OutputAssignment_6_1 : ( ruleDataDefinition ) ;
+    public final void rule__Function__OutputAssignment_6_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2259:1: ( ( ruleDataDefinition ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2260:1: ( ruleDataDefinition )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2109:1: ( ( ruleDataDefinition ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2110:1: ( ruleDataDefinition )
             {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2260:1: ( ruleDataDefinition )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2261:1: ruleDataDefinition
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2110:1: ( ruleDataDefinition )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2111:1: ruleDataDefinition
             {
-             before(grammarAccess.getFunctionAccess().getOutputDataDefinitionParserRuleCall_9_1_0()); 
-            pushFollow(FOLLOW_ruleDataDefinition_in_rule__Function__OutputAssignment_9_14509);
+             before(grammarAccess.getFunctionAccess().getOutputDataDefinitionParserRuleCall_6_1_0()); 
+            pushFollow(FOLLOW_ruleDataDefinition_in_rule__Function__OutputAssignment_6_14213);
             ruleDataDefinition();
 
             state._fsp--;
 
-             after(grammarAccess.getFunctionAccess().getOutputDataDefinitionParserRuleCall_9_1_0()); 
+             after(grammarAccess.getFunctionAccess().getOutputDataDefinitionParserRuleCall_6_1_0()); 
 
             }
 
@@ -5989,29 +5597,29 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end "rule__Function__OutputAssignment_9_1"
+    // $ANTLR end "rule__Function__OutputAssignment_6_1"
 
 
-    // $ANTLR start "rule__Function__OptionBlocksAssignment_10_1"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2270:1: rule__Function__OptionBlocksAssignment_10_1 : ( ruleOption ) ;
-    public final void rule__Function__OptionBlocksAssignment_10_1() throws RecognitionException {
+    // $ANTLR start "rule__Function__OptionBlocksAssignment_7_1"
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2120:1: rule__Function__OptionBlocksAssignment_7_1 : ( ruleOption ) ;
+    public final void rule__Function__OptionBlocksAssignment_7_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2274:1: ( ( ruleOption ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2275:1: ( ruleOption )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2124:1: ( ( ruleOption ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2125:1: ( ruleOption )
             {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2275:1: ( ruleOption )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2276:1: ruleOption
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2125:1: ( ruleOption )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2126:1: ruleOption
             {
-             before(grammarAccess.getFunctionAccess().getOptionBlocksOptionParserRuleCall_10_1_0()); 
-            pushFollow(FOLLOW_ruleOption_in_rule__Function__OptionBlocksAssignment_10_14540);
+             before(grammarAccess.getFunctionAccess().getOptionBlocksOptionParserRuleCall_7_1_0()); 
+            pushFollow(FOLLOW_ruleOption_in_rule__Function__OptionBlocksAssignment_7_14244);
             ruleOption();
 
             state._fsp--;
 
-             after(grammarAccess.getFunctionAccess().getOptionBlocksOptionParserRuleCall_10_1_0()); 
+             after(grammarAccess.getFunctionAccess().getOptionBlocksOptionParserRuleCall_7_1_0()); 
 
             }
 
@@ -6030,33 +5638,29 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end "rule__Function__OptionBlocksAssignment_10_1"
+    // $ANTLR end "rule__Function__OptionBlocksAssignment_7_1"
 
 
     // $ANTLR start "rule__DataDefinition__InputAssignment_1"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2285:1: rule__DataDefinition__InputAssignment_1 : ( ( RULE_ID ) ) ;
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2135:1: rule__DataDefinition__InputAssignment_1 : ( ruleParam ) ;
     public final void rule__DataDefinition__InputAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2289:1: ( ( ( RULE_ID ) ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2290:1: ( ( RULE_ID ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2139:1: ( ( ruleParam ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2140:1: ( ruleParam )
             {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2290:1: ( ( RULE_ID ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2291:1: ( RULE_ID )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2140:1: ( ruleParam )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2141:1: ruleParam
             {
-             before(grammarAccess.getDataDefinitionAccess().getInputParamCrossReference_1_0()); 
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2292:1: ( RULE_ID )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2293:1: RULE_ID
-            {
-             before(grammarAccess.getDataDefinitionAccess().getInputParamIDTerminalRuleCall_1_0_1()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__DataDefinition__InputAssignment_14575); 
-             after(grammarAccess.getDataDefinitionAccess().getInputParamIDTerminalRuleCall_1_0_1()); 
+             before(grammarAccess.getDataDefinitionAccess().getInputParamParserRuleCall_1_0()); 
+            pushFollow(FOLLOW_ruleParam_in_rule__DataDefinition__InputAssignment_14275);
+            ruleParam();
 
-            }
+            state._fsp--;
 
-             after(grammarAccess.getDataDefinitionAccess().getInputParamCrossReference_1_0()); 
+             after(grammarAccess.getDataDefinitionAccess().getInputParamParserRuleCall_1_0()); 
 
             }
 
@@ -6079,20 +5683,20 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__DataDefinition__TypeAssignment_3"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2304:1: rule__DataDefinition__TypeAssignment_3 : ( ruleDataType ) ;
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2150:1: rule__DataDefinition__TypeAssignment_3 : ( ruleDataType ) ;
     public final void rule__DataDefinition__TypeAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2308:1: ( ( ruleDataType ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2309:1: ( ruleDataType )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2154:1: ( ( ruleDataType ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2155:1: ( ruleDataType )
             {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2309:1: ( ruleDataType )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2310:1: ruleDataType
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2155:1: ( ruleDataType )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2156:1: ruleDataType
             {
              before(grammarAccess.getDataDefinitionAccess().getTypeDataTypeEnumRuleCall_3_0()); 
-            pushFollow(FOLLOW_ruleDataType_in_rule__DataDefinition__TypeAssignment_34610);
+            pushFollow(FOLLOW_ruleDataType_in_rule__DataDefinition__TypeAssignment_34306);
             ruleDataType();
 
             state._fsp--;
@@ -6119,21 +5723,62 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
     // $ANTLR end "rule__DataDefinition__TypeAssignment_3"
 
 
+    // $ANTLR start "rule__DataDefinition__DocAssignment_4_1"
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2165:1: rule__DataDefinition__DocAssignment_4_1 : ( ruleStringLiteral ) ;
+    public final void rule__DataDefinition__DocAssignment_4_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2169:1: ( ( ruleStringLiteral ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2170:1: ( ruleStringLiteral )
+            {
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2170:1: ( ruleStringLiteral )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2171:1: ruleStringLiteral
+            {
+             before(grammarAccess.getDataDefinitionAccess().getDocStringLiteralParserRuleCall_4_1_0()); 
+            pushFollow(FOLLOW_ruleStringLiteral_in_rule__DataDefinition__DocAssignment_4_14337);
+            ruleStringLiteral();
+
+            state._fsp--;
+
+             after(grammarAccess.getDataDefinitionAccess().getDocStringLiteralParserRuleCall_4_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DataDefinition__DocAssignment_4_1"
+
+
     // $ANTLR start "rule__Option__ParamAssignment"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2319:1: rule__Option__ParamAssignment : ( ruleConcatExpression ) ;
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2180:1: rule__Option__ParamAssignment : ( ruleConcatExpression ) ;
     public final void rule__Option__ParamAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2323:1: ( ( ruleConcatExpression ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2324:1: ( ruleConcatExpression )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2184:1: ( ( ruleConcatExpression ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2185:1: ( ruleConcatExpression )
             {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2324:1: ( ruleConcatExpression )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2325:1: ruleConcatExpression
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2185:1: ( ruleConcatExpression )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2186:1: ruleConcatExpression
             {
              before(grammarAccess.getOptionAccess().getParamConcatExpressionParserRuleCall_0()); 
-            pushFollow(FOLLOW_ruleConcatExpression_in_rule__Option__ParamAssignment4641);
+            pushFollow(FOLLOW_ruleConcatExpression_in_rule__Option__ParamAssignment4368);
             ruleConcatExpression();
 
             state._fsp--;
@@ -6161,20 +5806,20 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__ConcatExpression__RightAssignment_1_2"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2334:1: rule__ConcatExpression__RightAssignment_1_2 : ( rulePrimary ) ;
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2195:1: rule__ConcatExpression__RightAssignment_1_2 : ( rulePrimary ) ;
     public final void rule__ConcatExpression__RightAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2338:1: ( ( rulePrimary ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2339:1: ( rulePrimary )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2199:1: ( ( rulePrimary ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2200:1: ( rulePrimary )
             {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2339:1: ( rulePrimary )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2340:1: rulePrimary
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2200:1: ( rulePrimary )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2201:1: rulePrimary
             {
              before(grammarAccess.getConcatExpressionAccess().getRightPrimaryParserRuleCall_1_2_0()); 
-            pushFollow(FOLLOW_rulePrimary_in_rule__ConcatExpression__RightAssignment_1_24672);
+            pushFollow(FOLLOW_rulePrimary_in_rule__ConcatExpression__RightAssignment_1_24399);
             rulePrimary();
 
             state._fsp--;
@@ -6202,20 +5847,20 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__StringLiteral__ValueAssignment"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2349:1: rule__StringLiteral__ValueAssignment : ( RULE_STRING ) ;
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2210:1: rule__StringLiteral__ValueAssignment : ( RULE_STRING ) ;
     public final void rule__StringLiteral__ValueAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2353:1: ( ( RULE_STRING ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2354:1: ( RULE_STRING )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2214:1: ( ( RULE_STRING ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2215:1: ( RULE_STRING )
             {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2354:1: ( RULE_STRING )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2355:1: RULE_STRING
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2215:1: ( RULE_STRING )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2216:1: RULE_STRING
             {
              before(grammarAccess.getStringLiteralAccess().getValueSTRINGTerminalRuleCall_0()); 
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__StringLiteral__ValueAssignment4703); 
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__StringLiteral__ValueAssignment4430); 
              after(grammarAccess.getStringLiteralAccess().getValueSTRINGTerminalRuleCall_0()); 
 
             }
@@ -6239,20 +5884,20 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__IntegerLiteral__ValueAssignment"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2364:1: rule__IntegerLiteral__ValueAssignment : ( RULE_INT ) ;
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2225:1: rule__IntegerLiteral__ValueAssignment : ( RULE_INT ) ;
     public final void rule__IntegerLiteral__ValueAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2368:1: ( ( RULE_INT ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2369:1: ( RULE_INT )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2229:1: ( ( RULE_INT ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2230:1: ( RULE_INT )
             {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2369:1: ( RULE_INT )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2370:1: RULE_INT
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2230:1: ( RULE_INT )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2231:1: RULE_INT
             {
              before(grammarAccess.getIntegerLiteralAccess().getValueINTTerminalRuleCall_0()); 
-            match(input,RULE_INT,FOLLOW_RULE_INT_in_rule__IntegerLiteral__ValueAssignment4734); 
+            match(input,RULE_INT,FOLLOW_RULE_INT_in_rule__IntegerLiteral__ValueAssignment4461); 
              after(grammarAccess.getIntegerLiteralAccess().getValueINTTerminalRuleCall_0()); 
 
             }
@@ -6276,20 +5921,20 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__DoubleLiteral__ValueAssignment_0"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2379:1: rule__DoubleLiteral__ValueAssignment_0 : ( RULE_INT ) ;
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2240:1: rule__DoubleLiteral__ValueAssignment_0 : ( RULE_INT ) ;
     public final void rule__DoubleLiteral__ValueAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2383:1: ( ( RULE_INT ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2384:1: ( RULE_INT )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2244:1: ( ( RULE_INT ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2245:1: ( RULE_INT )
             {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2384:1: ( RULE_INT )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2385:1: RULE_INT
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2245:1: ( RULE_INT )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2246:1: RULE_INT
             {
              before(grammarAccess.getDoubleLiteralAccess().getValueINTTerminalRuleCall_0_0()); 
-            match(input,RULE_INT,FOLLOW_RULE_INT_in_rule__DoubleLiteral__ValueAssignment_04765); 
+            match(input,RULE_INT,FOLLOW_RULE_INT_in_rule__DoubleLiteral__ValueAssignment_04492); 
              after(grammarAccess.getDoubleLiteralAccess().getValueINTTerminalRuleCall_0_0()); 
 
             }
@@ -6313,20 +5958,20 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Import__ImportURIAssignment_1"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2394:1: rule__Import__ImportURIAssignment_1 : ( RULE_STRING ) ;
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2255:1: rule__Import__ImportURIAssignment_1 : ( RULE_STRING ) ;
     public final void rule__Import__ImportURIAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2398:1: ( ( RULE_STRING ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2399:1: ( RULE_STRING )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2259:1: ( ( RULE_STRING ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2260:1: ( RULE_STRING )
             {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2399:1: ( RULE_STRING )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2400:1: RULE_STRING
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2260:1: ( RULE_STRING )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2261:1: RULE_STRING
             {
              before(grammarAccess.getImportAccess().getImportURISTRINGTerminalRuleCall_1_0()); 
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__Import__ImportURIAssignment_14796); 
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__Import__ImportURIAssignment_14523); 
              after(grammarAccess.getImportAccess().getImportURISTRINGTerminalRuleCall_1_0()); 
 
             }
@@ -6350,24 +5995,24 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Primary__ParamAssignment_3"
-    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2409:1: rule__Primary__ParamAssignment_3 : ( ( RULE_ID ) ) ;
+    // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2270:1: rule__Primary__ParamAssignment_3 : ( ( RULE_ID ) ) ;
     public final void rule__Primary__ParamAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2413:1: ( ( ( RULE_ID ) ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2414:1: ( ( RULE_ID ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2274:1: ( ( ( RULE_ID ) ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2275:1: ( ( RULE_ID ) )
             {
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2414:1: ( ( RULE_ID ) )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2415:1: ( RULE_ID )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2275:1: ( ( RULE_ID ) )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2276:1: ( RULE_ID )
             {
              before(grammarAccess.getPrimaryAccess().getParamParamCrossReference_3_0()); 
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2416:1: ( RULE_ID )
-            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2417:1: RULE_ID
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2277:1: ( RULE_ID )
+            // ../org.remus.cmdline.ui/src-gen/org/remus/cmdline/ui/contentassist/antlr/internal/InternalCommandLine.g:2278:1: RULE_ID
             {
              before(grammarAccess.getPrimaryAccess().getParamParamIDTerminalRuleCall_3_0_1()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Primary__ParamAssignment_34831); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Primary__ParamAssignment_34558); 
              after(grammarAccess.getPrimaryAccess().getParamParamIDTerminalRuleCall_3_0_1()); 
 
             }
@@ -6449,7 +6094,7 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
     public static final BitSet FOLLOW_15_in_rule__DataType__Alternatives1056 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Model__Group__0__Impl_in_rule__Model__Group__01089 = new BitSet(new long[]{0x0000000000010000L});
     public static final BitSet FOLLOW_rule__Model__Group__1_in_rule__Model__Group__01092 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Model__ImportsAssignment_0_in_rule__Model__Group__0__Impl1119 = new BitSet(new long[]{0x0000000100000002L});
+    public static final BitSet FOLLOW_rule__Model__ImportsAssignment_0_in_rule__Model__Group__0__Impl1119 = new BitSet(new long[]{0x0000000040000002L});
     public static final BitSet FOLLOW_rule__Model__Group__1__Impl_in_rule__Model__Group__11150 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Model__ProgramsAssignment_1_in_rule__Model__Group__1__Impl1177 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Program__Group__0__Impl_in_rule__Program__Group__01211 = new BitSet(new long[]{0x0000000000000010L});
@@ -6475,130 +6120,119 @@ public class InternalCommandLineParser extends AbstractInternalContentAssistPars
     public static final BitSet FOLLOW_rule__Function__Group__0__Impl_in_rule__Function__Group__01651 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_rule__Function__Group__1_in_rule__Function__Group__01654 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_20_in_rule__Function__Group__0__Impl1682 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Function__Group__1__Impl_in_rule__Function__Group__11713 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_rule__Function__Group__1__Impl_in_rule__Function__Group__11713 = new BitSet(new long[]{0x0000000000040000L});
     public static final BitSet FOLLOW_rule__Function__Group__2_in_rule__Function__Group__11716 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Function__NameAssignment_1_in_rule__Function__Group__1__Impl1743 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Function__Group__2__Impl_in_rule__Function__Group__21773 = new BitSet(new long[]{0x0000000000400010L});
+    public static final BitSet FOLLOW_rule__Function__Group__2__Impl_in_rule__Function__Group__21773 = new BitSet(new long[]{0x0000000001E00000L});
     public static final BitSet FOLLOW_rule__Function__Group__3_in_rule__Function__Group__21776 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_21_in_rule__Function__Group__2__Impl1804 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Function__Group__3__Impl_in_rule__Function__Group__31835 = new BitSet(new long[]{0x0000000000400010L});
+    public static final BitSet FOLLOW_18_in_rule__Function__Group__2__Impl1804 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Function__Group__3__Impl_in_rule__Function__Group__31835 = new BitSet(new long[]{0x0000000001E00000L});
     public static final BitSet FOLLOW_rule__Function__Group__4_in_rule__Function__Group__31838 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Function__Group_3__0_in_rule__Function__Group__3__Impl1865 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Function__Group__4__Impl_in_rule__Function__Group__41896 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_rule__Function__Group__4__Impl_in_rule__Function__Group__41896 = new BitSet(new long[]{0x0000000001E00000L});
     public static final BitSet FOLLOW_rule__Function__Group__5_in_rule__Function__Group__41899 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_22_in_rule__Function__Group__4__Impl1927 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Function__Group__5__Impl_in_rule__Function__Group__51958 = new BitSet(new long[]{0x000000001F080000L});
-    public static final BitSet FOLLOW_rule__Function__Group__6_in_rule__Function__Group__51961 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_18_in_rule__Function__Group__5__Impl1989 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Function__Group__6__Impl_in_rule__Function__Group__62020 = new BitSet(new long[]{0x000000001F080000L});
-    public static final BitSet FOLLOW_rule__Function__Group__7_in_rule__Function__Group__62023 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Function__Group_6__0_in_rule__Function__Group__6__Impl2050 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Function__Group__7__Impl_in_rule__Function__Group__72081 = new BitSet(new long[]{0x000000001F080000L});
-    public static final BitSet FOLLOW_rule__Function__Group__8_in_rule__Function__Group__72084 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Function__Group_7__0_in_rule__Function__Group__7__Impl2111 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Function__Group__8__Impl_in_rule__Function__Group__82142 = new BitSet(new long[]{0x000000001F080000L});
-    public static final BitSet FOLLOW_rule__Function__Group__9_in_rule__Function__Group__82145 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Function__Group_8__0_in_rule__Function__Group__8__Impl2172 = new BitSet(new long[]{0x0000000004000002L});
-    public static final BitSet FOLLOW_rule__Function__Group__9__Impl_in_rule__Function__Group__92203 = new BitSet(new long[]{0x000000001F080000L});
-    public static final BitSet FOLLOW_rule__Function__Group__10_in_rule__Function__Group__92206 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Function__Group_9__0_in_rule__Function__Group__9__Impl2233 = new BitSet(new long[]{0x0000000008000002L});
-    public static final BitSet FOLLOW_rule__Function__Group__10__Impl_in_rule__Function__Group__102264 = new BitSet(new long[]{0x000000001F080000L});
-    public static final BitSet FOLLOW_rule__Function__Group__11_in_rule__Function__Group__102267 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Function__Group_10__0_in_rule__Function__Group__10__Impl2294 = new BitSet(new long[]{0x0000000010000002L});
-    public static final BitSet FOLLOW_rule__Function__Group__11__Impl_in_rule__Function__Group__112325 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_19_in_rule__Function__Group__11__Impl2353 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Function__Group_3__0__Impl_in_rule__Function__Group_3__02408 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_rule__Function__Group_3__1_in_rule__Function__Group_3__02411 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Function__ParamsAssignment_3_0_in_rule__Function__Group_3__0__Impl2438 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Function__Group_3__1__Impl_in_rule__Function__Group_3__12468 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Function__Group_3_1__0_in_rule__Function__Group_3__1__Impl2495 = new BitSet(new long[]{0x0000000000800002L});
-    public static final BitSet FOLLOW_rule__Function__Group_3_1__0__Impl_in_rule__Function__Group_3_1__02530 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rule__Function__Group_3_1__1_in_rule__Function__Group_3_1__02533 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_23_in_rule__Function__Group_3_1__0__Impl2561 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Function__Group_3_1__1__Impl_in_rule__Function__Group_3_1__12592 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Function__ParamsAssignment_3_1_1_in_rule__Function__Group_3_1__1__Impl2619 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Function__Group_6__0__Impl_in_rule__Function__Group_6__02653 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_rule__Function__Group_6__1_in_rule__Function__Group_6__02656 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_24_in_rule__Function__Group_6__0__Impl2684 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Function__Group_6__1__Impl_in_rule__Function__Group_6__12715 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Function__DocAssignment_6_1_in_rule__Function__Group_6__1__Impl2742 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Function__Group_7__0__Impl_in_rule__Function__Group_7__02776 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_rule__Function__Group_7__1_in_rule__Function__Group_7__02779 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_25_in_rule__Function__Group_7__0__Impl2807 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Function__Group_7__1__Impl_in_rule__Function__Group_7__12838 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Function__DocurlAssignment_7_1_in_rule__Function__Group_7__1__Impl2865 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Function__Group_8__0__Impl_in_rule__Function__Group_8__02899 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rule__Function__Group_8__1_in_rule__Function__Group_8__02902 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_26_in_rule__Function__Group_8__0__Impl2930 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Function__Group_8__1__Impl_in_rule__Function__Group_8__12961 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Function__InputAssignment_8_1_in_rule__Function__Group_8__1__Impl2988 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Function__Group_9__0__Impl_in_rule__Function__Group_9__03022 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rule__Function__Group_9__1_in_rule__Function__Group_9__03025 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_27_in_rule__Function__Group_9__0__Impl3053 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Function__Group_9__1__Impl_in_rule__Function__Group_9__13084 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Function__OutputAssignment_9_1_in_rule__Function__Group_9__1__Impl3111 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Function__Group_10__0__Impl_in_rule__Function__Group_10__03145 = new BitSet(new long[]{0x0000000000000070L});
-    public static final BitSet FOLLOW_rule__Function__Group_10__1_in_rule__Function__Group_10__03148 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_28_in_rule__Function__Group_10__0__Impl3176 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Function__Group_10__1__Impl_in_rule__Function__Group_10__13207 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Function__OptionBlocksAssignment_10_1_in_rule__Function__Group_10__1__Impl3234 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__DataDefinition__Group__0__Impl_in_rule__DataDefinition__Group__03268 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rule__DataDefinition__Group__1_in_rule__DataDefinition__Group__03271 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__DataDefinition__Group__1__Impl_in_rule__DataDefinition__Group__13329 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_rule__DataDefinition__Group__2_in_rule__DataDefinition__Group__13332 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__DataDefinition__InputAssignment_1_in_rule__DataDefinition__Group__1__Impl3359 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__DataDefinition__Group__2__Impl_in_rule__DataDefinition__Group__23389 = new BitSet(new long[]{0x000000000000F800L});
-    public static final BitSet FOLLOW_rule__DataDefinition__Group__3_in_rule__DataDefinition__Group__23392 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_29_in_rule__DataDefinition__Group__2__Impl3420 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__DataDefinition__Group__3__Impl_in_rule__DataDefinition__Group__33451 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__DataDefinition__TypeAssignment_3_in_rule__DataDefinition__Group__3__Impl3478 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ConcatExpression__Group__0__Impl_in_rule__ConcatExpression__Group__03516 = new BitSet(new long[]{0x0000000040000000L});
-    public static final BitSet FOLLOW_rule__ConcatExpression__Group__1_in_rule__ConcatExpression__Group__03519 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rulePrimary_in_rule__ConcatExpression__Group__0__Impl3546 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ConcatExpression__Group__1__Impl_in_rule__ConcatExpression__Group__13575 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ConcatExpression__Group_1__0_in_rule__ConcatExpression__Group__1__Impl3602 = new BitSet(new long[]{0x0000000040000002L});
-    public static final BitSet FOLLOW_rule__ConcatExpression__Group_1__0__Impl_in_rule__ConcatExpression__Group_1__03637 = new BitSet(new long[]{0x0000000040000000L});
-    public static final BitSet FOLLOW_rule__ConcatExpression__Group_1__1_in_rule__ConcatExpression__Group_1__03640 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ConcatExpression__Group_1__1__Impl_in_rule__ConcatExpression__Group_1__13698 = new BitSet(new long[]{0x0000000000000070L});
-    public static final BitSet FOLLOW_rule__ConcatExpression__Group_1__2_in_rule__ConcatExpression__Group_1__13701 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_30_in_rule__ConcatExpression__Group_1__1__Impl3729 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ConcatExpression__Group_1__2__Impl_in_rule__ConcatExpression__Group_1__23760 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ConcatExpression__RightAssignment_1_2_in_rule__ConcatExpression__Group_1__2__Impl3787 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__DoubleLiteral__Group__0__Impl_in_rule__DoubleLiteral__Group__03823 = new BitSet(new long[]{0x0000000080000000L});
-    public static final BitSet FOLLOW_rule__DoubleLiteral__Group__1_in_rule__DoubleLiteral__Group__03826 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__DoubleLiteral__ValueAssignment_0_in_rule__DoubleLiteral__Group__0__Impl3853 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__DoubleLiteral__Group__1__Impl_in_rule__DoubleLiteral__Group__13883 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__DoubleLiteral__Group__2_in_rule__DoubleLiteral__Group__13886 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_31_in_rule__DoubleLiteral__Group__1__Impl3914 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__DoubleLiteral__Group__2__Impl_in_rule__DoubleLiteral__Group__23945 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_INT_in_rule__DoubleLiteral__Group__2__Impl3972 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Import__Group__0__Impl_in_rule__Import__Group__04007 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_rule__Import__Group__1_in_rule__Import__Group__04010 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_32_in_rule__Import__Group__0__Impl4038 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Import__Group__1__Impl_in_rule__Import__Group__14069 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Import__ImportURIAssignment_1_in_rule__Import__Group__1__Impl4096 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleImport_in_rule__Model__ImportsAssignment_04137 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleProgram_in_rule__Model__ProgramsAssignment_14168 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleValidID_in_rule__Program__NameAssignment_14199 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleConcatExpression_in_rule__Program__PathAssignment_34230 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFunction_in_rule__Program__FunctionsAssignment_54261 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleValidID_in_rule__Param__NameAssignment4292 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__Function__NameAssignment_14323 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleParam_in_rule__Function__ParamsAssignment_3_04354 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleParam_in_rule__Function__ParamsAssignment_3_1_14385 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleStringLiteral_in_rule__Function__DocAssignment_6_14416 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleStringLiteral_in_rule__Function__DocurlAssignment_7_14447 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDataDefinition_in_rule__Function__InputAssignment_8_14478 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDataDefinition_in_rule__Function__OutputAssignment_9_14509 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleOption_in_rule__Function__OptionBlocksAssignment_10_14540 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__DataDefinition__InputAssignment_14575 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDataType_in_rule__DataDefinition__TypeAssignment_34610 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleConcatExpression_in_rule__Option__ParamAssignment4641 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rulePrimary_in_rule__ConcatExpression__RightAssignment_1_24672 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__StringLiteral__ValueAssignment4703 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_INT_in_rule__IntegerLiteral__ValueAssignment4734 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_INT_in_rule__DoubleLiteral__ValueAssignment_04765 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__Import__ImportURIAssignment_14796 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__Primary__ParamAssignment_34831 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Function__Group_4__0_in_rule__Function__Group__4__Impl1926 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Function__Group__5__Impl_in_rule__Function__Group__51957 = new BitSet(new long[]{0x0000000001E00000L});
+    public static final BitSet FOLLOW_rule__Function__Group__6_in_rule__Function__Group__51960 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Function__Group_5__0_in_rule__Function__Group__5__Impl1987 = new BitSet(new long[]{0x0000000000800002L});
+    public static final BitSet FOLLOW_rule__Function__Group__6__Impl_in_rule__Function__Group__62018 = new BitSet(new long[]{0x0000000002080000L});
+    public static final BitSet FOLLOW_rule__Function__Group__7_in_rule__Function__Group__62021 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Function__Group_6__0_in_rule__Function__Group__6__Impl2050 = new BitSet(new long[]{0x0000000001E00002L});
+    public static final BitSet FOLLOW_rule__Function__Group_6__0_in_rule__Function__Group__6__Impl2062 = new BitSet(new long[]{0x0000000001E00002L});
+    public static final BitSet FOLLOW_rule__Function__Group__7__Impl_in_rule__Function__Group__72095 = new BitSet(new long[]{0x0000000002080000L});
+    public static final BitSet FOLLOW_rule__Function__Group__8_in_rule__Function__Group__72098 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Function__Group_7__0_in_rule__Function__Group__7__Impl2125 = new BitSet(new long[]{0x0000000002000002L});
+    public static final BitSet FOLLOW_rule__Function__Group__8__Impl_in_rule__Function__Group__82156 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_19_in_rule__Function__Group__8__Impl2184 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Function__Group_3__0__Impl_in_rule__Function__Group_3__02233 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_rule__Function__Group_3__1_in_rule__Function__Group_3__02236 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_21_in_rule__Function__Group_3__0__Impl2264 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Function__Group_3__1__Impl_in_rule__Function__Group_3__12295 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Function__DescAssignment_3_1_in_rule__Function__Group_3__1__Impl2322 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Function__Group_4__0__Impl_in_rule__Function__Group_4__02356 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_rule__Function__Group_4__1_in_rule__Function__Group_4__02359 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_22_in_rule__Function__Group_4__0__Impl2387 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Function__Group_4__1__Impl_in_rule__Function__Group_4__12418 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Function__DocurlAssignment_4_1_in_rule__Function__Group_4__1__Impl2445 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Function__Group_5__0__Impl_in_rule__Function__Group_5__02479 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_rule__Function__Group_5__1_in_rule__Function__Group_5__02482 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_23_in_rule__Function__Group_5__0__Impl2510 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Function__Group_5__1__Impl_in_rule__Function__Group_5__12541 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Function__InputAssignment_5_1_in_rule__Function__Group_5__1__Impl2568 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Function__Group_6__0__Impl_in_rule__Function__Group_6__02602 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_rule__Function__Group_6__1_in_rule__Function__Group_6__02605 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_24_in_rule__Function__Group_6__0__Impl2633 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Function__Group_6__1__Impl_in_rule__Function__Group_6__12664 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Function__OutputAssignment_6_1_in_rule__Function__Group_6__1__Impl2691 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Function__Group_7__0__Impl_in_rule__Function__Group_7__02725 = new BitSet(new long[]{0x0000000000000070L});
+    public static final BitSet FOLLOW_rule__Function__Group_7__1_in_rule__Function__Group_7__02728 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_25_in_rule__Function__Group_7__0__Impl2756 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Function__Group_7__1__Impl_in_rule__Function__Group_7__12787 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Function__OptionBlocksAssignment_7_1_in_rule__Function__Group_7__1__Impl2814 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__DataDefinition__Group__0__Impl_in_rule__DataDefinition__Group__02848 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_rule__DataDefinition__Group__1_in_rule__DataDefinition__Group__02851 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__DataDefinition__Group__1__Impl_in_rule__DataDefinition__Group__12909 = new BitSet(new long[]{0x0000000004000000L});
+    public static final BitSet FOLLOW_rule__DataDefinition__Group__2_in_rule__DataDefinition__Group__12912 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__DataDefinition__InputAssignment_1_in_rule__DataDefinition__Group__1__Impl2939 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__DataDefinition__Group__2__Impl_in_rule__DataDefinition__Group__22969 = new BitSet(new long[]{0x000000000000F800L});
+    public static final BitSet FOLLOW_rule__DataDefinition__Group__3_in_rule__DataDefinition__Group__22972 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_26_in_rule__DataDefinition__Group__2__Impl3000 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__DataDefinition__Group__3__Impl_in_rule__DataDefinition__Group__33031 = new BitSet(new long[]{0x0000000008000000L});
+    public static final BitSet FOLLOW_rule__DataDefinition__Group__4_in_rule__DataDefinition__Group__33034 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__DataDefinition__TypeAssignment_3_in_rule__DataDefinition__Group__3__Impl3061 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__DataDefinition__Group__4__Impl_in_rule__DataDefinition__Group__43091 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__DataDefinition__Group_4__0_in_rule__DataDefinition__Group__4__Impl3118 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__DataDefinition__Group_4__0__Impl_in_rule__DataDefinition__Group_4__03159 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_rule__DataDefinition__Group_4__1_in_rule__DataDefinition__Group_4__03162 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_27_in_rule__DataDefinition__Group_4__0__Impl3190 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__DataDefinition__Group_4__1__Impl_in_rule__DataDefinition__Group_4__13221 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__DataDefinition__DocAssignment_4_1_in_rule__DataDefinition__Group_4__1__Impl3248 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ConcatExpression__Group__0__Impl_in_rule__ConcatExpression__Group__03282 = new BitSet(new long[]{0x0000000010000000L});
+    public static final BitSet FOLLOW_rule__ConcatExpression__Group__1_in_rule__ConcatExpression__Group__03285 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rulePrimary_in_rule__ConcatExpression__Group__0__Impl3312 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ConcatExpression__Group__1__Impl_in_rule__ConcatExpression__Group__13341 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ConcatExpression__Group_1__0_in_rule__ConcatExpression__Group__1__Impl3368 = new BitSet(new long[]{0x0000000010000002L});
+    public static final BitSet FOLLOW_rule__ConcatExpression__Group_1__0__Impl_in_rule__ConcatExpression__Group_1__03403 = new BitSet(new long[]{0x0000000010000000L});
+    public static final BitSet FOLLOW_rule__ConcatExpression__Group_1__1_in_rule__ConcatExpression__Group_1__03406 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ConcatExpression__Group_1__1__Impl_in_rule__ConcatExpression__Group_1__13464 = new BitSet(new long[]{0x0000000000000070L});
+    public static final BitSet FOLLOW_rule__ConcatExpression__Group_1__2_in_rule__ConcatExpression__Group_1__13467 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_28_in_rule__ConcatExpression__Group_1__1__Impl3495 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ConcatExpression__Group_1__2__Impl_in_rule__ConcatExpression__Group_1__23526 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ConcatExpression__RightAssignment_1_2_in_rule__ConcatExpression__Group_1__2__Impl3553 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__DoubleLiteral__Group__0__Impl_in_rule__DoubleLiteral__Group__03589 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_rule__DoubleLiteral__Group__1_in_rule__DoubleLiteral__Group__03592 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__DoubleLiteral__ValueAssignment_0_in_rule__DoubleLiteral__Group__0__Impl3619 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__DoubleLiteral__Group__1__Impl_in_rule__DoubleLiteral__Group__13649 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__DoubleLiteral__Group__2_in_rule__DoubleLiteral__Group__13652 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_29_in_rule__DoubleLiteral__Group__1__Impl3680 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__DoubleLiteral__Group__2__Impl_in_rule__DoubleLiteral__Group__23711 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_INT_in_rule__DoubleLiteral__Group__2__Impl3738 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Import__Group__0__Impl_in_rule__Import__Group__03773 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_rule__Import__Group__1_in_rule__Import__Group__03776 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_30_in_rule__Import__Group__0__Impl3804 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Import__Group__1__Impl_in_rule__Import__Group__13835 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Import__ImportURIAssignment_1_in_rule__Import__Group__1__Impl3862 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleImport_in_rule__Model__ImportsAssignment_03903 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleProgram_in_rule__Model__ProgramsAssignment_13934 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleValidID_in_rule__Program__NameAssignment_13965 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleConcatExpression_in_rule__Program__PathAssignment_33996 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFunction_in_rule__Program__FunctionsAssignment_54027 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleValidID_in_rule__Param__NameAssignment4058 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__Function__NameAssignment_14089 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleStringLiteral_in_rule__Function__DescAssignment_3_14120 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleStringLiteral_in_rule__Function__DocurlAssignment_4_14151 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDataDefinition_in_rule__Function__InputAssignment_5_14182 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDataDefinition_in_rule__Function__OutputAssignment_6_14213 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleOption_in_rule__Function__OptionBlocksAssignment_7_14244 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleParam_in_rule__DataDefinition__InputAssignment_14275 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDataType_in_rule__DataDefinition__TypeAssignment_34306 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleStringLiteral_in_rule__DataDefinition__DocAssignment_4_14337 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleConcatExpression_in_rule__Option__ParamAssignment4368 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rulePrimary_in_rule__ConcatExpression__RightAssignment_1_24399 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__StringLiteral__ValueAssignment4430 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_INT_in_rule__IntegerLiteral__ValueAssignment4461 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_INT_in_rule__DoubleLiteral__ValueAssignment_04492 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__Import__ImportURIAssignment_14523 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__Primary__ParamAssignment_34558 = new BitSet(new long[]{0x0000000000000002L});
 
 }

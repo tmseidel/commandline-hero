@@ -3,6 +3,7 @@
 package org.remus.cmdline.commandLine.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -14,6 +15,7 @@ import org.remus.cmdline.commandLine.CommandLinePackage;
 import org.remus.cmdline.commandLine.DataDefinition;
 import org.remus.cmdline.commandLine.DataType;
 import org.remus.cmdline.commandLine.Param;
+import org.remus.cmdline.commandLine.StringLiteral;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,6 +26,7 @@ import org.remus.cmdline.commandLine.Param;
  * <ul>
  *   <li>{@link org.remus.cmdline.commandLine.impl.DataDefinitionImpl#getInput <em>Input</em>}</li>
  *   <li>{@link org.remus.cmdline.commandLine.impl.DataDefinitionImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.remus.cmdline.commandLine.impl.DataDefinitionImpl#getDoc <em>Doc</em>}</li>
  * </ul>
  * </p>
  *
@@ -32,7 +35,7 @@ import org.remus.cmdline.commandLine.Param;
 public class DataDefinitionImpl extends MinimalEObjectImpl.Container implements DataDefinition
 {
   /**
-   * The cached value of the '{@link #getInput() <em>Input</em>}' reference.
+   * The cached value of the '{@link #getInput() <em>Input</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getInput()
@@ -62,6 +65,16 @@ public class DataDefinitionImpl extends MinimalEObjectImpl.Container implements 
   protected DataType type = TYPE_EDEFAULT;
 
   /**
+   * The cached value of the '{@link #getDoc() <em>Doc</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDoc()
+   * @generated
+   * @ordered
+   */
+  protected StringLiteral doc;
+
+  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -89,16 +102,6 @@ public class DataDefinitionImpl extends MinimalEObjectImpl.Container implements 
    */
   public Param getInput()
   {
-    if (input != null && input.eIsProxy())
-    {
-      InternalEObject oldInput = (InternalEObject)input;
-      input = (Param)eResolveProxy(oldInput);
-      if (input != oldInput)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, CommandLinePackage.DATA_DEFINITION__INPUT, oldInput, input));
-      }
-    }
     return input;
   }
 
@@ -107,9 +110,16 @@ public class DataDefinitionImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  public Param basicGetInput()
+  public NotificationChain basicSetInput(Param newInput, NotificationChain msgs)
   {
-    return input;
+    Param oldInput = input;
+    input = newInput;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CommandLinePackage.DATA_DEFINITION__INPUT, oldInput, newInput);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
   }
 
   /**
@@ -119,10 +129,18 @@ public class DataDefinitionImpl extends MinimalEObjectImpl.Container implements 
    */
   public void setInput(Param newInput)
   {
-    Param oldInput = input;
-    input = newInput;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, CommandLinePackage.DATA_DEFINITION__INPUT, oldInput, input));
+    if (newInput != input)
+    {
+      NotificationChain msgs = null;
+      if (input != null)
+        msgs = ((InternalEObject)input).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CommandLinePackage.DATA_DEFINITION__INPUT, null, msgs);
+      if (newInput != null)
+        msgs = ((InternalEObject)newInput).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CommandLinePackage.DATA_DEFINITION__INPUT, null, msgs);
+      msgs = basicSetInput(newInput, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, CommandLinePackage.DATA_DEFINITION__INPUT, newInput, newInput));
   }
 
   /**
@@ -153,16 +171,83 @@ public class DataDefinitionImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
+  public StringLiteral getDoc()
+  {
+    return doc;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetDoc(StringLiteral newDoc, NotificationChain msgs)
+  {
+    StringLiteral oldDoc = doc;
+    doc = newDoc;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CommandLinePackage.DATA_DEFINITION__DOC, oldDoc, newDoc);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setDoc(StringLiteral newDoc)
+  {
+    if (newDoc != doc)
+    {
+      NotificationChain msgs = null;
+      if (doc != null)
+        msgs = ((InternalEObject)doc).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CommandLinePackage.DATA_DEFINITION__DOC, null, msgs);
+      if (newDoc != null)
+        msgs = ((InternalEObject)newDoc).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CommandLinePackage.DATA_DEFINITION__DOC, null, msgs);
+      msgs = basicSetDoc(newDoc, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, CommandLinePackage.DATA_DEFINITION__DOC, newDoc, newDoc));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case CommandLinePackage.DATA_DEFINITION__INPUT:
+        return basicSetInput(null, msgs);
+      case CommandLinePackage.DATA_DEFINITION__DOC:
+        return basicSetDoc(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
     {
       case CommandLinePackage.DATA_DEFINITION__INPUT:
-        if (resolve) return getInput();
-        return basicGetInput();
+        return getInput();
       case CommandLinePackage.DATA_DEFINITION__TYPE:
         return getType();
+      case CommandLinePackage.DATA_DEFINITION__DOC:
+        return getDoc();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -182,6 +267,9 @@ public class DataDefinitionImpl extends MinimalEObjectImpl.Container implements 
         return;
       case CommandLinePackage.DATA_DEFINITION__TYPE:
         setType((DataType)newValue);
+        return;
+      case CommandLinePackage.DATA_DEFINITION__DOC:
+        setDoc((StringLiteral)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -203,6 +291,9 @@ public class DataDefinitionImpl extends MinimalEObjectImpl.Container implements 
       case CommandLinePackage.DATA_DEFINITION__TYPE:
         setType(TYPE_EDEFAULT);
         return;
+      case CommandLinePackage.DATA_DEFINITION__DOC:
+        setDoc((StringLiteral)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -221,6 +312,8 @@ public class DataDefinitionImpl extends MinimalEObjectImpl.Container implements 
         return input != null;
       case CommandLinePackage.DATA_DEFINITION__TYPE:
         return type != TYPE_EDEFAULT;
+      case CommandLinePackage.DATA_DEFINITION__DOC:
+        return doc != null;
     }
     return super.eIsSet(featureID);
   }

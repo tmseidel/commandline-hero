@@ -21,11 +21,11 @@ Param:
 ;
 
 Function:
-	'def' name=ID '('(params+=Param (',' params+=Param)*)? ')' '{'
-		('doc ->' doc=StringLiteral)?
+	'def' name=ID '{'
+		('desc ->' desc=StringLiteral)?
 		('docurl ->' docurl=StringLiteral)?
 		('input' input+=DataDefinition)*
-		('output ' output+=DataDefinition)*
+		('output ' output+=DataDefinition)+
 		('* ' optionBlocks+=Option)*
 	'}'
 ;
@@ -33,7 +33,7 @@ Function:
 
 DataDefinition:
 	{DataDefinition}
-	input=[Param] 'AS' type=DataType
+	input=Param 'AS' type=DataType ('doc -> ' doc=StringLiteral)?
 ;
 
 enum DataType:
