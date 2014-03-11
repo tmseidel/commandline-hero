@@ -8,12 +8,14 @@ import java.util.Locale;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 
+import org.remus.mediaexeutor.data.Meta;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.remus.mediaserver.controller.data.JobInfo;
 import com.remus.mediaserver.service.ExecutionService;
@@ -37,7 +39,7 @@ public class HomeController {
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String programs(final Locale locale, final Model model,
+	public String home(final Locale locale, final Model model,
 			final HttpServletRequest request) {
 		final List<JobInfo> runningJobs = new ArrayList<JobInfo>();
 		final List<JobInfo> finishedJobs = new ArrayList<JobInfo>();
@@ -61,6 +63,21 @@ public class HomeController {
 		model.addAttribute("finishedJobs", finishedJobs);
 
 		return "home";
+	}
+
+	@RequestMapping(value = "/programs.htm", method = RequestMethod.GET)
+	public String programs(final Model model) {
+		final List<Meta> knownClasses = executionService.getKnownClasses();
+		model.addAttribute("metalist", knownClasses);
+
+		return "programs";
+
+	}
+
+	@RequestMapping(value = "/programs/json", method = RequestMethod.GET)
+	public @ResponseBody
+	List<Meta> programsAsJson(final Model model) {
+		return executionService.getKnownClasses();
 	}
 
 }

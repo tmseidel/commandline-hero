@@ -287,6 +287,12 @@ public class «javaName(function)» extends ExecutionInstruction {
 		meta.setFunction("«function.name»");
 		meta.setDoc("«function.desc.escape»");
 		meta.setDocUrl("«function.docurl.escape»");
+		«FOR m:function.input»
+		meta.addInputParameter("«m.input.name»","«m.doc.escape»");
+		«ENDFOR»
+		«FOR m:function.output»
+		meta.addInputParameter("«m.input.name»","«m.doc.escape»");
+		«ENDFOR»
 	}
 		
 	

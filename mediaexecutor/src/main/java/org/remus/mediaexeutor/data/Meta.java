@@ -1,5 +1,8 @@
 package org.remus.mediaexeutor.data;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Meta {
 
 	private String id;
@@ -11,6 +14,10 @@ public class Meta {
 	private String doc;
 
 	private String docUrl;
+
+	private final Map<String, String> inputParameter = new HashMap<String, String>();
+
+	private final Map<String, String> outputParameter = new HashMap<String, String>();
 
 	public String getId() {
 		return id;
@@ -50,6 +57,22 @@ public class Meta {
 
 	public void setDocUrl(final String docUrl) {
 		this.docUrl = docUrl;
+	}
+
+	public void addInputParameter(final String key, final String value) {
+		inputParameter.put(key, value);
+	}
+
+	public void addOutputParameter(final String key, final String value) {
+		outputParameter.put(key, value);
+	}
+
+	public Map<String, String> getInputParameter() {
+		return inputParameter;
+	}
+
+	public Map<String, String> getOutputParameter() {
+		return outputParameter;
 	}
 
 }
