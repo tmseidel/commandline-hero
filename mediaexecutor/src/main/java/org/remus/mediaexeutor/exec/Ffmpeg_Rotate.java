@@ -37,6 +37,9 @@ public class Ffmpeg_Rotate extends ExecutionInstruction {
 		meta.setFunction("rotate");
 		meta.setDoc("Rotates a video.");
 		meta.setDocUrl("http://www.mediaserver/commands/ffmpeg_rotate.htm");
+		meta.addInputParameter("in","The input file");
+		meta.addInputParameter("rotationType","Possible rotations:		<ul>			<li>0 = 90CounterCLockwise and Vertical Flip (default)</li>			<li>1 = 90Clockwise</li>			<li>2 = 90CounterClockwise</li>			<li>3 = 90Clockwise and Vertical Flip</li>		</ul>");
+		meta.addInputParameter("out","The output path");
 	}
 		
 	
@@ -124,7 +127,7 @@ public class Ffmpeg_Rotate extends ExecutionInstruction {
 	public List<ResultDataElement> getOutputElements() {
 		final List<ResultDataElement> returnValue = new ArrayList<ResultDataElement>();
 		returnValue.add(new ResultDataElement("out",arguments.get("out"),
-				ParamDataType.PATH, "wt123"));
+				ParamDataType.PATH, "The output path"));
 		return returnValue;
 	}
 	

@@ -291,7 +291,7 @@ public class «javaName(function)» extends ExecutionInstruction {
 		meta.addInputParameter("«m.input.name»","«m.doc.escape»");
 		«ENDFOR»
 		«FOR m:function.output»
-		meta.addInputParameter("«m.input.name»","«m.doc.escape»");
+		meta.addOutputParameter("«m.input.name»","«m.doc.escape»");
 		«ENDFOR»
 	}
 		
@@ -442,7 +442,7 @@ def argumentsList(Function function, boolean datatype) {
 	
 	
 	def escape(String string) {
-		'''«string.replace("\'","\\\'").replace("\"","\\\"")»'''
+		'''«string.replace("\'","\\\'").replace("\"","\\\"").replace("\n", "").replace("\r", "")»'''
 		
 	}
 	def escape(StringLiteral string) {

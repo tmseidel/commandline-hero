@@ -74,6 +74,7 @@
 	   								</div>
 							</div>
 							<a href="#" class="button" onClick="document.scheduleForm.submit();">Submit</a>
+							<a href="programs.htm#ffmpeg_downscale240p" class="button">Back</a>
 						</section>
 					</form>
 					

@@ -22,7 +22,7 @@
 			</fileset>
 		</delete>
 		<delete failonerror="true" includeemptydirs="true">
-			<fileset dir="../mediaserver/src/main/java/com/remus/mediaserver/controller">
+			<fileset dir="../mediaserver/src/main/java/com/remus/mediaserver/controller/generated">
 				<include name="**/*" />
 			</fileset>
 		</delete>
@@ -38,7 +38,7 @@
 				<include name="**/*" />
 			</fileset>
 		</copy>
-		<copy todir="../mediaserver/mediaserver/src/main/java/com/remus/mediaserver/controller">
+		<copy todir="../mediaserver/src/main/java/com/remus/mediaserver/controller/generated">
 			<fileset dir="src-gen/controller">
 				<include name="**/*" />
 			</fileset>

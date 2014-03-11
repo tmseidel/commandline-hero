@@ -58,23 +58,20 @@
 				</div>
 			</div>
 		</div>
-		<div id="main">
+		<div id="main" id="top">
 			<div class="container">
 				<div class="row main-row">
-					<div class="12u">
+					<div class="4u">
 
 						<section>
-							<h2>Finished Jobs</h2>
+							<h2>Programs</h2>
 							<ul class="small-image-list">
-								<c:forEach items="${finishedJobs}" var="job">
-								<li>
-									<h4>${job.id} - ${job.finishedDate}</h4>
-									<ul class="input-list">
-										<c:forEach items="${job.inputs}" var="element">
-										<li>${element.key}: ${element.value}</li>
-										</c:forEach>
-										<c:forEach items="${job.outputs}" var="element">
-										<li>Results: <a href="${element.value }">${element.key}</a></li>
+								<c:forEach items="${programmap}" var="program">
+								<li id="top_${program.key}">
+									<h4 >${program.key}</h4>
+									<ul class="link-list">
+										<c:forEach items="${program.value}" var="element">
+										<li><a href="#${element.id}">${element.function}</a></li>
 										</c:forEach>
 									</ul>
 								</li>
@@ -84,37 +81,36 @@
 					
 					
 					</div>
-					<div class="4u">
-
-						<section>
-							<h2>Running Jobs</h2>
-							<a class="comments" href="#">See all</a>
-							<ul class="small-image-list">
-								<c:forEach items="${runningJobs}" var="job">
-								<li>
-									<h4>${job.id} - ${job.scheduledDate}</h4>
-									<ul class="input-list">
-										<c:forEach items="${job.inputs.entrySet}" var="element">
-										<li>${element.key}: ${element.value}</li>
-										</c:forEach>
-										<c:forEach items="${job.outputs.entrySet}" var="element">
-										<li>Results: <a href="${element.value }">${element.key}</a></li>
-										</c:forEach>
-									</ul>
-								</li>
-								</c:forEach>
-							</ul>
-						</section>
-					
-					
-					</div>
-					<div class="4u">
-						
+					<div class="8u">
+						<c:forEach items="${programmap}" var="program">
 						<section class="right-content">
-							<h2>About this website</h2>
-							<p>This website is the server-runtime</p>
+							<a class="comments" href="#top_${program.key}">Top</a>
+							<h2>${program.key}</h2>
+							<ul class="link-list">
+								<c:forEach items="${program.value}" var="element">
+								<li >
+									<h4 id="${element.id}">${element.function}</h4>
+									<p>
+									${element.doc}
+									</p>
+									<p>
+									<a href=${element.id}>Open</a>
+									</p>
+									<!-- 
+									<ul class="input-list">
+										<c:forEach items="${element.inputParameter}" var="inputs">
+										<li>${inputs.key}: ${inputs.value}</li>
+										</c:forEach>
+										<c:forEach items="${element.outputParameter}" var="outputs">
+										<li>${outputs.key}: ${outputs.value}</li>
+										</c:forEach>
+									</ul>
+									 -->
+								</li>
+								</c:forEach>
+							</ul>
 						</section>
-					
+						</c:forEach>
 					</div>
 					
 				</div>

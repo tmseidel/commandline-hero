@@ -37,6 +37,8 @@ public class Ffmpeg_Downscale240p extends ExecutionInstruction {
 		meta.setFunction("downscale240p");
 		meta.setDoc("Downscales a 16:9 video to 240p");
 		meta.setDocUrl("");
+		meta.addInputParameter("in","The source video file");
+		meta.addInputParameter("out","The video output");
 	}
 		
 	

@@ -4,10 +4,14 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.collections.TransformerUtils;
+import org.apache.commons.collections.map.MultiValueMap;
+import org.apache.commons.collections.map.TransformedMap;
 import org.remus.mediaexeutor.data.Meta;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -68,8 +72,14 @@ public class HomeController {
 	@RequestMapping(value = "/programs.htm", method = RequestMethod.GET)
 	public String programs(final Model model) {
 		final List<Meta> knownClasses = executionService.getKnownClasses();
-		model.addAttribute("metalist", knownClasses);
 
+		final Map map = TransformedMap.decorate(new MultiValueMap(),
+				TransformerUtils.invokerTransformer("getProgram"),
+				TransformerUtils.nopTransformer());
+		for (final Meta meta : knownClasses) {
+			map.put(meta, meta);
+		}
+		model.addAttribute("programmap", map);
 		return "programs";
 
 	}

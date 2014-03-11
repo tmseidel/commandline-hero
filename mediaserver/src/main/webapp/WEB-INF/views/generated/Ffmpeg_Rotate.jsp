@@ -79,7 +79,7 @@
 									  		</ul></label>&nbsp;<input class='fileInput' type="text" name="rotationType"  />
 	   								</div>
 								<div>
-									  <label for="out">wt123</label>&nbsp;<input class='fileInput' type="text" name="out"  />
+									  <label for="out">The output path</label>&nbsp;<input class='fileInput' type="text" name="out"  />
 	   								</div>
 							</div>
 							<a href="#" class="button" onClick="document.scheduleForm.submit();">Submit</a>

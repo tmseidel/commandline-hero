@@ -37,6 +37,8 @@ public class Ffmpeg_Downscale360p extends ExecutionInstruction {
 		meta.setFunction("downscale360p");
 		meta.setDoc("Downscales a 16:9 video to 360p");
 		meta.setDocUrl("");
+		meta.addInputParameter("in","The source video file");
+		meta.addInputParameter("out","The video output");
 	}
 		
 	
