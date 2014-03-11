@@ -3,7 +3,7 @@ package com.remus.mediaserver.controller.generated;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
-import org.remus.mediaexeutor.exec.Ffmpeg_Rotate;
+import org.remus.mediaexeutor.exec.Cutycapt_MakeWebShot;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,62 +22,54 @@ import com.remus.mediaserver.service.ExecutionService;
  * 
  */
 @Controller
-public class Ffmpeg_RotateController {
+public class Cutycapt_MakeWebShotController {
 
 	@Inject
 	private ExecutionService executionService;
 
 	@PostConstruct
 	public void register() {
-		executionService.register(Ffmpeg_Rotate.getMeta());
+		executionService.register(Cutycapt_MakeWebShot.getMeta());
 	}
 
-	@RequestMapping(value = "/ffmpeg_rotate", method = RequestMethod.GET)
-	public String rotate(final Model model) {
-		return "generated/Ffmpeg_Rotate";
+	@RequestMapping(value = "/cutycapt_makewebshot", method = RequestMethod.GET)
+	public String makewebshot(final Model model) {
+		return "generated/Cutycapt_MakeWebShot";
 	}
 
-	@RequestMapping(value = "/ffmpeg_rotate_run", method = RequestMethod.POST)
-	public String rotateRun(final MultipartHttpServletRequest request4011,
+	@RequestMapping(value = "/cutycapt_makewebshot_run", method = RequestMethod.POST)
+	public String makewebshotRun(final MultipartHttpServletRequest request4011,
 			final Model model4011) {
-		final String in = executionService.processPathInput(
-				request4011, "in");
-		
-		final String rotationType = executionService.processStringInput(
-				request4011, "rotationType");
+		final String url = executionService.processStringInput(
+				request4011, "url");
 		
 		final String out = executionService.processPathOutput(
 				request4011, "out");
 		
-		final Ffmpeg_Rotate ffmpeg_rotate = Ffmpeg_Rotate
-				.create(in,
-				rotationType,
+		final Cutycapt_MakeWebShot cutycapt_makewebshot = Cutycapt_MakeWebShot
+				.create(url,
 				out
 				);
-		final String run4011 = executionService.run(ffmpeg_rotate);
+		final String run4011 = executionService.run(cutycapt_makewebshot);
 		model4011.addAttribute("jobId", run4011);
 		return "redirect:home";
 
 	}
 
-	@RequestMapping(value = "/ffmpeg_rotate_runservice", method = RequestMethod.POST)
+	@RequestMapping(value = "/cutycapt_makewebshot_runservice", method = RequestMethod.POST)
 	public @ResponseBody
 	String rotateRunService(final MultipartHttpServletRequest request4011) {
-		final String in = executionService.processPathInput(
-				request4011, "in");
-		
-		final String rotationType = executionService.processStringInput(
-				request4011, "rotationType");
+		final String url = executionService.processStringInput(
+				request4011, "url");
 		
 		final String out = executionService.processPathOutput(
 				request4011, "out");
 		
-		final Ffmpeg_Rotate ffmpeg_rotate = Ffmpeg_Rotate
-				.create(in,
-				rotationType,
+		final Cutycapt_MakeWebShot cutycapt_makewebshot = Cutycapt_MakeWebShot
+				.create(url,
 				out
 				);
-		final String run4011 = executionService.run(ffmpeg_rotate);
+		final String run4011 = executionService.run(cutycapt_makewebshot);
 		return run4011;
 
 	}

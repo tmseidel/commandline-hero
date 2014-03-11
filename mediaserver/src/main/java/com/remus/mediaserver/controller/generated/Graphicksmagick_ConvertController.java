@@ -3,7 +3,7 @@ package com.remus.mediaserver.controller.generated;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
-import org.remus.mediaexeutor.exec.Ffmpeg_Rotate;
+import org.remus.mediaexeutor.exec.Graphicksmagick_Convert;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,62 +22,54 @@ import com.remus.mediaserver.service.ExecutionService;
  * 
  */
 @Controller
-public class Ffmpeg_RotateController {
+public class Graphicksmagick_ConvertController {
 
 	@Inject
 	private ExecutionService executionService;
 
 	@PostConstruct
 	public void register() {
-		executionService.register(Ffmpeg_Rotate.getMeta());
+		executionService.register(Graphicksmagick_Convert.getMeta());
 	}
 
-	@RequestMapping(value = "/ffmpeg_rotate", method = RequestMethod.GET)
-	public String rotate(final Model model) {
-		return "generated/Ffmpeg_Rotate";
+	@RequestMapping(value = "/graphicksmagick_convert", method = RequestMethod.GET)
+	public String convert(final Model model) {
+		return "generated/Graphicksmagick_Convert";
 	}
 
-	@RequestMapping(value = "/ffmpeg_rotate_run", method = RequestMethod.POST)
-	public String rotateRun(final MultipartHttpServletRequest request4011,
+	@RequestMapping(value = "/graphicksmagick_convert_run", method = RequestMethod.POST)
+	public String convertRun(final MultipartHttpServletRequest request4011,
 			final Model model4011) {
 		final String in = executionService.processPathInput(
 				request4011, "in");
 		
-		final String rotationType = executionService.processStringInput(
-				request4011, "rotationType");
-		
 		final String out = executionService.processPathOutput(
 				request4011, "out");
 		
-		final Ffmpeg_Rotate ffmpeg_rotate = Ffmpeg_Rotate
+		final Graphicksmagick_Convert graphicksmagick_convert = Graphicksmagick_Convert
 				.create(in,
-				rotationType,
 				out
 				);
-		final String run4011 = executionService.run(ffmpeg_rotate);
+		final String run4011 = executionService.run(graphicksmagick_convert);
 		model4011.addAttribute("jobId", run4011);
 		return "redirect:home";
 
 	}
 
-	@RequestMapping(value = "/ffmpeg_rotate_runservice", method = RequestMethod.POST)
+	@RequestMapping(value = "/graphicksmagick_convert_runservice", method = RequestMethod.POST)
 	public @ResponseBody
 	String rotateRunService(final MultipartHttpServletRequest request4011) {
 		final String in = executionService.processPathInput(
 				request4011, "in");
 		
-		final String rotationType = executionService.processStringInput(
-				request4011, "rotationType");
-		
 		final String out = executionService.processPathOutput(
 				request4011, "out");
 		
-		final Ffmpeg_Rotate ffmpeg_rotate = Ffmpeg_Rotate
+		final Graphicksmagick_Convert graphicksmagick_convert = Graphicksmagick_Convert
 				.create(in,
-				rotationType,
 				out
 				);
-		final String run4011 = executionService.run(ffmpeg_rotate);
+		final String run4011 = executionService.run(graphicksmagick_convert);
 		return run4011;
 
 	}

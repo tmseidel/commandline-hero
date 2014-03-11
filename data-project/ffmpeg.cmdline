@@ -32,7 +32,7 @@ program ffmpeg -> "ffmpeg" {
 		* out
 	}
 	def downscale360p {
-		desc -> "Downscales a 16:9 video to 360p"
+		desc -> "Downscales a 16:9 video to 360p" 
 		input in AS PATH doc -> "The source video file"
 		output out AS PATH doc -> "The video output" 
 		* "-i" 

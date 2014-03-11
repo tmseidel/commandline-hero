@@ -52,7 +52,7 @@ public class Ffmpeg_Downscale360pController {
 				);
 		final String run4011 = executionService.run(ffmpeg_downscale360p);
 		model4011.addAttribute("jobId", run4011);
-		return "home";
+		return "redirect:home";
 
 	}
 

@@ -72,9 +72,9 @@ public abstract class ExecutionInstruction implements Runnable {
 			executor.notifyStart(this);
 			try {
 				internalExecute();
-			} catch (final Exception e) {
-				executionStatus = new Status(500, "execution",
-						"Error executing instruction", e);
+			} catch (final Throwable e) {
+				executionStatus = new Status(IStatus.ERROR, "execution",
+						IStatus.ERROR, "Error executing instruction", e);
 			} finally {
 				executor.notifyFinish(this);
 			}

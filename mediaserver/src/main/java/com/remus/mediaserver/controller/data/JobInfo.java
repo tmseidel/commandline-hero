@@ -28,6 +28,8 @@ public class JobInfo {
 
 	private JobExecutionStatus executionResult;
 
+	private String metaId;
+
 	public String getId() {
 		return id;
 	}
@@ -82,6 +84,14 @@ public class JobInfo {
 
 	public void setFinishedDate(final Date finishedDate) {
 		this.finishedDate = finishedDate;
+	}
+
+	public String getMetaId() {
+		return metaId;
+	}
+
+	public void setMetaId(final String metaId) {
+		this.metaId = metaId;
 	}
 
 }

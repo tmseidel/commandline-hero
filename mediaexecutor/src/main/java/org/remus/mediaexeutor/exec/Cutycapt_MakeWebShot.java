@@ -25,26 +25,25 @@ import org.remus.mediaexeutor.data.ResultDataElement;
  * 
  * 
  */
-public class Ffmpeg_Rotate extends ExecutionInstruction {
-	private final Logger LOGGER = Logger.getLogger(Ffmpeg_Rotate.class);
+public class Cutycapt_MakeWebShot extends ExecutionInstruction {
+	private final Logger LOGGER = Logger.getLogger(Cutycapt_MakeWebShot.class);
 	
 	private static Meta meta; 
 	
 	static {
 		meta = new Meta();
-		meta.setId("ffmpeg_rotate");
-		meta.setProgram("ffmpeg");
-		meta.setFunction("rotate");
-		meta.setDoc("Rotates a video.");
-		meta.setDocUrl("http://www.mediaserver/commands/ffmpeg_rotate.htm");
-		meta.setClassName(Ffmpeg_Rotate.class.getName());
-		meta.addInputParameter("in","The input file");
-		meta.addInputParameter("rotationType","Possible rotations:		<ul>			<li>0 = 90CounterCLockwise and Vertical Flip (default)</li>			<li>1 = 90Clockwise</li>			<li>2 = 90CounterClockwise</li>			<li>3 = 90Clockwise and Vertical Flip</li>		</ul>");
-		meta.addOutputParameter("out","The output path");
+		meta.setId("cutycapt_makewebshot");
+		meta.setProgram("cutycapt");
+		meta.setFunction("makeWebShot");
+		meta.setDoc("Makes a screenshot of a website.");
+		meta.setDocUrl("http://cutycapt.sourceforge.net/");
+		meta.setClassName(Cutycapt_MakeWebShot.class.getName());
+		meta.addInputParameter("url","The url to grab");
+		meta.addOutputParameter("out","The output path to the image");
 	}
 		
 	
-	public Ffmpeg_Rotate(final Arguments createArguments) {
+	public Cutycapt_MakeWebShot(final Arguments createArguments) {
 		super(createArguments);
 	}
 	
@@ -52,36 +51,26 @@ public class Ffmpeg_Rotate extends ExecutionInstruction {
 		return meta;
 	}
 	
-	public static Ffmpeg_Rotate create(final String in,
-	final String rotationType,
+	public static Cutycapt_MakeWebShot create(final String url,
 	final String out
 	) {
-		return new Ffmpeg_Rotate(createArguments(in,
-		rotationType,
+		return new Cutycapt_MakeWebShot(createArguments(url,
 		out
 		));
 	}
-	private static Arguments createArguments(final String in,
-	final String rotationType,
+	private static Arguments createArguments(final String url,
 	final String out
 	) {
 		final Arguments arguments = new Arguments();
 		return arguments
-		.add("in", in)
-		.add("rotationType", rotationType)
+		.add("url", url)
 		.add("out", out)
 				;
 	}
 	public boolean checkArguments() {
 		boolean valid = true;
 		
-		valid &= checkArgument(arguments.get("in"), ParamDataType.PATH,
-				ParamType.INPUT);
-		if (!valid) {
-			return false;
-		}
-		
-		valid &= checkArgument(arguments.get("rotationType"), ParamDataType.STRING,
+		valid &= checkArgument(arguments.get("url"), ParamDataType.STRING,
 				ParamType.INPUT);
 		if (!valid) {
 			return false;
@@ -97,15 +86,11 @@ public class Ffmpeg_Rotate extends ExecutionInstruction {
 	@Override
 	protected int internalExecute() throws IOException {
 		LOGGER.info("Starting execution with arguments: " + arguments);
-		final String in = arguments.get("in");
-		final String rotationType = arguments.get("rotationType");
+		final String url = arguments.get("url");
 		final String out = arguments.get("out");
-		final CommandLine cmd = new CommandLine("ffmpeg");
-		cmd.addArgument("-i");
-		cmd.addArgument(in);
-		cmd.addArgument("-vf");
-		cmd.addArgument("\"transpose="+rotationType+"\"");
-		cmd.addArgument(out);
+		final CommandLine cmd = new CommandLine("CutyCapt");
+		cmd.addArgument("--url="+url);
+		cmd.addArgument("--out="+out);
 		final DefaultExecutor executor = new DefaultExecutor();
 		LOGGER.info("About to execute: " + cmd);
 		executor.setStreamHandler(new PumpStreamHandler(getProcessStream(),
@@ -128,17 +113,15 @@ public class Ffmpeg_Rotate extends ExecutionInstruction {
 	public List<ResultDataElement> getOutputElements() {
 		final List<ResultDataElement> returnValue = new ArrayList<ResultDataElement>();
 		returnValue.add(new ResultDataElement("out",arguments.get("out"),
-				ParamDataType.PATH, "The output path"));
+				ParamDataType.PATH, "The output path to the image"));
 		return returnValue;
 	}
 	
 	@Override
 	public List<ResultDataElement> getInputElements() {
 		final List<ResultDataElement> returnValue = new ArrayList<ResultDataElement>();
-		returnValue.add(new ResultDataElement("in",arguments.get("in"),
-				ParamDataType.PATH, "The input file"));
-		returnValue.add(new ResultDataElement("rotationType",arguments.get("rotationType"),
-				ParamDataType.STRING, "Possible rotations:		<ul>			<li>0 = 90CounterCLockwise and Vertical Flip (default)</li>			<li>1 = 90Clockwise</li>			<li>2 = 90CounterClockwise</li>			<li>3 = 90Clockwise and Vertical Flip</li>		</ul>"));
+		returnValue.add(new ResultDataElement("url",arguments.get("url"),
+				ParamDataType.STRING, "The url to grab"));
 		return returnValue;
 	}
 	

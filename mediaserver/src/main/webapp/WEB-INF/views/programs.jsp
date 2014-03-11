@@ -39,8 +39,6 @@
 							<nav id="nav">
 								<a href="<c:url value="/" />">Homepage</a>
 								<a href="<c:url value="programs.htm" />" class="current-page-item">Programs</a>
-								<a href="<c:url value="resources/static/rest.html" />">REST Services</a>
-								<a href="<c:url value="resources/static/about.html" />">About</a>
 							</nav>
 						</header>
 					

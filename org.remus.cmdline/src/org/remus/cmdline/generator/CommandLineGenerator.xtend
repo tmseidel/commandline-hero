@@ -95,7 +95,7 @@ public class «javaName(function)»Controller {
 				.create(«argumentsList(function,false)»);
 		final String run4011 = executionService.run(«javaName(function).toString.toLowerCase»);
 		model4011.addAttribute("jobId", run4011);
-		return "home";
+		return "redirect:home";
 
 	}
 
@@ -168,8 +168,6 @@ def jsp(Function function) {
 							<nav id="nav">
 								<a href="<c:url value="/" />">Homepage</a>
 								<a href="<c:url value="programs.htm" />" class="current-page-item">Programs</a>
-								<a href="<c:url value="resources/static/rest.html" />">REST Services</a>
-								<a href="<c:url value="resources/static/about.html" />">About</a>
 							</nav>
 						</header>
 						
@@ -207,6 +205,7 @@ def jsp(Function function) {
 								«ENDFOR»
 							</div>
 							<a href="#" class="button" onClick="document.scheduleForm.submit();">Submit</a>
+							<a href="programs.htm#«function.javaName.toString.toLowerCase»" class="button">Back</a>
 						</section>
 					</form>
 					
@@ -217,7 +216,7 @@ def jsp(Function function) {
 							<h2>Documentation</h2>
 							<p>«function.desc.escape»</p>
 							«IF function.docurl != null»
-							<p><a href="«function.docurl.value»" target="_blank">Furhter information</a></p>
+							<p><a href="«function.docurl.value»" target="_blank">Further information</a></p>
 							«ENDIF»
 						</section>
 					</div>
@@ -287,6 +286,7 @@ public class «javaName(function)» extends ExecutionInstruction {
 		meta.setFunction("«function.name»");
 		meta.setDoc("«function.desc.escape»");
 		meta.setDocUrl("«function.docurl.escape»");
+		meta.setClassName(«javaName(function)».class.getName());
 		«FOR m:function.input»
 		meta.addInputParameter("«m.input.name»","«m.doc.escape»");
 		«ENDFOR»
@@ -338,7 +338,7 @@ public class «javaName(function)» extends ExecutionInstruction {
 		«FOR m : function.output»
 		final String «m.input.name» = arguments.get("«m.input.name»");
 		«ENDFOR»
-		final CommandLine cmd = new CommandLine("«(function.eContainer as Program).name»");
+		final CommandLine cmd = new CommandLine(«expression2String((function.eContainer as Program).path,false)»);
 		«FOR m:function.optionBlocks»
 		cmd.addArgument(«expression2String(m.param,false)»);
 		«ENDFOR»

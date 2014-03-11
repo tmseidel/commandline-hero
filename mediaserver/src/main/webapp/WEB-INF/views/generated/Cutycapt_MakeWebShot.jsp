@@ -35,7 +35,7 @@
 					<div class="12u">
 						
 						<header id="header">
-							<h1><a href="#" id="logo">Ffmpeg_Rotate</a></h1>
+							<h1><a href="#" id="logo">Cutycapt_MakeWebShot</a></h1>
 							<nav id="nav">
 								<a href="<c:url value="/" />">Homepage</a>
 								<a href="<c:url value="programs.htm" />" class="current-page-item">Programs</a>
@@ -60,28 +60,19 @@
 			<div class="container">
 				<div class="row main-row">
 					<div class="8u">
-						<form action="<c:url value="ffmpeg_rotate_run" />" method="post" enctype="multipart/form-data" name="scheduleForm">
+						<form action="<c:url value="cutycapt_makewebshot_run" />" method="post" enctype="multipart/form-data" name="scheduleForm">
 						<section>
-							<h2>Ffmpeg_Rotate</h2>
+							<h2>Cutycapt_MakeWebShot</h2>
 							<div>
 								<div>
-									  <label for="in">The input file</label>&nbsp;<input class='fileInput' type="file" name="in"  />
+									  <label for="url">The url to grab</label>&nbsp;<input class='fileInput' type="text" name="url"  />
 	   								</div>
 								<div>
-									  <label for="rotationType">Possible rotations:
-									  		<ul>
-									  			<li>0 = 90CounterCLockwise and Vertical Flip (default)</li>
-									  			<li>1 = 90Clockwise</li>
-									  			<li>2 = 90CounterClockwise</li>
-									  			<li>3 = 90Clockwise and Vertical Flip</li>
-									  		</ul></label>&nbsp;<input class='fileInput' type="text" name="rotationType"  />
-	   								</div>
-								<div>
-									  <label for="out">The output path</label>&nbsp;<input class='fileInput' type="text" name="out"  />
+									  <label for="out">The output path to the image</label>&nbsp;<input class='fileInput' type="text" name="out"  />
 	   								</div>
 							</div>
 							<a href="#" class="button" onClick="document.scheduleForm.submit();">Submit</a>
-							<a href="programs.htm#ffmpeg_rotate" class="button">Back</a>
+							<a href="programs.htm#cutycapt_makewebshot" class="button">Back</a>
 						</section>
 					</form>
 					
@@ -90,8 +81,8 @@
 						
 						<section class="right-content">
 							<h2>Documentation</h2>
-							<p>Rotates a video.</p>
-							<p><a href="http://www.mediaserver/commands/ffmpeg_rotate.htm" target="_blank">Further information</a></p>
+							<p>Makes a screenshot of a website.</p>
+							<p><a href="http://cutycapt.sourceforge.net/" target="_blank">Further information</a></p>
 						</section>
 					</div>
 				</div>

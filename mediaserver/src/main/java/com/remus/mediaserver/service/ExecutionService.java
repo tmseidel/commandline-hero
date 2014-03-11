@@ -17,15 +17,18 @@ import java.util.Map;
 import java.util.UUID;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.collections.Predicate;
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.IOUtils;
 import org.remus.mediaexeutor.base.ExecutionInstruction;
 import org.remus.mediaexeutor.base.Executor;
+import org.remus.mediaexeutor.base.IStatus;
 import org.remus.mediaexeutor.base.TaskChangeEvent;
 import org.remus.mediaexeutor.base.TaskListener;
 import org.remus.mediaexeutor.data.Meta;
@@ -62,38 +65,58 @@ public class ExecutionService {
 
 	protected Map<String, JobInfo> id2InfoMap = new HashMap<String, JobInfo>();
 
+	private final TaskListener taskListener = new TaskListener() {
+
+		@Override
+		public void taskStarted(final TaskChangeEvent e) {
+			id2InfoMap.get(e.getExecutionInstruction().getRuntimeId())
+					.setStatus(JobStatus.RUNNING);
+
+		}
+
+		@Override
+		public void taskScheduled(final TaskChangeEvent e) {
+			final JobInfo jobInfo = toJobInfo(e.getExecutionInstruction());
+			jobInfo.setStatus(JobStatus.SCHEDULED);
+			jobInfo.setScheduledDate(new Date());
+			id2InfoMap.put(e.getExecutionInstruction().getRuntimeId(), jobInfo);
+			id2JobMap.put(e.getExecutionInstruction().getRuntimeId(),
+					e.getExecutionInstruction());
+
+		}
+
+		@Override
+		public void taskFinished(final TaskChangeEvent e) {
+			final JobInfo jobInfo = id2InfoMap.get(e.getExecutionInstruction()
+					.getRuntimeId());
+			jobInfo.setStatus(JobStatus.FINISHED);
+			jobInfo.setFinishedDate(new Date());
+			final IStatus executionStatus = e.getExecutionInstruction()
+					.getExecutionStatus();
+			jobInfo.setExecutionResult(new JobExecutionStatus(executionStatus
+					.getCode(), executionStatus.toString()));
+
+		}
+	};
+
 	@PostConstruct
 	private void onStart() {
-		executor.addListener(new TaskListener() {
+		File[] listFiles = new File(inputDir).listFiles();
+		for (final File file : listFiles) {
+			FileUtils.deleteQuietly(file);
+		}
+		listFiles = new File(outputDir).listFiles();
+		for (final File file : listFiles) {
+			FileUtils.deleteQuietly(file);
+		}
+		executor.addListener(taskListener);
+	}
 
-			@Override
-			public void taskStarted(final TaskChangeEvent e) {
-				id2InfoMap.get(e.getExecutionInstruction().getRuntimeId())
-						.setStatus(JobStatus.RUNNING);
+	@PreDestroy
+	private void stop() {
+		executor.removeListener(taskListener);
+		executor.shutdown();
 
-			}
-
-			@Override
-			public void taskScheduled(final TaskChangeEvent e) {
-				final JobInfo jobInfo = toJobInfo(e.getExecutionInstruction());
-				jobInfo.setStatus(JobStatus.SCHEDULED);
-				jobInfo.setScheduledDate(new Date());
-				id2InfoMap.put(e.getExecutionInstruction().getRuntimeId(),
-						jobInfo);
-				id2JobMap.put(e.getExecutionInstruction().getRuntimeId(),
-						e.getExecutionInstruction());
-
-			}
-
-			@Override
-			public void taskFinished(final TaskChangeEvent e) {
-				final JobInfo jobInfo = id2InfoMap.get(e
-						.getExecutionInstruction().getRuntimeId());
-				jobInfo.setStatus(JobStatus.FINISHED);
-				jobInfo.setFinishedDate(new Date());
-
-			}
-		});
 	}
 
 	public void register(final Meta meta) {
@@ -150,10 +173,11 @@ public class ExecutionService {
 			// 2.1 get next MultipartFile
 			mpf = request.getFile(itr.next());
 			if (mpf.getName().equals(name)) {
-				final String extension = FilenameUtils.getExtension(mpf
-						.getOriginalFilename());
-				final File file = new File(inputDir
-						+ UUID.randomUUID().toString() + "." + extension);
+				final File folder = new File(inputDir
+						+ UUID.randomUUID().toString() + File.separator);
+				folder.mkdirs();
+				final File file = new File(folder, FilenameUtils.getName(mpf
+						.getOriginalFilename()));
 				try {
 					final FileOutputStream output = new FileOutputStream(file);
 					IOUtils.copyLarge(mpf.getInputStream(), output);
@@ -197,7 +221,7 @@ public class ExecutionService {
 		final List<ResultDataElement> outputElements = findJobById
 				.getOutputElements();
 		final Map<String, String> returnValue = new HashMap<String, String>();
-		final String baseUrl = String.format("%s://%s:%d/%s/",
+		final String baseUrl = String.format("%s://%s:%d%s/",
 				request.getScheme(), request.getServerName(),
 				request.getServerPort(), request.getContextPath());
 		for (final ResultDataElement resultDataElement : outputElements) {
@@ -205,14 +229,14 @@ public class ExecutionService {
 			case PATH:
 				// the local path
 				returnValue.put(resultDataElement.getParamId(), baseUrl
-						+ "/download/" + findJobById.getRuntimeId() + "/"
+						+ "download/" + findJobById.getRuntimeId() + "/"
 						+ resultDataElement.getParamId());
 				break;
 			case URL:
 				// the local path
-				returnValue.put(resultDataElement.getParamId(), baseUrl
-						+ "/url" + findJobById.getRuntimeId() + "/"
-						+ resultDataElement.getParamId());
+				returnValue.put(resultDataElement.getParamId(),
+						baseUrl + "url" + findJobById.getRuntimeId() + "/"
+								+ resultDataElement.getParamId());
 				break;
 			default:
 				break;
@@ -230,6 +254,13 @@ public class ExecutionService {
 		final String jobId = findJobById.getRuntimeId();
 		final JobInfo returnValue = new JobInfo();
 		returnValue.setId(jobId);
+		final List<Meta> classes = getKnownClasses();
+		for (final Meta meta : classes) {
+			if (meta.getClassName().equals(findJobById.getClass().getName())) {
+				returnValue.setMetaId(meta.getId());
+				break;
+			}
+		}
 		returnValue.setStatus(findStatusById(jobId));
 		if (findJobById.getExecutionStatus() != null) {
 			returnValue.setExecutionResult(new JobExecutionStatus(findJobById
@@ -243,7 +274,8 @@ public class ExecutionService {
 
 	public void generateOutputs(final JobInfo info,
 			final HttpServletRequest request) {
-		if (info.getOutputs() == null && id2JobMap.get(info.getId()) != null) {
+		if (info.getOutputs() == null && id2JobMap.get(info.getId()) != null
+				&& info.getExecutionResult().getReturnCode() == IStatus.OK) {
 			info.setOutputs(buildOutputs(id2JobMap.get(info.getId()), request));
 		}
 

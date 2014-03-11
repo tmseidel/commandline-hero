@@ -39,8 +39,6 @@
 							<nav id="nav">
 								<a href="<c:url value="/" />" class="current-page-item">Homepage</a>
 								<a href="<c:url value="programs.htm" />">Programs</a>
-								<a href="<c:url value="resources/static/rest.html" />">REST Services</a>
-								<a href="<c:url value="resources/static/about.html" />">About</a>
 							</nav>
 						</header>
 					
@@ -65,11 +63,14 @@
 
 						<section>
 							<h2>Finished Jobs</h2>
-							<a class="comments" href="#">See all</a>
+							<!-- <a class="comments" href="#">See all</a> -->
+							<c:if test="${empty finishedJobs}">
+								<h4>No Jobs</h4>
+							</c:if>
 							<ul class="small-image-list">
 								<c:forEach items="${finishedJobs}" var="job">
 								<li>
-									<h4>${job.id} - ${job.finishedDate}</h4>
+									<h4>${job.metaId} - ${job.finishedDate}</h4>
 									<ul class="input-list">
 										<c:forEach items="${job.inputs}" var="element">
 										<li>${element.key}: ${element.value}</li>
@@ -77,6 +78,9 @@
 										<c:forEach items="${job.outputs}" var="element">
 										<li>Results: <a href="${element.value }">${element.key}</a></li>
 										</c:forEach>
+										<c:if test="${job.executionResult.returnCode > 0}">
+										<li style="color:red;">${job.executionResult.description}</li>
+										</c:if>
 									</ul>
 								</li>
 								</c:forEach>
@@ -89,11 +93,14 @@
 
 						<section>
 							<h2>Running Jobs</h2>
-							<a class="comments" href="#">See all</a>
+							<!-- <a class="comments" href="#">See all</a> -->
+							<c:if test="${empty runningJobs}">
+								<h4>No Jobs</h4>
+							</c:if>
 							<ul class="small-image-list">
 								<c:forEach items="${runningJobs}" var="job">
 								<li>
-									<h4>${job.id} - ${job.scheduledDate}</h4>
+									<h4>${job.metaId} - ${job.scheduledDate}</h4>
 									<ul class="input-list">
 										<c:forEach items="${job.inputs.entrySet}" var="element">
 										<li>${element.key}: ${element.value}</li>

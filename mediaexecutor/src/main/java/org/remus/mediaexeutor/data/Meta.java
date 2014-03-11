@@ -15,6 +15,8 @@ public class Meta {
 
 	private String docUrl;
 
+	private String className;
+
 	private final Map<String, String> inputParameter = new HashMap<String, String>();
 
 	private final Map<String, String> outputParameter = new HashMap<String, String>();
@@ -73,6 +75,14 @@ public class Meta {
 
 	public Map<String, String> getOutputParameter() {
 		return outputParameter;
+	}
+
+	public String getClassName() {
+		return className;
+	}
+
+	public void setClassName(final String className) {
+		this.className = className;
 	}
 
 }

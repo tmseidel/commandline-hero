@@ -40,7 +40,7 @@ public class DownloadController {
 			final HttpServletResponse response) {
 		final ExecutionInstruction jobById = executionService
 				.findExecutionById(jobId);
-		if (jobById != null) {
+		if (jobById != null && jobById.getExecutionStatus().isOK()) {
 			final List<ResultDataElement> elements = jobById
 					.getOutputElements();
 			for (final ResultDataElement resultDataElement : elements) {
@@ -48,6 +48,8 @@ public class DownloadController {
 					final String name = FilenameUtils.getName(resultDataElement
 							.getData());
 					try {
+						response.setHeader("Content-Type",
+								"application/octet-stream");
 						response.setHeader("Content-Disposition",
 								"attachment; filename=" + name);
 						return new FileSystemResource(

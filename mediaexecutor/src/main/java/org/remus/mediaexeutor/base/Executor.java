@@ -54,6 +54,10 @@ public class Executor {
 		pool.submit(job);
 	}
 
+	public void shutdown() {
+		pool.shutdown();
+	}
+
 	final void notifySchedule(final ExecutionInstruction instruction) {
 		LOGGER.info(MessageFormat.format("Scheduled job {0}", instruction
 				.getClass().getSimpleName()));

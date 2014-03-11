@@ -39,8 +39,6 @@
 							<nav id="nav">
 								<a href="<c:url value="/" />">Homepage</a>
 								<a href="<c:url value="programs.htm" />" class="current-page-item">Programs</a>
-								<a href="<c:url value="resources/static/rest.html" />">REST Services</a>
-								<a href="<c:url value="resources/static/about.html" />">About</a>
 							</nav>
 						</header>
 						
@@ -74,6 +72,7 @@
 	   								</div>
 							</div>
 							<a href="#" class="button" onClick="document.scheduleForm.submit();">Submit</a>
+							<a href="programs.htm#ffmpeg_downscale360p" class="button">Back</a>
 						</section>
 					</form>
 					
