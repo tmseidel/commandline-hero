@@ -8,3 +8,5 @@ This project consists of three parts.
 * A tooling to describe your commandline-tools
 * The description of the commandline tools
 * The webapplication
+
+For further information please see the [project page](http://tmseidel.github.io/commandline-hero/)
