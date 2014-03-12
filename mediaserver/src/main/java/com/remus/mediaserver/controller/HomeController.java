@@ -2,6 +2,8 @@ package com.remus.mediaserver.controller;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -62,7 +64,14 @@ public class HomeController {
 				break;
 			}
 		}
+		Collections.sort(finishedJobs, new Comparator<JobInfo>() {
 
+			@Override
+			public int compare(final JobInfo o1, final JobInfo o2) {
+				return o1.getFinishedDate().compareTo(o2.getFinishedDate())
+						* -1;
+			}
+		});
 		model.addAttribute("runningJobs", runningJobs);
 		model.addAttribute("finishedJobs", finishedJobs);
 

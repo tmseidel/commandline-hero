@@ -9,7 +9,7 @@
 <html>
 	<head>
 		
-		<title>Remus Exec</title>
+		<title>Commandline-Hero</title>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
@@ -35,7 +35,7 @@
 					<div class="12u">
 						
 						<header id="header">
-							<h1><a href="#" id="logo">Remus Exec</a></h1>
+							<h1><a href="#" id="logo">Commandline-Hero</a></h1>
 							<nav id="nav">
 								<a href="<c:url value="/" />" class="current-page-item">Homepage</a>
 								<a href="<c:url value="programs.htm" />">Programs</a>
