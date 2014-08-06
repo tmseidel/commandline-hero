@@ -201,23 +201,23 @@ ruleSystem returns [EObject current=null]
 	    }
 
 )
-))?(	otherlv_5='host->' 
+))?(	otherlv_5='version ->' 
     {
-    	newLeafNode(otherlv_5, grammarAccess.getSystemAccess().getHostKeyword_4_0());
+    	newLeafNode(otherlv_5, grammarAccess.getSystemAccess().getVersionKeyword_4_0());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getSystemAccess().getHostStringLiteralParserRuleCall_4_1_0()); 
+	        newCompositeNode(grammarAccess.getSystemAccess().getVersionStringLiteralParserRuleCall_4_1_0()); 
 	    }
-		lv_host_6_0=ruleStringLiteral		{
+		lv_version_6_0=ruleStringLiteral		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getSystemRule());
 	        }
        		set(
        			$current, 
-       			"host",
-        		lv_host_6_0, 
+       			"version",
+        		lv_version_6_0, 
         		"StringLiteral");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -240,7 +240,7 @@ ruleSystem returns [EObject current=null]
 	}
 
 )
-))+	otherlv_9='}' 
+))*	otherlv_9='}' 
     {
     	newLeafNode(otherlv_9, grammarAccess.getSystemAccess().getRightCurlyBracketKeyword_6());
     }

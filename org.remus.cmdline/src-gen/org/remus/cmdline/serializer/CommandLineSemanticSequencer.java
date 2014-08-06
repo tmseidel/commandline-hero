@@ -275,7 +275,7 @@ public class CommandLineSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (name=QualifiedName port=IntegerLiteral? host=StringLiteral? program+=[Program|ID]+)
+	 *     (name=QualifiedName port=IntegerLiteral? version=StringLiteral? program+=[Program|ID]*)
 	 */
 	protected void sequence_System(EObject context, org.remus.cmdline.commandLine.System semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

@@ -15,8 +15,8 @@ Model:
 System:
 	'system ' name=QualifiedName '{'
 		('port ->' port=IntegerLiteral)?
-		('host->' host=StringLiteral)?
-		('registerProgram -> ' program+=[Program])+
+		('version ->' version=StringLiteral)?
+		('registerProgram -> ' program+=[Program])*
 		
 '}' 
 ;

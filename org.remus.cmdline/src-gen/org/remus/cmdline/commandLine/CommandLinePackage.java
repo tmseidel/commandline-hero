@@ -132,13 +132,13 @@ public interface CommandLinePackage extends EPackage
   int SYSTEM__PORT = 1;
 
   /**
-   * The feature id for the '<em><b>Host</b></em>' containment reference.
+   * The feature id for the '<em><b>Version</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SYSTEM__HOST = 2;
+  int SYSTEM__VERSION = 2;
 
   /**
    * The feature id for the '<em><b>Program</b></em>' reference list.
@@ -679,15 +679,15 @@ public interface CommandLinePackage extends EPackage
   EReference getSystem_Port();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.remus.cmdline.commandLine.System#getHost <em>Host</em>}'.
+   * Returns the meta object for the containment reference '{@link org.remus.cmdline.commandLine.System#getVersion <em>Version</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Host</em>'.
-   * @see org.remus.cmdline.commandLine.System#getHost()
+   * @return the meta object for the containment reference '<em>Version</em>'.
+   * @see org.remus.cmdline.commandLine.System#getVersion()
    * @see #getSystem()
    * @generated
    */
-  EReference getSystem_Host();
+  EReference getSystem_Version();
 
   /**
    * Returns the meta object for the reference list '{@link org.remus.cmdline.commandLine.System#getProgram <em>Program</em>}'.
@@ -1135,12 +1135,12 @@ public interface CommandLinePackage extends EPackage
     EReference SYSTEM__PORT = eINSTANCE.getSystem_Port();
 
     /**
-     * The meta object literal for the '<em><b>Host</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Version</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference SYSTEM__HOST = eINSTANCE.getSystem_Host();
+    EReference SYSTEM__VERSION = eINSTANCE.getSystem_Version();
 
     /**
      * The meta object literal for the '<em><b>Program</b></em>' reference list feature.

@@ -31,13 +31,11 @@ public class CommandLineGrammarAccess extends AbstractGrammarElementFinder {
 		//Model:
 		//
 		//	imports+=Import* // allow imports
-		//
-		//	programs=Program? system=System?;
+		// programs=Program? system=System?;
 		public ParserRule getRule() { return rule; }
 
 		//imports+=Import* // allow imports
-		//
-		//programs=Program? system=System?
+		// programs=Program? system=System?
 		public Group getGroup() { return cGroup; }
 
 		//imports+=Import*
@@ -71,9 +69,9 @@ public class CommandLineGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cPortAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
 		private final RuleCall cPortIntegerLiteralParserRuleCall_3_1_0 = (RuleCall)cPortAssignment_3_1.eContents().get(0);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cHostKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cHostAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cHostStringLiteralParserRuleCall_4_1_0 = (RuleCall)cHostAssignment_4_1.eContents().get(0);
+		private final Keyword cVersionKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cVersionAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cVersionStringLiteralParserRuleCall_4_1_0 = (RuleCall)cVersionAssignment_4_1.eContents().get(0);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cRegisterProgramKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Assignment cProgramAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
@@ -83,14 +81,14 @@ public class CommandLineGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//System:
 		//
-		//	"system " name=QualifiedName "{" ("port ->" port=IntegerLiteral)? ("host->" host=StringLiteral)?
+		//	"system " name=QualifiedName "{" ("port ->" port=IntegerLiteral)? ("version ->" version=StringLiteral)?
 		//
-		//	("registerProgram -> " program+=[Program])+ "}";
+		//	("registerProgram -> " program+=[Program])* "}";
 		public ParserRule getRule() { return rule; }
 
-		//"system " name=QualifiedName "{" ("port ->" port=IntegerLiteral)? ("host->" host=StringLiteral)? ("registerProgram -> "
+		//"system " name=QualifiedName "{" ("port ->" port=IntegerLiteral)? ("version ->" version=StringLiteral)?
 		//
-		//program+=[Program])+ "}"
+		//("registerProgram -> " program+=[Program])* "}"
 		public Group getGroup() { return cGroup; }
 
 		//"system "
@@ -117,19 +115,19 @@ public class CommandLineGrammarAccess extends AbstractGrammarElementFinder {
 		//IntegerLiteral
 		public RuleCall getPortIntegerLiteralParserRuleCall_3_1_0() { return cPortIntegerLiteralParserRuleCall_3_1_0; }
 
-		//("host->" host=StringLiteral)?
+		//("version ->" version=StringLiteral)?
 		public Group getGroup_4() { return cGroup_4; }
 
-		//"host->"
-		public Keyword getHostKeyword_4_0() { return cHostKeyword_4_0; }
+		//"version ->"
+		public Keyword getVersionKeyword_4_0() { return cVersionKeyword_4_0; }
 
-		//host=StringLiteral
-		public Assignment getHostAssignment_4_1() { return cHostAssignment_4_1; }
+		//version=StringLiteral
+		public Assignment getVersionAssignment_4_1() { return cVersionAssignment_4_1; }
 
 		//StringLiteral
-		public RuleCall getHostStringLiteralParserRuleCall_4_1_0() { return cHostStringLiteralParserRuleCall_4_1_0; }
+		public RuleCall getVersionStringLiteralParserRuleCall_4_1_0() { return cVersionStringLiteralParserRuleCall_4_1_0; }
 
-		//("registerProgram -> " program+=[Program])+
+		//("registerProgram -> " program+=[Program])*
 		public Group getGroup_5() { return cGroup_5; }
 
 		//"registerProgram -> "
@@ -721,8 +719,7 @@ public class CommandLineGrammarAccess extends AbstractGrammarElementFinder {
 	//Model:
 	//
 	//	imports+=Import* // allow imports
-	//
-	//	programs=Program? system=System?;
+	// programs=Program? system=System?;
 	public ModelElements getModelAccess() {
 		return (pModel != null) ? pModel : (pModel = new ModelElements());
 	}
@@ -733,9 +730,9 @@ public class CommandLineGrammarAccess extends AbstractGrammarElementFinder {
 
 	//System:
 	//
-	//	"system " name=QualifiedName "{" ("port ->" port=IntegerLiteral)? ("host->" host=StringLiteral)?
+	//	"system " name=QualifiedName "{" ("port ->" port=IntegerLiteral)? ("version ->" version=StringLiteral)?
 	//
-	//	("registerProgram -> " program+=[Program])+ "}";
+	//	("registerProgram -> " program+=[Program])* "}";
 	public SystemElements getSystemAccess() {
 		return (pSystem != null) ? pSystem : (pSystem = new SystemElements());
 	}

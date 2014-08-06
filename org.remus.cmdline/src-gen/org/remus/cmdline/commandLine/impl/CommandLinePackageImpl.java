@@ -270,7 +270,7 @@ public class CommandLinePackageImpl extends EPackageImpl implements CommandLineP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getSystem_Host()
+  public EReference getSystem_Version()
   {
     return (EReference)systemEClass.getEStructuralFeatures().get(2);
   }
@@ -653,7 +653,7 @@ public class CommandLinePackageImpl extends EPackageImpl implements CommandLineP
     systemEClass = createEClass(SYSTEM);
     createEAttribute(systemEClass, SYSTEM__NAME);
     createEReference(systemEClass, SYSTEM__PORT);
-    createEReference(systemEClass, SYSTEM__HOST);
+    createEReference(systemEClass, SYSTEM__VERSION);
     createEReference(systemEClass, SYSTEM__PROGRAM);
 
     programEClass = createEClass(PROGRAM);
@@ -746,7 +746,7 @@ public class CommandLinePackageImpl extends EPackageImpl implements CommandLineP
     initEClass(systemEClass, org.remus.cmdline.commandLine.System.class, "System", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getSystem_Name(), ecorePackage.getEString(), "name", null, 0, 1, org.remus.cmdline.commandLine.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSystem_Port(), this.getIntegerLiteral(), null, "port", null, 0, 1, org.remus.cmdline.commandLine.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSystem_Host(), this.getStringLiteral(), null, "host", null, 0, 1, org.remus.cmdline.commandLine.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSystem_Version(), this.getStringLiteral(), null, "version", null, 0, 1, org.remus.cmdline.commandLine.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSystem_Program(), this.getProgram(), null, "program", null, 0, -1, org.remus.cmdline.commandLine.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(programEClass, Program.class, "Program", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

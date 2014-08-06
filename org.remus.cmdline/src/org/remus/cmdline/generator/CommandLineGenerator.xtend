@@ -4,20 +4,19 @@
 package org.remus.cmdline.generator
 
 import java.io.StringWriter
-import javax.inject.Inject
+import java.util.ArrayList
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IFileSystemAccess
 import org.eclipse.xtext.generator.IGenerator
-import org.eclipse.xtext.generator.JavaIoFileSystemAccess
 import org.remus.cmdline.commandLine.Concatenation
 import org.remus.cmdline.commandLine.DataDefinition
+import org.remus.cmdline.commandLine.DataType
 import org.remus.cmdline.commandLine.Expression
 import org.remus.cmdline.commandLine.Function
 import org.remus.cmdline.commandLine.IntegerLiteral
 import org.remus.cmdline.commandLine.Program
 import org.remus.cmdline.commandLine.StringLiteral
-import org.remus.cmdline.commandLine.DataType
-import java.util.ArrayList
+import org.remus.cmdline.commandLine.System
 
 /**
  * Generates code from your model files on save.
@@ -28,28 +27,146 @@ class CommandLineGenerator implements IGenerator {
 	
 	
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
-		for (e : resource.allContents.toIterable.filter(org.remus.cmdline.commandLine.System)) {
-			
-			e.name
+		
+		for (e : resource.allContents.toIterable.filter(System)) {
+			fsa.deleteFile("/")
+			FileCopyUtil.copyTemplate(resource);
+			fsa.generateFile("pom.xml",pom(e));
+			fsa.generateFile("src/main/resources/application.properties",properties(e));
 		}
 		
 		for (e : resource.allContents.toIterable.filter(Function)) {
 			
-			fsa.generateFile("commands/" + javaName(e)+".java",compile(e));
-			fsa.generateFile("controller/" + javaName(e)+"Controller.java",controller(e));
-			fsa.generateFile("views/" + javaName(e)+".jsp",jsp(e));
+			fsa.generateFile("src/main/java/org/remus/cmdlinehero/exec/" + javaName(e)+".java",compile(e));
+			fsa.generateFile("src/main/java/org/remus/cmdlinehero/generated/" + javaName(e)+"Controller.java",controller(e));
+			fsa.generateFile("src/main/webapp/WEB-INF/views/generated/" + javaName(e)+".jsp",jsp(e));
 		}
 
 	}
 
+def properties(System sys) {
+	'''
+#Tomcat
+server.port = «sys.port.value»
+# MVC
+spring.view.prefix=/WEB-INF/views/
+spring.view.suffix=.jsp
+multipart.maxFileSize=-1
+mulitpart.maxRequestSize=-1
+#Index 
+location.inputDir=input
+location.outputDir=output
+'''
+}
+def pom(System sys) {
+	'''
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>«sys.name.replaceAll("."+sys.name.split("\\.").last,"")»</groupId>
+	<artifactId>«sys.name.split("\\.").last»</artifactId>
+	<version>«IF sys.version != null»«sys.version.escape»«ELSE»0.0.1-SNAPSHOT«ENDIF»</version>
+	<packaging>war</packaging>
+
+	<!-- Inherit defaults from Spring Boot -->
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.2.0.BUILD-SNAPSHOT</version>
+	</parent>
+
+	<!-- Add typical dependencies for a web application -->
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-exec</artifactId>
+			<version>1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.inject</groupId>
+			<artifactId>javax.inject</artifactId>
+			<version>1</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.2</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-collections</groupId>
+			<artifactId>commons-collections</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-jasper</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.2</version>
+		</dependency>
+	</dependencies>
+
+	<!-- Package as an executable jar -->
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+	<!-- Add Spring repositories -->
+	<!-- (you don't need this if you are using a .RELEASE version) -->
+	<repositories>
+		<repository>
+			<id>spring-snapshots</id>
+			<url>http://repo.spring.io/snapshot</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>spring-milestones</id>
+			<url>http://repo.spring.io/milestone</url>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>spring-snapshots</id>
+			<url>http://repo.spring.io/snapshot</url>
+		</pluginRepository>
+		<pluginRepository>
+			<id>spring-milestones</id>
+			<url>http://repo.spring.io/milestone</url>
+		</pluginRepository>
+	</pluginRepositories>
+</project>
+	'''
+}
+
 def controller(Function function) {
 		'''
-package com.remus.mediaserver.controller.generated;
+package org.remus.cmdlinehero.generated;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
-import org.remus.mediaexeutor.exec.«javaName(function)»;
+import org.remus.cmdlinehero.exec.«javaName(function)»;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -57,7 +174,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-import com.remus.mediaserver.service.ExecutionService;
+import org.remus.cmdlinehero.service.ExecutionService;
 
 /**
  * 
@@ -104,25 +221,7 @@ public class «javaName(function)»Controller {
 
 	}
 
-	@RequestMapping(value = "/«function.javaName.toString.toLowerCase»_runservice", method = RequestMethod.POST)
-	public @ResponseBody
-	String rotateRunService(final MultipartHttpServletRequest request4011) {
-		«FOR m:function.input»
-		final String «m.input.name» = executionService.process«m.type.literal.toLowerCase.toFirstUpper»Input(
-				request4011, "«m.input.name»");
-		
-		«ENDFOR»
-		«FOR m:function.output»
-		final String «m.input.name» = executionService.process«m.type.literal.toLowerCase.toFirstUpper»Output(
-				request4011, "«m.input.name»");
-		
-		«ENDFOR»
-		final «javaName(function)» «javaName(function).toString.toLowerCase» = «javaName(function)»
-				.create(«argumentsList(function,false)»);
-		final String run4011 = executionService.run(«javaName(function).toString.toLowerCase»);
-		return run4011;
-
-	}
+	
 
 }
 
@@ -252,7 +351,7 @@ def jsp(Function function) {
 		
 		
 		'''
-package org.remus.mediaexeutor.exec;
+package org.remus.cmdlinehero.exec;
 
 import java.io.IOException;
 import java.text.MessageFormat;
@@ -263,12 +362,12 @@ import org.apache.commons.exec.CommandLine;
 import org.apache.commons.exec.DefaultExecutor;
 import org.apache.commons.exec.PumpStreamHandler;
 import org.apache.log4j.Logger;
-import org.remus.mediaexeutor.base.Arguments;
-import org.remus.mediaexeutor.base.ExecutionInstruction;
-import org.remus.mediaexeutor.data.Meta;
-import org.remus.mediaexeutor.data.ParamDataType;
-import org.remus.mediaexeutor.data.ParamType;
-import org.remus.mediaexeutor.data.ResultDataElement;
+import org.remus.cmdlinehero.base.Arguments;
+import org.remus.cmdlinehero.base.ExecutionInstruction;
+import org.remus.cmdlinehero.data.Meta;
+import org.remus.cmdlinehero.data.ParamDataType;
+import org.remus.cmdlinehero.data.ParamType;
+import org.remus.cmdlinehero.data.ResultDataElement;
 
 
 /**

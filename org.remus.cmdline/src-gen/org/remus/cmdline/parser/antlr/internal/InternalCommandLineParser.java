@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalCommandLineParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'system '", "'{'", "'port ->'", "'host->'", "'registerProgram -> '", "'}'", "'program '", "'->'", "'def'", "'desc ->'", "'docurl ->'", "'input'", "'output '", "'* '", "'AS'", "'doc -> '", "'+'", "'.'", "'import'", "'STRING'", "'URL'", "'DATA'", "'PATH'", "'FOLDERPATH'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'system '", "'{'", "'port ->'", "'version ->'", "'registerProgram -> '", "'}'", "'program '", "'->'", "'def'", "'desc ->'", "'docurl ->'", "'input'", "'output '", "'* '", "'AS'", "'doc -> '", "'+'", "'.'", "'import'", "'STRING'", "'URL'", "'DATA'", "'PATH'", "'FOLDERPATH'"
     };
     public static final int RULE_ID=4;
     public static final int T__29=29;
@@ -342,7 +342,7 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSystem"
-    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:152:1: ruleSystem returns [EObject current=null] : (otherlv_0= 'system ' ( (lv_name_1_0= ruleQualifiedName ) ) otherlv_2= '{' (otherlv_3= 'port ->' ( (lv_port_4_0= ruleIntegerLiteral ) ) )? (otherlv_5= 'host->' ( (lv_host_6_0= ruleStringLiteral ) ) )? (otherlv_7= 'registerProgram -> ' ( (otherlv_8= RULE_ID ) ) )+ otherlv_9= '}' ) ;
+    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:152:1: ruleSystem returns [EObject current=null] : (otherlv_0= 'system ' ( (lv_name_1_0= ruleQualifiedName ) ) otherlv_2= '{' (otherlv_3= 'port ->' ( (lv_port_4_0= ruleIntegerLiteral ) ) )? (otherlv_5= 'version ->' ( (lv_version_6_0= ruleStringLiteral ) ) )? (otherlv_7= 'registerProgram -> ' ( (otherlv_8= RULE_ID ) ) )* otherlv_9= '}' ) ;
     public final EObject ruleSystem() throws RecognitionException {
         EObject current = null;
 
@@ -357,17 +357,17 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
 
         EObject lv_port_4_0 = null;
 
-        EObject lv_host_6_0 = null;
+        EObject lv_version_6_0 = null;
 
 
          enterRule(); 
             
         try {
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:155:28: ( (otherlv_0= 'system ' ( (lv_name_1_0= ruleQualifiedName ) ) otherlv_2= '{' (otherlv_3= 'port ->' ( (lv_port_4_0= ruleIntegerLiteral ) ) )? (otherlv_5= 'host->' ( (lv_host_6_0= ruleStringLiteral ) ) )? (otherlv_7= 'registerProgram -> ' ( (otherlv_8= RULE_ID ) ) )+ otherlv_9= '}' ) )
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:156:1: (otherlv_0= 'system ' ( (lv_name_1_0= ruleQualifiedName ) ) otherlv_2= '{' (otherlv_3= 'port ->' ( (lv_port_4_0= ruleIntegerLiteral ) ) )? (otherlv_5= 'host->' ( (lv_host_6_0= ruleStringLiteral ) ) )? (otherlv_7= 'registerProgram -> ' ( (otherlv_8= RULE_ID ) ) )+ otherlv_9= '}' )
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:155:28: ( (otherlv_0= 'system ' ( (lv_name_1_0= ruleQualifiedName ) ) otherlv_2= '{' (otherlv_3= 'port ->' ( (lv_port_4_0= ruleIntegerLiteral ) ) )? (otherlv_5= 'version ->' ( (lv_version_6_0= ruleStringLiteral ) ) )? (otherlv_7= 'registerProgram -> ' ( (otherlv_8= RULE_ID ) ) )* otherlv_9= '}' ) )
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:156:1: (otherlv_0= 'system ' ( (lv_name_1_0= ruleQualifiedName ) ) otherlv_2= '{' (otherlv_3= 'port ->' ( (lv_port_4_0= ruleIntegerLiteral ) ) )? (otherlv_5= 'version ->' ( (lv_version_6_0= ruleStringLiteral ) ) )? (otherlv_7= 'registerProgram -> ' ( (otherlv_8= RULE_ID ) ) )* otherlv_9= '}' )
             {
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:156:1: (otherlv_0= 'system ' ( (lv_name_1_0= ruleQualifiedName ) ) otherlv_2= '{' (otherlv_3= 'port ->' ( (lv_port_4_0= ruleIntegerLiteral ) ) )? (otherlv_5= 'host->' ( (lv_host_6_0= ruleStringLiteral ) ) )? (otherlv_7= 'registerProgram -> ' ( (otherlv_8= RULE_ID ) ) )+ otherlv_9= '}' )
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:156:3: otherlv_0= 'system ' ( (lv_name_1_0= ruleQualifiedName ) ) otherlv_2= '{' (otherlv_3= 'port ->' ( (lv_port_4_0= ruleIntegerLiteral ) ) )? (otherlv_5= 'host->' ( (lv_host_6_0= ruleStringLiteral ) ) )? (otherlv_7= 'registerProgram -> ' ( (otherlv_8= RULE_ID ) ) )+ otherlv_9= '}'
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:156:1: (otherlv_0= 'system ' ( (lv_name_1_0= ruleQualifiedName ) ) otherlv_2= '{' (otherlv_3= 'port ->' ( (lv_port_4_0= ruleIntegerLiteral ) ) )? (otherlv_5= 'version ->' ( (lv_version_6_0= ruleStringLiteral ) ) )? (otherlv_7= 'registerProgram -> ' ( (otherlv_8= RULE_ID ) ) )* otherlv_9= '}' )
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:156:3: otherlv_0= 'system ' ( (lv_name_1_0= ruleQualifiedName ) ) otherlv_2= '{' (otherlv_3= 'port ->' ( (lv_port_4_0= ruleIntegerLiteral ) ) )? (otherlv_5= 'version ->' ( (lv_version_6_0= ruleStringLiteral ) ) )? (otherlv_7= 'registerProgram -> ' ( (otherlv_8= RULE_ID ) ) )* otherlv_9= '}'
             {
             otherlv_0=(Token)match(input,11,FOLLOW_11_in_ruleSystem259); 
 
@@ -460,7 +460,7 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:204:4: (otherlv_5= 'host->' ( (lv_host_6_0= ruleStringLiteral ) ) )?
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:204:4: (otherlv_5= 'version ->' ( (lv_version_6_0= ruleStringLiteral ) ) )?
             int alt5=2;
             int LA5_0 = input.LA(1);
 
@@ -469,23 +469,23 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
             }
             switch (alt5) {
                 case 1 :
-                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:204:6: otherlv_5= 'host->' ( (lv_host_6_0= ruleStringLiteral ) )
+                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:204:6: otherlv_5= 'version ->' ( (lv_version_6_0= ruleStringLiteral ) )
                     {
                     otherlv_5=(Token)match(input,14,FOLLOW_14_in_ruleSystem341); 
 
-                        	newLeafNode(otherlv_5, grammarAccess.getSystemAccess().getHostKeyword_4_0());
+                        	newLeafNode(otherlv_5, grammarAccess.getSystemAccess().getVersionKeyword_4_0());
                         
-                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:208:1: ( (lv_host_6_0= ruleStringLiteral ) )
-                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:209:1: (lv_host_6_0= ruleStringLiteral )
+                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:208:1: ( (lv_version_6_0= ruleStringLiteral ) )
+                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:209:1: (lv_version_6_0= ruleStringLiteral )
                     {
-                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:209:1: (lv_host_6_0= ruleStringLiteral )
-                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:210:3: lv_host_6_0= ruleStringLiteral
+                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:209:1: (lv_version_6_0= ruleStringLiteral )
+                    // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:210:3: lv_version_6_0= ruleStringLiteral
                     {
                      
-                    	        newCompositeNode(grammarAccess.getSystemAccess().getHostStringLiteralParserRuleCall_4_1_0()); 
+                    	        newCompositeNode(grammarAccess.getSystemAccess().getVersionStringLiteralParserRuleCall_4_1_0()); 
                     	    
                     pushFollow(FOLLOW_ruleStringLiteral_in_ruleSystem362);
-                    lv_host_6_0=ruleStringLiteral();
+                    lv_version_6_0=ruleStringLiteral();
 
                     state._fsp--;
 
@@ -495,8 +495,8 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
                     	        }
                            		set(
                            			current, 
-                           			"host",
-                            		lv_host_6_0, 
+                           			"version",
+                            		lv_version_6_0, 
                             		"StringLiteral");
                     	        afterParserOrEnumRuleCall();
                     	    
@@ -512,8 +512,7 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:226:4: (otherlv_7= 'registerProgram -> ' ( (otherlv_8= RULE_ID ) ) )+
-            int cnt6=0;
+            // ../org.remus.cmdline/src-gen/org/remus/cmdline/parser/antlr/internal/InternalCommandLine.g:226:4: (otherlv_7= 'registerProgram -> ' ( (otherlv_8= RULE_ID ) ) )*
             loop6:
             do {
                 int alt6=2;
@@ -558,12 +557,8 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    if ( cnt6 >= 1 ) break loop6;
-                        EarlyExitException eee =
-                            new EarlyExitException(6, input);
-                        throw eee;
+            	    break loop6;
                 }
-                cnt6++;
             } while (true);
 
             otherlv_9=(Token)match(input,16,FOLLOW_16_in_ruleSystem411); 
@@ -2740,11 +2735,11 @@ public class InternalCommandLineParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_EOF_in_entryRuleSystem222 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_11_in_ruleSystem259 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_ruleQualifiedName_in_ruleSystem280 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_ruleSystem292 = new BitSet(new long[]{0x000000000000E000L});
+    public static final BitSet FOLLOW_12_in_ruleSystem292 = new BitSet(new long[]{0x000000000001E000L});
     public static final BitSet FOLLOW_13_in_ruleSystem305 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_ruleIntegerLiteral_in_ruleSystem326 = new BitSet(new long[]{0x000000000000C000L});
+    public static final BitSet FOLLOW_ruleIntegerLiteral_in_ruleSystem326 = new BitSet(new long[]{0x000000000001C000L});
     public static final BitSet FOLLOW_14_in_ruleSystem341 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_ruleStringLiteral_in_ruleSystem362 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_ruleStringLiteral_in_ruleSystem362 = new BitSet(new long[]{0x0000000000018000L});
     public static final BitSet FOLLOW_15_in_ruleSystem377 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleSystem397 = new BitSet(new long[]{0x0000000000018000L});
     public static final BitSet FOLLOW_16_in_ruleSystem411 = new BitSet(new long[]{0x0000000000000002L});

@@ -6,10 +6,9 @@ package org.remus.cmdline.validation
 import org.eclipse.xtext.validation.Check
 import org.remus.cmdline.commandLine.CommandLinePackage
 import org.remus.cmdline.commandLine.Function
-import org.remus.cmdline.commandLine.Program
 import org.remus.cmdline.commandLine.Param
-import org.eclipse.core.resources.ResourcesPlugin
-import org.eclipse.emf.common.util.URI
+import org.remus.cmdline.commandLine.Program
+import org.remus.cmdline.commandLine.System
 
 //import org.eclipse.xtext.validation.Check
 /**
@@ -27,7 +26,7 @@ class CommandLineValidator extends AbstractCommandLineValidator { //  public sta
 		}
 	}
 	@Check
-	def checkSystemOnce(org.remus.cmdline.commandLine.System system) {
+	def checkSystemOnce(System system) {
 		
 	}
 
