@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link org.remus.cmdline.commandLine.Model#getImports <em>Imports</em>}</li>
  *   <li>{@link org.remus.cmdline.commandLine.Model#getPrograms <em>Programs</em>}</li>
+ *   <li>{@link org.remus.cmdline.commandLine.Model#getSystem <em>System</em>}</li>
  * </ul>
  * </p>
  *
@@ -66,5 +67,31 @@ public interface Model extends EObject
    * @generated
    */
   void setPrograms(Program value);
+
+  /**
+   * Returns the value of the '<em><b>System</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>System</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>System</em>' containment reference.
+   * @see #setSystem(org.remus.cmdline.commandLine.System)
+   * @see org.remus.cmdline.commandLine.CommandLinePackage#getModel_System()
+   * @model containment="true"
+   * @generated
+   */
+  org.remus.cmdline.commandLine.System getSystem();
+
+  /**
+   * Sets the value of the '{@link org.remus.cmdline.commandLine.Model#getSystem <em>System</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>System</em>' containment reference.
+   * @see #getSystem()
+   * @generated
+   */
+  void setSystem(org.remus.cmdline.commandLine.System value);
 
 } // Model

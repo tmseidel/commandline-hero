@@ -9,7 +9,19 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
 
-import org.remus.cmdline.commandLine.*;
+import org.remus.cmdline.commandLine.CommandLinePackage;
+import org.remus.cmdline.commandLine.Concatenation;
+import org.remus.cmdline.commandLine.DataDefinition;
+import org.remus.cmdline.commandLine.DoubleLiteral;
+import org.remus.cmdline.commandLine.Expression;
+import org.remus.cmdline.commandLine.Function;
+import org.remus.cmdline.commandLine.Import;
+import org.remus.cmdline.commandLine.IntegerLiteral;
+import org.remus.cmdline.commandLine.Model;
+import org.remus.cmdline.commandLine.Option;
+import org.remus.cmdline.commandLine.Param;
+import org.remus.cmdline.commandLine.Program;
+import org.remus.cmdline.commandLine.StringLiteral;
 
 /**
  * <!-- begin-user-doc -->
@@ -78,6 +90,11 @@ public class CommandLineAdapterFactory extends AdapterFactoryImpl
       public Adapter caseModel(Model object)
       {
         return createModelAdapter();
+      }
+      @Override
+      public Adapter caseSystem(org.remus.cmdline.commandLine.System object)
+      {
+        return createSystemAdapter();
       }
       @Override
       public Adapter caseProgram(Program object)
@@ -167,6 +184,21 @@ public class CommandLineAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createModelAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.remus.cmdline.commandLine.System <em>System</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.remus.cmdline.commandLine.System
+   * @generated
+   */
+  public Adapter createSystemAdapter()
   {
     return null;
   }

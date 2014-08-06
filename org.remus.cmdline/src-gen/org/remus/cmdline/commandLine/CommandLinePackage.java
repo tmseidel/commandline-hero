@@ -86,13 +86,77 @@ public interface CommandLinePackage extends EPackage
   int MODEL__PROGRAMS = 1;
 
   /**
+   * The feature id for the '<em><b>System</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL__SYSTEM = 2;
+
+  /**
    * The number of structural features of the '<em>Model</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL_FEATURE_COUNT = 2;
+  int MODEL_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link org.remus.cmdline.commandLine.impl.SystemImpl <em>System</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.remus.cmdline.commandLine.impl.SystemImpl
+   * @see org.remus.cmdline.commandLine.impl.CommandLinePackageImpl#getSystem()
+   * @generated
+   */
+  int SYSTEM = 1;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SYSTEM__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Port</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SYSTEM__PORT = 1;
+
+  /**
+   * The feature id for the '<em><b>Host</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SYSTEM__HOST = 2;
+
+  /**
+   * The feature id for the '<em><b>Program</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SYSTEM__PROGRAM = 3;
+
+  /**
+   * The number of structural features of the '<em>System</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SYSTEM_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link org.remus.cmdline.commandLine.impl.ProgramImpl <em>Program</em>}' class.
@@ -102,7 +166,7 @@ public interface CommandLinePackage extends EPackage
    * @see org.remus.cmdline.commandLine.impl.CommandLinePackageImpl#getProgram()
    * @generated
    */
-  int PROGRAM = 1;
+  int PROGRAM = 2;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -148,7 +212,7 @@ public interface CommandLinePackage extends EPackage
    * @see org.remus.cmdline.commandLine.impl.CommandLinePackageImpl#getParam()
    * @generated
    */
-  int PARAM = 2;
+  int PARAM = 3;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -176,7 +240,7 @@ public interface CommandLinePackage extends EPackage
    * @see org.remus.cmdline.commandLine.impl.CommandLinePackageImpl#getFunction()
    * @generated
    */
-  int FUNCTION = 3;
+  int FUNCTION = 4;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -249,7 +313,7 @@ public interface CommandLinePackage extends EPackage
    * @see org.remus.cmdline.commandLine.impl.CommandLinePackageImpl#getDataDefinition()
    * @generated
    */
-  int DATA_DEFINITION = 4;
+  int DATA_DEFINITION = 5;
 
   /**
    * The feature id for the '<em><b>Input</b></em>' containment reference.
@@ -295,7 +359,7 @@ public interface CommandLinePackage extends EPackage
    * @see org.remus.cmdline.commandLine.impl.CommandLinePackageImpl#getOption()
    * @generated
    */
-  int OPTION = 5;
+  int OPTION = 6;
 
   /**
    * The feature id for the '<em><b>Param</b></em>' containment reference.
@@ -323,7 +387,7 @@ public interface CommandLinePackage extends EPackage
    * @see org.remus.cmdline.commandLine.impl.CommandLinePackageImpl#getExpression()
    * @generated
    */
-  int EXPRESSION = 6;
+  int EXPRESSION = 7;
 
   /**
    * The feature id for the '<em><b>Param</b></em>' reference.
@@ -351,7 +415,7 @@ public interface CommandLinePackage extends EPackage
    * @see org.remus.cmdline.commandLine.impl.CommandLinePackageImpl#getStringLiteral()
    * @generated
    */
-  int STRING_LITERAL = 7;
+  int STRING_LITERAL = 8;
 
   /**
    * The feature id for the '<em><b>Param</b></em>' reference.
@@ -388,7 +452,7 @@ public interface CommandLinePackage extends EPackage
    * @see org.remus.cmdline.commandLine.impl.CommandLinePackageImpl#getIntegerLiteral()
    * @generated
    */
-  int INTEGER_LITERAL = 8;
+  int INTEGER_LITERAL = 9;
 
   /**
    * The feature id for the '<em><b>Param</b></em>' reference.
@@ -425,7 +489,7 @@ public interface CommandLinePackage extends EPackage
    * @see org.remus.cmdline.commandLine.impl.CommandLinePackageImpl#getDoubleLiteral()
    * @generated
    */
-  int DOUBLE_LITERAL = 9;
+  int DOUBLE_LITERAL = 10;
 
   /**
    * The feature id for the '<em><b>Param</b></em>' reference.
@@ -462,7 +526,7 @@ public interface CommandLinePackage extends EPackage
    * @see org.remus.cmdline.commandLine.impl.CommandLinePackageImpl#getImport()
    * @generated
    */
-  int IMPORT = 10;
+  int IMPORT = 11;
 
   /**
    * The feature id for the '<em><b>Import URI</b></em>' attribute.
@@ -490,7 +554,7 @@ public interface CommandLinePackage extends EPackage
    * @see org.remus.cmdline.commandLine.impl.CommandLinePackageImpl#getConcatenation()
    * @generated
    */
-  int CONCATENATION = 11;
+  int CONCATENATION = 12;
 
   /**
    * The feature id for the '<em><b>Param</b></em>' reference.
@@ -536,7 +600,7 @@ public interface CommandLinePackage extends EPackage
    * @see org.remus.cmdline.commandLine.impl.CommandLinePackageImpl#getDataType()
    * @generated
    */
-  int DATA_TYPE = 12;
+  int DATA_TYPE = 13;
 
 
   /**
@@ -570,6 +634,71 @@ public interface CommandLinePackage extends EPackage
    * @generated
    */
   EReference getModel_Programs();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.remus.cmdline.commandLine.Model#getSystem <em>System</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>System</em>'.
+   * @see org.remus.cmdline.commandLine.Model#getSystem()
+   * @see #getModel()
+   * @generated
+   */
+  EReference getModel_System();
+
+  /**
+   * Returns the meta object for class '{@link org.remus.cmdline.commandLine.System <em>System</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>System</em>'.
+   * @see org.remus.cmdline.commandLine.System
+   * @generated
+   */
+  EClass getSystem();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.remus.cmdline.commandLine.System#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.remus.cmdline.commandLine.System#getName()
+   * @see #getSystem()
+   * @generated
+   */
+  EAttribute getSystem_Name();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.remus.cmdline.commandLine.System#getPort <em>Port</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Port</em>'.
+   * @see org.remus.cmdline.commandLine.System#getPort()
+   * @see #getSystem()
+   * @generated
+   */
+  EReference getSystem_Port();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.remus.cmdline.commandLine.System#getHost <em>Host</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Host</em>'.
+   * @see org.remus.cmdline.commandLine.System#getHost()
+   * @see #getSystem()
+   * @generated
+   */
+  EReference getSystem_Host();
+
+  /**
+   * Returns the meta object for the reference list '{@link org.remus.cmdline.commandLine.System#getProgram <em>Program</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>Program</em>'.
+   * @see org.remus.cmdline.commandLine.System#getProgram()
+   * @see #getSystem()
+   * @generated
+   */
+  EReference getSystem_Program();
 
   /**
    * Returns the meta object for class '{@link org.remus.cmdline.commandLine.Program <em>Program</em>}'.
@@ -970,6 +1099,56 @@ public interface CommandLinePackage extends EPackage
      * @generated
      */
     EReference MODEL__PROGRAMS = eINSTANCE.getModel_Programs();
+
+    /**
+     * The meta object literal for the '<em><b>System</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MODEL__SYSTEM = eINSTANCE.getModel_System();
+
+    /**
+     * The meta object literal for the '{@link org.remus.cmdline.commandLine.impl.SystemImpl <em>System</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.remus.cmdline.commandLine.impl.SystemImpl
+     * @see org.remus.cmdline.commandLine.impl.CommandLinePackageImpl#getSystem()
+     * @generated
+     */
+    EClass SYSTEM = eINSTANCE.getSystem();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SYSTEM__NAME = eINSTANCE.getSystem_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Port</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SYSTEM__PORT = eINSTANCE.getSystem_Port();
+
+    /**
+     * The meta object literal for the '<em><b>Host</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SYSTEM__HOST = eINSTANCE.getSystem_Host();
+
+    /**
+     * The meta object literal for the '<em><b>Program</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SYSTEM__PROGRAM = eINSTANCE.getSystem_Program();
 
     /**
      * The meta object literal for the '{@link org.remus.cmdline.commandLine.impl.ProgramImpl <em>Program</em>}' class.

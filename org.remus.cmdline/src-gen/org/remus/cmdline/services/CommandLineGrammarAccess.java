@@ -25,17 +25,19 @@ public class CommandLineGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cImportsImportParserRuleCall_0_0 = (RuleCall)cImportsAssignment_0.eContents().get(0);
 		private final Assignment cProgramsAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cProgramsProgramParserRuleCall_1_0 = (RuleCall)cProgramsAssignment_1.eContents().get(0);
+		private final Assignment cSystemAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cSystemSystemParserRuleCall_2_0 = (RuleCall)cSystemAssignment_2.eContents().get(0);
 		
 		//Model:
 		//
 		//	imports+=Import* // allow imports
 		//
-		//	programs=Program;
+		//	programs=Program? system=System?;
 		public ParserRule getRule() { return rule; }
 
 		//imports+=Import* // allow imports
 		//
-		//programs=Program
+		//programs=Program? system=System?
 		public Group getGroup() { return cGroup; }
 
 		//imports+=Import*
@@ -44,11 +46,106 @@ public class CommandLineGrammarAccess extends AbstractGrammarElementFinder {
 		//Import
 		public RuleCall getImportsImportParserRuleCall_0_0() { return cImportsImportParserRuleCall_0_0; }
 
-		//programs=Program
+		//programs=Program?
 		public Assignment getProgramsAssignment_1() { return cProgramsAssignment_1; }
 
 		//Program
 		public RuleCall getProgramsProgramParserRuleCall_1_0() { return cProgramsProgramParserRuleCall_1_0; }
+
+		//system=System?
+		public Assignment getSystemAssignment_2() { return cSystemAssignment_2; }
+
+		//System
+		public RuleCall getSystemSystemParserRuleCall_2_0() { return cSystemSystemParserRuleCall_2_0; }
+	}
+
+	public class SystemElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "System");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cSystemKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameQualifiedNameParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cPortKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cPortAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cPortIntegerLiteralParserRuleCall_3_1_0 = (RuleCall)cPortAssignment_3_1.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cHostKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cHostAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cHostStringLiteralParserRuleCall_4_1_0 = (RuleCall)cHostAssignment_4_1.eContents().get(0);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cRegisterProgramKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cProgramAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final CrossReference cProgramProgramCrossReference_5_1_0 = (CrossReference)cProgramAssignment_5_1.eContents().get(0);
+		private final RuleCall cProgramProgramIDTerminalRuleCall_5_1_0_1 = (RuleCall)cProgramProgramCrossReference_5_1_0.eContents().get(1);
+		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		
+		//System:
+		//
+		//	"system " name=QualifiedName "{" ("port ->" port=IntegerLiteral)? ("host->" host=StringLiteral)?
+		//
+		//	("registerProgram -> " program+=[Program])+ "}";
+		public ParserRule getRule() { return rule; }
+
+		//"system " name=QualifiedName "{" ("port ->" port=IntegerLiteral)? ("host->" host=StringLiteral)? ("registerProgram -> "
+		//
+		//program+=[Program])+ "}"
+		public Group getGroup() { return cGroup; }
+
+		//"system "
+		public Keyword getSystemKeyword_0() { return cSystemKeyword_0; }
+
+		//name=QualifiedName
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+
+		//QualifiedName
+		public RuleCall getNameQualifiedNameParserRuleCall_1_0() { return cNameQualifiedNameParserRuleCall_1_0; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+
+		//("port ->" port=IntegerLiteral)?
+		public Group getGroup_3() { return cGroup_3; }
+
+		//"port ->"
+		public Keyword getPortKeyword_3_0() { return cPortKeyword_3_0; }
+
+		//port=IntegerLiteral
+		public Assignment getPortAssignment_3_1() { return cPortAssignment_3_1; }
+
+		//IntegerLiteral
+		public RuleCall getPortIntegerLiteralParserRuleCall_3_1_0() { return cPortIntegerLiteralParserRuleCall_3_1_0; }
+
+		//("host->" host=StringLiteral)?
+		public Group getGroup_4() { return cGroup_4; }
+
+		//"host->"
+		public Keyword getHostKeyword_4_0() { return cHostKeyword_4_0; }
+
+		//host=StringLiteral
+		public Assignment getHostAssignment_4_1() { return cHostAssignment_4_1; }
+
+		//StringLiteral
+		public RuleCall getHostStringLiteralParserRuleCall_4_1_0() { return cHostStringLiteralParserRuleCall_4_1_0; }
+
+		//("registerProgram -> " program+=[Program])+
+		public Group getGroup_5() { return cGroup_5; }
+
+		//"registerProgram -> "
+		public Keyword getRegisterProgramKeyword_5_0() { return cRegisterProgramKeyword_5_0; }
+
+		//program+=[Program]
+		public Assignment getProgramAssignment_5_1() { return cProgramAssignment_5_1; }
+
+		//[Program]
+		public CrossReference getProgramProgramCrossReference_5_1_0() { return cProgramProgramCrossReference_5_1_0; }
+
+		//ID
+		public RuleCall getProgramProgramIDTerminalRuleCall_5_1_0_1() { return cProgramProgramIDTerminalRuleCall_5_1_0_1; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
 	}
 
 	public class ProgramElements extends AbstractParserRuleElementFinder {
@@ -567,6 +664,7 @@ public class CommandLineGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	private ModelElements pModel;
+	private SystemElements pSystem;
 	private ProgramElements pProgram;
 	private ParamElements pParam;
 	private FunctionElements pFunction;
@@ -624,13 +722,26 @@ public class CommandLineGrammarAccess extends AbstractGrammarElementFinder {
 	//
 	//	imports+=Import* // allow imports
 	//
-	//	programs=Program;
+	//	programs=Program? system=System?;
 	public ModelElements getModelAccess() {
 		return (pModel != null) ? pModel : (pModel = new ModelElements());
 	}
 	
 	public ParserRule getModelRule() {
 		return getModelAccess().getRule();
+	}
+
+	//System:
+	//
+	//	"system " name=QualifiedName "{" ("port ->" port=IntegerLiteral)? ("host->" host=StringLiteral)?
+	//
+	//	("registerProgram -> " program+=[Program])+ "}";
+	public SystemElements getSystemAccess() {
+		return (pSystem != null) ? pSystem : (pSystem = new SystemElements());
+	}
+	
+	public ParserRule getSystemRule() {
+		return getSystemAccess().getRule();
 	}
 
 	//Program:

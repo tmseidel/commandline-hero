@@ -8,6 +8,8 @@ import org.remus.cmdline.commandLine.CommandLinePackage
 import org.remus.cmdline.commandLine.Function
 import org.remus.cmdline.commandLine.Program
 import org.remus.cmdline.commandLine.Param
+import org.eclipse.core.resources.ResourcesPlugin
+import org.eclipse.emf.common.util.URI
 
 //import org.eclipse.xtext.validation.Check
 /**
@@ -23,6 +25,10 @@ class CommandLineValidator extends AbstractCommandLineValidator { //  public sta
 			error("Name of programs can have only letters, numbers,'-' or '_'.",
 				CommandLinePackage.Literals.PROGRAM__NAME);
 		}
+	}
+	@Check
+	def checkSystemOnce(org.remus.cmdline.commandLine.System system) {
+		
 	}
 
 	@Check

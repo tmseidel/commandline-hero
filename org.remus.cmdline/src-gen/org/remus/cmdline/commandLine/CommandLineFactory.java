@@ -32,6 +32,15 @@ public interface CommandLineFactory extends EFactory
   Model createModel();
 
   /**
+   * Returns a new object of class '<em>System</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>System</em>'.
+   * @generated
+   */
+  System createSystem();
+
+  /**
    * Returns a new object of class '<em>Program</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

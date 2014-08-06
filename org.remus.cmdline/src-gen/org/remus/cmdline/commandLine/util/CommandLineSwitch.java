@@ -7,7 +7,19 @@ import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
 
-import org.remus.cmdline.commandLine.*;
+import org.remus.cmdline.commandLine.CommandLinePackage;
+import org.remus.cmdline.commandLine.Concatenation;
+import org.remus.cmdline.commandLine.DataDefinition;
+import org.remus.cmdline.commandLine.DoubleLiteral;
+import org.remus.cmdline.commandLine.Expression;
+import org.remus.cmdline.commandLine.Function;
+import org.remus.cmdline.commandLine.Import;
+import org.remus.cmdline.commandLine.IntegerLiteral;
+import org.remus.cmdline.commandLine.Model;
+import org.remus.cmdline.commandLine.Option;
+import org.remus.cmdline.commandLine.Param;
+import org.remus.cmdline.commandLine.Program;
+import org.remus.cmdline.commandLine.StringLiteral;
 
 /**
  * <!-- begin-user-doc -->
@@ -76,6 +88,13 @@ public class CommandLineSwitch<T> extends Switch<T>
       {
         Model model = (Model)theEObject;
         T result = caseModel(model);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case CommandLinePackage.SYSTEM:
+      {
+        org.remus.cmdline.commandLine.System system = (org.remus.cmdline.commandLine.System)theEObject;
+        T result = caseSystem(system);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -176,6 +195,22 @@ public class CommandLineSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseModel(Model object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>System</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>System</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSystem(org.remus.cmdline.commandLine.System object)
   {
     return null;
   }

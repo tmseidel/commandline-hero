@@ -120,6 +120,12 @@ public class CommandLineSemanticSequencer extends AbstractDelegatingSemanticSequ
 					return; 
 				}
 				else break;
+			case CommandLinePackage.SYSTEM:
+				if(context == grammarAccess.getSystemRule()) {
+					sequence_System(context, (org.remus.cmdline.commandLine.System) semanticObject); 
+					return; 
+				}
+				else break;
 			}
 		if (errorAcceptor != null) errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
@@ -194,7 +200,7 @@ public class CommandLineSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (imports+=Import* programs=Program)
+	 *     (imports+=Import* programs=Program? system=System?)
 	 */
 	protected void sequence_Model(EObject context, Model semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -263,6 +269,15 @@ public class CommandLineSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *     value=STRING
 	 */
 	protected void sequence_StringLiteral(EObject context, StringLiteral semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (name=QualifiedName port=IntegerLiteral? host=StringLiteral? program+=[Program|ID]+)
+	 */
+	protected void sequence_System(EObject context, org.remus.cmdline.commandLine.System semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 }

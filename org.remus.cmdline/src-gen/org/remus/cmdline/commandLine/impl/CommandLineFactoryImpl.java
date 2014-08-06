@@ -11,7 +11,21 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
-import org.remus.cmdline.commandLine.*;
+import org.remus.cmdline.commandLine.CommandLineFactory;
+import org.remus.cmdline.commandLine.CommandLinePackage;
+import org.remus.cmdline.commandLine.Concatenation;
+import org.remus.cmdline.commandLine.DataDefinition;
+import org.remus.cmdline.commandLine.DataType;
+import org.remus.cmdline.commandLine.DoubleLiteral;
+import org.remus.cmdline.commandLine.Expression;
+import org.remus.cmdline.commandLine.Function;
+import org.remus.cmdline.commandLine.Import;
+import org.remus.cmdline.commandLine.IntegerLiteral;
+import org.remus.cmdline.commandLine.Model;
+import org.remus.cmdline.commandLine.Option;
+import org.remus.cmdline.commandLine.Param;
+import org.remus.cmdline.commandLine.Program;
+import org.remus.cmdline.commandLine.StringLiteral;
 
 /**
  * <!-- begin-user-doc -->
@@ -66,6 +80,7 @@ public class CommandLineFactoryImpl extends EFactoryImpl implements CommandLineF
     switch (eClass.getClassifierID())
     {
       case CommandLinePackage.MODEL: return createModel();
+      case CommandLinePackage.SYSTEM: return createSystem();
       case CommandLinePackage.PROGRAM: return createProgram();
       case CommandLinePackage.PARAM: return createParam();
       case CommandLinePackage.FUNCTION: return createFunction();
@@ -125,6 +140,17 @@ public class CommandLineFactoryImpl extends EFactoryImpl implements CommandLineF
   {
     ModelImpl model = new ModelImpl();
     return model;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public org.remus.cmdline.commandLine.System createSystem()
+  {
+    SystemImpl system = new SystemImpl();
+    return system;
   }
 
   /**

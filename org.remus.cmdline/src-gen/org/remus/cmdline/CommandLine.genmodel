@@ -17,6 +17,13 @@
     <genClasses ecoreClass="CommandLine.ecore#//Model">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CommandLine.ecore#//Model/imports"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CommandLine.ecore#//Model/programs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CommandLine.ecore#//Model/system"/>
+    </genClasses>
+    <genClasses ecoreClass="CommandLine.ecore#//System">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CommandLine.ecore#//System/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CommandLine.ecore#//System/port"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CommandLine.ecore#//System/host"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference CommandLine.ecore#//System/program"/>
     </genClasses>
     <genClasses ecoreClass="CommandLine.ecore#//Program">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CommandLine.ecore#//Program/name"/>

@@ -5,9 +5,20 @@ generate commandLine "http://www.remus-software.org/cmdline/1.0"
 
 Model:
 	(imports+=Import)* // allow imports
-	programs=Program
+	(programs=Program)?
+	(system=System)?
 	
 	
+	
+;
+
+System:
+	'system ' name=QualifiedName '{'
+		('port ->' port=IntegerLiteral)?
+		('host->' host=StringLiteral)?
+		('registerProgram -> ' program+=[Program])+
+		
+'}' 
 ;
 
 Program:

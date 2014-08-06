@@ -28,8 +28,13 @@ class CommandLineGenerator implements IGenerator {
 	
 	
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
+		for (e : resource.allContents.toIterable.filter(org.remus.cmdline.commandLine.System)) {
+			
+			e.name
+		}
 		
 		for (e : resource.allContents.toIterable.filter(Function)) {
+			
 			fsa.generateFile("commands/" + javaName(e)+".java",compile(e));
 			fsa.generateFile("controller/" + javaName(e)+"Controller.java",controller(e));
 			fsa.generateFile("views/" + javaName(e)+".jsp",jsp(e));

@@ -32,6 +32,7 @@ import org.remus.cmdline.commandLine.Program;
  * <ul>
  *   <li>{@link org.remus.cmdline.commandLine.impl.ModelImpl#getImports <em>Imports</em>}</li>
  *   <li>{@link org.remus.cmdline.commandLine.impl.ModelImpl#getPrograms <em>Programs</em>}</li>
+ *   <li>{@link org.remus.cmdline.commandLine.impl.ModelImpl#getSystem <em>System</em>}</li>
  * </ul>
  * </p>
  *
@@ -58,6 +59,16 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * @ordered
    */
   protected Program programs;
+
+  /**
+   * The cached value of the '{@link #getSystem() <em>System</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSystem()
+   * @generated
+   * @ordered
+   */
+  protected org.remus.cmdline.commandLine.System system;
 
   /**
    * <!-- begin-user-doc -->
@@ -147,6 +158,54 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
+  public org.remus.cmdline.commandLine.System getSystem()
+  {
+    return system;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetSystem(org.remus.cmdline.commandLine.System newSystem, NotificationChain msgs)
+  {
+    org.remus.cmdline.commandLine.System oldSystem = system;
+    system = newSystem;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CommandLinePackage.MODEL__SYSTEM, oldSystem, newSystem);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setSystem(org.remus.cmdline.commandLine.System newSystem)
+  {
+    if (newSystem != system)
+    {
+      NotificationChain msgs = null;
+      if (system != null)
+        msgs = ((InternalEObject)system).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CommandLinePackage.MODEL__SYSTEM, null, msgs);
+      if (newSystem != null)
+        msgs = ((InternalEObject)newSystem).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CommandLinePackage.MODEL__SYSTEM, null, msgs);
+      msgs = basicSetSystem(newSystem, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, CommandLinePackage.MODEL__SYSTEM, newSystem, newSystem));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -156,6 +215,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         return ((InternalEList<?>)getImports()).basicRemove(otherEnd, msgs);
       case CommandLinePackage.MODEL__PROGRAMS:
         return basicSetPrograms(null, msgs);
+      case CommandLinePackage.MODEL__SYSTEM:
+        return basicSetSystem(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -174,6 +235,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         return getImports();
       case CommandLinePackage.MODEL__PROGRAMS:
         return getPrograms();
+      case CommandLinePackage.MODEL__SYSTEM:
+        return getSystem();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -196,6 +259,9 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
       case CommandLinePackage.MODEL__PROGRAMS:
         setPrograms((Program)newValue);
         return;
+      case CommandLinePackage.MODEL__SYSTEM:
+        setSystem((org.remus.cmdline.commandLine.System)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -216,6 +282,9 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
       case CommandLinePackage.MODEL__PROGRAMS:
         setPrograms((Program)null);
         return;
+      case CommandLinePackage.MODEL__SYSTEM:
+        setSystem((org.remus.cmdline.commandLine.System)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -234,6 +303,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         return imports != null && !imports.isEmpty();
       case CommandLinePackage.MODEL__PROGRAMS:
         return programs != null;
+      case CommandLinePackage.MODEL__SYSTEM:
+        return system != null;
     }
     return super.eIsSet(featureID);
   }

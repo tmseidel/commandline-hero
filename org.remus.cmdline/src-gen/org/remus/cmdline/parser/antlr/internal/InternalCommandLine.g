@@ -114,7 +114,137 @@ ruleModel returns [EObject current=null]
 	    }
 
 )
-))
+)?(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getModelAccess().getSystemSystemParserRuleCall_2_0()); 
+	    }
+		lv_system_2_0=ruleSystem		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getModelRule());
+	        }
+       		set(
+       			$current, 
+       			"system",
+        		lv_system_2_0, 
+        		"System");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)?)
+;
+
+
+
+
+
+// Entry rule entryRuleSystem
+entryRuleSystem returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getSystemRule()); }
+	 iv_ruleSystem=ruleSystem 
+	 { $current=$iv_ruleSystem.current; } 
+	 EOF 
+;
+
+// Rule System
+ruleSystem returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(	otherlv_0='system ' 
+    {
+    	newLeafNode(otherlv_0, grammarAccess.getSystemAccess().getSystemKeyword_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getSystemAccess().getNameQualifiedNameParserRuleCall_1_0()); 
+	    }
+		lv_name_1_0=ruleQualifiedName		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getSystemRule());
+	        }
+       		set(
+       			$current, 
+       			"name",
+        		lv_name_1_0, 
+        		"QualifiedName");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)	otherlv_2='{' 
+    {
+    	newLeafNode(otherlv_2, grammarAccess.getSystemAccess().getLeftCurlyBracketKeyword_2());
+    }
+(	otherlv_3='port ->' 
+    {
+    	newLeafNode(otherlv_3, grammarAccess.getSystemAccess().getPortKeyword_3_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getSystemAccess().getPortIntegerLiteralParserRuleCall_3_1_0()); 
+	    }
+		lv_port_4_0=ruleIntegerLiteral		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getSystemRule());
+	        }
+       		set(
+       			$current, 
+       			"port",
+        		lv_port_4_0, 
+        		"IntegerLiteral");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))?(	otherlv_5='host->' 
+    {
+    	newLeafNode(otherlv_5, grammarAccess.getSystemAccess().getHostKeyword_4_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getSystemAccess().getHostStringLiteralParserRuleCall_4_1_0()); 
+	    }
+		lv_host_6_0=ruleStringLiteral		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getSystemRule());
+	        }
+       		set(
+       			$current, 
+       			"host",
+        		lv_host_6_0, 
+        		"StringLiteral");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))?(	otherlv_7='registerProgram -> ' 
+    {
+    	newLeafNode(otherlv_7, grammarAccess.getSystemAccess().getRegisterProgramKeyword_5_0());
+    }
+(
+(
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getSystemRule());
+	        }
+        }
+	otherlv_8=RULE_ID
+	{
+		newLeafNode(otherlv_8, grammarAccess.getSystemAccess().getProgramProgramCrossReference_5_1_0()); 
+	}
+
+)
+))+	otherlv_9='}' 
+    {
+    	newLeafNode(otherlv_9, grammarAccess.getSystemAccess().getRightCurlyBracketKeyword_6());
+    }
+)
 ;
 
 
@@ -763,6 +893,53 @@ ruleImport returns [EObject current=null]
 ;
 
 
+
+
+
+// Entry rule entryRuleQualifiedName
+entryRuleQualifiedName returns [String current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getQualifiedNameRule()); } 
+	 iv_ruleQualifiedName=ruleQualifiedName 
+	 { $current=$iv_ruleQualifiedName.current.getText(); }  
+	 EOF 
+;
+
+// Rule QualifiedName
+ruleQualifiedName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(
+    { 
+        newCompositeNode(grammarAccess.getQualifiedNameAccess().getValidIDParserRuleCall_0()); 
+    }
+    this_ValidID_0=ruleValidID    {
+		$current.merge(this_ValidID_0);
+    }
+
+    { 
+        afterParserOrEnumRuleCall();
+    }
+(
+	kw='.' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getQualifiedNameAccess().getFullStopKeyword_1_0()); 
+    }
+
+    { 
+        newCompositeNode(grammarAccess.getQualifiedNameAccess().getValidIDParserRuleCall_1_1()); 
+    }
+    this_ValidID_2=ruleValidID    {
+		$current.merge(this_ValidID_2);
+    }
+
+    { 
+        afterParserOrEnumRuleCall();
+    }
+)*)
+    ;
 
 
 

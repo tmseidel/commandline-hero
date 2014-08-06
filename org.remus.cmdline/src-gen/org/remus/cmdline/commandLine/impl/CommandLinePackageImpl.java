@@ -46,6 +46,13 @@ public class CommandLinePackageImpl extends EPackageImpl implements CommandLineP
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass systemEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass programEClass = null;
 
   /**
@@ -216,6 +223,66 @@ public class CommandLinePackageImpl extends EPackageImpl implements CommandLineP
   public EReference getModel_Programs()
   {
     return (EReference)modelEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getModel_System()
+  {
+    return (EReference)modelEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getSystem()
+  {
+    return systemEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getSystem_Name()
+  {
+    return (EAttribute)systemEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSystem_Port()
+  {
+    return (EReference)systemEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSystem_Host()
+  {
+    return (EReference)systemEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSystem_Program()
+  {
+    return (EReference)systemEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -581,6 +648,13 @@ public class CommandLinePackageImpl extends EPackageImpl implements CommandLineP
     modelEClass = createEClass(MODEL);
     createEReference(modelEClass, MODEL__IMPORTS);
     createEReference(modelEClass, MODEL__PROGRAMS);
+    createEReference(modelEClass, MODEL__SYSTEM);
+
+    systemEClass = createEClass(SYSTEM);
+    createEAttribute(systemEClass, SYSTEM__NAME);
+    createEReference(systemEClass, SYSTEM__PORT);
+    createEReference(systemEClass, SYSTEM__HOST);
+    createEReference(systemEClass, SYSTEM__PROGRAM);
 
     programEClass = createEClass(PROGRAM);
     createEAttribute(programEClass, PROGRAM__NAME);
@@ -667,6 +741,13 @@ public class CommandLinePackageImpl extends EPackageImpl implements CommandLineP
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getModel_Imports(), this.getImport(), null, "imports", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModel_Programs(), this.getProgram(), null, "programs", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModel_System(), this.getSystem(), null, "system", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(systemEClass, org.remus.cmdline.commandLine.System.class, "System", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSystem_Name(), ecorePackage.getEString(), "name", null, 0, 1, org.remus.cmdline.commandLine.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSystem_Port(), this.getIntegerLiteral(), null, "port", null, 0, 1, org.remus.cmdline.commandLine.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSystem_Host(), this.getStringLiteral(), null, "host", null, 0, 1, org.remus.cmdline.commandLine.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSystem_Program(), this.getProgram(), null, "program", null, 0, -1, org.remus.cmdline.commandLine.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(programEClass, Program.class, "Program", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getProgram_Name(), ecorePackage.getEString(), "name", null, 0, 1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
