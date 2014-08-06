@@ -1,0 +1,18 @@
+/*
+ * CutyCapt is a tiny commandline-tool that makes screenshots of websites.
+ * 
+ * A X Server has to be present.
+ */
+program cutycapt -> "CutyCapt" {
+	
+	def makeWebShot {
+		desc -> "Makes a screenshot of a website."
+		docurl -> "http://cutycapt.sourceforge.net/"
+		input url AS STRING doc -> "The url to grab"
+		output out AS PATH doc -> "The output path to the image" 
+		* "--url="+url
+		* "--out="+out
+	}
+}
+
+

@@ -1,0 +1,48 @@
+program ffmpeg -> "ffmpeg" {
+	
+	def rotate {
+		desc -> "Rotates a video."
+		docurl -> "http://www.mediaserver/commands/ffmpeg_rotate.htm"
+		input in AS PATH doc -> "The input file"
+		input rotationType AS STRING doc -> "Possible rotations:
+		<ul>
+			<li>0 = 90CounterCLockwise and Vertical Flip (default)</li>
+			<li>1 = 90Clockwise</li>
+			<li>2 = 90CounterClockwise</li>
+			<li>3 = 90Clockwise and Vertical Flip</li>
+		</ul>" 
+		output out AS PATH doc -> "The output path" 
+		* "-i"
+		* in
+		* "-vf"
+		* "\"transpose="+rotationType+"\""  
+		* out
+	}
+	
+	def downscale240p {
+		desc -> "Downscales a 16:9 video to 240p"
+		input in AS PATH doc -> "The source video file" 
+		output out AS PATH doc -> "The video output" 
+		* "-i" 
+		* in
+		* "-filter:v"
+		* "scale=400:240"
+		* "-sws_flags"
+		* "lanczos"
+		* out
+	}
+	def downscale360p {
+		desc -> "Downscales a 16:9 video to 360p" 
+		input in AS PATH doc -> "The source video file"
+		output out AS PATH doc -> "The video output" 
+		* "-i" 
+		* in
+		* "-filter:v"
+		* "scale=600:360"
+		* "-sws_flags"
+		* "lanczos"
+		* out
+	}
+}
+
+
