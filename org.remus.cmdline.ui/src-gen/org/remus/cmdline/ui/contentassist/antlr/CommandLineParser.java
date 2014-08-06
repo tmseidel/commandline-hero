@@ -40,6 +40,10 @@ public class CommandLineParser extends AbstractContentAssistParser {
 					put(grammarAccess.getPrimaryAccess().getAlternatives(), "rule__Primary__Alternatives");
 					put(grammarAccess.getDataTypeAccess().getAlternatives(), "rule__DataType__Alternatives");
 					put(grammarAccess.getModelAccess().getGroup(), "rule__Model__Group__0");
+					put(grammarAccess.getSystemAccess().getGroup(), "rule__System__Group__0");
+					put(grammarAccess.getSystemAccess().getGroup_3(), "rule__System__Group_3__0");
+					put(grammarAccess.getSystemAccess().getGroup_4(), "rule__System__Group_4__0");
+					put(grammarAccess.getSystemAccess().getGroup_5(), "rule__System__Group_5__0");
 					put(grammarAccess.getProgramAccess().getGroup(), "rule__Program__Group__0");
 					put(grammarAccess.getFunctionAccess().getGroup(), "rule__Function__Group__0");
 					put(grammarAccess.getFunctionAccess().getGroup_3(), "rule__Function__Group_3__0");
@@ -57,6 +61,11 @@ public class CommandLineParser extends AbstractContentAssistParser {
 					put(grammarAccess.getQualifiedNameAccess().getGroup_1(), "rule__QualifiedName__Group_1__0");
 					put(grammarAccess.getModelAccess().getImportsAssignment_0(), "rule__Model__ImportsAssignment_0");
 					put(grammarAccess.getModelAccess().getProgramsAssignment_1(), "rule__Model__ProgramsAssignment_1");
+					put(grammarAccess.getModelAccess().getSystemAssignment_2(), "rule__Model__SystemAssignment_2");
+					put(grammarAccess.getSystemAccess().getNameAssignment_1(), "rule__System__NameAssignment_1");
+					put(grammarAccess.getSystemAccess().getPortAssignment_3_1(), "rule__System__PortAssignment_3_1");
+					put(grammarAccess.getSystemAccess().getVersionAssignment_4_1(), "rule__System__VersionAssignment_4_1");
+					put(grammarAccess.getSystemAccess().getProgramAssignment_5_1(), "rule__System__ProgramAssignment_5_1");
 					put(grammarAccess.getProgramAccess().getNameAssignment_1(), "rule__Program__NameAssignment_1");
 					put(grammarAccess.getProgramAccess().getPathAssignment_3(), "rule__Program__PathAssignment_3");
 					put(grammarAccess.getProgramAccess().getFunctionsAssignment_5(), "rule__Program__FunctionsAssignment_5");

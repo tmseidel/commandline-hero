@@ -1,0 +1,7 @@
+system org.remus.example {
+	port -> 8081
+	version -> "1.0.0"
+	registerProgram -> cutycapt
+	registerProgram -> ffmpeg
+	registerProgram -> graphicksmagick 
+} 
