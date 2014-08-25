@@ -6,8 +6,8 @@ program graphicksmagick -> "gm" {
 	def convert {
 		desc -> "Converts an image from one filetype to another"
 		docurl -> "http://cutycapt.sourceforge.net/"
-		input in AS PATH doc -> "The input image"
-		output out AS PATH doc -> "The output name of the image" 
+		input in as PATH doc -> "The input image"
+		output out as PATH doc -> "The output name of the image" 
 		* "convert"
 		* in
 		* out
@@ -15,9 +15,9 @@ program graphicksmagick -> "gm" {
 	def resizeAbsolute {
 		desc -> "Converts an image from one filetype to another"
 		docurl -> "http://cutycapt.sourceforge.net/"
-		input in AS PATH doc -> "The input image"
-		input width AS STRING doc -> "The new width in pixels"
-		output out AS PATH doc -> "The output name of the image" 
+		input in as PATH doc -> "The input image"
+		input width as STRING doc -> "The new width in pixels"
+		output out as PATH doc -> "The output name of the image" 
 		* "convert"
 		* "-scale"
 		* width
@@ -26,13 +26,13 @@ program graphicksmagick -> "gm" {
 	}
 	def drawText {
 		desc -> "Draws text to a certain position"
-		input x AS STRING doc -> "The x position (positive Integer)"
-		input y AS STRING doc -> "The y position (positive Integer)"
-		input text AS STRING doc -> "The text"
-		input color AS STRING doc -> "The color of the text"
-		input fontsize AS STRING doc -> "The size of the text"
-		input file AS PATH doc -> "The input file"
-		output out AS PATH doc -> "The resulting output"
+		input x as STRING doc -> "The x position (positive Integer)"
+		input y as STRING doc -> "The y position (positive Integer)"
+		input text as STRING doc -> "The text"
+		input color as STRING doc -> "The color of the text"
+		input fontsize as STRING doc -> "The size of the text"
+		input file as PATH doc -> "The input file"
+		output out as PATH doc -> "The resulting output"
 		* "convert"
 		* "-font"
 		* "Arial"

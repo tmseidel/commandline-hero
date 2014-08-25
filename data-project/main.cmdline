@@ -3,5 +3,6 @@ system org.remus.example {
 	version -> "1.0.0"
 	registerProgram -> cutycapt
 	registerProgram -> ffmpeg
-	registerProgram -> graphicksmagick 
+	registerProgram -> graphicksmagick
+	registerProgram -> calc     
 } 
