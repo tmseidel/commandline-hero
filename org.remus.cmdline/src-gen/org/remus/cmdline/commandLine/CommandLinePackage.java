@@ -68,22 +68,13 @@ public interface CommandLinePackage extends EPackage
   int MODEL = 0;
 
   /**
-   * The feature id for the '<em><b>Imports</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MODEL__IMPORTS = 0;
-
-  /**
    * The feature id for the '<em><b>Programs</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL__PROGRAMS = 1;
+  int MODEL__PROGRAMS = 0;
 
   /**
    * The feature id for the '<em><b>System</b></em>' containment reference.
@@ -92,7 +83,7 @@ public interface CommandLinePackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODEL__SYSTEM = 2;
+  int MODEL__SYSTEM = 1;
 
   /**
    * The number of structural features of the '<em>Model</em>' class.
@@ -101,7 +92,7 @@ public interface CommandLinePackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODEL_FEATURE_COUNT = 3;
+  int MODEL_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.remus.cmdline.commandLine.impl.SystemImpl <em>System</em>}' class.
@@ -252,13 +243,22 @@ public interface CommandLinePackage extends EPackage
   int FUNCTION__NAME = 0;
 
   /**
+   * The feature id for the '<em><b>Print Out Mode</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION__PRINT_OUT_MODE = 1;
+
+  /**
    * The feature id for the '<em><b>Desc</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FUNCTION__DESC = 1;
+  int FUNCTION__DESC = 2;
 
   /**
    * The feature id for the '<em><b>Docurl</b></em>' containment reference.
@@ -267,7 +267,7 @@ public interface CommandLinePackage extends EPackage
    * @generated
    * @ordered
    */
-  int FUNCTION__DOCURL = 2;
+  int FUNCTION__DOCURL = 3;
 
   /**
    * The feature id for the '<em><b>Input</b></em>' containment reference list.
@@ -276,7 +276,7 @@ public interface CommandLinePackage extends EPackage
    * @generated
    * @ordered
    */
-  int FUNCTION__INPUT = 3;
+  int FUNCTION__INPUT = 4;
 
   /**
    * The feature id for the '<em><b>Output</b></em>' containment reference list.
@@ -285,7 +285,7 @@ public interface CommandLinePackage extends EPackage
    * @generated
    * @ordered
    */
-  int FUNCTION__OUTPUT = 4;
+  int FUNCTION__OUTPUT = 5;
 
   /**
    * The feature id for the '<em><b>Option Blocks</b></em>' containment reference list.
@@ -294,7 +294,7 @@ public interface CommandLinePackage extends EPackage
    * @generated
    * @ordered
    */
-  int FUNCTION__OPTION_BLOCKS = 5;
+  int FUNCTION__OPTION_BLOCKS = 6;
 
   /**
    * The number of structural features of the '<em>Function</em>' class.
@@ -303,17 +303,17 @@ public interface CommandLinePackage extends EPackage
    * @generated
    * @ordered
    */
-  int FUNCTION_FEATURE_COUNT = 6;
+  int FUNCTION_FEATURE_COUNT = 7;
 
   /**
-   * The meta object id for the '{@link org.remus.cmdline.commandLine.impl.DataDefinitionImpl <em>Data Definition</em>}' class.
+   * The meta object id for the '{@link org.remus.cmdline.commandLine.impl.InputDataDefinitionImpl <em>Input Data Definition</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.remus.cmdline.commandLine.impl.DataDefinitionImpl
-   * @see org.remus.cmdline.commandLine.impl.CommandLinePackageImpl#getDataDefinition()
+   * @see org.remus.cmdline.commandLine.impl.InputDataDefinitionImpl
+   * @see org.remus.cmdline.commandLine.impl.CommandLinePackageImpl#getInputDataDefinition()
    * @generated
    */
-  int DATA_DEFINITION = 5;
+  int INPUT_DATA_DEFINITION = 5;
 
   /**
    * The feature id for the '<em><b>Input</b></em>' containment reference.
@@ -322,7 +322,7 @@ public interface CommandLinePackage extends EPackage
    * @generated
    * @ordered
    */
-  int DATA_DEFINITION__INPUT = 0;
+  int INPUT_DATA_DEFINITION__INPUT = 0;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -331,7 +331,7 @@ public interface CommandLinePackage extends EPackage
    * @generated
    * @ordered
    */
-  int DATA_DEFINITION__TYPE = 1;
+  int INPUT_DATA_DEFINITION__TYPE = 1;
 
   /**
    * The feature id for the '<em><b>Doc</b></em>' containment reference.
@@ -340,16 +340,62 @@ public interface CommandLinePackage extends EPackage
    * @generated
    * @ordered
    */
-  int DATA_DEFINITION__DOC = 2;
+  int INPUT_DATA_DEFINITION__DOC = 2;
 
   /**
-   * The number of structural features of the '<em>Data Definition</em>' class.
+   * The number of structural features of the '<em>Input Data Definition</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DATA_DEFINITION_FEATURE_COUNT = 3;
+  int INPUT_DATA_DEFINITION_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link org.remus.cmdline.commandLine.impl.OutputDataDefinitionImpl <em>Output Data Definition</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.remus.cmdline.commandLine.impl.OutputDataDefinitionImpl
+   * @see org.remus.cmdline.commandLine.impl.CommandLinePackageImpl#getOutputDataDefinition()
+   * @generated
+   */
+  int OUTPUT_DATA_DEFINITION = 6;
+
+  /**
+   * The feature id for the '<em><b>Input</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OUTPUT_DATA_DEFINITION__INPUT = 0;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OUTPUT_DATA_DEFINITION__TYPE = 1;
+
+  /**
+   * The feature id for the '<em><b>Doc</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OUTPUT_DATA_DEFINITION__DOC = 2;
+
+  /**
+   * The number of structural features of the '<em>Output Data Definition</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OUTPUT_DATA_DEFINITION_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.remus.cmdline.commandLine.impl.OptionImpl <em>Option</em>}' class.
@@ -359,7 +405,7 @@ public interface CommandLinePackage extends EPackage
    * @see org.remus.cmdline.commandLine.impl.CommandLinePackageImpl#getOption()
    * @generated
    */
-  int OPTION = 6;
+  int OPTION = 7;
 
   /**
    * The feature id for the '<em><b>Param</b></em>' containment reference.
@@ -387,7 +433,7 @@ public interface CommandLinePackage extends EPackage
    * @see org.remus.cmdline.commandLine.impl.CommandLinePackageImpl#getExpression()
    * @generated
    */
-  int EXPRESSION = 7;
+  int EXPRESSION = 8;
 
   /**
    * The feature id for the '<em><b>Param</b></em>' reference.
@@ -415,7 +461,7 @@ public interface CommandLinePackage extends EPackage
    * @see org.remus.cmdline.commandLine.impl.CommandLinePackageImpl#getStringLiteral()
    * @generated
    */
-  int STRING_LITERAL = 8;
+  int STRING_LITERAL = 9;
 
   /**
    * The feature id for the '<em><b>Param</b></em>' reference.
@@ -452,7 +498,7 @@ public interface CommandLinePackage extends EPackage
    * @see org.remus.cmdline.commandLine.impl.CommandLinePackageImpl#getIntegerLiteral()
    * @generated
    */
-  int INTEGER_LITERAL = 9;
+  int INTEGER_LITERAL = 10;
 
   /**
    * The feature id for the '<em><b>Param</b></em>' reference.
@@ -489,7 +535,7 @@ public interface CommandLinePackage extends EPackage
    * @see org.remus.cmdline.commandLine.impl.CommandLinePackageImpl#getDoubleLiteral()
    * @generated
    */
-  int DOUBLE_LITERAL = 10;
+  int DOUBLE_LITERAL = 11;
 
   /**
    * The feature id for the '<em><b>Param</b></em>' reference.
@@ -517,34 +563,6 @@ public interface CommandLinePackage extends EPackage
    * @ordered
    */
   int DOUBLE_LITERAL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
-
-  /**
-   * The meta object id for the '{@link org.remus.cmdline.commandLine.impl.ImportImpl <em>Import</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.remus.cmdline.commandLine.impl.ImportImpl
-   * @see org.remus.cmdline.commandLine.impl.CommandLinePackageImpl#getImport()
-   * @generated
-   */
-  int IMPORT = 11;
-
-  /**
-   * The feature id for the '<em><b>Import URI</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int IMPORT__IMPORT_URI = 0;
-
-  /**
-   * The number of structural features of the '<em>Import</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int IMPORT_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.remus.cmdline.commandLine.impl.ConcatenationImpl <em>Concatenation</em>}' class.
@@ -593,14 +611,34 @@ public interface CommandLinePackage extends EPackage
   int CONCATENATION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
 
   /**
-   * The meta object id for the '{@link org.remus.cmdline.commandLine.DataType <em>Data Type</em>}' enum.
+   * The meta object id for the '{@link org.remus.cmdline.commandLine.PrintMode <em>Print Mode</em>}' enum.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.remus.cmdline.commandLine.DataType
-   * @see org.remus.cmdline.commandLine.impl.CommandLinePackageImpl#getDataType()
+   * @see org.remus.cmdline.commandLine.PrintMode
+   * @see org.remus.cmdline.commandLine.impl.CommandLinePackageImpl#getPrintMode()
    * @generated
    */
-  int DATA_TYPE = 13;
+  int PRINT_MODE = 13;
+
+  /**
+   * The meta object id for the '{@link org.remus.cmdline.commandLine.InputDataType <em>Input Data Type</em>}' enum.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.remus.cmdline.commandLine.InputDataType
+   * @see org.remus.cmdline.commandLine.impl.CommandLinePackageImpl#getInputDataType()
+   * @generated
+   */
+  int INPUT_DATA_TYPE = 14;
+
+  /**
+   * The meta object id for the '{@link org.remus.cmdline.commandLine.OutputDataType <em>Output Data Type</em>}' enum.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.remus.cmdline.commandLine.OutputDataType
+   * @see org.remus.cmdline.commandLine.impl.CommandLinePackageImpl#getOutputDataType()
+   * @generated
+   */
+  int OUTPUT_DATA_TYPE = 15;
 
 
   /**
@@ -612,17 +650,6 @@ public interface CommandLinePackage extends EPackage
    * @generated
    */
   EClass getModel();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.remus.cmdline.commandLine.Model#getImports <em>Imports</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Imports</em>'.
-   * @see org.remus.cmdline.commandLine.Model#getImports()
-   * @see #getModel()
-   * @generated
-   */
-  EReference getModel_Imports();
 
   /**
    * Returns the meta object for the containment reference '{@link org.remus.cmdline.commandLine.Model#getPrograms <em>Programs</em>}'.
@@ -786,6 +813,17 @@ public interface CommandLinePackage extends EPackage
   EAttribute getFunction_Name();
 
   /**
+   * Returns the meta object for the attribute '{@link org.remus.cmdline.commandLine.Function#getPrintOutMode <em>Print Out Mode</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Print Out Mode</em>'.
+   * @see org.remus.cmdline.commandLine.Function#getPrintOutMode()
+   * @see #getFunction()
+   * @generated
+   */
+  EAttribute getFunction_PrintOutMode();
+
+  /**
    * Returns the meta object for the containment reference '{@link org.remus.cmdline.commandLine.Function#getDesc <em>Desc</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -841,47 +879,90 @@ public interface CommandLinePackage extends EPackage
   EReference getFunction_OptionBlocks();
 
   /**
-   * Returns the meta object for class '{@link org.remus.cmdline.commandLine.DataDefinition <em>Data Definition</em>}'.
+   * Returns the meta object for class '{@link org.remus.cmdline.commandLine.InputDataDefinition <em>Input Data Definition</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Data Definition</em>'.
-   * @see org.remus.cmdline.commandLine.DataDefinition
+   * @return the meta object for class '<em>Input Data Definition</em>'.
+   * @see org.remus.cmdline.commandLine.InputDataDefinition
    * @generated
    */
-  EClass getDataDefinition();
+  EClass getInputDataDefinition();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.remus.cmdline.commandLine.DataDefinition#getInput <em>Input</em>}'.
+   * Returns the meta object for the containment reference '{@link org.remus.cmdline.commandLine.InputDataDefinition#getInput <em>Input</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Input</em>'.
-   * @see org.remus.cmdline.commandLine.DataDefinition#getInput()
-   * @see #getDataDefinition()
+   * @see org.remus.cmdline.commandLine.InputDataDefinition#getInput()
+   * @see #getInputDataDefinition()
    * @generated
    */
-  EReference getDataDefinition_Input();
+  EReference getInputDataDefinition_Input();
 
   /**
-   * Returns the meta object for the attribute '{@link org.remus.cmdline.commandLine.DataDefinition#getType <em>Type</em>}'.
+   * Returns the meta object for the attribute '{@link org.remus.cmdline.commandLine.InputDataDefinition#getType <em>Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Type</em>'.
-   * @see org.remus.cmdline.commandLine.DataDefinition#getType()
-   * @see #getDataDefinition()
+   * @see org.remus.cmdline.commandLine.InputDataDefinition#getType()
+   * @see #getInputDataDefinition()
    * @generated
    */
-  EAttribute getDataDefinition_Type();
+  EAttribute getInputDataDefinition_Type();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.remus.cmdline.commandLine.DataDefinition#getDoc <em>Doc</em>}'.
+   * Returns the meta object for the containment reference '{@link org.remus.cmdline.commandLine.InputDataDefinition#getDoc <em>Doc</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Doc</em>'.
-   * @see org.remus.cmdline.commandLine.DataDefinition#getDoc()
-   * @see #getDataDefinition()
+   * @see org.remus.cmdline.commandLine.InputDataDefinition#getDoc()
+   * @see #getInputDataDefinition()
    * @generated
    */
-  EReference getDataDefinition_Doc();
+  EReference getInputDataDefinition_Doc();
+
+  /**
+   * Returns the meta object for class '{@link org.remus.cmdline.commandLine.OutputDataDefinition <em>Output Data Definition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Output Data Definition</em>'.
+   * @see org.remus.cmdline.commandLine.OutputDataDefinition
+   * @generated
+   */
+  EClass getOutputDataDefinition();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.remus.cmdline.commandLine.OutputDataDefinition#getInput <em>Input</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Input</em>'.
+   * @see org.remus.cmdline.commandLine.OutputDataDefinition#getInput()
+   * @see #getOutputDataDefinition()
+   * @generated
+   */
+  EReference getOutputDataDefinition_Input();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.remus.cmdline.commandLine.OutputDataDefinition#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Type</em>'.
+   * @see org.remus.cmdline.commandLine.OutputDataDefinition#getType()
+   * @see #getOutputDataDefinition()
+   * @generated
+   */
+  EAttribute getOutputDataDefinition_Type();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.remus.cmdline.commandLine.OutputDataDefinition#getDoc <em>Doc</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Doc</em>'.
+   * @see org.remus.cmdline.commandLine.OutputDataDefinition#getDoc()
+   * @see #getOutputDataDefinition()
+   * @generated
+   */
+  EReference getOutputDataDefinition_Doc();
 
   /**
    * Returns the meta object for class '{@link org.remus.cmdline.commandLine.Option <em>Option</em>}'.
@@ -989,27 +1070,6 @@ public interface CommandLinePackage extends EPackage
   EAttribute getDoubleLiteral_Value();
 
   /**
-   * Returns the meta object for class '{@link org.remus.cmdline.commandLine.Import <em>Import</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Import</em>'.
-   * @see org.remus.cmdline.commandLine.Import
-   * @generated
-   */
-  EClass getImport();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.remus.cmdline.commandLine.Import#getImportURI <em>Import URI</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Import URI</em>'.
-   * @see org.remus.cmdline.commandLine.Import#getImportURI()
-   * @see #getImport()
-   * @generated
-   */
-  EAttribute getImport_ImportURI();
-
-  /**
    * Returns the meta object for class '{@link org.remus.cmdline.commandLine.Concatenation <em>Concatenation</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1042,14 +1102,34 @@ public interface CommandLinePackage extends EPackage
   EReference getConcatenation_Right();
 
   /**
-   * Returns the meta object for enum '{@link org.remus.cmdline.commandLine.DataType <em>Data Type</em>}'.
+   * Returns the meta object for enum '{@link org.remus.cmdline.commandLine.PrintMode <em>Print Mode</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for enum '<em>Data Type</em>'.
-   * @see org.remus.cmdline.commandLine.DataType
+   * @return the meta object for enum '<em>Print Mode</em>'.
+   * @see org.remus.cmdline.commandLine.PrintMode
    * @generated
    */
-  EEnum getDataType();
+  EEnum getPrintMode();
+
+  /**
+   * Returns the meta object for enum '{@link org.remus.cmdline.commandLine.InputDataType <em>Input Data Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for enum '<em>Input Data Type</em>'.
+   * @see org.remus.cmdline.commandLine.InputDataType
+   * @generated
+   */
+  EEnum getInputDataType();
+
+  /**
+   * Returns the meta object for enum '{@link org.remus.cmdline.commandLine.OutputDataType <em>Output Data Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for enum '<em>Output Data Type</em>'.
+   * @see org.remus.cmdline.commandLine.OutputDataType
+   * @generated
+   */
+  EEnum getOutputDataType();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -1083,14 +1163,6 @@ public interface CommandLinePackage extends EPackage
      * @generated
      */
     EClass MODEL = eINSTANCE.getModel();
-
-    /**
-     * The meta object literal for the '<em><b>Imports</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference MODEL__IMPORTS = eINSTANCE.getModel_Imports();
 
     /**
      * The meta object literal for the '<em><b>Programs</b></em>' containment reference feature.
@@ -1221,6 +1293,14 @@ public interface CommandLinePackage extends EPackage
     EAttribute FUNCTION__NAME = eINSTANCE.getFunction_Name();
 
     /**
+     * The meta object literal for the '<em><b>Print Out Mode</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FUNCTION__PRINT_OUT_MODE = eINSTANCE.getFunction_PrintOutMode();
+
+    /**
      * The meta object literal for the '<em><b>Desc</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1261,14 +1341,14 @@ public interface CommandLinePackage extends EPackage
     EReference FUNCTION__OPTION_BLOCKS = eINSTANCE.getFunction_OptionBlocks();
 
     /**
-     * The meta object literal for the '{@link org.remus.cmdline.commandLine.impl.DataDefinitionImpl <em>Data Definition</em>}' class.
+     * The meta object literal for the '{@link org.remus.cmdline.commandLine.impl.InputDataDefinitionImpl <em>Input Data Definition</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.remus.cmdline.commandLine.impl.DataDefinitionImpl
-     * @see org.remus.cmdline.commandLine.impl.CommandLinePackageImpl#getDataDefinition()
+     * @see org.remus.cmdline.commandLine.impl.InputDataDefinitionImpl
+     * @see org.remus.cmdline.commandLine.impl.CommandLinePackageImpl#getInputDataDefinition()
      * @generated
      */
-    EClass DATA_DEFINITION = eINSTANCE.getDataDefinition();
+    EClass INPUT_DATA_DEFINITION = eINSTANCE.getInputDataDefinition();
 
     /**
      * The meta object literal for the '<em><b>Input</b></em>' containment reference feature.
@@ -1276,7 +1356,7 @@ public interface CommandLinePackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference DATA_DEFINITION__INPUT = eINSTANCE.getDataDefinition_Input();
+    EReference INPUT_DATA_DEFINITION__INPUT = eINSTANCE.getInputDataDefinition_Input();
 
     /**
      * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
@@ -1284,7 +1364,7 @@ public interface CommandLinePackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute DATA_DEFINITION__TYPE = eINSTANCE.getDataDefinition_Type();
+    EAttribute INPUT_DATA_DEFINITION__TYPE = eINSTANCE.getInputDataDefinition_Type();
 
     /**
      * The meta object literal for the '<em><b>Doc</b></em>' containment reference feature.
@@ -1292,7 +1372,41 @@ public interface CommandLinePackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference DATA_DEFINITION__DOC = eINSTANCE.getDataDefinition_Doc();
+    EReference INPUT_DATA_DEFINITION__DOC = eINSTANCE.getInputDataDefinition_Doc();
+
+    /**
+     * The meta object literal for the '{@link org.remus.cmdline.commandLine.impl.OutputDataDefinitionImpl <em>Output Data Definition</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.remus.cmdline.commandLine.impl.OutputDataDefinitionImpl
+     * @see org.remus.cmdline.commandLine.impl.CommandLinePackageImpl#getOutputDataDefinition()
+     * @generated
+     */
+    EClass OUTPUT_DATA_DEFINITION = eINSTANCE.getOutputDataDefinition();
+
+    /**
+     * The meta object literal for the '<em><b>Input</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference OUTPUT_DATA_DEFINITION__INPUT = eINSTANCE.getOutputDataDefinition_Input();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute OUTPUT_DATA_DEFINITION__TYPE = eINSTANCE.getOutputDataDefinition_Type();
+
+    /**
+     * The meta object literal for the '<em><b>Doc</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference OUTPUT_DATA_DEFINITION__DOC = eINSTANCE.getOutputDataDefinition_Doc();
 
     /**
      * The meta object literal for the '{@link org.remus.cmdline.commandLine.impl.OptionImpl <em>Option</em>}' class.
@@ -1385,24 +1499,6 @@ public interface CommandLinePackage extends EPackage
     EAttribute DOUBLE_LITERAL__VALUE = eINSTANCE.getDoubleLiteral_Value();
 
     /**
-     * The meta object literal for the '{@link org.remus.cmdline.commandLine.impl.ImportImpl <em>Import</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.remus.cmdline.commandLine.impl.ImportImpl
-     * @see org.remus.cmdline.commandLine.impl.CommandLinePackageImpl#getImport()
-     * @generated
-     */
-    EClass IMPORT = eINSTANCE.getImport();
-
-    /**
-     * The meta object literal for the '<em><b>Import URI</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute IMPORT__IMPORT_URI = eINSTANCE.getImport_ImportURI();
-
-    /**
      * The meta object literal for the '{@link org.remus.cmdline.commandLine.impl.ConcatenationImpl <em>Concatenation</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1429,14 +1525,34 @@ public interface CommandLinePackage extends EPackage
     EReference CONCATENATION__RIGHT = eINSTANCE.getConcatenation_Right();
 
     /**
-     * The meta object literal for the '{@link org.remus.cmdline.commandLine.DataType <em>Data Type</em>}' enum.
+     * The meta object literal for the '{@link org.remus.cmdline.commandLine.PrintMode <em>Print Mode</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.remus.cmdline.commandLine.DataType
-     * @see org.remus.cmdline.commandLine.impl.CommandLinePackageImpl#getDataType()
+     * @see org.remus.cmdline.commandLine.PrintMode
+     * @see org.remus.cmdline.commandLine.impl.CommandLinePackageImpl#getPrintMode()
      * @generated
      */
-    EEnum DATA_TYPE = eINSTANCE.getDataType();
+    EEnum PRINT_MODE = eINSTANCE.getPrintMode();
+
+    /**
+     * The meta object literal for the '{@link org.remus.cmdline.commandLine.InputDataType <em>Input Data Type</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.remus.cmdline.commandLine.InputDataType
+     * @see org.remus.cmdline.commandLine.impl.CommandLinePackageImpl#getInputDataType()
+     * @generated
+     */
+    EEnum INPUT_DATA_TYPE = eINSTANCE.getInputDataType();
+
+    /**
+     * The meta object literal for the '{@link org.remus.cmdline.commandLine.OutputDataType <em>Output Data Type</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.remus.cmdline.commandLine.OutputDataType
+     * @see org.remus.cmdline.commandLine.impl.CommandLinePackageImpl#getOutputDataType()
+     * @generated
+     */
+    EEnum OUTPUT_DATA_TYPE = eINSTANCE.getOutputDataType();
 
   }
 

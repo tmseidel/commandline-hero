@@ -66,12 +66,14 @@ public class ExecutionService {
 
 	private final TaskListener taskListener = new TaskListener() {
 
+		@Override
 		public void taskStarted(final TaskChangeEvent e) {
 			id2InfoMap.get(e.getExecutionInstruction().getRuntimeId())
 					.setStatus(JobStatus.RUNNING);
 
 		}
 
+		@Override
 		public void taskScheduled(final TaskChangeEvent e) {
 			final JobInfo jobInfo = toJobInfo(e.getExecutionInstruction());
 			jobInfo.setStatus(JobStatus.SCHEDULED);
@@ -82,6 +84,7 @@ public class ExecutionService {
 
 		}
 
+		@Override
 		public void taskFinished(final TaskChangeEvent e) {
 			final JobInfo jobInfo = id2InfoMap.get(e.getExecutionInstruction()
 					.getRuntimeId());
@@ -97,21 +100,23 @@ public class ExecutionService {
 
 	@PostConstruct
 	private void onStart() {
-		final File inputDirectory = new File(inputDir);
-		if (!inputDirectory.exists()) {
-			inputDirectory.mkdirs();
+		final File input = new File(inputDir);
+		if (input.exists() && input.isDirectory()) {
+			final File[] listFiles = input.listFiles();
+			for (final File file : listFiles) {
+				FileUtils.deleteQuietly(file);
+			}
+		} else {
+			input.mkdirs();
 		}
-		File[] listFiles = inputDirectory.listFiles();
-		for (final File file : listFiles) {
-			FileUtils.deleteQuietly(file);
-		}
-		final File outputDirectory = new File(outputDir);
-		if (!outputDirectory.exists()) {
-			outputDirectory.mkdirs();
-		}
-		listFiles = outputDirectory.listFiles();
-		for (final File file : listFiles) {
-			FileUtils.deleteQuietly(file);
+		final File output = new File(outputDir);
+		if (output.exists() && output.isDirectory()) {
+			final File[] listFiles = output.listFiles();
+			for (final File file : listFiles) {
+				FileUtils.deleteQuietly(file);
+			}
+		} else {
+			output.mkdirs();
 		}
 		executor.addListener(taskListener);
 	}
@@ -143,6 +148,7 @@ public class ExecutionService {
 		final List<JobInfo> values = new ArrayList<JobInfo>(id2InfoMap.values());
 		CollectionUtils.filter(values, new Predicate() {
 
+			@Override
 			public boolean evaluate(final Object object) {
 				return ((JobInfo) object).getStatus() == state;
 			}
@@ -240,6 +246,10 @@ public class ExecutionService {
 				returnValue.put(resultDataElement.getParamId(),
 						baseUrl + "url" + findJobById.getRuntimeId() + "/"
 								+ resultDataElement.getParamId());
+			case STRING:
+				// the output of the console
+				returnValue.put(resultDataElement.getParamId(), findJobById
+						.getProcessString().toString());
 				break;
 			default:
 				break;
@@ -261,6 +271,7 @@ public class ExecutionService {
 		for (final Meta meta : classes) {
 			if (meta.getClassName().equals(findJobById.getClass().getName())) {
 				returnValue.setMetaId(meta.getId());
+				returnValue.setPrintMode(meta.getMode());
 				break;
 			}
 		}
@@ -281,6 +292,9 @@ public class ExecutionService {
 				&& info.getExecutionResult().getReturnCode() == IStatus.OK) {
 			info.setOutputs(buildOutputs(id2JobMap.get(info.getId()), request));
 		}
+		info.setStdOut(id2JobMap.get(info.getId()).getProcessString()
+				.toString());
+		info.setSdtErr(id2JobMap.get(info.getId()).getErrorString().toString());
 
 	}
 

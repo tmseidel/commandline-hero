@@ -68,13 +68,22 @@ public interface CommandLineFactory extends EFactory
   Function createFunction();
 
   /**
-   * Returns a new object of class '<em>Data Definition</em>'.
+   * Returns a new object of class '<em>Input Data Definition</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Data Definition</em>'.
+   * @return a new object of class '<em>Input Data Definition</em>'.
    * @generated
    */
-  DataDefinition createDataDefinition();
+  InputDataDefinition createInputDataDefinition();
+
+  /**
+   * Returns a new object of class '<em>Output Data Definition</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Output Data Definition</em>'.
+   * @generated
+   */
+  OutputDataDefinition createOutputDataDefinition();
 
   /**
    * Returns a new object of class '<em>Option</em>'.
@@ -120,15 +129,6 @@ public interface CommandLineFactory extends EFactory
    * @generated
    */
   DoubleLiteral createDoubleLiteral();
-
-  /**
-   * Returns a new object of class '<em>Import</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Import</em>'.
-   * @generated
-   */
-  Import createImport();
 
   /**
    * Returns a new object of class '<em>Concatenation</em>'.

@@ -65,6 +65,7 @@ public class HomeController {
 		}
 		Collections.sort(finishedJobs, new Comparator<JobInfo>() {
 
+			@Override
 			public int compare(final JobInfo o1, final JobInfo o2) {
 				return o1.getFinishedDate().compareTo(o2.getFinishedDate())
 						* -1;

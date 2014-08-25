@@ -21,6 +21,8 @@ public class Meta {
 
 	private final Map<String, String> outputParameter = new HashMap<String, String>();
 
+	private PrintMode mode;
+
 	public String getId() {
 		return id;
 	}
@@ -83,6 +85,14 @@ public class Meta {
 
 	public void setClassName(final String className) {
 		this.className = className;
+	}
+
+	public PrintMode getMode() {
+		return mode;
+	}
+
+	public void setMode(final PrintMode mode) {
+		this.mode = mode;
 	}
 
 }

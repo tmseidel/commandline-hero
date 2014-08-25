@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.remus.cmdline.commandLine.Function#getName <em>Name</em>}</li>
+ *   <li>{@link org.remus.cmdline.commandLine.Function#getPrintOutMode <em>Print Out Mode</em>}</li>
  *   <li>{@link org.remus.cmdline.commandLine.Function#getDesc <em>Desc</em>}</li>
  *   <li>{@link org.remus.cmdline.commandLine.Function#getDocurl <em>Docurl</em>}</li>
  *   <li>{@link org.remus.cmdline.commandLine.Function#getInput <em>Input</em>}</li>
@@ -54,6 +55,35 @@ public interface Function extends EObject
    * @generated
    */
   void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Print Out Mode</b></em>' attribute.
+   * The literals are from the enumeration {@link org.remus.cmdline.commandLine.PrintMode}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Print Out Mode</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Print Out Mode</em>' attribute.
+   * @see org.remus.cmdline.commandLine.PrintMode
+   * @see #setPrintOutMode(PrintMode)
+   * @see org.remus.cmdline.commandLine.CommandLinePackage#getFunction_PrintOutMode()
+   * @model
+   * @generated
+   */
+  PrintMode getPrintOutMode();
+
+  /**
+   * Sets the value of the '{@link org.remus.cmdline.commandLine.Function#getPrintOutMode <em>Print Out Mode</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Print Out Mode</em>' attribute.
+   * @see org.remus.cmdline.commandLine.PrintMode
+   * @see #getPrintOutMode()
+   * @generated
+   */
+  void setPrintOutMode(PrintMode value);
 
   /**
    * Returns the value of the '<em><b>Desc</b></em>' containment reference.
@@ -109,7 +139,7 @@ public interface Function extends EObject
 
   /**
    * Returns the value of the '<em><b>Input</b></em>' containment reference list.
-   * The list contents are of type {@link org.remus.cmdline.commandLine.DataDefinition}.
+   * The list contents are of type {@link org.remus.cmdline.commandLine.InputDataDefinition}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Input</em>' containment reference list isn't clear,
@@ -121,11 +151,11 @@ public interface Function extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<DataDefinition> getInput();
+  EList<InputDataDefinition> getInput();
 
   /**
    * Returns the value of the '<em><b>Output</b></em>' containment reference list.
-   * The list contents are of type {@link org.remus.cmdline.commandLine.DataDefinition}.
+   * The list contents are of type {@link org.remus.cmdline.commandLine.OutputDataDefinition}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Output</em>' containment reference list isn't clear,
@@ -137,7 +167,7 @@ public interface Function extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<DataDefinition> getOutput();
+  EList<OutputDataDefinition> getOutput();
 
   /**
    * Returns the value of the '<em><b>Option Blocks</b></em>' containment reference list.

@@ -13,16 +13,18 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.remus.cmdline.commandLine.CommandLineFactory;
 import org.remus.cmdline.commandLine.CommandLinePackage;
 import org.remus.cmdline.commandLine.Concatenation;
-import org.remus.cmdline.commandLine.DataDefinition;
-import org.remus.cmdline.commandLine.DataType;
 import org.remus.cmdline.commandLine.DoubleLiteral;
 import org.remus.cmdline.commandLine.Expression;
 import org.remus.cmdline.commandLine.Function;
-import org.remus.cmdline.commandLine.Import;
+import org.remus.cmdline.commandLine.InputDataDefinition;
+import org.remus.cmdline.commandLine.InputDataType;
 import org.remus.cmdline.commandLine.IntegerLiteral;
 import org.remus.cmdline.commandLine.Model;
 import org.remus.cmdline.commandLine.Option;
+import org.remus.cmdline.commandLine.OutputDataDefinition;
+import org.remus.cmdline.commandLine.OutputDataType;
 import org.remus.cmdline.commandLine.Param;
+import org.remus.cmdline.commandLine.PrintMode;
 import org.remus.cmdline.commandLine.Program;
 import org.remus.cmdline.commandLine.StringLiteral;
 
@@ -74,7 +76,14 @@ public class CommandLinePackageImpl extends EPackageImpl implements CommandLineP
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass dataDefinitionEClass = null;
+  private EClass inputDataDefinitionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass outputDataDefinitionEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -116,13 +125,6 @@ public class CommandLinePackageImpl extends EPackageImpl implements CommandLineP
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass importEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   private EClass concatenationEClass = null;
 
   /**
@@ -130,7 +132,21 @@ public class CommandLinePackageImpl extends EPackageImpl implements CommandLineP
    * <!-- end-user-doc -->
    * @generated
    */
-  private EEnum dataTypeEEnum = null;
+  private EEnum printModeEEnum = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EEnum inputDataTypeEEnum = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EEnum outputDataTypeEEnum = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -210,7 +226,7 @@ public class CommandLinePackageImpl extends EPackageImpl implements CommandLineP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getModel_Imports()
+  public EReference getModel_Programs()
   {
     return (EReference)modelEClass.getEStructuralFeatures().get(0);
   }
@@ -220,19 +236,9 @@ public class CommandLinePackageImpl extends EPackageImpl implements CommandLineP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getModel_Programs()
-  {
-    return (EReference)modelEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getModel_System()
   {
-    return (EReference)modelEClass.getEStructuralFeatures().get(2);
+    return (EReference)modelEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -370,9 +376,9 @@ public class CommandLinePackageImpl extends EPackageImpl implements CommandLineP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getFunction_Desc()
+  public EAttribute getFunction_PrintOutMode()
   {
-    return (EReference)functionEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)functionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -380,7 +386,7 @@ public class CommandLinePackageImpl extends EPackageImpl implements CommandLineP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getFunction_Docurl()
+  public EReference getFunction_Desc()
   {
     return (EReference)functionEClass.getEStructuralFeatures().get(2);
   }
@@ -390,7 +396,7 @@ public class CommandLinePackageImpl extends EPackageImpl implements CommandLineP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getFunction_Input()
+  public EReference getFunction_Docurl()
   {
     return (EReference)functionEClass.getEStructuralFeatures().get(3);
   }
@@ -400,7 +406,7 @@ public class CommandLinePackageImpl extends EPackageImpl implements CommandLineP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getFunction_Output()
+  public EReference getFunction_Input()
   {
     return (EReference)functionEClass.getEStructuralFeatures().get(4);
   }
@@ -410,7 +416,7 @@ public class CommandLinePackageImpl extends EPackageImpl implements CommandLineP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getFunction_OptionBlocks()
+  public EReference getFunction_Output()
   {
     return (EReference)functionEClass.getEStructuralFeatures().get(5);
   }
@@ -420,9 +426,9 @@ public class CommandLinePackageImpl extends EPackageImpl implements CommandLineP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getDataDefinition()
+  public EReference getFunction_OptionBlocks()
   {
-    return dataDefinitionEClass;
+    return (EReference)functionEClass.getEStructuralFeatures().get(6);
   }
 
   /**
@@ -430,9 +436,9 @@ public class CommandLinePackageImpl extends EPackageImpl implements CommandLineP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDataDefinition_Input()
+  public EClass getInputDataDefinition()
   {
-    return (EReference)dataDefinitionEClass.getEStructuralFeatures().get(0);
+    return inputDataDefinitionEClass;
   }
 
   /**
@@ -440,9 +446,9 @@ public class CommandLinePackageImpl extends EPackageImpl implements CommandLineP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getDataDefinition_Type()
+  public EReference getInputDataDefinition_Input()
   {
-    return (EAttribute)dataDefinitionEClass.getEStructuralFeatures().get(1);
+    return (EReference)inputDataDefinitionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -450,9 +456,59 @@ public class CommandLinePackageImpl extends EPackageImpl implements CommandLineP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDataDefinition_Doc()
+  public EAttribute getInputDataDefinition_Type()
   {
-    return (EReference)dataDefinitionEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)inputDataDefinitionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getInputDataDefinition_Doc()
+  {
+    return (EReference)inputDataDefinitionEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getOutputDataDefinition()
+  {
+    return outputDataDefinitionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getOutputDataDefinition_Input()
+  {
+    return (EReference)outputDataDefinitionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getOutputDataDefinition_Type()
+  {
+    return (EAttribute)outputDataDefinitionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getOutputDataDefinition_Doc()
+  {
+    return (EReference)outputDataDefinitionEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -560,26 +616,6 @@ public class CommandLinePackageImpl extends EPackageImpl implements CommandLineP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getImport()
-  {
-    return importEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getImport_ImportURI()
-  {
-    return (EAttribute)importEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getConcatenation()
   {
     return concatenationEClass;
@@ -610,9 +646,29 @@ public class CommandLinePackageImpl extends EPackageImpl implements CommandLineP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EEnum getDataType()
+  public EEnum getPrintMode()
   {
-    return dataTypeEEnum;
+    return printModeEEnum;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EEnum getInputDataType()
+  {
+    return inputDataTypeEEnum;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EEnum getOutputDataType()
+  {
+    return outputDataTypeEEnum;
   }
 
   /**
@@ -646,7 +702,6 @@ public class CommandLinePackageImpl extends EPackageImpl implements CommandLineP
 
     // Create classes and their features
     modelEClass = createEClass(MODEL);
-    createEReference(modelEClass, MODEL__IMPORTS);
     createEReference(modelEClass, MODEL__PROGRAMS);
     createEReference(modelEClass, MODEL__SYSTEM);
 
@@ -666,16 +721,22 @@ public class CommandLinePackageImpl extends EPackageImpl implements CommandLineP
 
     functionEClass = createEClass(FUNCTION);
     createEAttribute(functionEClass, FUNCTION__NAME);
+    createEAttribute(functionEClass, FUNCTION__PRINT_OUT_MODE);
     createEReference(functionEClass, FUNCTION__DESC);
     createEReference(functionEClass, FUNCTION__DOCURL);
     createEReference(functionEClass, FUNCTION__INPUT);
     createEReference(functionEClass, FUNCTION__OUTPUT);
     createEReference(functionEClass, FUNCTION__OPTION_BLOCKS);
 
-    dataDefinitionEClass = createEClass(DATA_DEFINITION);
-    createEReference(dataDefinitionEClass, DATA_DEFINITION__INPUT);
-    createEAttribute(dataDefinitionEClass, DATA_DEFINITION__TYPE);
-    createEReference(dataDefinitionEClass, DATA_DEFINITION__DOC);
+    inputDataDefinitionEClass = createEClass(INPUT_DATA_DEFINITION);
+    createEReference(inputDataDefinitionEClass, INPUT_DATA_DEFINITION__INPUT);
+    createEAttribute(inputDataDefinitionEClass, INPUT_DATA_DEFINITION__TYPE);
+    createEReference(inputDataDefinitionEClass, INPUT_DATA_DEFINITION__DOC);
+
+    outputDataDefinitionEClass = createEClass(OUTPUT_DATA_DEFINITION);
+    createEReference(outputDataDefinitionEClass, OUTPUT_DATA_DEFINITION__INPUT);
+    createEAttribute(outputDataDefinitionEClass, OUTPUT_DATA_DEFINITION__TYPE);
+    createEReference(outputDataDefinitionEClass, OUTPUT_DATA_DEFINITION__DOC);
 
     optionEClass = createEClass(OPTION);
     createEReference(optionEClass, OPTION__PARAM);
@@ -692,15 +753,14 @@ public class CommandLinePackageImpl extends EPackageImpl implements CommandLineP
     doubleLiteralEClass = createEClass(DOUBLE_LITERAL);
     createEAttribute(doubleLiteralEClass, DOUBLE_LITERAL__VALUE);
 
-    importEClass = createEClass(IMPORT);
-    createEAttribute(importEClass, IMPORT__IMPORT_URI);
-
     concatenationEClass = createEClass(CONCATENATION);
     createEReference(concatenationEClass, CONCATENATION__LEFT);
     createEReference(concatenationEClass, CONCATENATION__RIGHT);
 
     // Create enums
-    dataTypeEEnum = createEEnum(DATA_TYPE);
+    printModeEEnum = createEEnum(PRINT_MODE);
+    inputDataTypeEEnum = createEEnum(INPUT_DATA_TYPE);
+    outputDataTypeEEnum = createEEnum(OUTPUT_DATA_TYPE);
   }
 
   /**
@@ -739,7 +799,6 @@ public class CommandLinePackageImpl extends EPackageImpl implements CommandLineP
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getModel_Imports(), this.getImport(), null, "imports", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModel_Programs(), this.getProgram(), null, "programs", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModel_System(), this.getSystem(), null, "system", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -759,16 +818,22 @@ public class CommandLinePackageImpl extends EPackageImpl implements CommandLineP
 
     initEClass(functionEClass, Function.class, "Function", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getFunction_Name(), ecorePackage.getEString(), "name", null, 0, 1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFunction_PrintOutMode(), this.getPrintMode(), "printOutMode", null, 0, 1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getFunction_Desc(), this.getStringLiteral(), null, "desc", null, 0, 1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getFunction_Docurl(), this.getStringLiteral(), null, "docurl", null, 0, 1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getFunction_Input(), this.getDataDefinition(), null, "input", null, 0, -1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getFunction_Output(), this.getDataDefinition(), null, "output", null, 0, -1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFunction_Input(), this.getInputDataDefinition(), null, "input", null, 0, -1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFunction_Output(), this.getOutputDataDefinition(), null, "output", null, 0, -1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getFunction_OptionBlocks(), this.getOption(), null, "optionBlocks", null, 0, -1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(dataDefinitionEClass, DataDefinition.class, "DataDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDataDefinition_Input(), this.getParam(), null, "input", null, 0, 1, DataDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getDataDefinition_Type(), this.getDataType(), "type", null, 0, 1, DataDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDataDefinition_Doc(), this.getStringLiteral(), null, "doc", null, 0, 1, DataDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(inputDataDefinitionEClass, InputDataDefinition.class, "InputDataDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getInputDataDefinition_Input(), this.getParam(), null, "input", null, 0, 1, InputDataDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getInputDataDefinition_Type(), this.getInputDataType(), "type", null, 0, 1, InputDataDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getInputDataDefinition_Doc(), this.getStringLiteral(), null, "doc", null, 0, 1, InputDataDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(outputDataDefinitionEClass, OutputDataDefinition.class, "OutputDataDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getOutputDataDefinition_Input(), this.getParam(), null, "input", null, 0, 1, OutputDataDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getOutputDataDefinition_Type(), this.getOutputDataType(), "type", null, 0, 1, OutputDataDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getOutputDataDefinition_Doc(), this.getStringLiteral(), null, "doc", null, 0, 1, OutputDataDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(optionEClass, Option.class, "Option", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getOption_Param(), this.getExpression(), null, "param", null, 0, 1, Option.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -785,20 +850,23 @@ public class CommandLinePackageImpl extends EPackageImpl implements CommandLineP
     initEClass(doubleLiteralEClass, DoubleLiteral.class, "DoubleLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDoubleLiteral_Value(), ecorePackage.getEInt(), "value", null, 0, 1, DoubleLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(importEClass, Import.class, "Import", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getImport_ImportURI(), ecorePackage.getEString(), "importURI", null, 0, 1, Import.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
     initEClass(concatenationEClass, Concatenation.class, "Concatenation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getConcatenation_Left(), this.getExpression(), null, "left", null, 0, 1, Concatenation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getConcatenation_Right(), this.getExpression(), null, "right", null, 0, 1, Concatenation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Initialize enums and add enum literals
-    initEEnum(dataTypeEEnum, DataType.class, "DataType");
-    addEEnumLiteral(dataTypeEEnum, DataType.STRING);
-    addEEnumLiteral(dataTypeEEnum, DataType.URL);
-    addEEnumLiteral(dataTypeEEnum, DataType.DATA);
-    addEEnumLiteral(dataTypeEEnum, DataType.PATH);
-    addEEnumLiteral(dataTypeEEnum, DataType.FOLDERPATH);
+    initEEnum(printModeEEnum, PrintMode.class, "PrintMode");
+    addEEnumLiteral(printModeEEnum, PrintMode.STDOUT);
+    addEEnumLiteral(printModeEEnum, PrintMode.STDERR);
+    addEEnumLiteral(printModeEEnum, PrintMode.BOTH);
+
+    initEEnum(inputDataTypeEEnum, InputDataType.class, "InputDataType");
+    addEEnumLiteral(inputDataTypeEEnum, InputDataType.STRING);
+    addEEnumLiteral(inputDataTypeEEnum, InputDataType.PATH);
+
+    initEEnum(outputDataTypeEEnum, OutputDataType.class, "OutputDataType");
+    addEEnumLiteral(outputDataTypeEEnum, OutputDataType.PATH);
+    addEEnumLiteral(outputDataTypeEEnum, OutputDataType.FOLDERPATH);
 
     // Create resource
     createResource(eNS_URI);

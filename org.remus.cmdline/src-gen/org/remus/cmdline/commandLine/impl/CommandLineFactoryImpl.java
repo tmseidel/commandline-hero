@@ -14,16 +14,18 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.remus.cmdline.commandLine.CommandLineFactory;
 import org.remus.cmdline.commandLine.CommandLinePackage;
 import org.remus.cmdline.commandLine.Concatenation;
-import org.remus.cmdline.commandLine.DataDefinition;
-import org.remus.cmdline.commandLine.DataType;
 import org.remus.cmdline.commandLine.DoubleLiteral;
 import org.remus.cmdline.commandLine.Expression;
 import org.remus.cmdline.commandLine.Function;
-import org.remus.cmdline.commandLine.Import;
+import org.remus.cmdline.commandLine.InputDataDefinition;
+import org.remus.cmdline.commandLine.InputDataType;
 import org.remus.cmdline.commandLine.IntegerLiteral;
 import org.remus.cmdline.commandLine.Model;
 import org.remus.cmdline.commandLine.Option;
+import org.remus.cmdline.commandLine.OutputDataDefinition;
+import org.remus.cmdline.commandLine.OutputDataType;
 import org.remus.cmdline.commandLine.Param;
+import org.remus.cmdline.commandLine.PrintMode;
 import org.remus.cmdline.commandLine.Program;
 import org.remus.cmdline.commandLine.StringLiteral;
 
@@ -84,13 +86,13 @@ public class CommandLineFactoryImpl extends EFactoryImpl implements CommandLineF
       case CommandLinePackage.PROGRAM: return createProgram();
       case CommandLinePackage.PARAM: return createParam();
       case CommandLinePackage.FUNCTION: return createFunction();
-      case CommandLinePackage.DATA_DEFINITION: return createDataDefinition();
+      case CommandLinePackage.INPUT_DATA_DEFINITION: return createInputDataDefinition();
+      case CommandLinePackage.OUTPUT_DATA_DEFINITION: return createOutputDataDefinition();
       case CommandLinePackage.OPTION: return createOption();
       case CommandLinePackage.EXPRESSION: return createExpression();
       case CommandLinePackage.STRING_LITERAL: return createStringLiteral();
       case CommandLinePackage.INTEGER_LITERAL: return createIntegerLiteral();
       case CommandLinePackage.DOUBLE_LITERAL: return createDoubleLiteral();
-      case CommandLinePackage.IMPORT: return createImport();
       case CommandLinePackage.CONCATENATION: return createConcatenation();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -107,8 +109,12 @@ public class CommandLineFactoryImpl extends EFactoryImpl implements CommandLineF
   {
     switch (eDataType.getClassifierID())
     {
-      case CommandLinePackage.DATA_TYPE:
-        return createDataTypeFromString(eDataType, initialValue);
+      case CommandLinePackage.PRINT_MODE:
+        return createPrintModeFromString(eDataType, initialValue);
+      case CommandLinePackage.INPUT_DATA_TYPE:
+        return createInputDataTypeFromString(eDataType, initialValue);
+      case CommandLinePackage.OUTPUT_DATA_TYPE:
+        return createOutputDataTypeFromString(eDataType, initialValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -124,8 +130,12 @@ public class CommandLineFactoryImpl extends EFactoryImpl implements CommandLineF
   {
     switch (eDataType.getClassifierID())
     {
-      case CommandLinePackage.DATA_TYPE:
-        return convertDataTypeToString(eDataType, instanceValue);
+      case CommandLinePackage.PRINT_MODE:
+        return convertPrintModeToString(eDataType, instanceValue);
+      case CommandLinePackage.INPUT_DATA_TYPE:
+        return convertInputDataTypeToString(eDataType, instanceValue);
+      case CommandLinePackage.OUTPUT_DATA_TYPE:
+        return convertOutputDataTypeToString(eDataType, instanceValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -191,10 +201,21 @@ public class CommandLineFactoryImpl extends EFactoryImpl implements CommandLineF
    * <!-- end-user-doc -->
    * @generated
    */
-  public DataDefinition createDataDefinition()
+  public InputDataDefinition createInputDataDefinition()
   {
-    DataDefinitionImpl dataDefinition = new DataDefinitionImpl();
-    return dataDefinition;
+    InputDataDefinitionImpl inputDataDefinition = new InputDataDefinitionImpl();
+    return inputDataDefinition;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public OutputDataDefinition createOutputDataDefinition()
+  {
+    OutputDataDefinitionImpl outputDataDefinition = new OutputDataDefinitionImpl();
+    return outputDataDefinition;
   }
 
   /**
@@ -257,17 +278,6 @@ public class CommandLineFactoryImpl extends EFactoryImpl implements CommandLineF
    * <!-- end-user-doc -->
    * @generated
    */
-  public Import createImport()
-  {
-    ImportImpl import_ = new ImportImpl();
-    return import_;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public Concatenation createConcatenation()
   {
     ConcatenationImpl concatenation = new ConcatenationImpl();
@@ -279,9 +289,9 @@ public class CommandLineFactoryImpl extends EFactoryImpl implements CommandLineF
    * <!-- end-user-doc -->
    * @generated
    */
-  public DataType createDataTypeFromString(EDataType eDataType, String initialValue)
+  public PrintMode createPrintModeFromString(EDataType eDataType, String initialValue)
   {
-    DataType result = DataType.get(initialValue);
+    PrintMode result = PrintMode.get(initialValue);
     if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
     return result;
   }
@@ -291,7 +301,51 @@ public class CommandLineFactoryImpl extends EFactoryImpl implements CommandLineF
    * <!-- end-user-doc -->
    * @generated
    */
-  public String convertDataTypeToString(EDataType eDataType, Object instanceValue)
+  public String convertPrintModeToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public InputDataType createInputDataTypeFromString(EDataType eDataType, String initialValue)
+  {
+    InputDataType result = InputDataType.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertInputDataTypeToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public OutputDataType createOutputDataTypeFromString(EDataType eDataType, String initialValue)
+  {
+    OutputDataType result = OutputDataType.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertOutputDataTypeToString(EDataType eDataType, Object instanceValue)
   {
     return instanceValue == null ? null : instanceValue.toString();
   }

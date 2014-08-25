@@ -11,14 +11,14 @@ import org.eclipse.emf.ecore.EObject;
 
 import org.remus.cmdline.commandLine.CommandLinePackage;
 import org.remus.cmdline.commandLine.Concatenation;
-import org.remus.cmdline.commandLine.DataDefinition;
 import org.remus.cmdline.commandLine.DoubleLiteral;
 import org.remus.cmdline.commandLine.Expression;
 import org.remus.cmdline.commandLine.Function;
-import org.remus.cmdline.commandLine.Import;
+import org.remus.cmdline.commandLine.InputDataDefinition;
 import org.remus.cmdline.commandLine.IntegerLiteral;
 import org.remus.cmdline.commandLine.Model;
 import org.remus.cmdline.commandLine.Option;
+import org.remus.cmdline.commandLine.OutputDataDefinition;
 import org.remus.cmdline.commandLine.Param;
 import org.remus.cmdline.commandLine.Program;
 import org.remus.cmdline.commandLine.StringLiteral;
@@ -112,9 +112,14 @@ public class CommandLineAdapterFactory extends AdapterFactoryImpl
         return createFunctionAdapter();
       }
       @Override
-      public Adapter caseDataDefinition(DataDefinition object)
+      public Adapter caseInputDataDefinition(InputDataDefinition object)
       {
-        return createDataDefinitionAdapter();
+        return createInputDataDefinitionAdapter();
+      }
+      @Override
+      public Adapter caseOutputDataDefinition(OutputDataDefinition object)
+      {
+        return createOutputDataDefinitionAdapter();
       }
       @Override
       public Adapter caseOption(Option object)
@@ -140,11 +145,6 @@ public class CommandLineAdapterFactory extends AdapterFactoryImpl
       public Adapter caseDoubleLiteral(DoubleLiteral object)
       {
         return createDoubleLiteralAdapter();
-      }
-      @Override
-      public Adapter caseImport(Import object)
-      {
-        return createImportAdapter();
       }
       @Override
       public Adapter caseConcatenation(Concatenation object)
@@ -249,16 +249,31 @@ public class CommandLineAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.remus.cmdline.commandLine.DataDefinition <em>Data Definition</em>}'.
+   * Creates a new adapter for an object of class '{@link org.remus.cmdline.commandLine.InputDataDefinition <em>Input Data Definition</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.remus.cmdline.commandLine.DataDefinition
+   * @see org.remus.cmdline.commandLine.InputDataDefinition
    * @generated
    */
-  public Adapter createDataDefinitionAdapter()
+  public Adapter createInputDataDefinitionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.remus.cmdline.commandLine.OutputDataDefinition <em>Output Data Definition</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.remus.cmdline.commandLine.OutputDataDefinition
+   * @generated
+   */
+  public Adapter createOutputDataDefinitionAdapter()
   {
     return null;
   }
@@ -334,21 +349,6 @@ public class CommandLineAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createDoubleLiteralAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.remus.cmdline.commandLine.Import <em>Import</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.remus.cmdline.commandLine.Import
-   * @generated
-   */
-  public Adapter createImportAdapter()
   {
     return null;
   }

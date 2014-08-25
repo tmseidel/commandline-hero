@@ -4,7 +4,7 @@ generate commandLine "http://www.remus-software.org/cmdline/1.0"
 
 
 Model:
-	(imports+=Import)* // allow imports
+	
 	(programs=Program)?
 	(system=System)?
 	
@@ -32,27 +32,37 @@ Param:
 ;
 
 Function:
-	'def' name=ID '{'
+	'def' name=ID ('with ' printOutMode=PrintMode)?'{'
 		('desc ->' desc=StringLiteral)?
 		('docurl ->' docurl=StringLiteral)?
-		('input' input+=DataDefinition)*
-		('output ' output+=DataDefinition)+
+		('input' input+=InputDataDefinition)*
+		('output ' output+=OutputDataDefinition)*
 		('* ' optionBlocks+=Option)*
 	'}'
 ;
 
 
-DataDefinition:
-	{DataDefinition}
-	input=Param 'AS' type=DataType ('doc -> ' doc=StringLiteral)?
+InputDataDefinition:
+	{InputDataDefinition}
+	input=Param 'as' type=InputDataType ('doc -> ' doc=StringLiteral)?
+;
+OutputDataDefinition:
+	{OutputDataDefinition}
+	input=Param 'as' type=OutputDataType ('doc -> ' doc=StringLiteral)?
 ;
 
-enum DataType:
+
+enum PrintMode:
+	STDOUT = "STDOUT"| STDERR = "STDERR"| BOTH = "BOTH"
+;
+
+enum InputDataType:
 	STRING='STRING' |
-	URL='URL' |
-	DATA='DATA'|
+	PATH='PATH'
+;
+enum OutputDataType:
 	PATH='PATH' |
-	FOLDERPATH = "FOLDERPATH"
+	FOLDERPATH = "FOLDERPATH" 
 ;
 
 Option:
@@ -72,8 +82,7 @@ IntegerLiteral:
 DoubleLiteral:
 	value=INT'.'INT;
 
-Import : 
-  'import' importURI=STRING;
+
   
 QualifiedName:
   ValidID ('.' ValidID)*;

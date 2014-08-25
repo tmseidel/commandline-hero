@@ -9,14 +9,16 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IFileSystemAccess
 import org.eclipse.xtext.generator.IGenerator
 import org.remus.cmdline.commandLine.Concatenation
-import org.remus.cmdline.commandLine.DataDefinition
-import org.remus.cmdline.commandLine.DataType
 import org.remus.cmdline.commandLine.Expression
 import org.remus.cmdline.commandLine.Function
+import org.remus.cmdline.commandLine.InputDataDefinition
+import org.remus.cmdline.commandLine.InputDataType
 import org.remus.cmdline.commandLine.IntegerLiteral
+import org.remus.cmdline.commandLine.OutputDataDefinition
 import org.remus.cmdline.commandLine.Program
 import org.remus.cmdline.commandLine.StringLiteral
 import org.remus.cmdline.commandLine.System
+import org.eclipse.emf.ecore.EObject
 
 /**
  * Generates code from your model files on save.
@@ -299,10 +301,10 @@ def jsp(Function function) {
 							<div>
 								«FOR m:function.input»
 									<div>
-										  <label for="«m.input.name»">«IF m.doc != null»«m.doc.value»«ELSE»«m.input.name»«ENDIF»</label>&nbsp;<input class='fileInput' type="«IF m.type == DataType.PATH»file«ELSEIF  m.type == DataType.STRING || m.type == DataType.URL»text«ENDIF»" name="«m.input.name»"  />
+										  <label for="«m.input.name»">«IF m.doc != null»«m.doc.value»«ELSE»«m.input.name»«ENDIF»</label>&nbsp;<input class='fileInput' type="«IF m.type == InputDataType.PATH»file«ELSEIF  m.type == InputDataType.STRING»text«ENDIF»" name="«m.input.name»"  />
 	   								</div>
 								«ENDFOR»
-								«FOR m:function.output.filter[type == DataType.PATH]»
+								«FOR m:function.output.filter[type == InputDataType.PATH]»
 									<div>
 										  <label for="«m.input.name»">«IF m.doc != null»«m.doc.value»«ELSE»«m.input.name»«ENDIF»</label>&nbsp;<input class='fileInput' type="text" name="«m.input.name»"  />
 	   								</div>
@@ -367,6 +369,7 @@ import org.remus.cmdlinehero.base.ExecutionInstruction;
 import org.remus.cmdlinehero.data.Meta;
 import org.remus.cmdlinehero.data.ParamDataType;
 import org.remus.cmdlinehero.data.ParamType;
+import org.remus.cmdlinehero.data.PrintMode;
 import org.remus.cmdlinehero.data.ResultDataElement;
 
 
@@ -397,6 +400,7 @@ public class «javaName(function)» extends ExecutionInstruction {
 		«FOR m:function.output»
 		meta.addOutputParameter("«m.input.name»","«m.doc.escape»");
 		«ENDFOR»
+		meta.setMode(PrintMode.«function.printOutMode»);
 	}
 		
 	
@@ -488,7 +492,7 @@ public class «javaName(function)» extends ExecutionInstruction {
 		'''
 	}
 
-def inputCheck(DataDefinition definition) {
+def inputCheck(InputDataDefinition definition) {
 		'''
 		
 		valid &= checkArgument(arguments.get("«definition.input.name»"), ParamDataType.«definition.type.literal»,
@@ -498,7 +502,7 @@ def inputCheck(DataDefinition definition) {
 		}
 		'''
 	}
-def outputCheck(DataDefinition definition) {
+def outputCheck(OutputDataDefinition definition) {
 		'''
 		valid &= checkArgument(arguments.get("«definition.input.name»"), ParamDataType.«definition.type.literal»,
 				ParamType.OUTPUT);
@@ -509,12 +513,29 @@ def outputCheck(DataDefinition definition) {
 	}
 
 def argumentsList(Function function, boolean datatype) {
-	val list = new ArrayList(function.input)
-	list.addAll(function.output) 
+	val list = new ArrayList<EObject>();
+	list.addAll(function.input);
+	list.addAll(function.output); 
 	'''
 		«FOR param : list SEPARATOR ','»
-			«IF datatype»final String «ENDIF»«(param as DataDefinition).input.name»
+			«switch param {
+				InputDataDefinition: { generateSingleElement(param as InputDataDefinition, datatype)}
+				OutputDataDefinition: { generateSingleElement(param as OutputDataDefinition, datatype)}
+		    }»
+			
+			
 		«ENDFOR»
+	'''
+	}
+
+def generateSingleElement(InputDataDefinition param,boolean datatype) {
+	'''
+	«IF datatype»final String «ENDIF»«param.input.name»
+	'''
+	}
+def generateSingleElement(OutputDataDefinition param,boolean datatype) {
+	'''
+	«IF datatype»final String «ENDIF»«param.input.name»
 	'''
 	}
 	

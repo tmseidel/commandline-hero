@@ -6,6 +6,7 @@ package org.remus.cmdlinehero.controller.data;
 import java.util.Date;
 import java.util.Map;
 
+import org.remus.cmdlinehero.data.PrintMode;
 import org.remus.cmdlinehero.service.JobStatus;
 
 /**
@@ -27,6 +28,12 @@ public class JobInfo {
 	private Map<String, String> inputs;
 
 	private JobExecutionStatus executionResult;
+
+	private PrintMode printMode;
+
+	private String sdtErr;
+
+	private String stdOut;
 
 	private String metaId;
 
@@ -92,6 +99,30 @@ public class JobInfo {
 
 	public void setMetaId(final String metaId) {
 		this.metaId = metaId;
+	}
+
+	public String getStdOut() {
+		return stdOut;
+	}
+
+	public void setStdOut(final String stdOut) {
+		this.stdOut = stdOut;
+	}
+
+	public String getSdtErr() {
+		return sdtErr;
+	}
+
+	public void setSdtErr(final String sdtErr) {
+		this.sdtErr = sdtErr;
+	}
+
+	public PrintMode getPrintMode() {
+		return printMode;
+	}
+
+	public void setPrintMode(final PrintMode printMode) {
+		this.printMode = printMode;
 	}
 
 }

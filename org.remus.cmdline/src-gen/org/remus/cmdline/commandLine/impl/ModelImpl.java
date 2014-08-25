@@ -2,12 +2,8 @@
  */
 package org.remus.cmdline.commandLine.impl;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -15,11 +11,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
-
 import org.remus.cmdline.commandLine.CommandLinePackage;
-import org.remus.cmdline.commandLine.Import;
 import org.remus.cmdline.commandLine.Model;
 import org.remus.cmdline.commandLine.Program;
 
@@ -30,7 +22,6 @@ import org.remus.cmdline.commandLine.Program;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.remus.cmdline.commandLine.impl.ModelImpl#getImports <em>Imports</em>}</li>
  *   <li>{@link org.remus.cmdline.commandLine.impl.ModelImpl#getPrograms <em>Programs</em>}</li>
  *   <li>{@link org.remus.cmdline.commandLine.impl.ModelImpl#getSystem <em>System</em>}</li>
  * </ul>
@@ -40,16 +31,6 @@ import org.remus.cmdline.commandLine.Program;
  */
 public class ModelImpl extends MinimalEObjectImpl.Container implements Model
 {
-  /**
-   * The cached value of the '{@link #getImports() <em>Imports</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getImports()
-   * @generated
-   * @ordered
-   */
-  protected EList<Import> imports;
-
   /**
    * The cached value of the '{@link #getPrograms() <em>Programs</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -89,20 +70,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   protected EClass eStaticClass()
   {
     return CommandLinePackage.Literals.MODEL;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<Import> getImports()
-  {
-    if (imports == null)
-    {
-      imports = new EObjectContainmentEList<Import>(Import.class, this, CommandLinePackage.MODEL__IMPORTS);
-    }
-    return imports;
   }
 
   /**
@@ -211,8 +178,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case CommandLinePackage.MODEL__IMPORTS:
-        return ((InternalEList<?>)getImports()).basicRemove(otherEnd, msgs);
       case CommandLinePackage.MODEL__PROGRAMS:
         return basicSetPrograms(null, msgs);
       case CommandLinePackage.MODEL__SYSTEM:
@@ -231,8 +196,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case CommandLinePackage.MODEL__IMPORTS:
-        return getImports();
       case CommandLinePackage.MODEL__PROGRAMS:
         return getPrograms();
       case CommandLinePackage.MODEL__SYSTEM:
@@ -246,16 +209,11 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case CommandLinePackage.MODEL__IMPORTS:
-        getImports().clear();
-        getImports().addAll((Collection<? extends Import>)newValue);
-        return;
       case CommandLinePackage.MODEL__PROGRAMS:
         setPrograms((Program)newValue);
         return;
@@ -276,9 +234,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case CommandLinePackage.MODEL__IMPORTS:
-        getImports().clear();
-        return;
       case CommandLinePackage.MODEL__PROGRAMS:
         setPrograms((Program)null);
         return;
@@ -299,8 +254,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case CommandLinePackage.MODEL__IMPORTS:
-        return imports != null && !imports.isEmpty();
       case CommandLinePackage.MODEL__PROGRAMS:
         return programs != null;
       case CommandLinePackage.MODEL__SYSTEM:

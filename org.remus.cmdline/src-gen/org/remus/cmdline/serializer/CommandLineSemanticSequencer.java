@@ -15,14 +15,14 @@ import org.eclipse.xtext.serializer.sequencer.ITransientValueService;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import org.remus.cmdline.commandLine.CommandLinePackage;
 import org.remus.cmdline.commandLine.Concatenation;
-import org.remus.cmdline.commandLine.DataDefinition;
 import org.remus.cmdline.commandLine.DoubleLiteral;
 import org.remus.cmdline.commandLine.Expression;
 import org.remus.cmdline.commandLine.Function;
-import org.remus.cmdline.commandLine.Import;
+import org.remus.cmdline.commandLine.InputDataDefinition;
 import org.remus.cmdline.commandLine.IntegerLiteral;
 import org.remus.cmdline.commandLine.Model;
 import org.remus.cmdline.commandLine.Option;
+import org.remus.cmdline.commandLine.OutputDataDefinition;
 import org.remus.cmdline.commandLine.Param;
 import org.remus.cmdline.commandLine.Program;
 import org.remus.cmdline.commandLine.StringLiteral;
@@ -40,12 +40,6 @@ public class CommandLineSemanticSequencer extends AbstractDelegatingSemanticSequ
 				if(context == grammarAccess.getConcatExpressionRule() ||
 				   context == grammarAccess.getConcatExpressionAccess().getConcatenationLeftAction_1_0()) {
 					sequence_ConcatExpression(context, (Concatenation) semanticObject); 
-					return; 
-				}
-				else break;
-			case CommandLinePackage.DATA_DEFINITION:
-				if(context == grammarAccess.getDataDefinitionRule()) {
-					sequence_DataDefinition(context, (DataDefinition) semanticObject); 
 					return; 
 				}
 				else break;
@@ -72,9 +66,9 @@ public class CommandLineSemanticSequencer extends AbstractDelegatingSemanticSequ
 					return; 
 				}
 				else break;
-			case CommandLinePackage.IMPORT:
-				if(context == grammarAccess.getImportRule()) {
-					sequence_Import(context, (Import) semanticObject); 
+			case CommandLinePackage.INPUT_DATA_DEFINITION:
+				if(context == grammarAccess.getInputDataDefinitionRule()) {
+					sequence_InputDataDefinition(context, (InputDataDefinition) semanticObject); 
 					return; 
 				}
 				else break;
@@ -96,6 +90,12 @@ public class CommandLineSemanticSequencer extends AbstractDelegatingSemanticSequ
 			case CommandLinePackage.OPTION:
 				if(context == grammarAccess.getOptionRule()) {
 					sequence_Option(context, (Option) semanticObject); 
+					return; 
+				}
+				else break;
+			case CommandLinePackage.OUTPUT_DATA_DEFINITION:
+				if(context == grammarAccess.getOutputDataDefinitionRule()) {
+					sequence_OutputDataDefinition(context, (OutputDataDefinition) semanticObject); 
 					return; 
 				}
 				else break;
@@ -141,15 +141,6 @@ public class CommandLineSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (input=Param type=DataType doc=StringLiteral?)
-	 */
-	protected void sequence_DataDefinition(EObject context, DataDefinition semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
 	 *     value=INT
 	 */
 	protected void sequence_DoubleLiteral(EObject context, DoubleLiteral semanticObject) {
@@ -161,10 +152,11 @@ public class CommandLineSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 * Constraint:
 	 *     (
 	 *         name=ID 
+	 *         printOutMode=PrintMode? 
 	 *         desc=StringLiteral? 
 	 *         docurl=StringLiteral? 
-	 *         input+=DataDefinition* 
-	 *         output+=DataDefinition+ 
+	 *         input+=InputDataDefinition* 
+	 *         output+=OutputDataDefinition* 
 	 *         optionBlocks+=Option*
 	 *     )
 	 */
@@ -175,17 +167,10 @@ public class CommandLineSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     importURI=STRING
+	 *     (input=Param type=InputDataType doc=StringLiteral?)
 	 */
-	protected void sequence_Import(EObject context, Import semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, CommandLinePackage.Literals.IMPORT__IMPORT_URI) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CommandLinePackage.Literals.IMPORT__IMPORT_URI));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getImportAccess().getImportURISTRINGTerminalRuleCall_1_0(), semanticObject.getImportURI());
-		feeder.finish();
+	protected void sequence_InputDataDefinition(EObject context, InputDataDefinition semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -200,7 +185,7 @@ public class CommandLineSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (imports+=Import* programs=Program? system=System?)
+	 *     (programs=Program? system=System?)
 	 */
 	protected void sequence_Model(EObject context, Model semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -220,6 +205,15 @@ public class CommandLineSemanticSequencer extends AbstractDelegatingSemanticSequ
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getOptionAccess().getParamConcatExpressionParserRuleCall_0(), semanticObject.getParam());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (input=Param type=OutputDataType doc=StringLiteral?)
+	 */
+	protected void sequence_OutputDataDefinition(EObject context, OutputDataDefinition semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

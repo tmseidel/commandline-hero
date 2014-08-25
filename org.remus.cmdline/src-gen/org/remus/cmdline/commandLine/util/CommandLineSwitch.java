@@ -9,14 +9,14 @@ import org.eclipse.emf.ecore.util.Switch;
 
 import org.remus.cmdline.commandLine.CommandLinePackage;
 import org.remus.cmdline.commandLine.Concatenation;
-import org.remus.cmdline.commandLine.DataDefinition;
 import org.remus.cmdline.commandLine.DoubleLiteral;
 import org.remus.cmdline.commandLine.Expression;
 import org.remus.cmdline.commandLine.Function;
-import org.remus.cmdline.commandLine.Import;
+import org.remus.cmdline.commandLine.InputDataDefinition;
 import org.remus.cmdline.commandLine.IntegerLiteral;
 import org.remus.cmdline.commandLine.Model;
 import org.remus.cmdline.commandLine.Option;
+import org.remus.cmdline.commandLine.OutputDataDefinition;
 import org.remus.cmdline.commandLine.Param;
 import org.remus.cmdline.commandLine.Program;
 import org.remus.cmdline.commandLine.StringLiteral;
@@ -119,10 +119,17 @@ public class CommandLineSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case CommandLinePackage.DATA_DEFINITION:
+      case CommandLinePackage.INPUT_DATA_DEFINITION:
       {
-        DataDefinition dataDefinition = (DataDefinition)theEObject;
-        T result = caseDataDefinition(dataDefinition);
+        InputDataDefinition inputDataDefinition = (InputDataDefinition)theEObject;
+        T result = caseInputDataDefinition(inputDataDefinition);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case CommandLinePackage.OUTPUT_DATA_DEFINITION:
+      {
+        OutputDataDefinition outputDataDefinition = (OutputDataDefinition)theEObject;
+        T result = caseOutputDataDefinition(outputDataDefinition);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -161,13 +168,6 @@ public class CommandLineSwitch<T> extends Switch<T>
         DoubleLiteral doubleLiteral = (DoubleLiteral)theEObject;
         T result = caseDoubleLiteral(doubleLiteral);
         if (result == null) result = caseExpression(doubleLiteral);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case CommandLinePackage.IMPORT:
-      {
-        Import import_ = (Import)theEObject;
-        T result = caseImport(import_);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -264,17 +264,33 @@ public class CommandLineSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Data Definition</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Input Data Definition</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Data Definition</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Input Data Definition</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseDataDefinition(DataDefinition object)
+  public T caseInputDataDefinition(InputDataDefinition object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Output Data Definition</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Output Data Definition</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseOutputDataDefinition(OutputDataDefinition object)
   {
     return null;
   }
@@ -355,22 +371,6 @@ public class CommandLineSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseDoubleLiteral(DoubleLiteral object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Import</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Import</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseImport(Import object)
   {
     return null;
   }

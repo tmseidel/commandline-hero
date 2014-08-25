@@ -19,6 +19,7 @@ package org.remus.cmdlinehero.base;
 
 import java.io.IOException;
 import java.io.OutputStream;
+import java.io.StringWriter;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -34,9 +35,27 @@ public abstract class ExecutionInstruction implements Runnable {
 
 	private final Logger LOGGER = Logger.getLogger(ExecutionInstruction.class);
 
-	private OutputStream processStream = System.out;
+	private final StringWriter processString = new StringWriter();
 
-	private OutputStream errorStream = System.err;
+	private final StringWriter errorString = new StringWriter();
+
+	private final OutputStream processStream = new OutputStream() {
+
+		@Override
+		public void write(final int b) throws IOException {
+			processString.append((char) b);
+			System.out.write(b);
+		}
+	};
+
+	private OutputStream errorStream = new OutputStream() {
+
+		@Override
+		public void write(final int b) throws IOException {
+			errorString.append((char) b);
+			System.out.write(b);
+		}
+	};
 
 	protected final Arguments arguments;
 
@@ -65,6 +84,7 @@ public abstract class ExecutionInstruction implements Runnable {
 		return true;
 	}
 
+	@Override
 	public void run() {
 		final boolean argumentsValid = checkInputArgumentsBeforeExecution();
 		executionStatus = Status.OK_STATUS;
@@ -90,8 +110,12 @@ public abstract class ExecutionInstruction implements Runnable {
 		return processStream;
 	}
 
-	public void setProcessStream(final OutputStream processStream) {
-		this.processStream = processStream;
+	public StringWriter getProcessString() {
+		return processString;
+	}
+
+	public StringWriter getErrorString() {
+		return errorString;
 	}
 
 	public OutputStream getErrorStream() {

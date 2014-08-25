@@ -7,15 +7,20 @@
     editorPluginID="org.remus.cmdline.editor" runtimeVersion="2.9">
   <genPackages prefix="CommandLine" basePackage="org.remus.cmdline" disposableProviderFactory="true"
       fileExtensions="cmdline" ecorePackage="CommandLine.ecore#/">
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="CommandLine.ecore#//DataType">
-      <genEnumLiterals ecoreEnumLiteral="CommandLine.ecore#//DataType/STRING"/>
-      <genEnumLiterals ecoreEnumLiteral="CommandLine.ecore#//DataType/URL"/>
-      <genEnumLiterals ecoreEnumLiteral="CommandLine.ecore#//DataType/DATA"/>
-      <genEnumLiterals ecoreEnumLiteral="CommandLine.ecore#//DataType/PATH"/>
-      <genEnumLiterals ecoreEnumLiteral="CommandLine.ecore#//DataType/FOLDERPATH"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="CommandLine.ecore#//PrintMode">
+      <genEnumLiterals ecoreEnumLiteral="CommandLine.ecore#//PrintMode/STDOUT"/>
+      <genEnumLiterals ecoreEnumLiteral="CommandLine.ecore#//PrintMode/STDERR"/>
+      <genEnumLiterals ecoreEnumLiteral="CommandLine.ecore#//PrintMode/BOTH"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="CommandLine.ecore#//InputDataType">
+      <genEnumLiterals ecoreEnumLiteral="CommandLine.ecore#//InputDataType/STRING"/>
+      <genEnumLiterals ecoreEnumLiteral="CommandLine.ecore#//InputDataType/PATH"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="CommandLine.ecore#//OutputDataType">
+      <genEnumLiterals ecoreEnumLiteral="CommandLine.ecore#//OutputDataType/PATH"/>
+      <genEnumLiterals ecoreEnumLiteral="CommandLine.ecore#//OutputDataType/FOLDERPATH"/>
     </genEnums>
     <genClasses ecoreClass="CommandLine.ecore#//Model">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CommandLine.ecore#//Model/imports"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CommandLine.ecore#//Model/programs"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CommandLine.ecore#//Model/system"/>
     </genClasses>
@@ -35,16 +40,22 @@
     </genClasses>
     <genClasses ecoreClass="CommandLine.ecore#//Function">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CommandLine.ecore#//Function/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CommandLine.ecore#//Function/printOutMode"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CommandLine.ecore#//Function/desc"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CommandLine.ecore#//Function/docurl"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CommandLine.ecore#//Function/input"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CommandLine.ecore#//Function/output"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CommandLine.ecore#//Function/optionBlocks"/>
     </genClasses>
-    <genClasses ecoreClass="CommandLine.ecore#//DataDefinition">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CommandLine.ecore#//DataDefinition/input"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CommandLine.ecore#//DataDefinition/type"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CommandLine.ecore#//DataDefinition/doc"/>
+    <genClasses ecoreClass="CommandLine.ecore#//InputDataDefinition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CommandLine.ecore#//InputDataDefinition/input"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CommandLine.ecore#//InputDataDefinition/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CommandLine.ecore#//InputDataDefinition/doc"/>
+    </genClasses>
+    <genClasses ecoreClass="CommandLine.ecore#//OutputDataDefinition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CommandLine.ecore#//OutputDataDefinition/input"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CommandLine.ecore#//OutputDataDefinition/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CommandLine.ecore#//OutputDataDefinition/doc"/>
     </genClasses>
     <genClasses ecoreClass="CommandLine.ecore#//Option">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CommandLine.ecore#//Option/param"/>
@@ -60,9 +71,6 @@
     </genClasses>
     <genClasses ecoreClass="CommandLine.ecore#//DoubleLiteral">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CommandLine.ecore#//DoubleLiteral/value"/>
-    </genClasses>
-    <genClasses ecoreClass="CommandLine.ecore#//Import">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CommandLine.ecore#//Import/importURI"/>
     </genClasses>
     <genClasses ecoreClass="CommandLine.ecore#//Concatenation">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CommandLine.ecore#//Concatenation/left"/>

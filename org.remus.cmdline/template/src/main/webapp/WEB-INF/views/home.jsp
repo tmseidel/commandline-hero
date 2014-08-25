@@ -73,13 +73,19 @@
 									<h4>${job.metaId} - ${job.finishedDate}</h4>
 									<ul class="input-list">
 										<c:forEach items="${job.inputs}" var="element">
-										<li>${element.key}: ${element.value}</li>
+										<li>${element.key}: <c:out value="${element.value}" /></li>
 										</c:forEach>
 										<c:forEach items="${job.outputs}" var="element">
 										<li>Results: <a href="${element.value }">${element.key}</a></li>
 										</c:forEach>
+										<c:if test="${job.printMode eq 'STDOUT' ||  job.printMode eq 'BOTH'}">
+										<li><c:out value="${job.stdOut}" /></li>
+										</c:if>
+										<c:if test="${job.printMode eq 'STDERR' ||  job.printMode eq 'BOTH'}">
+										<li style="color:red;"><c:out value="${job.stdErr}" /></li>
+										</c:if>
 										<c:if test="${job.executionResult.returnCode > 0}">
-										<li style="color:red;">${job.executionResult.description}</li>
+										<li style="color:red;"><c:out value="${job.executionResult.description}" /></li>
 										</c:if>
 									</ul>
 								</li>
@@ -108,6 +114,8 @@
 										<c:forEach items="${job.outputs.entrySet}" var="element">
 										<li>Results: <a href="${element.value }">${element.key}</a></li>
 										</c:forEach>
+										<li><c:out value="${job.stdOut}" /></li>
+										<li style="color:red;"><c:out value="${job.stdErr}" /></li>
 									</ul>
 								</li>
 								</c:forEach>

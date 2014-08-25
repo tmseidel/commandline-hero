@@ -19,9 +19,11 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.remus.cmdline.commandLine.CommandLinePackage;
-import org.remus.cmdline.commandLine.DataDefinition;
 import org.remus.cmdline.commandLine.Function;
+import org.remus.cmdline.commandLine.InputDataDefinition;
 import org.remus.cmdline.commandLine.Option;
+import org.remus.cmdline.commandLine.OutputDataDefinition;
+import org.remus.cmdline.commandLine.PrintMode;
 import org.remus.cmdline.commandLine.StringLiteral;
 
 /**
@@ -32,6 +34,7 @@ import org.remus.cmdline.commandLine.StringLiteral;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.remus.cmdline.commandLine.impl.FunctionImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.remus.cmdline.commandLine.impl.FunctionImpl#getPrintOutMode <em>Print Out Mode</em>}</li>
  *   <li>{@link org.remus.cmdline.commandLine.impl.FunctionImpl#getDesc <em>Desc</em>}</li>
  *   <li>{@link org.remus.cmdline.commandLine.impl.FunctionImpl#getDocurl <em>Docurl</em>}</li>
  *   <li>{@link org.remus.cmdline.commandLine.impl.FunctionImpl#getInput <em>Input</em>}</li>
@@ -65,6 +68,26 @@ public class FunctionImpl extends MinimalEObjectImpl.Container implements Functi
   protected String name = NAME_EDEFAULT;
 
   /**
+   * The default value of the '{@link #getPrintOutMode() <em>Print Out Mode</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPrintOutMode()
+   * @generated
+   * @ordered
+   */
+  protected static final PrintMode PRINT_OUT_MODE_EDEFAULT = PrintMode.STDOUT;
+
+  /**
+   * The cached value of the '{@link #getPrintOutMode() <em>Print Out Mode</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPrintOutMode()
+   * @generated
+   * @ordered
+   */
+  protected PrintMode printOutMode = PRINT_OUT_MODE_EDEFAULT;
+
+  /**
    * The cached value of the '{@link #getDesc() <em>Desc</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -92,7 +115,7 @@ public class FunctionImpl extends MinimalEObjectImpl.Container implements Functi
    * @generated
    * @ordered
    */
-  protected EList<DataDefinition> input;
+  protected EList<InputDataDefinition> input;
 
   /**
    * The cached value of the '{@link #getOutput() <em>Output</em>}' containment reference list.
@@ -102,7 +125,7 @@ public class FunctionImpl extends MinimalEObjectImpl.Container implements Functi
    * @generated
    * @ordered
    */
-  protected EList<DataDefinition> output;
+  protected EList<OutputDataDefinition> output;
 
   /**
    * The cached value of the '{@link #getOptionBlocks() <em>Option Blocks</em>}' containment reference list.
@@ -156,6 +179,29 @@ public class FunctionImpl extends MinimalEObjectImpl.Container implements Functi
     name = newName;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, CommandLinePackage.FUNCTION__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PrintMode getPrintOutMode()
+  {
+    return printOutMode;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setPrintOutMode(PrintMode newPrintOutMode)
+  {
+    PrintMode oldPrintOutMode = printOutMode;
+    printOutMode = newPrintOutMode == null ? PRINT_OUT_MODE_EDEFAULT : newPrintOutMode;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, CommandLinePackage.FUNCTION__PRINT_OUT_MODE, oldPrintOutMode, printOutMode));
   }
 
   /**
@@ -259,11 +305,11 @@ public class FunctionImpl extends MinimalEObjectImpl.Container implements Functi
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<DataDefinition> getInput()
+  public EList<InputDataDefinition> getInput()
   {
     if (input == null)
     {
-      input = new EObjectContainmentEList<DataDefinition>(DataDefinition.class, this, CommandLinePackage.FUNCTION__INPUT);
+      input = new EObjectContainmentEList<InputDataDefinition>(InputDataDefinition.class, this, CommandLinePackage.FUNCTION__INPUT);
     }
     return input;
   }
@@ -273,11 +319,11 @@ public class FunctionImpl extends MinimalEObjectImpl.Container implements Functi
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<DataDefinition> getOutput()
+  public EList<OutputDataDefinition> getOutput()
   {
     if (output == null)
     {
-      output = new EObjectContainmentEList<DataDefinition>(DataDefinition.class, this, CommandLinePackage.FUNCTION__OUTPUT);
+      output = new EObjectContainmentEList<OutputDataDefinition>(OutputDataDefinition.class, this, CommandLinePackage.FUNCTION__OUTPUT);
     }
     return output;
   }
@@ -332,6 +378,8 @@ public class FunctionImpl extends MinimalEObjectImpl.Container implements Functi
     {
       case CommandLinePackage.FUNCTION__NAME:
         return getName();
+      case CommandLinePackage.FUNCTION__PRINT_OUT_MODE:
+        return getPrintOutMode();
       case CommandLinePackage.FUNCTION__DESC:
         return getDesc();
       case CommandLinePackage.FUNCTION__DOCURL:
@@ -360,6 +408,9 @@ public class FunctionImpl extends MinimalEObjectImpl.Container implements Functi
       case CommandLinePackage.FUNCTION__NAME:
         setName((String)newValue);
         return;
+      case CommandLinePackage.FUNCTION__PRINT_OUT_MODE:
+        setPrintOutMode((PrintMode)newValue);
+        return;
       case CommandLinePackage.FUNCTION__DESC:
         setDesc((StringLiteral)newValue);
         return;
@@ -368,11 +419,11 @@ public class FunctionImpl extends MinimalEObjectImpl.Container implements Functi
         return;
       case CommandLinePackage.FUNCTION__INPUT:
         getInput().clear();
-        getInput().addAll((Collection<? extends DataDefinition>)newValue);
+        getInput().addAll((Collection<? extends InputDataDefinition>)newValue);
         return;
       case CommandLinePackage.FUNCTION__OUTPUT:
         getOutput().clear();
-        getOutput().addAll((Collection<? extends DataDefinition>)newValue);
+        getOutput().addAll((Collection<? extends OutputDataDefinition>)newValue);
         return;
       case CommandLinePackage.FUNCTION__OPTION_BLOCKS:
         getOptionBlocks().clear();
@@ -394,6 +445,9 @@ public class FunctionImpl extends MinimalEObjectImpl.Container implements Functi
     {
       case CommandLinePackage.FUNCTION__NAME:
         setName(NAME_EDEFAULT);
+        return;
+      case CommandLinePackage.FUNCTION__PRINT_OUT_MODE:
+        setPrintOutMode(PRINT_OUT_MODE_EDEFAULT);
         return;
       case CommandLinePackage.FUNCTION__DESC:
         setDesc((StringLiteral)null);
@@ -426,6 +480,8 @@ public class FunctionImpl extends MinimalEObjectImpl.Container implements Functi
     {
       case CommandLinePackage.FUNCTION__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case CommandLinePackage.FUNCTION__PRINT_OUT_MODE:
+        return printOutMode != PRINT_OUT_MODE_EDEFAULT;
       case CommandLinePackage.FUNCTION__DESC:
         return desc != null;
       case CommandLinePackage.FUNCTION__DOCURL:
@@ -453,6 +509,8 @@ public class FunctionImpl extends MinimalEObjectImpl.Container implements Functi
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
+    result.append(", printOutMode: ");
+    result.append(printOutMode);
     result.append(')');
     return result.toString();
   }

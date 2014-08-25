@@ -3,8 +3,6 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="commandLine" nsURI="http://www.remus-software.org/cmdline/1.0"
     nsPrefix="commandLine">
   <eClassifiers xsi:type="ecore:EClass" name="Model">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="imports" upperBound="-1"
-        eType="#//Import" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="programs" eType="#//Program"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="system" eType="#//System"
@@ -31,30 +29,44 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Function">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="printOutMode" eType="#//PrintMode"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="desc" eType="#//StringLiteral"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="docurl" eType="#//StringLiteral"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="input" upperBound="-1"
-        eType="#//DataDefinition" containment="true"/>
+        eType="#//InputDataDefinition" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="output" upperBound="-1"
-        eType="#//DataDefinition" containment="true"/>
+        eType="#//OutputDataDefinition" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="optionBlocks" upperBound="-1"
         eType="#//Option" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DataDefinition">
+  <eClassifiers xsi:type="ecore:EClass" name="InputDataDefinition">
     <eStructuralFeatures xsi:type="ecore:EReference" name="input" eType="#//Param"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//DataType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//InputDataType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="doc" eType="#//StringLiteral"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="DataType">
+  <eClassifiers xsi:type="ecore:EClass" name="OutputDataDefinition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="input" eType="#//Param"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//OutputDataType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="doc" eType="#//StringLiteral"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="PrintMode">
+    <eLiterals name="STDOUT" literal="STDOUT"/>
+    <eLiterals name="STDERR" value="1" literal="STDERR"/>
+    <eLiterals name="BOTH" value="2" literal="BOTH"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="InputDataType">
     <eLiterals name="STRING" literal="STRING"/>
-    <eLiterals name="URL" value="1" literal="URL"/>
-    <eLiterals name="DATA" value="2" literal="DATA"/>
-    <eLiterals name="PATH" value="3" literal="PATH"/>
-    <eLiterals name="FOLDERPATH" value="4" literal="FOLDERPATH"/>
+    <eLiterals name="PATH" value="1" literal="PATH"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="OutputDataType">
+    <eLiterals name="PATH" literal="PATH"/>
+    <eLiterals name="FOLDERPATH" value="1" literal="FOLDERPATH"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Option">
     <eStructuralFeatures xsi:type="ecore:EReference" name="param" eType="#//Expression"
@@ -71,9 +83,6 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DoubleLiteral" eSuperTypes="#//Expression">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Import">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="importURI" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Concatenation" eSuperTypes="#//Expression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Expression"
