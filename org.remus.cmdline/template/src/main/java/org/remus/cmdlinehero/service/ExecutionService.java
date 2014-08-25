@@ -292,9 +292,13 @@ public class ExecutionService {
 				&& info.getExecutionResult().getReturnCode() == IStatus.OK) {
 			info.setOutputs(buildOutputs(id2JobMap.get(info.getId()), request));
 		}
+
+	}
+
+	public void refreshStds(final JobInfo info) {
 		info.setStdOut(id2JobMap.get(info.getId()).getProcessString()
 				.toString());
-		info.setSdtErr(id2JobMap.get(info.getId()).getErrorString().toString());
+		info.setStdErr(id2JobMap.get(info.getId()).getErrorString().toString());
 
 	}
 

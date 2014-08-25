@@ -1,0 +1,7 @@
+program calc -> "calc2" {
+	def run with STDOUT {
+		desc -> "Simply runs a mathematic calculation"
+		input in as STRING doc ->  "The operation, e.g. 4+6"
+		* in
+	}
+}

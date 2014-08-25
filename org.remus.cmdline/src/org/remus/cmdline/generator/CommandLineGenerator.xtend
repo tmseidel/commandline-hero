@@ -19,6 +19,7 @@ import org.remus.cmdline.commandLine.Program
 import org.remus.cmdline.commandLine.StringLiteral
 import org.remus.cmdline.commandLine.System
 import org.eclipse.emf.ecore.EObject
+import org.remus.cmdline.commandLine.OutputDataType
 
 /**
  * Generates code from your model files on save.
@@ -56,8 +57,8 @@ spring.view.suffix=.jsp
 multipart.maxFileSize=-1
 mulitpart.maxRequestSize=-1
 #Index 
-location.inputDir=input
-location.outputDir=output
+location.inputDir=input/
+location.outputDir=output/
 '''
 }
 def pom(System sys) {
@@ -202,8 +203,8 @@ public class «javaName(function)»Controller {
 		return "generated/«javaName(function)»";
 	}
 
-	@RequestMapping(value = "/«function.javaName.toString.toLowerCase»_run", method = RequestMethod.POST)
-	public String «function.name.toLowerCase»Run(final MultipartHttpServletRequest request4011,
+	@RequestMapping(value = "/«function.javaName.toString.toLowerCase»_run/json", method = RequestMethod.POST)
+	public @ResponseBody String «function.name.toLowerCase»RunJson(final MultipartHttpServletRequest request4011,
 			final Model model4011) {
 		«FOR m:function.input»
 		final String «m.input.name» = executionService.process«m.type.literal.toLowerCase.toFirstUpper»Input(
@@ -218,6 +219,14 @@ public class «javaName(function)»Controller {
 		final «javaName(function)» «javaName(function).toString.toLowerCase» = «javaName(function)»
 				.create(«argumentsList(function,false)»);
 		final String run4011 = executionService.run(«javaName(function).toString.toLowerCase»);
+		return run4011;
+
+	}
+	
+	@RequestMapping(value = "/«function.javaName.toString.toLowerCase»_run", method = RequestMethod.POST)
+	public String «function.name.toLowerCase»Run(final MultipartHttpServletRequest request4011,
+			final Model model4011) {
+		final String run4011 = «function.name.toLowerCase»RunJson(request4011, model4011);
 		model4011.addAttribute("jobId", run4011);
 		return "redirect:home";
 
@@ -304,7 +313,7 @@ def jsp(Function function) {
 										  <label for="«m.input.name»">«IF m.doc != null»«m.doc.value»«ELSE»«m.input.name»«ENDIF»</label>&nbsp;<input class='fileInput' type="«IF m.type == InputDataType.PATH»file«ELSEIF  m.type == InputDataType.STRING»text«ENDIF»" name="«m.input.name»"  />
 	   								</div>
 								«ENDFOR»
-								«FOR m:function.output.filter[type == InputDataType.PATH]»
+								«FOR m:function.output.filter[type == OutputDataType.PATH]»
 									<div>
 										  <label for="«m.input.name»">«IF m.doc != null»«m.doc.value»«ELSE»«m.input.name»«ENDIF»</label>&nbsp;<input class='fileInput' type="text" name="«m.input.name»"  />
 	   								</div>

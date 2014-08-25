@@ -50,6 +50,7 @@ public class HomeController {
 		final List<JobInfo> finishedJobs = new ArrayList<JobInfo>();
 		final Collection<JobInfo> findAllJobs = executionService.findAllJobs();
 		for (final JobInfo jobInfo : findAllJobs) {
+			executionService.refreshStds(jobInfo);
 			if (jobInfo.getStatus() == JobStatus.FINISHED
 					&& finishedJobs.size() < SHOW_JOBS_COUNT) {
 				executionService.generateOutputs(jobInfo, request);

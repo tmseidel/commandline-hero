@@ -32,7 +32,10 @@ public class JobOverviewController {
 		JobInfo returnValue = null;
 		final JobInfo findJobById = executionService.findJobById(jobId);
 		if (findJobById != null) {
-			executionService.generateOutputs(findJobById, request);
+			if (jobInfo.getStatus() == JobStatus.FINISHED) {
+				executionService.generateOutputs(findJobById, request);
+			}
+			executionService.refreshStds(findJobById);
 			returnValue = findJobById;
 		}
 		return returnValue;
@@ -44,7 +47,10 @@ public class JobOverviewController {
 	JobInfo[] findAllJobs(final HttpServletRequest request) {
 		final Collection<JobInfo> findAllJobs = executionService.findAllJobs();
 		for (final JobInfo jobInfo : findAllJobs) {
-			executionService.generateOutputs(jobInfo, request);
+			if (jobInfo.getStatus() == JobStatus.FINISHED {
+				executionService.generateOutputs(jobInfo, request);
+			}
+			executionService.refreshStds(jobInfo);
 		}
 		return findAllJobs.toArray(new JobInfo[findAllJobs.size()]);
 

@@ -31,7 +31,7 @@ public class JobInfo {
 
 	private PrintMode printMode;
 
-	private String sdtErr;
+	private String stdErr;
 
 	private String stdOut;
 
@@ -109,12 +109,12 @@ public class JobInfo {
 		this.stdOut = stdOut;
 	}
 
-	public String getSdtErr() {
-		return sdtErr;
+	public String getStdErr() {
+		return stdErr;
 	}
 
-	public void setSdtErr(final String sdtErr) {
-		this.sdtErr = sdtErr;
+	public void setStdErr(final String sdtErr) {
+		this.stdErr = sdtErr;
 	}
 
 	public PrintMode getPrintMode() {
