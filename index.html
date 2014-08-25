@@ -1,83 +1,64 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-
   <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Commandline-Hero : Rule your commandline tools on every device " />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Commandline-Hero by tmseidel</title>
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
-    <title>Commandline-Hero</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
   </head>
-
   <body>
+    <div class="wrapper">
+      <header>
+        <h1 class="header">Commandline-Hero</h1>
+        <p class="header">Rule your commandline tools on every device </p>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/tmseidel/commandline-hero">View on GitHub</a>
+        <ul>
+          <li class="download"><a class="buttons" href="https://github.com/tmseidel/commandline-hero/zipball/master">Download ZIP</a></li>
+          <li class="download"><a class="buttons" href="https://github.com/tmseidel/commandline-hero/tarball/master">Download TAR</a></li>
+          <li><a class="buttons github" href="https://github.com/tmseidel/commandline-hero">View On GitHub</a></li>
+        </ul>
 
-          <h1 id="project_title">Commandline-Hero</h1>
-          <h2 id="project_tagline">Rule your commandline tools on every device </h2>
+        <p class="header">This project is maintained by <a class="header name" href="https://github.com/tmseidel">tmseidel</a></p>
 
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/tmseidel/commandline-hero/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/tmseidel/commandline-hero/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
 
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
+      </header>
+      <section>
         <h3>
-<a name="welcome-to-commandline-hero" class="anchor" href="#welcome-to-commandline-hero"><span class="octicon octicon-link"></span></a>Welcome to Commandline-Hero.</h3>
+<a name="welcome-to-commandline-hero" class="anchor" href="#welcome-to-commandline-hero"><span class="octicon octicon-link"></span></a>Welcome to Commandline-Hero</h3>
 
-<p>This project has the goal to make your command line tools avialable over http via a browser-interface or directly over a JSON interface.
-The goals are</p>
-
-<ul>
-<li>Instead of typing long commands in a prompt you can use a browser-based form to execute a command.</li>
-<li>You can execute your desktop commandline programs on mobile devices</li>
-<li>You can use the software as API to </li>
-</ul><p>This project provides different software</p>
+<p>This project makes all your tiny commandline tools on your desktop-pc available over http via a browser-interface or directly over a JSON interface.
+The primary goals are:</p>
 
 <ul>
-<li>A plugin for Eclipse to define commandline calls</li>
-<li>A generator that generates Java code to execute the described commands</li>
-<li>A webapplication that can be accessed from a desktop or a mobile device to schedule commands.</li>
+<li>Make your commandline tools available on mobile devices or any oher device with a web-browser without any programing effort</li>
+<li>Use JSON to make your commandline tools available in other distributed applications.</li>
 </ul><h3>
-<a name="the-scenario" class="anchor" href="#the-scenario"><span class="octicon octicon-link"></span></a>The scenario</h3>
+<a name="getting-started" class="anchor" href="#getting-started"><span class="octicon octicon-link"></span></a>Getting started</h3>
 
-<p>A typical scenario for commandline hero is that you want to downscale a video on your smartphone. On a desktop you would use the commandline tool <code>ffmpeg</code> with the following parameter</p>
-
-<pre><code>ffmpeg -i C:\Users\Tom\Videos\MyVideo.mp4 -filter:v scale=400:240 -sws_flags lanczos mySmallVideo.mp4
-</code></pre>
-
-<h3>
-<a name="the-problem" class="anchor" href="#the-problem"><span class="octicon octicon-link"></span></a>The problem</h3>
+<ol>
+<li>Installed Prerequisites
 
 <ul>
-<li>Many commandline tools (or euqivalents) are not available for mobile operating systems</li>
-<li>I don't want to execute CPU intensive tasks on my local device</li>
-<li>I need a user-friendly interface to navigate to commands and set the parameters</li>
-</ul><h3>
-<a name="the-solution" class="anchor" href="#the-solution"><span class="octicon octicon-link"></span></a>The solution</h3>
-
-<p>TBD</p>
+<li>A vanilla Eclipse</li>
+<li>Maven</li>
+</ul>
+</li>
+<li>Install Commandline-Hero</li>
+</ol>
       </section>
-    </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Commandline-Hero maintained by <a href="https://github.com/tmseidel">tmseidel</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      <footer>
+        <p><small>Hosted on <a href="http://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
       </footer>
     </div>
-
-              <script type="text/javascript">
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+		          <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
           </script>
@@ -87,7 +68,6 @@ The goals are</p>
             pageTracker._trackPageview();
             } catch(err) {}
           </script>
-
 
   </body>
 </html>
