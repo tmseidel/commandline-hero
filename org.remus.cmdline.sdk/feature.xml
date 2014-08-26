@@ -2,7 +2,8 @@
 <feature
       id="org.remus.cmdline.sdk"
       label="CommandLine SDK Feature "
-      version="1.0.0.qualifier">
+      version="1.0.0.qualifier"
+      provider-name="Tom Seidel - Remus Software">
 
    <description url="http://tmseidel.github.io/commandline-hero/">
       This project makes all your tiny commandline tools on your desktop-pc available over http via a browser-interface or directly over a JSON interface. The primary goals are:
