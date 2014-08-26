@@ -15,6 +15,7 @@ import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtext.generator.IOutputConfigurationProvider;
 
 /**
  * @author Tom
@@ -36,15 +37,16 @@ public class FileCopyUtil {
 			InputStream openStream = null;
 			IPath removeFirstSegments = new Path(url.getFile()).removeFirstSegments(1);
 			try {
-				openStream = url.openStream();
-				file.getProject().getFolder("src-gen").getFile(removeFirstSegments).create(openStream, true, new org.eclipse.core.runtime.NullProgressMonitor());
-			} catch (IOException e) {
-				//this is the folder
-				try {
+				if (removeFirstSegments.getFileExtension() != null && removeFirstSegments.getFileExtension().length() > 0) {
+					openStream = url.openStream();
+					file.getProject().getFolder("src-gen").getFile(removeFirstSegments).create(openStream, true, new org.eclipse.core.runtime.NullProgressMonitor());
+				} else {
 					file.getProject().getFolder("src-gen").getFolder(removeFirstSegments).create(true, true, new org.eclipse.core.runtime.NullProgressMonitor());
-				} catch (CoreException e1) {
-					// TODO error-handling
 				}
+
+			} catch (IOException e) {
+				//
+				
 			} catch (CoreException e) {
 				// TODO error-handling
 			} finally {
