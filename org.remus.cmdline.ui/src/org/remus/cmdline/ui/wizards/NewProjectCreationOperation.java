@@ -69,7 +69,7 @@ public class NewProjectCreationOperation extends WorkspaceModifyOperation {
 
 		monitor.subTask("Creating files...");
 		createMainFile();
-		if ((boolean) fProperties.withExampleData.getValue()) {
+		if ((Boolean) fProperties.withExampleData.getValue()) {
 			copyTemplate();
 		}
 		
@@ -83,7 +83,7 @@ public class NewProjectCreationOperation extends WorkspaceModifyOperation {
 	private void createMainFile() {
 		StringWriter swriter = new StringWriter();
 		PrintWriter writer = new PrintWriter(swriter);
-		if ((boolean) fProperties.withExampleData.getValue()) {
+		if ((Boolean) fProperties.withExampleData.getValue()) {
 			writer.println("system "+fProperties.identifier.getValue()+" {\n" + 
 					"	port -> "+fProperties.port.getValue()+"\n" + 
 					"	version -> \""+Version.parseVersion((String) fProperties.version.getValue()).toString()+"\"\n" + 

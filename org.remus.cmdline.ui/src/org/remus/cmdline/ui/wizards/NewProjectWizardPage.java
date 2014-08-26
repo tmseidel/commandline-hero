@@ -82,7 +82,6 @@ public class NewProjectWizardPage extends WizardNewProjectCreationPage {
 		composite.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
 		composite.bindValues(properties);
 		IValueChangeListener valueChangeListener = new IValueChangeListener() {
-			@Override
 			public void handleValueChange(ValueChangeEvent event) {
 				setPageComplete(validatePage());
 			}
