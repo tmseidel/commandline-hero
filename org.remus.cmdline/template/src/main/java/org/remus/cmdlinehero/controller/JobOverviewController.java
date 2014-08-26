@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.remus.cmdlinehero.controller.data.JobInfo;
 import org.remus.cmdlinehero.service.ExecutionService;
+import org.remus.cmdlinehero.service.JobStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,7 +33,7 @@ public class JobOverviewController {
 		JobInfo returnValue = null;
 		final JobInfo findJobById = executionService.findJobById(jobId);
 		if (findJobById != null) {
-			if (jobInfo.getStatus() == JobStatus.FINISHED) {
+			if (findJobById.getStatus() == JobStatus.FINISHED) {
 				executionService.generateOutputs(findJobById, request);
 			}
 			executionService.refreshStds(findJobById);
