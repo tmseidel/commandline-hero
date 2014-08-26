@@ -47,7 +47,7 @@ public class JobOverviewController {
 	JobInfo[] findAllJobs(final HttpServletRequest request) {
 		final Collection<JobInfo> findAllJobs = executionService.findAllJobs();
 		for (final JobInfo jobInfo : findAllJobs) {
-			if (jobInfo.getStatus() == JobStatus.FINISHED {
+			if (jobInfo.getStatus() == JobStatus.FINISHED) {
 				executionService.generateOutputs(jobInfo, request);
 			}
 			executionService.refreshStds(jobInfo);

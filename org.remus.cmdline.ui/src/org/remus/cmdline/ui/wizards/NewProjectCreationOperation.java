@@ -13,6 +13,7 @@ import org.eclipse.core.resources.ICommand;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IProjectDescription;
+import org.eclipse.core.resources.IncrementalProjectBuilder;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -72,7 +73,7 @@ public class NewProjectCreationOperation extends WorkspaceModifyOperation {
 		if ((Boolean) fProperties.withExampleData.getValue()) {
 			copyTemplate();
 		}
-		
+		fProject.build(IncrementalProjectBuilder.CLEAN_BUILD, monitor);
 		monitor.worked(1);
 
 		openFile(fProject.getFile("main.cmdline"));
@@ -208,8 +209,10 @@ public class NewProjectCreationOperation extends WorkspaceModifyOperation {
 			nc[0] = command;
 			desc.setBuildSpec(nc);
 			project.create(desc, monitor);
-		} else
+		} else {
 			project.create(monitor);
+		}
+		
 	}
 
 	public static void addNatureToProject(IProject proj, String natureId,
