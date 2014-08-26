@@ -6,12 +6,13 @@
     <extension
             point="org.eclipse.ui.editors">
         <editor
-            class="org.remus.cmdline.ui.CommandLineExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
-            contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
-            default="true"
-            extensions="cmdline"
-            id="org.remus.cmdline.CommandLine"
-            name="CommandLine Editor">
+              class="org.remus.cmdline.ui.CommandLineExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
+              contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
+              default="true"
+              extensions="cmdline"
+              icon="icons/Win-Command-Prompt-icon.png"
+              id="org.remus.cmdline.CommandLine"
+              name="CommandLine Editor">
         </editor>
     </extension>
     <extension
@@ -82,7 +83,7 @@
         <page
             class="org.remus.cmdline.ui.CommandLineExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
             id="org.remus.cmdline.CommandLine"
-            name="CommandLine">
+            name="Commandline-Hero">
             <keywordReference id="org.remus.cmdline.ui.keyword_CommandLine"/>
         </page>
         <page
@@ -105,7 +106,7 @@
         <page
             class="org.remus.cmdline.ui.CommandLineExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
             id="org.remus.cmdline.CommandLine"
-            name="CommandLine">
+            name="Commandline-Hero">
             <keywordReference id="org.remus.cmdline.ui.keyword_CommandLine"/>
             <enabledWhen>
 	            <adapt type="org.eclipse.core.resources.IProject"/>
@@ -391,6 +392,28 @@
             class="org.remus.cmdline.ui.CommandLineExecutableExtensionFactory:org.eclipse.xtext.ui.editor.model.XtextDocumentProvider"
             extensions="cmdline">
     </provider>
+  </extension>
+  <extension
+        point="org.eclipse.ui.newWizards">
+     <category
+           id="org.remus.cmdline.ui"
+           name="Commandline-Hero">
+     </category>
+     <wizard
+           category="org.remus.cmdline.ui"
+           class="org.remus.cmdline.ui.wizards.CmdNewWizard"
+           icon="icons/Win-Command-Prompt-icon.png"
+           id="org.remus.cmdline.ui.wizards.CmdNewWizard"
+           name="Commandline Definition">
+     </wizard>
+     <wizard
+           category="org.remus.cmdline.ui"
+           class="org.remus.cmdline.ui.wizards.NewProjectWizard"
+           icon="icons/Win-Command-Prompt-icon.png"
+           id="org.remus.cmdline.ui.newprojectwizard"
+           name="Commandline Project"
+           project="true">
+     </wizard>
   </extension>
 
 </plugin>

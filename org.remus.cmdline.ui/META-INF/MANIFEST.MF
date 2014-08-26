@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: org.remus.cmdline.ui
-Bundle-Vendor: My Company
+Bundle-Vendor: Remus Software
 Bundle-Version: 1.0.0.qualifier
 Bundle-SymbolicName: org.remus.cmdline.ui; singleton:=true
 Bundle-ActivationPolicy: lazy
@@ -15,7 +15,12 @@ Require-Bundle: org.remus.cmdline;visibility:=reexport,
  org.antlr.runtime,
  org.eclipse.xtext.common.types.ui,
  org.eclipse.xtext.ui.codetemplates.ui,
- org.eclipse.compare
+ org.eclipse.compare,
+ org.eclipse.core.resources,
+ org.eclipse.core.runtime,
+ org.eclipse.core.databinding,
+ org.eclipse.core.databinding.property,
+ org.eclipse.jface.databinding
 Import-Package: org.apache.log4j,
  org.eclipse.xtext.xbase.lib
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
