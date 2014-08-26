@@ -1,0 +1,50 @@
+/*
+ * Graphicksmagic is a tool for image manipulation
+ */
+program graphicksmagick -> "gm" {
+	
+	def convert {
+		desc -> "Converts an image from one filetype to another"
+		docurl -> "http://cutycapt.sourceforge.net/"
+		input in as PATH doc -> "The input image"
+		output out as PATH doc -> "The output name of the image" 
+		* "convert"
+		* in
+		* out
+	}
+	def resizeAbsolute {
+		desc -> "Converts an image from one filetype to another"
+		docurl -> "http://cutycapt.sourceforge.net/"
+		input in as PATH doc -> "The input image"
+		input width as STRING doc -> "The new width in pixels"
+		output out as PATH doc -> "The output name of the image" 
+		* "convert"
+		* "-scale"
+		* width
+		* in
+		* out
+	}
+	def drawText {
+		desc -> "Draws text to a certain position"
+		input x as STRING doc -> "The x position (positive Integer)"
+		input y as STRING doc -> "The y position (positive Integer)"
+		input text as STRING doc -> "The text"
+		input color as STRING doc -> "The color of the text"
+		input fontsize as STRING doc -> "The size of the text"
+		input file as PATH doc -> "The input file"
+		output out as PATH doc -> "The resulting output"
+		* "convert"
+		* "-font"
+		* "Arial"
+		* "-fill"
+		* color
+		* "-pointsize"
+		* fontsize
+		* "-draw"
+		* "\"text " + x+","+y+" \'"+text+"\'\""
+		* file
+		* out
+	}
+}
+
+
