@@ -415,5 +415,12 @@
            project="true">
      </wizard>
   </extension>
+  <extension
+        point="org.eclipse.ui.intro.configExtension">
+     <configExtension
+           configId="org.eclipse.ui.intro.universalConfig"
+           content="intro/default.xml">
+     </configExtension>
+  </extension>
 
 </plugin>
